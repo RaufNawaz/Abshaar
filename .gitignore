@@ -1,0 +1,42 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# JavaScript / website
+node_modules/
+dist/
+.astro/
+.vite/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Large local model artifacts
+models/
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+
+# Generated caches and private source material
+data/cache/
+data/raw/private/
+data/processed/private/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

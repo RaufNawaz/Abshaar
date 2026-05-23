@@ -1,0 +1,1377 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{array}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\setlist[itemize]{leftmargin=1.5em}
+\setlist[enumerate]{leftmargin=1.7em}
+\renewcommand{\arraystretch}{1.25}
+
+\title{Abshaar: Step-by-Step Implementation Guide}
+\author{Rauf Nawaz}
+\date{May 23, 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Purpose of This Guide}
+
+This guide explains how to build Abshaar from an empty repository into a working
+open-source system for translating and explaining Punjabi, Urdu, Persian-
+influenced, Braj, Bhakti, and Sufi poetry in English. It is intentionally
+granular. The goal is to make the project understandable for future contributors
+who may care deeply about poetry but may not be machine-learning engineers.
+
+The project should be built in this order:
+
+\begin{enumerate}
+  \item Build the corpus and annotation structure.
+  \item Create a small gold-standard dataset by hand.
+  \item Build a local AI-assisted draft pipeline.
+  \item Add retrieval over glossary, context, and prior reviewed examples.
+  \item Build a static public website.
+  \item Add a review loop.
+  \item Fine-tune only after enough reviewed examples exist.
+  \item Add chatbot features only when the archive itself is strong.
+\end{enumerate}
+
+\subsection{Core Principle}
+
+Do not begin by training a model. Begin by building a careful archive. The model
+will only become useful if the project contains strong source text, source
+metadata, translations, glossary entries, review notes, and poet-specific
+context.
+
+\section{What You Are Building}
+
+Abshaar should have three connected layers.
+
+\subsection{Layer 1: Archive}
+
+The archive stores the original poem, transliteration, source information,
+translation, explanation, glossary, poet context, timeline events, and review
+status.
+
+\subsection{Layer 2: Local AI Assistant}
+
+The AI assistant drafts literal translations, literary translations, tashreeh,
+glossary notes, and question-answer responses. It must retrieve relevant context
+before answering. It must never replace human review.
+
+\subsection{Layer 3: Public Website}
+
+The website lets readers explore poets, poems, timelines, themes, glossary terms,
+and beginner-friendly explanations. It should run for free on GitHub Pages in the
+first public version.
+
+\section{High-Level Timeline}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.16\textwidth}
+                  >{\raggedright\arraybackslash}p{0.28\textwidth}
+                  >{\raggedright\arraybackslash}p{0.45\textwidth}}
+\textbf{Phase} & \textbf{Time} & \textbf{Outcome} \\
+\hline
+0 & 1--2 weeks & Choose one poet, source rules, licensing, and annotation standards. \\
+1 & 2--4 weeks & Build a small corpus of 20--50 works with source metadata. \\
+2 & 3--5 weeks & Build local draft pipeline using existing open models. \\
+3 & Ongoing & Store human corrections as structured review data. \\
+4 & 2 weeks & Create evaluation set and scoring rubric. \\
+5 & After 500+ reviews & Try LoRA or QLoRA fine-tuning. \\
+6 & 3--6 weeks & Build static website MVP. \\
+7 & After website MVP & Add contribution workflow and public review process. \\
+8 & Long term & Expand poets, themes, dictionary, audio, and optional chatbot. \\
+\end{longtable}
+
+\section{Phase 0: Project Decisions}
+
+\subsection{Step 0.1: Choose the First Poet}
+
+Choose one poet for the first version. Do not start with all Sufi and Bhakti
+poetry at once.
+
+Recommended first poet options:
+
+\begin{itemize}
+  \item Kabir: rich interpretive tradition, many public-domain materials, strong
+  cross-religious vocabulary.
+  \item Bulleh Shah: central for Punjabi Sufi thought, strong theme of ishq,
+  murshid, social critique, and performative tradition.
+  \item Baba Farid: important for Punjabi, Sikh scripture context, and Sufi
+  vocabulary.
+  \item Shah Hussain: strong for Punjabi kafi form and mystical love.
+  \item Waris Shah: larger literary project, better after the system matures.
+\end{itemize}
+
+Recommended first choice for Abshaar: Bulleh Shah. He fits the project's Punjabi,
+Urdu, Persianate, and Sufi focus especially well. His poetry also forces the
+system to handle the core problem: literal translation is not enough because
+words such as ishq, murshid, nafs, haq, and kafir can shift meaning depending on
+poetic, spiritual, and social context.
+
+Begin with 20--50 short kafis or selected stanzas. Do not begin with a large
+complete collected works edition. The first release should show quality, not
+scale.
+
+\subsection{Step 0.2: Decide the First Release Scope}
+
+Write down the first release scope in a file called \verb|docs/mvp_scope.md|.
+
+Include:
+
+\begin{itemize}
+  \item selected poet;
+  \item number of works;
+  \item allowed source texts;
+  \item scripts to preserve;
+  \item transliteration standard;
+  \item translation style;
+  \item explanation style;
+  \item what is explicitly out of scope.
+\end{itemize}
+
+Example:
+
+\begin{verbatim}
+MVP poet: Bulleh Shah
+Works: 30 short couplets or songs
+Scripts: Shahmukhi/Perso-Arabic where available, Gurmukhi or other source
+scripts if using a licensed source, plus Latin transliteration
+Translation types: literal gloss, literary translation, tashreeh
+Website: static pages only, no public chatbot yet
+Model: local Qwen3 through Ollama for draft explanations
+Review: all publishable outputs require human approval
+\end{verbatim}
+
+\subsection{Step 0.3: Decide Licensing}
+
+Use separate licenses for code and content.
+
+\begin{itemize}
+  \item Code: MIT or Apache-2.0.
+  \item Project documentation: CC BY 4.0.
+  \item Your translations, tashreeh, glossary, and annotations: CC BY-SA 4.0.
+  \item Source texts: keep their own license and source status.
+\end{itemize}
+
+Important: do not assume that modern translations, recordings, transcriptions,
+or website annotations are free to reuse. Classical poetry may be public domain,
+but a modern edition or translation may still be copyrighted.
+
+\subsection{Step 0.4: Define the Translation Philosophy}
+
+Create a short translation style guide. The model and contributors need to know
+what ``good'' means.
+
+Recommended rules:
+
+\begin{enumerate}
+  \item Preserve the image before explaining the abstraction.
+  \item Keep literal translation separate from literary translation.
+  \item Keep tashreeh separate from translation.
+  \item Preserve culturally loaded terms when English would flatten them.
+  \item Use footnotes or glossary entries instead of forcing everything into the
+  English line.
+  \item Mark uncertainty and alternate readings.
+  \item Do not collapse Sufi, Bhakti, Sikh, Islamic, Hindu, folk, and regional
+  concepts into one generic mystical vocabulary.
+\end{enumerate}
+
+\section{Phase 1: Repository and Local Setup}
+
+\subsection{Step 1.1: Confirm Git Is Working}
+
+From PowerShell:
+
+\begin{verbatim}
+cd "D:\Harvard\Poetry Model Project"
+git status --short --branch
+\end{verbatim}
+
+If the folder is not a Git repository, initialize it:
+
+\begin{verbatim}
+git init
+git branch -M main
+\end{verbatim}
+
+If the remote is not set:
+
+\begin{verbatim}
+git remote add origin https://github.com/RaufNawaz/Abshaar.git
+\end{verbatim}
+
+\subsection{Step 1.2: Keep a Clean Folder Structure}
+
+Use this structure:
+
+\begin{verbatim}
+docs/
+  01_project_roadmap.md
+  02_model_strategy.md
+  03_data_and_annotation_guide.md
+  04_website_architecture.md
+  05_local_setup.md
+  06_open_source_governance.md
+  07_step_by_step_implementation_guide.tex
+
+data/
+  raw/
+    public/
+    private/
+  processed/
+  annotations/
+  lexicon/
+  context/
+  cache/
+
+scripts/
+  ingest/
+  translate/
+  review/
+  export/
+
+src/
+  abshaar/
+    __init__.py
+    schemas.py
+    ingest.py
+    translate.py
+    retrieve.py
+    review.py
+    export_site.py
+
+website/
+\end{verbatim}
+
+Do not put model files, private scans, or generated caches into Git.
+
+\subsection{Step 1.3: Install Required Software}
+
+Install these:
+
+\begin{itemize}
+  \item Git;
+  \item Python 3.11 or 3.12;
+  \item Node.js LTS;
+  \item VS Code;
+  \item Ollama;
+  \item optional: WSL2 with Ubuntu for heavier ML work.
+\end{itemize}
+
+\subsection{Step 1.4: Create Python Environment}
+
+\begin{verbatim}
+cd "D:\Harvard\Poetry Model Project"
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+\end{verbatim}
+
+Install minimal dependencies first:
+
+\begin{verbatim}
+pip install pydantic pandas rich
+\end{verbatim}
+
+Add ML dependencies when needed:
+
+\begin{verbatim}
+pip install torch transformers sentence-transformers accelerate
+pip install chromadb fastapi uvicorn
+\end{verbatim}
+
+Add fine-tuning tools later:
+
+\begin{verbatim}
+pip install peft datasets evaluate
+\end{verbatim}
+
+\section{Phase 2: Build the Corpus MVP}
+
+\subsection{Step 2.1: Choose Safe Source Texts}
+
+For each source, record:
+
+\begin{itemize}
+  \item title;
+  \item editor or translator if applicable;
+  \item publication date;
+  \item URL or bibliographic reference;
+  \item copyright status;
+  \item whether it may be used for training;
+  \item whether it may be republished on the website.
+\end{itemize}
+
+Create \verb|data/context/sources.jsonl|. Each line should look like:
+
+\begin{verbatim}
+{
+  "id": "source_0001",
+  "title": "Source title",
+  "author_or_editor": "Name",
+  "year": "1910",
+  "url": "https://example.org",
+  "rights_status": "public-domain",
+  "allowed_uses": ["quote", "train", "republish"],
+  "notes": "Why this is safe to use."
+}
+\end{verbatim}
+
+\subsection{Step 2.2: Create the Poem Schema}
+
+Create \verb|data/processed/poems.jsonl|. Each line is one poem record:
+
+\begin{verbatim}
+{
+  "id": "kabir_0001",
+  "poet_id": "kabir",
+  "title": "First line or working title",
+  "work_type": "couplet",
+  "source_ids": ["source_0001"],
+  "original": {
+    "text": "Original text here",
+    "script": "Devanagari",
+    "language_spans": [
+      {
+        "text": "Original span",
+        "language": "Braj",
+        "confidence": 0.8
+      }
+    ]
+  },
+  "transliteration": {
+    "scheme": "project-latin-v1",
+    "text": "Transliteration here"
+  },
+  "translations": [],
+  "tashreeh": [],
+  "glossary_terms": [],
+  "themes": [],
+  "review_status": "draft"
+}
+\end{verbatim}
+
+\subsection{Step 2.3: Start With 20 Works}
+
+For each work:
+
+\begin{enumerate}
+  \item Add original text.
+  \item Add source ID.
+  \item Add transliteration.
+  \item Add a literal gloss.
+  \item Add your first literary translation.
+  \item Add tashreeh.
+  \item Add glossary terms.
+  \item Add themes.
+  \item Mark review status.
+\end{enumerate}
+
+Do not let the model create the gold dataset alone. The first 20 works should be
+human-led. This gives the system a standard to imitate later.
+
+\subsection{Step 2.4: Build the Lexicon}
+
+Create \verb|data/lexicon/terms.jsonl|. Every term should be poet-specific when
+needed.
+
+\begin{verbatim}
+{
+  "id": "term_ishq_bulleh_shah",
+  "headword": "ishq",
+  "transliteration": "ishq",
+  "languages": ["Persian", "Urdu", "Punjabi"],
+  "basic_meaning": "love",
+  "poet_specific_meaning": "Divine longing that dissolves ego and rank.",
+  "do_not_flatten_to": ["romantic love"],
+  "related_terms": ["fana", "murshid", "haqiqat"],
+  "example_poems": ["bulleh_0001"],
+  "source_ids": ["source_0001"],
+  "review_status": "draft"
+}
+\end{verbatim}
+
+Add a field for terms that should remain untranslated. Example: ``naam'',
+``shabad'', ``murshid'', ``haq'', ``fana'', ``ishq'', ``virah''. Sometimes the
+right English move is to preserve the original word and explain it.
+
+\subsection{Step 2.5: Build Poet Context}
+
+Create:
+
+\begin{itemize}
+  \item \verb|data/context/people.jsonl|;
+  \item \verb|data/context/events.jsonl|;
+  \item \verb|data/context/themes.jsonl|.
+\end{itemize}
+
+For timeline events:
+
+\begin{verbatim}
+{
+  "id": "event_kabir_0001",
+  "poet_id": "kabir",
+  "date_label": "15th century",
+  "date_start": null,
+  "date_end": null,
+  "event_type": "historical_context",
+  "title": "North Indian devotional and Sufi milieu",
+  "description": "Short, sourced note.",
+  "source_ids": ["source_0002"],
+  "confidence": 0.6
+}
+\end{verbatim}
+
+Use confidence because many classical poet biographies are uncertain.
+
+\section{Phase 3: Create the Human Review Workflow}
+
+\subsection{Step 3.1: Define Review Status Values}
+
+Use these statuses:
+
+\begin{itemize}
+  \item \verb|draft|;
+  \item \verb|machine_draft|;
+  \item \verb|human_reviewed|;
+  \item \verb|needs_source_check|;
+  \item \verb|needs_language_check|;
+  \item \verb|publishable|;
+  \item \verb|rejected|.
+\end{itemize}
+
+\subsection{Step 3.2: Create Review Records}
+
+Create \verb|data/annotations/reviews.jsonl|.
+
+\begin{verbatim}
+{
+  "id": "review_0001",
+  "poem_id": "kabir_0001",
+  "reviewer": "Rauf",
+  "date": "2026-05-23",
+  "scores": {
+    "source_fidelity": 4,
+    "metaphor_fidelity": 3,
+    "poet_specific_context": 3,
+    "literary_quality": 4,
+    "beginner_clarity": 5,
+    "humility_about_uncertainty": 4
+  },
+  "problems": [
+    {
+      "type": "missed_context",
+      "note": "The image was translated literally but not explained."
+    }
+  ],
+  "corrected_translation": "Corrected translation here.",
+  "corrected_tashreeh": "Corrected explanation here.",
+  "style_note": "Preserve the metaphor before explaining it."
+}
+\end{verbatim}
+
+\subsection{Step 3.3: Make Review a Habit}
+
+After every AI-generated output, ask:
+
+\begin{enumerate}
+  \item Did it preserve the concrete image?
+  \item Did it understand poet-specific vocabulary?
+  \item Did it invent context?
+  \item Did it flatten religious differences?
+  \item Did it make the English readable?
+  \item Did it explain too much?
+  \item Did it explain too little?
+  \item Is it safe to publish?
+\end{enumerate}
+
+The review data is the project's most valuable machine-learning asset.
+
+\section{Phase 4: Build the First Local AI Pipeline}
+
+\subsection{Step 4.1: Model Roles}
+
+Use different models for different roles.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.22\textwidth}
+                  >{\raggedright\arraybackslash}p{0.30\textwidth}
+                  >{\raggedright\arraybackslash}p{0.38\textwidth}}
+\textbf{Task} & \textbf{Recommended Model} & \textbf{Reason} \\
+\hline
+Baseline translation & IndicTrans2 & Strong Indic-to-English baseline for supported languages. \\
+Fallback translation & NLLB-200 & Broader language coverage, useful as fallback. \\
+Explanation and rewriting & Qwen3 via Ollama & Strong local instruction-following and multilingual ability. \\
+Retrieval embeddings & BGE-M3 & Multilingual embeddings for glossary and context retrieval. \\
+Website search & Pagefind or MiniSearch & Static, free, no backend required. \\
+\end{longtable}
+
+\subsection{Step 4.2: Install and Test Ollama}
+
+Ollama is the simplest local model runner for the first version. It gives you a
+local HTTP API, which means the rest of the project can call the model without
+special cloud credentials.
+
+Install Ollama from:
+
+\begin{verbatim}
+https://ollama.com/
+\end{verbatim}
+
+After installation, confirm it is running:
+
+\begin{verbatim}
+ollama --version
+ollama list
+\end{verbatim}
+
+If the Ollama background service is running, this URL should respond:
+
+\begin{verbatim}
+http://localhost:11434
+\end{verbatim}
+
+\subsection{Step 4.3: Install the Interpretive LLM}
+
+\begin{verbatim}
+ollama pull qwen3:8b
+ollama run qwen3:8b
+\end{verbatim}
+
+If the machine is slow:
+
+\begin{verbatim}
+ollama pull qwen3:4b
+\end{verbatim}
+
+If the machine is stronger:
+
+\begin{verbatim}
+ollama pull qwen3:14b
+\end{verbatim}
+
+Use Qwen3 for:
+
+\begin{itemize}
+  \item tashreeh drafting;
+  \item literary translation rewriting;
+  \item glossary explanation;
+  \item alternate readings;
+  \item question-answering over retrieved context;
+  \item self-checking whether an explanation overclaims.
+\end{itemize}
+
+Do not use Qwen3 alone as the translation engine. Use it after baseline
+translation and retrieval.
+
+\subsection{Step 4.4: Call Ollama From Python}
+
+Install the Python client:
+
+\begin{verbatim}
+pip install ollama
+\end{verbatim}
+
+Minimal test:
+
+\begin{verbatim}
+from ollama import chat
+
+response = chat(
+    model="qwen3:8b",
+    messages=[
+        {"role": "user", "content": "Explain what tashreeh means in one sentence."}
+    ],
+)
+
+print(response["message"]["content"])
+\end{verbatim}
+
+For project use, wrap this in a function:
+
+\begin{verbatim}
+def ask_llm(system_prompt, user_prompt, model="qwen3:8b"):
+    response = chat(
+        model=model,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        options={
+            "temperature": 0.3,
+            "top_p": 0.9,
+        },
+    )
+    return response["message"]["content"]
+\end{verbatim}
+
+\subsection{Step 4.5: Install Baseline Translation Models}
+
+Use two baseline translation routes.
+
+\subsubsection{IndicTrans2}
+
+Use IndicTrans2 for supported Indic-to-English translation. It is the preferred
+baseline for supported Indic languages, including Punjabi and Urdu-related
+coverage where available.
+
+Install dependencies:
+
+\begin{verbatim}
+pip install torch transformers IndicTransToolkit
+\end{verbatim}
+
+Model to start with:
+
+\begin{verbatim}
+ai4bharat/indictrans2-indic-en-1B
+\end{verbatim}
+
+Important:
+
+\begin{itemize}
+  \item some Hugging Face model files may require accepting terms on the model
+  page;
+  \item do not commit model weights to Git;
+  \item use this model for baseline meaning, not final literary translation;
+  \item for poetry, line segmentation matters.
+\end{itemize}
+
+\subsubsection{NLLB-200}
+
+Use NLLB-200 as a fallback when IndicTrans2 does not handle the source well.
+
+Install:
+
+\begin{verbatim}
+pip install sentencepiece sacremoses
+\end{verbatim}
+
+Model:
+
+\begin{verbatim}
+facebook/nllb-200-distilled-600M
+\end{verbatim}
+
+Use NLLB for:
+
+\begin{itemize}
+  \item fallback baseline translation;
+  \item comparison against IndicTrans2;
+  \item broader multilingual snippets;
+  \item debugging whether a word/phrase is being lost.
+\end{itemize}
+
+\subsection{Step 4.6: Install Embedding and Retrieval Models}
+
+Use BGE-M3 for multilingual retrieval.
+
+\begin{verbatim}
+pip install sentence-transformers chromadb
+\end{verbatim}
+
+Minimal embedding test:
+
+\begin{verbatim}
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("BAAI/bge-m3")
+texts = [
+    "Ishq in Bulleh Shah often points to divine love and ego-dissolution.",
+    "Murshid refers to the spiritual guide in Sufi contexts."
+]
+embeddings = model.encode(texts)
+print(embeddings.shape)
+\end{verbatim}
+
+For the first version, store embeddings in Chroma as a generated cache. Keep the
+canonical source data in JSONL.
+
+\subsection{Step 4.7: How the Models Work Together}
+
+The project should use the models in a pipeline, not as isolated chatbots.
+
+\begin{enumerate}
+  \item Load one Bulleh Shah poem record.
+  \item Detect script and segment the poem into lines.
+  \item Run IndicTrans2 for baseline translation if the language/script is
+  supported.
+  \item Run NLLB-200 as a fallback or comparison.
+  \item Retrieve glossary entries using exact match and BGE-M3 semantic search.
+  \item Retrieve poet context, themes, and reviewed examples.
+  \item Send the original, transliteration, baseline translations, and retrieved
+  context to Qwen3.
+  \item Ask Qwen3 for structured output: literal gloss, literary translation,
+  tashreeh, key terms, alternate readings, and uncertainty.
+  \item Save the raw output.
+  \item Review manually.
+  \item Store the corrected version as the new gold example.
+\end{enumerate}
+
+\subsection{Step 4.8: Recommended Python Modules}
+
+Create these files later:
+
+\begin{verbatim}
+src/abshaar/schemas.py
+src/abshaar/io.py
+src/abshaar/translate_baseline.py
+src/abshaar/embed.py
+src/abshaar/retrieve.py
+src/abshaar/generate.py
+src/abshaar/review.py
+src/abshaar/export_site.py
+\end{verbatim}
+
+Responsibilities:
+
+\begin{itemize}
+  \item \verb|schemas.py|: Pydantic models for poems, terms, sources, reviews.
+  \item \verb|io.py|: read and write JSONL.
+  \item \verb|translate_baseline.py|: IndicTrans2 and NLLB wrappers.
+  \item \verb|embed.py|: BGE-M3 embedding generation.
+  \item \verb|retrieve.py|: exact match plus vector retrieval.
+  \item \verb|generate.py|: Qwen3 prompts through Ollama.
+  \item \verb|review.py|: save human corrections.
+  \item \verb|export_site.py|: export clean public data for the website.
+\end{itemize}
+
+\subsection{Step 4.9: Draft Pipeline Steps}
+
+The first pipeline should run like this:
+
+\begin{enumerate}
+  \item Load one poem from \verb|poems.jsonl|.
+  \item Segment the poem into lines or couplets.
+  \item Detect script and probable language spans.
+  \item Create or load transliteration.
+  \item Run baseline translation.
+  \item Retrieve glossary entries and poet context.
+  \item Ask the LLM to produce a structured draft.
+  \item Save the model output.
+  \item Ask a human reviewer to correct it.
+  \item Save the review.
+\end{enumerate}
+
+\subsection{Step 4.10: Required Output Format}
+
+The model should return JSON-like structured data:
+
+\begin{verbatim}
+{
+  "literal_gloss": "...",
+  "direct_translation": "...",
+  "literary_translation": "...",
+  "tashreeh_beginner": "...",
+  "tashreeh_advanced": "...",
+  "key_terms": [
+    {
+      "term": "...",
+      "meaning_in_context": "...",
+      "uncertainty": "low/medium/high"
+    }
+  ],
+  "alternate_readings": ["..."],
+  "uncertainty_notes": ["..."],
+  "retrieved_context_used": ["context_id_1", "term_id_2"]
+}
+\end{verbatim}
+
+If a model cannot return valid JSON reliably, store the raw output and parse it
+later. Do not lose raw outputs; they are useful for debugging.
+
+\subsection{Step 4.11: Prompt Template}
+
+Use a staged prompt, not a vague request.
+
+\begin{verbatim}
+You are assisting with a scholarly but beginner-friendly translation
+of classical South Asian mystical poetry.
+
+Rules:
+1. Preserve the original image before explaining it.
+2. Separate literal gloss, literary translation, and tashreeh.
+3. Do not invent biography or doctrine.
+4. Use retrieved context only when relevant.
+5. Mark uncertainty and alternate readings.
+6. If a term should remain untranslated, say so.
+
+Poet:
+{poet_name}
+
+Original:
+{original_text}
+
+Transliteration:
+{transliteration}
+
+Known glossary:
+{retrieved_glossary}
+
+Poet context:
+{retrieved_context}
+
+Prior reviewed examples:
+{few_shot_examples}
+
+Return:
+- literal_gloss
+- direct_translation
+- literary_translation
+- beginner_tashreeh
+- advanced_tashreeh
+- key_terms
+- alternate_readings
+- uncertainty_notes
+\end{verbatim}
+
+\section{Phase 4A: Initial Dataset Template for Bulleh Shah}
+
+\subsection{Why Bulleh Shah First}
+
+Bulleh Shah is the recommended first poet because he is directly aligned with the
+project's goals:
+
+\begin{itemize}
+  \item Punjabi/Sufi center of gravity;
+  \item Persian and Islamic vocabulary woven into Punjabi poetic expression;
+  \item strong metaphysical concepts that cannot be translated literally;
+  \item social critique, religious critique, love, ego, and spiritual authority;
+  \item strong usefulness for a future public glossary.
+\end{itemize}
+
+\subsection{Initial Dataset Files}
+
+Create template files under:
+
+\begin{verbatim}
+data/templates/
+\end{verbatim}
+
+Then copy them into the real data folders when you begin:
+
+\begin{verbatim}
+data/templates/poems.template.jsonl        -> data/processed/poems.jsonl
+data/templates/terms.template.jsonl        -> data/lexicon/terms.jsonl
+data/templates/sources.template.jsonl      -> data/context/sources.jsonl
+data/templates/people.template.jsonl       -> data/context/people.jsonl
+data/templates/events.template.jsonl       -> data/context/events.jsonl
+data/templates/themes.template.jsonl       -> data/context/themes.jsonl
+data/templates/reviews.template.jsonl      -> data/annotations/reviews.jsonl
+data/templates/model_outputs.template.jsonl -> data/annotations/model_outputs.jsonl
+\end{verbatim}
+
+\subsection{Minimum Fields for Every Bulleh Shah Poem}
+
+Every poem record should include:
+
+\begin{itemize}
+  \item stable ID, such as \verb|bulleh_shah_0001|;
+  \item source IDs;
+  \item title or first line;
+  \item original text;
+  \item script;
+  \item language spans;
+  \item transliteration;
+  \item segmentation;
+  \item literal gloss;
+  \item literary translation;
+  \item tashreeh;
+  \item key terms;
+  \item themes;
+  \item review status;
+  \item rights status.
+\end{itemize}
+
+\subsection{Starter Glossary Terms for Bulleh Shah}
+
+Begin with terms like:
+
+\begin{itemize}
+  \item ishq;
+  \item murshid;
+  \item pir;
+  \item haq;
+  \item nafs;
+  \item fana;
+  \item kafir;
+  \item masjid;
+  \item mandir;
+  \item yaar;
+  \item rang;
+  \item faqir.
+\end{itemize}
+
+Each term should have a basic meaning and a Bulleh Shah-specific meaning. The
+poet-specific meaning is what will make the model useful.
+
+\section{Phase 5: Retrieval-Augmented Generation}
+
+\subsection{Step 5.1: What Should Be Retrieved}
+
+For each poem, retrieve:
+
+\begin{itemize}
+  \item glossary terms that appear in the poem;
+  \item poet-specific notes;
+  \item related reviewed poems;
+  \item theme notes;
+  \item timeline events relevant to the poem;
+  \item source notes.
+\end{itemize}
+
+\subsection{Step 5.2: Create Embedding Documents}
+
+Transform records into small searchable passages.
+
+Example glossary embedding document:
+
+\begin{verbatim}
+ID: term_ishq_bulleh_shah
+TYPE: glossary
+TEXT:
+For Bulleh Shah, ishq often means divine longing and transformative love
+that challenges social hierarchy, ego, and formal identity. It should not
+be reduced to romantic love without context.
+\end{verbatim}
+
+Example timeline embedding document:
+
+\begin{verbatim}
+ID: event_kabir_0001
+TYPE: event
+TEXT:
+Kabir is associated with a North Indian devotional world in which Hindu,
+Islamic, artisan, and oral traditions intersect. Biographical certainty is
+limited, so claims should be presented carefully.
+\end{verbatim}
+
+\subsection{Step 5.3: Retrieval Rules}
+
+For every model answer:
+
+\begin{enumerate}
+  \item retrieve at least three relevant context chunks;
+  \item pass them into the prompt;
+  \item ask the model to cite which chunks it used;
+  \item reject answers that make claims not grounded in the source or marked as
+  interpretation;
+  \item store retrieval IDs with the generated output.
+\end{enumerate}
+
+\section{Phase 6: Evaluation Before Fine-Tuning}
+
+\subsection{Step 6.1: Build an Evaluation Set}
+
+Create 50--100 passages that are held out from normal prompting. These should not
+be repeatedly used as few-shot examples.
+
+Each evaluation item should include:
+
+\begin{itemize}
+  \item original text;
+  \item transliteration;
+  \item human literal gloss;
+  \item human literary translation;
+  \item human tashreeh;
+  \item key terms;
+  \item accepted alternate readings;
+  \item source IDs.
+\end{itemize}
+
+\subsection{Step 6.2: Scoring Rubric}
+
+Score every model output from 1 to 5:
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth}
+                  >{\raggedright\arraybackslash}p{0.64\textwidth}}
+\textbf{Category} & \textbf{Question} \\
+\hline
+Source fidelity & Does it preserve what the original says? \\
+Image fidelity & Does it preserve the metaphor before abstracting it? \\
+Poet-specific context & Does it use this poet's meaning of key terms? \\
+Cultural grounding & Does it explain context without overclaiming? \\
+Literary quality & Does the English feel alive, not mechanical? \\
+Beginner clarity & Can a new reader understand the stakes? \\
+Uncertainty & Does it mark ambiguity and avoid false certainty? \\
+Citation discipline & Does it stay grounded in source and retrieved context? \\
+\end{longtable}
+
+\subsection{Step 6.3: Decide If Fine-Tuning Is Worth It}
+
+Do not fine-tune until:
+
+\begin{itemize}
+  \item you have at least 500 reviewed examples;
+  \item the prompt-and-retrieval system is already working;
+  \item you know exactly what behavior needs improvement;
+  \item you have a held-out evaluation set;
+  \item you can compare pre-fine-tune and post-fine-tune outputs.
+\end{itemize}
+
+\section{Phase 7: Fine-Tuning Plan}
+
+\subsection{Step 7.1: Fine-Tune the Right Thing}
+
+Fine-tuning should teach:
+
+\begin{itemize}
+  \item output format;
+  \item translation style;
+  \item explanation style;
+  \item how to preserve terms;
+  \item how to mark uncertainty;
+  \item how to avoid flattening metaphors.
+\end{itemize}
+
+Fine-tuning should not be the main storage place for knowledge. Knowledge should
+stay in the corpus, glossary, and retrieval system.
+
+\subsection{Step 7.2: Training Data Format}
+
+Use instruction-response records:
+
+\begin{verbatim}
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You translate and explain classical mystical poetry..."
+    },
+    {
+      "role": "user",
+      "content": "Poet: Kabir\nOriginal: ...\nContext: ..."
+    },
+    {
+      "role": "assistant",
+      "content": "{ reviewed JSON output here }"
+    }
+  ]
+}
+\end{verbatim}
+
+\subsection{Step 7.3: LoRA or QLoRA}
+
+Use LoRA or QLoRA rather than full fine-tuning.
+
+Recommended progression:
+
+\begin{enumerate}
+  \item Try prompt-only baseline.
+  \item Try prompt plus retrieval.
+  \item Try few-shot examples.
+  \item Try LoRA on 500--2,000 examples.
+  \item Try preference tuning only after collecting rejected and corrected pairs.
+\end{enumerate}
+
+\subsection{Step 7.4: Training Safety}
+
+Before releasing a fine-tuned model:
+
+\begin{itemize}
+  \item confirm training data rights;
+  \item remove private notes;
+  \item remove copyrighted modern translations unless licensed;
+  \item include a model card;
+  \item disclose base model;
+  \item disclose intended use and limitations;
+  \item explain that outputs require human review.
+\end{itemize}
+
+\section{Phase 8: Website Development}
+
+\subsection{Step 8.1: Start Static}
+
+Use Astro for the first website.
+
+\begin{verbatim}
+npm create astro@latest website
+cd website
+npm install
+npm run dev
+\end{verbatim}
+
+Use a static site because:
+
+\begin{itemize}
+  \item it can be hosted on GitHub Pages for free;
+  \item it is safer and easier to maintain;
+  \item contributors can edit content without managing servers;
+  \item it keeps the archive public even if no AI backend is running.
+\end{itemize}
+
+\subsection{Step 8.2: Website Pages}
+
+Build pages in this order:
+
+\begin{enumerate}
+  \item Home page with search and featured poet.
+  \item Poet profile page.
+  \item Works index.
+  \item Poem page.
+  \item Glossary page.
+  \item Theme page.
+  \item Timeline page.
+  \item Source and credits page.
+  \item Contribute page.
+  \item Ask page with curated FAQ.
+\end{enumerate}
+
+\subsection{Step 8.3: Poem Page Requirements}
+
+Each poem page should show:
+
+\begin{itemize}
+  \item original text;
+  \item transliteration;
+  \item literal gloss;
+  \item literary translation;
+  \item beginner tashreeh;
+  \item advanced notes if available;
+  \item glossary highlights;
+  \item themes;
+  \item related works;
+  \item source and license;
+  \item review status.
+\end{itemize}
+
+\subsection{Step 8.4: Timeline Requirements}
+
+Timeline entries should distinguish:
+
+\begin{itemize}
+  \item life event;
+  \item uncertain biography;
+  \item historical context;
+  \item composition or oral tradition;
+  \item manuscript or publication;
+  \item later reception;
+  \item modern performance or interpretation.
+\end{itemize}
+
+Use confidence labels. Classical poet timelines are often uncertain, and the site
+should not pretend otherwise.
+
+\subsection{Step 8.5: Chatbot Options}
+
+Do not make the chatbot the first public feature. Build search and curated FAQ
+first.
+
+Options:
+
+\begin{enumerate}
+  \item Static FAQ and search: best first release.
+  \item Browser-local AI through WebLLM: free but hardware-dependent.
+  \item Separate FastAPI backend with Ollama: best quality but requires hosting.
+\end{enumerate}
+
+GitHub Pages alone cannot host a normal server-side chatbot.
+
+\section{Phase 9: Public Contribution Workflow}
+
+\subsection{Step 9.1: Contributor Paths}
+
+Allow contributors to help without understanding the whole system.
+
+Contribution types:
+
+\begin{itemize}
+  \item source correction;
+  \item transliteration correction;
+  \item glossary addition;
+  \item alternate translation;
+  \item tashreeh improvement;
+  \item timeline event;
+  \item theme note;
+  \item website bug fix.
+\end{itemize}
+
+\subsection{Step 9.2: Contribution Template}
+
+Every content contribution should answer:
+
+\begin{enumerate}
+  \item What are you changing?
+  \item What source supports it?
+  \item What is the rights status?
+  \item Is there uncertainty?
+  \item Does this affect published pages?
+  \item Does this require language review?
+  \item Does this require interpretation review?
+\end{enumerate}
+
+\subsection{Step 9.3: Review Roles}
+
+Use these roles:
+
+\begin{itemize}
+  \item maintainer;
+  \item language reviewer;
+  \item interpretation reviewer;
+  \item source/license reviewer;
+  \item technical reviewer.
+\end{itemize}
+
+At the beginning, one person may hold several roles. Over time, separate them.
+
+\section{Detailed Weekly Plan}
+
+\subsection{Week 1}
+
+\begin{itemize}
+  \item Finalize MVP poet.
+  \item Create \verb|docs/mvp_scope.md|.
+  \item Create source rules.
+  \item Create translation style guide.
+  \item Confirm licensing.
+  \item Confirm GitHub remote and branch workflow.
+\end{itemize}
+
+\subsection{Week 2}
+
+\begin{itemize}
+  \item Collect 20 safe source texts.
+  \item Create \verb|sources.jsonl|.
+  \item Create first \verb|poems.jsonl| records.
+  \item Add transliterations.
+  \item Add source notes.
+\end{itemize}
+
+\subsection{Week 3}
+
+\begin{itemize}
+  \item Write literal glosses for 10 poems.
+  \item Write literary translations for 10 poems.
+  \item Write beginner tashreeh for 10 poems.
+  \item Add 20 glossary terms.
+  \item Add 10 theme records.
+\end{itemize}
+
+\subsection{Week 4}
+
+\begin{itemize}
+  \item Finish 20-poem gold set.
+  \item Create review rubric.
+  \item Create review JSONL records.
+  \item Install Ollama and Qwen3.
+  \item Test one local prompt manually.
+\end{itemize}
+
+\subsection{Weeks 5--6}
+
+\begin{itemize}
+  \item Build Python schemas with Pydantic.
+  \item Build JSONL loader.
+  \item Build first draft generation script.
+  \item Save raw model outputs.
+  \item Review 10 machine drafts.
+\end{itemize}
+
+\subsection{Weeks 7--8}
+
+\begin{itemize}
+  \item Add BGE-M3 embeddings.
+  \item Build retrieval over glossary and context.
+  \item Add retrieved context to prompts.
+  \item Compare no-retrieval vs retrieval outputs.
+  \item Improve prompt template.
+\end{itemize}
+
+\subsection{Weeks 9--10}
+
+\begin{itemize}
+  \item Create website project.
+  \item Build poem page template.
+  \item Build poet page.
+  \item Build glossary page.
+  \item Export JSON data for website.
+\end{itemize}
+
+\subsection{Weeks 11--12}
+
+\begin{itemize}
+  \item Build timeline page.
+  \item Add search.
+  \item Add source and credits page.
+  \item Add contribution page.
+  \item Deploy to GitHub Pages.
+\end{itemize}
+
+\section{First MVP Definition of Done}
+
+The MVP is done when:
+
+\begin{itemize}
+  \item one poet has at least 20 reviewed works;
+  \item every work has original text, source, transliteration, translation, and
+  tashreeh;
+  \item at least 20 glossary terms exist;
+  \item at least 10 timeline events exist;
+  \item the local AI draft script works for one poem;
+  \item generated drafts are saved and reviewable;
+  \item the static website shows poet, works, poem pages, glossary, and sources;
+  \item no private or copyrighted material is committed accidentally.
+\end{itemize}
+
+\section{Common Mistakes to Avoid}
+
+\begin{itemize}
+  \item Starting with model training before building the corpus.
+  \item Scraping modern translations without permission.
+  \item Treating one English word as the final meaning of a mystical term.
+  \item Mixing literal translation and tashreeh into one output.
+  \item Letting the model invent biographical context.
+  \item Building a chatbot before the archive is useful.
+  \item Committing large model files to Git.
+  \item Publishing uncertain claims without confidence labels.
+  \item Making the website depend on a paid backend from the start.
+\end{itemize}
+
+\section{Recommended Source Links}
+
+\begin{itemize}
+  \item IndicTrans2: \url{https://github.com/AI4Bharat/IndicTrans2}
+  \item IndicTrans2 model card: \url{https://huggingface.co/ai4bharat/indictrans2-indic-en-1B}
+  \item NLLB documentation: \url{https://huggingface.co/docs/transformers/en/model_doc/nllb}
+  \item Qwen3 model card: \url{https://huggingface.co/Qwen/Qwen3-8B}
+  \item Ollama Qwen3: \url{https://ollama.com/library/qwen3}
+  \item BGE-M3 embeddings: \url{https://huggingface.co/BAAI/bge-m3}
+  \item WebLLM: \url{https://github.com/mlc-ai/web-llm}
+  \item PEFT LoRA documentation: \url{https://huggingface.co/docs/peft/en/developer_guides/lora}
+  \item Axolotl: \url{https://docs.axolotl.ai/}
+  \item Ajab Shahar reference: \url{https://ajabshahar.com/map}
+\end{itemize}
+
+\section{Final Strategic Recommendation}
+
+Build Abshaar as a public archive with AI assistance, not as a model-only
+project. The most sustainable version is:
+
+\begin{enumerate}
+  \item public data and documentation;
+  \item transparent human review;
+  \item local open-weight models;
+  \item static website for free access;
+  \item optional local AI for advanced users;
+  \item fine-tuned models only after the corpus is strong.
+\end{enumerate}
+
+This preserves the poetry, keeps the project open, and makes the work accessible
+to readers who do not already know the languages or traditions.
+
+\end{document}
