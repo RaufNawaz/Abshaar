@@ -35,3 +35,13 @@ path is ignored by Git.
 
 Starter templates live in `data/templates/`. The recommended first corpus target
 is Bulleh Shah, so the template IDs use `bulleh_shah_*` naming.
+
+For manual entry, use `data/working/`. Start by copying
+`data/working/bulleh_shah_entry_template.md` and filling in original text,
+transliteration, literal gloss, literary translation, tashreeh, and source notes.
+
+The automation CLI can convert working entries into `data/processed/poems.jsonl`:
+
+```powershell
+.\scripts\abshaar.ps1 build-data
+```

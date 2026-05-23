@@ -34,10 +34,14 @@ If Git shows a branch name, the repository is initialized.
 
 ```powershell
 cd "D:\Harvard\Poetry Model Project"
-py -3.11 -m venv .venv
+py -0p
+py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 ```
+
+`py -0p` shows which Python versions are installed. This project supports Python
+3.11 or newer, so Python 3.12, 3.13, or 3.14 are also fine.
 
 If PowerShell blocks activation, run:
 

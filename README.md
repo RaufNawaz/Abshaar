@@ -53,6 +53,10 @@ Start with a simple pipeline, then improve each piece:
 - [Local Setup Guide](docs/05_local_setup.md)
 - [Open Source and Governance](docs/06_open_source_governance.md)
 - [Step-by-Step LaTeX Implementation Guide](docs/07_step_by_step_implementation_guide.tex)
+- [Text Entry and Transliteration Workflow](docs/08_text_entry_transliteration_workflow.md)
+- [Automation Infrastructure](docs/09_automation_infrastructure.md)
+- [Plain-English Automation Guide](docs/10_plain_english_automation_guide.md)
+- [Codex Handoff Automation](docs/11_codex_handoff_automation.md)
 - [Contributing](CONTRIBUTING.md)
 - [Content License](CONTENT_LICENSE.md)
 - [Data Folder](data/README.md)
@@ -72,3 +76,24 @@ recommended first corpus target is Bulleh Shah, using the starter templates in
 `data/templates/`. The next implementation milestone is a small corpus MVP:
 20-50 works, one reviewed translation workflow, one static website prototype, and
 one local RAG question-answering prototype.
+
+## Automation
+
+Use the local automation CLI through PowerShell:
+
+```powershell
+.\scripts\abshaar.ps1 validate
+.\scripts\abshaar.ps1 status
+.\scripts\abshaar.ps1 new-entry --title "First line here"
+.\scripts\abshaar.ps1 build-data
+.\scripts\abshaar.ps1 export-site
+```
+
+If PowerShell blocks local scripts, use
+`powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate`.
+For a full local check, use
+`powershell -ExecutionPolicy Bypass -File .\scripts\build_all.ps1`.
+
+See [Automation Infrastructure](docs/09_automation_infrastructure.md) for the
+full command reference, or [Plain-English Automation Guide](docs/10_plain_english_automation_guide.md)
+for a non-technical explanation.

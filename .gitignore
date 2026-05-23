@@ -25,6 +25,7 @@ models/
 
 # Generated caches and private source material
 data/cache/
+data/site/
 data/raw/private/
 data/processed/private/
 
@@ -39,4 +40,9 @@ Thumbs.db
 *.log
 *.out
 *.toc
+*.fdb_latexmk
+*.fls
 *.synctex.gz
+
+# Python packaging
+*.egg-info/
