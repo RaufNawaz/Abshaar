@@ -1,0 +1,20 @@
+# Optional AI/embedding stack for Abshaar. Mirrors the "ai" extra in
+# pyproject.toml — keep the two in sync if either changes.
+#
+# The core CLI (init, status, new-entry, build-data, validate, export-site)
+# needs none of this; it only uses the Python standard library. Install this
+# file when you're ready for local drafting (Ollama), embeddings, or
+# retrieval (`ai-check`, `draft`, future RAG work).
+#
+# Install with:
+#   pip install -r requirements.txt
+#
+# Heads-up: transformers/torch/chromadb are large downloads (multiple GB
+# combined). On Apple Silicon Macs, this pip-installed torch build already
+# supports the MPS GPU backend — no extra setup needed.
+
+ollama>=0.3.0
+sentence-transformers>=3.0.0
+chromadb>=0.5.0
+transformers>=4.45.0
+torch>=2.3.0

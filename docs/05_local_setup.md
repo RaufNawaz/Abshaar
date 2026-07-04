@@ -84,22 +84,35 @@ python -m pip install --upgrade pip
 If `python3 --version` shows something older than 3.11, install a newer one with
 `brew install python@3.12` and use `python3.12 -m venv .venv` instead.
 
-## 4. Start With Minimal Python Dependencies
+## 4. Install Python Dependencies
 
-For the first prototype, install only what you need:
+The core CLI (`init`, `status`, `new-entry`, `build-data`, `validate`,
+`export-site`) has no dependencies — it only uses the standard library, so you
+can skip this step entirely until you reach the AI/embedding stage.
 
-```powershell
-pip install transformers sentence-transformers torch pandas pydantic rich
+When you're ready for local drafting, embeddings, or retrieval, install the
+pinned stack from `requirements.txt` (same on Windows and macOS, identical to
+the `ai` extra in `pyproject.toml`):
+
+```bash
+pip install -r requirements.txt
 ```
 
-Later, add:
+This installs `ollama`, `sentence-transformers`, `chromadb`, `transformers`,
+and `torch` — expect a multi-GB download. On Apple Silicon Macs, the installed
+torch build already supports the MPS GPU backend with no extra setup.
 
-```powershell
-pip install chromadb fastapi uvicorn peft accelerate bitsandbytes
+For future planned features not yet wired into the code (fine-tuning, a
+FastAPI backend, tabular data handling), add packages as you build those
+parts, e.g. `pip install peft accelerate bitsandbytes fastapi uvicorn pandas
+pydantic rich`. Keep the first version simple and CPU-compatible where
+possible; on Windows, some GPU training packages are easier through WSL2.
+
+For lint/dev tooling (`ruff`), use:
+
+```bash
+pip install -r requirements-dev.txt
 ```
-
-On Windows, some GPU training packages are easier through WSL2. Keep the first
-version simple and CPU-compatible where possible.
 
 ## 5. Install a Local LLM With Ollama
 

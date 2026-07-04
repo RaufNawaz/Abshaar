@@ -1,0 +1,6 @@
+# Dev/lint tooling. Mirrors the "dev" extra in pyproject.toml.
+#
+# Install with:
+#   pip install -r requirements-dev.txt
+
+ruff>=0.6.0
