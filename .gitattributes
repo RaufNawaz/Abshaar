@@ -1,0 +1,7 @@
+# Force LF endings for POSIX shell scripts so they stay executable on
+# macOS/Linux regardless of core.autocrlf on the checkout machine.
+*.sh text eol=lf
+
+# Windows-only scripts keep CRLF.
+*.ps1 text eol=crlf
+*.cmd text eol=crlf

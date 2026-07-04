@@ -1,7 +1,10 @@
 # Local Setup Guide
 
-This guide is written for Windows PowerShell because the current project folder is
-on Windows.
+This guide covers both **Windows (PowerShell)** and **macOS (zsh/bash)**. The
+Python package and CLI (`abshaar`) are OS-agnostic; only the shell commands and
+wrapper scripts differ. Windows steps assume the project lives at
+`D:\Harvard\Poetry Model Project`; macOS steps assume it's been cloned to
+`~/Harvard/Poetry Model Project` — adjust paths for your actual location.
 
 ## 1. Install Required Software
 
@@ -13,24 +16,41 @@ Install these first:
 - VS Code: https://code.visualstudio.com/
 - Ollama: https://ollama.com/
 
+**macOS:** the easiest way to install most of these is [Homebrew](https://brew.sh):
+
+```bash
+brew install git python@3.12 node ollama
+brew install --cask visual-studio-code
+```
+
 Optional but recommended for heavier ML work:
 
-- WSL2 with Ubuntu;
-- NVIDIA GPU drivers and CUDA if you have an NVIDIA GPU;
-- Hugging Face account for gated model access where required.
+- Windows: WSL2 with Ubuntu, or NVIDIA GPU drivers and CUDA if you have an NVIDIA GPU.
+- macOS: Apple Silicon (M-series) Macs run PyTorch's MPS backend for GPU
+  acceleration out of the box — no separate driver install needed.
+- Hugging Face account for gated model access where required (both platforms).
 
 ## 2. Confirm the Repository
 
-From PowerShell:
+**Windows (PowerShell):**
 
 ```powershell
 cd "D:\Harvard\Poetry Model Project"
 git status --short --branch
 ```
 
+**macOS (zsh/bash):**
+
+```bash
+cd ~/Harvard/"Poetry Model Project"
+git status --short --branch
+```
+
 If Git shows a branch name, the repository is initialized.
 
 ## 3. Create a Python Environment
+
+**Windows (PowerShell):**
 
 ```powershell
 cd "D:\Harvard\Poetry Model Project"
@@ -50,6 +70,19 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
 Then activate again.
+
+**macOS (zsh/bash):**
+
+```bash
+cd ~/Harvard/"Poetry Model Project"
+python3 --version
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+```
+
+If `python3 --version` shows something older than 3.11, install a newer one with
+`brew install python@3.12` and use `python3.12 -m venv .venv` instead.
 
 ## 4. Start With Minimal Python Dependencies
 
@@ -136,9 +169,9 @@ Start by embedding:
 
 ## 8. Website Setup
 
-When ready to create the website:
+When ready to create the website (same commands on Windows and macOS):
 
-```powershell
+```bash
 npm create astro@latest website
 cd website
 npm install
@@ -165,9 +198,10 @@ Once this works for five poems, scale to 20-50 poems.
 ## 10. Suggested Future Commands
 
 These are not implemented yet, but this is the shape the CLI should eventually
-have:
+have (identical on Windows and macOS once `abshaar` is installed or `PYTHONPATH`
+points at `src`):
 
-```powershell
+```bash
 python -m abshaar ingest data/raw/public/kabir.txt
 python -m abshaar translate --poem kabir_0001
 python -m abshaar review --poem kabir_0001

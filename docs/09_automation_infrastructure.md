@@ -18,6 +18,11 @@ The automation currently handles:
 
 ## Quick Start
 
+> Commands on this page are shown in PowerShell (Windows). On macOS/Linux, use
+> `./scripts/abshaar.sh` and `./scripts/build_all.sh` instead of the `.ps1`
+> versions — same arguments, same behavior. See
+> [Local Setup Guide](05_local_setup.md) for the macOS install steps.
+
 From PowerShell:
 
 ```powershell
@@ -32,6 +37,13 @@ If PowerShell blocks local scripts, run:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate
+```
+
+On macOS/Linux:
+
+```bash
+cd ~/Harvard/"Poetry Model Project"
+./scripts/abshaar.sh validate
 ```
 
 Alternatively, install the package in editable mode:

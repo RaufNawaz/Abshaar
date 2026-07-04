@@ -75,6 +75,12 @@ On Windows, add keyboards through:
 Settings -> Time & language -> Language & region -> Add a language
 ```
 
+On macOS, add keyboards through:
+
+```text
+System Settings -> Keyboard -> Input Sources -> Add Input Source
+```
+
 Useful keyboards:
 
 - Punjabi for Gurmukhi;

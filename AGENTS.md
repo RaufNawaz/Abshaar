@@ -351,10 +351,10 @@ Known preferences for this user and project:
 - The user does not want vague summaries.
 - The user does not want invented facts.
 - Unknown or unverified information should be clearly marked.
-- The user is on Windows.
-- Prefer PowerShell-compatible commands.
-- Do not assume Bash is available.
-- When terminal instructions are needed, use PowerShell unless the user explicitly asks for Bash, WSL, Git Bash, Linux, or macOS instructions.
+- The user works across both Windows and macOS. Detect which one is active from
+  context (shell prompt, file paths like `C:\` vs `/Users/...`, or the user
+  saying so) and match terminal commands to it: PowerShell on Windows, zsh/bash
+  on macOS. When the OS is unclear, ask or provide both.
 - Preserve operational details such as filenames, paths, commands, decisions, errors, and next steps.
 
 If new preferences appear, add them to this section.
@@ -487,7 +487,7 @@ Copy and paste this into a new chat or Codex session:
 > - Preserve context.
 > - Do not invent facts.
 > - Mark unknowns as “Unknown” or “Needs verification.”
-> - Prefer PowerShell commands because I am on Windows.
+> - Match terminal commands to my current OS (PowerShell on Windows, zsh/bash on macOS).
 > - Update `OFFLOADING.md` after substantive work.
 ```
 
@@ -685,41 +685,32 @@ If the answer to any of these is no, improve `OFFLOADING.md` before finishing.
 
 ---
 
-# Windows-Specific Instruction
+# Cross-Platform Instruction
 
-The user is on Windows.
+The user works on this project from both a Windows machine and a macOS machine.
 
-Prefer Windows-compatible instructions.
+Match terminal commands to whichever OS the current session is actually running
+on — infer it from the working directory path (`D:\...` = Windows,
+`/Users/...` or `~/...` = macOS), the shell in use, or ask if genuinely unclear.
+Do not default to Windows/PowerShell just because earlier project history was
+Windows-only.
 
-When providing terminal commands, prefer PowerShell.
-
-Do not assume Bash is available.
-
-Use PowerShell syntax unless the user explicitly asks for Bash, WSL, Git Bash, Linux, or macOS instructions.
-
-For example, prefer:
+On Windows, prefer PowerShell, e.g.:
 
 ```powershell
 Get-ChildItem
 ```
 
-instead of:
+On macOS, prefer zsh/bash, e.g.:
 
 ```bash
 ls
 ```
 
-Prefer:
+Likewise, prefer `Set-Content` on Windows and `cat > file` on macOS.
 
-```powershell
-Set-Content
-```
-
-instead of:
-
-```bash
-cat > file
-```
+When a script needs to run identically on both (e.g. `scripts/`), provide both
+a `.ps1` and a matching `.sh` version rather than picking one platform.
 
 ---
 
@@ -727,9 +718,9 @@ cat > file
 
 When creating commands or scripts:
 
-- Prefer PowerShell for Windows.
+- Prefer PowerShell on Windows and zsh/bash on macOS — match the current OS.
 - Make commands copy-paste friendly.
-- Avoid assuming Unix tools are installed.
+- When a script belongs in `scripts/`, add both a `.ps1` and a `.sh` version so it works on either OS.
 - Explain where the command should be run.
 - Mention whether the command should be run from the project root.
 - Avoid destructive commands unless the user explicitly asks for them.
@@ -823,7 +814,7 @@ Unless the user gives different instructions:
 - Be practical.
 - Preserve context.
 - Use markdown.
-- Prefer PowerShell.
+- Match terminal commands to the current OS (PowerShell on Windows, zsh/bash on macOS).
 - Update `OFFLOADING.md` after substantive work.
 - Do not invent facts.
 - Mark unknowns clearly.

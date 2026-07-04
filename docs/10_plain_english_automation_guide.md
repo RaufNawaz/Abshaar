@@ -30,8 +30,8 @@ time on formatting, file management, and repetitive checking.
 
 ## Current Automation Level
 
-The project now has a command-line helper called `abshaar`. You run it through
-PowerShell using:
+The project now has a command-line helper called `abshaar`. On Windows, you run
+it through PowerShell using:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 status
@@ -43,6 +43,17 @@ If the command looks scary, read it like this:
 - `-ExecutionPolicy Bypass`: allow this local project script to run once;
 - `-File .\scripts\abshaar.ps1`: run the Abshaar helper script;
 - `status`: ask it for the project status.
+
+On macOS/Linux, the same helper is a shell script, so it's simpler:
+
+```bash
+./scripts/abshaar.sh status
+```
+
+Every command later in this guide that starts with
+`powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1` has the same
+macOS/Linux equivalent: drop that prefix and run `./scripts/abshaar.sh` with
+the same words that follow it.
 
 ## Current Commands
 

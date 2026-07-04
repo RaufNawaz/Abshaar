@@ -5,7 +5,7 @@
 > what to learn, and how to do the editorial work** — without needing to dig
 > through the other docs first.
 >
-> Last updated: **2026-06-27**
+> Last updated: **2026-07-04**
 > If you only read one file in this repo, read this one.
 
 ---
@@ -27,7 +27,10 @@ You jump to the part you need:
 
 Two house rules carried over from `AGENTS.md`:
 
-1. **You are on Windows. Use PowerShell commands.** This guide assumes that.
+1. **Use whichever shell matches your current machine.** Commands below are
+   shown in PowerShell (Windows); on macOS/Linux use the matching `.sh` script
+   in `scripts/` — see [4.1](#41-one-time-setup-only-if-not-already-done) —
+   the arguments are identical either way.
 2. **After any substantive work, update `OFFLOADING.md`.** That file is the
    "save game" that lets you (or any AI assistant) resume without re-explaining
    everything.
@@ -103,7 +106,9 @@ down (a short note in `docs/` or in source records), and stop re-deciding:
 
 ### 2.3 Your next 5 moves (do these in order)
 
-This is the immediate path. Each move is small and verifiable.
+This is the immediate path. Each move is small and verifiable. Commands are
+shown in PowerShell; on macOS/Linux use `./scripts/abshaar.sh` in place of
+`.\scripts\abshaar.ps1` (see [4.1](#41-one-time-setup-only-if-not-already-done)).
 
 1. **Pick the first source** and record it. Create
    `data/context/sources.jsonl` with one entry (use
@@ -212,6 +217,8 @@ heavier alternatives — fine as a quick demo, but the committed path is static.
 
 ### 4.1 One-time setup (only if not already done)
 
+**Windows (PowerShell):**
+
 ```powershell
 cd "D:\Harvard\Poetry Model Project"
 
@@ -235,9 +242,30 @@ powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 status
 The `scripts\abshaar.ps1` wrapper sets things up for you, so you don't need to
 install the package to use the CLI.
 
+**macOS (zsh/bash):**
+
+```bash
+cd ~/Harvard/"Poetry Model Project"
+
+# Optional: a clean Python environment (Python 3.11+)
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+
+# Local AI (only when you reach the AI step)
+# Install Ollama from https://ollama.com/ then:
+ollama pull qwen3:8b      # use qwen3:4b on a weaker laptop, qwen3:14b on a strong one
+```
+
+If `./scripts/abshaar.sh` isn't executable, run `chmod +x scripts/*.sh` once.
+The `scripts/abshaar.sh` wrapper mirrors `abshaar.ps1` — same arguments, same
+behavior, no need to install the package to use the CLI.
+
 ### 4.2 Every command, what it does, when to use it
 
-Run all of these from the repo root.
+Run all of these from the repo root. Shown in PowerShell; on macOS/Linux
+substitute `./scripts/abshaar.sh` for `.\scripts\abshaar.ps1` — the arguments
+are identical.
 
 | Command | What it does | When |
 |---|---|---|
@@ -260,7 +288,8 @@ Useful flags:
 
 ### 4.3 The two loops you'll actually run
 
-**Daily editorial loop** (no AI needed):
+**Daily editorial loop** (no AI needed). Windows shown; macOS/Linux: swap in
+`./scripts/abshaar.sh`.
 
 ```powershell
 .\scripts\abshaar.ps1 status          # where am I?
@@ -274,6 +303,12 @@ Useful flags:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\build_all.ps1
+```
+
+macOS/Linux:
+
+```bash
+./scripts/build_all.sh
 ```
 
 That runs, in order: `init` → `validate` → `build-data` → `validate` →
@@ -543,7 +578,8 @@ src/abshaar/           the CLI source code
   ollama_client.py     local AI integration
   status.py jsonl.py text.py paths.py   helpers
 
-scripts/               PowerShell wrappers (abshaar.ps1, build_all.ps1)
+scripts/               CLI wrappers: abshaar.ps1/build_all.ps1 (Windows),
+                       abshaar.sh/build_all.sh (macOS/Linux)
 
 data/
   raw/public/          public-domain source text
@@ -581,8 +617,10 @@ inference · checkpoint — all defined in [Part 6.2](#62-plain-english-concepts
 
 ### E. Troubleshooting
 
-- **"running scripts is disabled"** → prefix with
+- **"running scripts is disabled" (Windows)** → prefix with
   `powershell -ExecutionPolicy Bypass -File ...`.
+- **"permission denied" running `./scripts/abshaar.sh` (macOS/Linux)** → run
+  `chmod +x scripts/*.sh` once.
 - **`validate` shows placeholder warnings** → the entry still has `[bracketed]`
   template text; finish it.
 - **`draft` fails** → run `ai-check`; make sure Ollama is installed, running, and

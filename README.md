@@ -79,7 +79,7 @@ one local RAG question-answering prototype.
 
 ## Automation
 
-Use the local automation CLI through PowerShell:
+Use the local automation CLI. On Windows, through PowerShell:
 
 ```powershell
 .\scripts\abshaar.ps1 validate
@@ -93,6 +93,19 @@ If PowerShell blocks local scripts, use
 `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate`.
 For a full local check, use
 `powershell -ExecutionPolicy Bypass -File .\scripts\build_all.ps1`.
+
+On macOS/Linux, use the matching shell script (same arguments):
+
+```bash
+./scripts/abshaar.sh validate
+./scripts/abshaar.sh status
+./scripts/abshaar.sh new-entry --title "First line here"
+./scripts/abshaar.sh build-data
+./scripts/abshaar.sh export-site
+```
+
+If `permission denied`, run `chmod +x scripts/*.sh` once. For a full local
+check, use `./scripts/build_all.sh`.
 
 See [Automation Infrastructure](docs/09_automation_infrastructure.md) for the
 full command reference, or [Plain-English Automation Guide](docs/10_plain_english_automation_guide.md)
