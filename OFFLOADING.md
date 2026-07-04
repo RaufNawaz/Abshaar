@@ -1,184 +1,131 @@
 # OFFLOADING.md
 
-Last updated: 2026-05-23
+Last updated: 2026-06-27
 
 ## 1. Project Overview
 
-This repository is located at `D:\Harvard\Poetry Model Project`. The project appears, from the repository name and user-provided file/status context, to concern a poetry model project with data templates, documentation, implementation guidance, automation/handoff workflows, and likely source/tests infrastructure. The full substantive purpose, model design, data workflow, and runtime behavior still need verification from repository files because direct PowerShell inspection failed during this update with `windows sandbox: spawn setup refresh`. The current immediate objective is to maintain a detailed, restartable `OFFLOADING.md` handoff document as required by `AGENTS.md`, so the user can pause and resume the project in a new chat, Codex session, coding environment, or AI tool without losing operational context.
+Abshaar is an open-source, local-first archive and AI-assisted translation/explanation project for Punjabi, Urdu, Persian-influenced, Braj/Bhakti, and Sufi poetry in English. The project's purpose is to preserve original text, transliteration, literal gloss, literary translation, tashreeh, source context, glossary meaning, timelines, and review notes without flattening poetic, cultural, or metaphysical meaning. The repository currently contains a planning/technical blueprint plus a small Python automation package, data templates, working-entry templates, validation/export/status commands, tests, and documentation. The immediate project stage is pre-corpus MVP: the infrastructure exists, validation passes, and the next real milestone is to build the first small gold corpus rather than train or fine-tune models.
 
 ### Main Objective
 
-- Maintain a detailed, restartable project handoff document for `D:\Harvard\Poetry Model Project` so future AI assistants, Codex sessions, developers, researchers, or the user can continue work without context loss.
+- Build a small, legally safe, human-reviewed corpus MVP for Abshaar, then use it to support local RAG, model-assisted drafting, review workflows, and eventually a static public website.
 
 ### Current Stage
 
-- Handoff-document update stage. The repository has a prior initial `OFFLOADING.md`, user-provided current git status, and multiple modified/untracked files that need direct verification once shell access works.
+- Pre-corpus MVP / infrastructure-ready stage. The repo has automation, templates, docs, and passing tests, but no working poem entries, processed poems, glossary terms, sources, people records, events, themes, reviews, or model outputs yet.
 
 ### Current Working Direction
 
-- Continue by reading `AGENTS.md` and `OFFLOADING.md`, then inspect the repository contents directly, verify the user-provided git status, identify the project architecture and commands, and update this handoff with concrete file-level details after any substantive work.
+- Choose and document a narrow first corpus scope, then create the first Bulleh Shah source record and 1-3 working poem entries using the Markdown workflow before scaling toward the planned 20-50 work gold dataset.
 
 ## 2. What Has Been Done
 
-- Created the required initial `OFFLOADING.md` handoff document in a prior task.
-  - Details: The prior handoff was created from the user-provided `AGENTS.md` instructions and environment context after PowerShell workspace inspection failed with `windows sandbox: spawn setup refresh`.
-  - Why it matters: The repository has the required CRAFT-based handoff location for preserving project continuity after substantive work.
+- Created `START_HERE.md`, a mostly self-contained "command center" guide at the repo root.
+  - Details: Single-stop guide with six parts — (1) project in 60 seconds, (2) current state + next 5 moves + open decisions + milestone ladder, (3) mental model (8 layers, golden rule, pipeline diagram, model stack), (4) full workflow & CLI command playbook, (5) editorial & sourcing track (the humanities gap: sourcing/copyright, transliteration standard, field-by-field entry, review rubric, glossary), (6) learning track pitched for an ML near-beginner (now-vs-later priorities, plain-English concepts, staged free resources). Plus an appendix (file map, ID conventions, publishing gate, glossary, troubleshooting). Built per user request as a "one stop shop," confirmed via clarifying questions (command center; all four content tracks; mostly self-contained; learner level = ML near-scratch).
+  - Why it matters: Gives the user a single entry point that orients them each session, replaces the need to dig through 11 docs + the 63-page PDF, and explicitly sequences which roadmap phases are MVP-critical vs deferred.
+  - Files affected: `START_HERE.md` (new).
+  - Verification: All 9 CLI commands and both PowerShell scripts referenced in the guide were grep-checked against `src/abshaar/cli.py` and `scripts/`; state figures match live `abshaar status` output (all zeros, 0 errors/warnings) on 2026-06-27.
+
+- Created and maintained the required `OFFLOADING.md` handoff document.
+  - Details: The file follows the CRAFT-style continuity requirements from `AGENTS.md` and is updated after substantive work.
+  - Why it matters: The project can be paused and restarted in another Codex/chat/development environment without losing decisions, commands, state, or next steps.
   - Files affected: `OFFLOADING.md`
 
-- Captured standing project-continuity rules from `AGENTS.md`.
-  - Details: The handoff records that every substantive task must create or update `OFFLOADING.md`, use the CRAFT method when updating it, preserve useful prior content, avoid invented facts, mark unknowns clearly, prefer PowerShell-compatible commands on Windows, and document failures as well as successes.
-  - Why it matters: These rules are the controlling workflow for future AI or developer work in this repository.
-  - Files affected: `OFFLOADING.md`
+- Verified the repository identity and purpose from `README.md`.
+  - Details: The project is named Abshaar. It is a local-first archive and AI-assisted translation infrastructure for South Asian mystical poetry, not a one-click literal translator.
+  - Why it matters: Future work should prioritize corpus quality, source safety, human review, and interpretive structure before model training.
+  - Files affected: None.
 
-- Attempted repository inspection during the prior offloading task.
-  - Details: PowerShell commands to list files and read `AGENTS.md`/`OFFLOADING.md` failed before output could be returned.
-  - Why it matters: The earlier handoff intentionally marked project implementation details as `Unknown` or `Needs verification`.
-  - Files affected: None directly from the failed inspection attempts.
+- Reviewed the core strategy documents.
+  - Details: `docs/01_project_roadmap.md` recommends starting with one poet, 20-50 short works, one primary source, one transliteration standard, one translation style guide, and one review rubric. `docs/02_model_strategy.md` recommends AI app first, ML training later, using IndicTrans2/NLLB baselines, Qwen3 through Ollama for interpretation, BGE-M3 for retrieval, and LoRA/QLoRA only after enough reviewed examples. `docs/03_data_and_annotation_guide.md` defines the corpus principles, JSONL schemas, review data, first gold dataset target, and copyright rules.
+  - Why it matters: These docs define the correct order of operations: corpus and review infrastructure first, AI/fine-tuning later.
+  - Files affected: None.
 
-- Updated this handoff from user-provided repository status and existing handoff text.
-  - Details: The user supplied the repository root, current `git status --short` output, recent commits, tracked files, and the existing `OFFLOADING.md` content. This update incorporates those details while clearly marking direct disk verification as blocked.
-  - Why it matters: The handoff now contains more actionable state than the initial version, including known modified/untracked paths and the current verification blocker.
-  - Files affected: `OFFLOADING.md`
+- Inspected the Python CLI automation.
+  - Details: `src/abshaar/cli.py` provides commands: `init`, `status`, `new-entry`, `build-data`, `validate`, `export-site`, `prompt-pack`, `ai-check`, and `draft`. Supporting modules parse Markdown entries, validate JSONL/working entries, generate prompt packs, export website JSON, check Ollama, and summarize project status.
+  - Why it matters: The user can begin corpus work through PowerShell without manually managing JSONL structure.
+  - Files affected: None.
 
-- Attempted direct workspace inspection again during this update.
-  - Details: The following PowerShell commands were attempted from `D:\Harvard\Poetry Model Project`, but each failed with `windows sandbox: spawn setup refresh`:
+- Verified current data state.
+  - Details: `data/working/` contains `README.md` and `bulleh_shah_entry_template.md`. `data/templates/` contains JSONL templates for poems, sources, terms, people, events, themes, reviews, QA pairs, and model outputs. `data/site/` currently contains generated empty JSON arrays. No actual corpus records exist yet.
+  - Why it matters: The next step is content selection and data entry, not infrastructure creation.
+  - Files affected: None.
+
+- Ran current project commands.
+  - Details: From `D:\Harvard\Poetry Model Project`, the following commands were run successfully:
 
     ```powershell
-    Get-ChildItem -Force
-    Get-Content -Raw -LiteralPath AGENTS.md
-    if (Test-Path -LiteralPath OFFLOADING.md) { Get-Content -Raw -LiteralPath OFFLOADING.md } else { '<missing>' }
+    powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 status
+    powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate
+    $env:PYTHONPATH='src'; py -3.14 -m unittest discover -s tests
     git status --short
     ```
 
-  - Why it matters: The current update could not independently verify files on disk. It is based on explicit user-provided repository context and must be rechecked once shell execution works.
+  - Why it matters: The repo is currently in a clean, working baseline state for local automation and tests.
+  - Files affected: None from these commands during this task.
+
+- Verified current command output.
+  - Details: `status` reports 0 working Markdown entries, 0 processed poems, 0 public poems, 0 glossary terms, 0 sources, 0 people records, 0 events, 0 themes, 0 reviews, 0 model outputs, 0 validation errors, and 0 validation warnings. `validate` reports `No validation issues found.` Unit tests ran 2 tests and passed. `git status --short` returned no output, indicating a clean working tree at verification time.
+  - Why it matters: There are no known repository errors or uncommitted changes blocking first corpus work.
+  - Files affected: None.
+
+- Updated this handoff after answering the user's next-step question.
+  - Details: Removed obsolete prior claims that shell inspection was blocked, replaced them with verified project state, current commands, risks, and prioritized next actions.
+  - Why it matters: Future assistants should not be misled by old sandbox-failure notes.
   - Files affected: `OFFLOADING.md`
-
-- Added a Windows sandbox workaround to the `cxh` launcher.
-  - Details: The nested Codex CLI can fail with `windows sandbox: spawn setup refresh` when it tries to use the Windows shell sandbox. The repo-controlled `scripts/cxh-run.ps1` now accepts `--no-sandbox` and `--danger-full-access`, which switch the nested Codex call from `--sandbox workspace-write` to `--sandbox danger-full-access`. The updated launcher was installed with `powershell -ExecutionPolicy Bypass -File .\scripts\install_cxh.ps1`.
-  - Why it matters: The `cxh` command itself can work, but nested Codex shell access may fail under the Windows sandbox. The new flag gives a practical local workaround for trusted projects.
-  - Files affected: `scripts/cxh-run.ps1`, `docs/11_codex_handoff_automation.md`, `OFFLOADING.md`
-
-- Made plain `cxh "task"` use the Windows sandbox workaround by default.
-  - Details: Updated `scripts/cxh-run.ps1` so `$NoSandbox` defaults to `true`. This means `cxh "task"` now calls Codex with `--sandbox danger-full-access` unless the user explicitly passes `--safe-sandbox` or `--workspace-write`. Reinstalled the global launcher with `powershell -ExecutionPolicy Bypass -File .\scripts\install_cxh.ps1`.
-  - Why it matters: The user asked to type only `cxh "task"` without extra flags. The default now avoids the known `windows sandbox: spawn setup refresh` failure.
-  - Files affected: `scripts/cxh-run.ps1`, `docs/11_codex_handoff_automation.md`, `OFFLOADING.md`
 
 ## 3. Current State
 
 | Item | Current Status | Notes |
 |---|---|---|
-| Repository path | User-provided | `D:\Harvard\Poetry Model Project` |
-| Operating system | Known from user/developer context | Windows. Prefer PowerShell commands. |
-| Current date | Known from environment | 2026-05-23. |
-| `AGENTS.md` | User-provided as untracked; direct file read blocked | The user pasted its instructions into the chat. On-disk contents still need verification. |
-| `OFFLOADING.md` | Being updated directly | The user provided the existing content. This update replaces/refreshes it with the latest known status and the repeated shell blocker. |
-| Shell inspection | Blocked | PowerShell execution failed with `windows sandbox: spawn setup refresh` during this update and the prior update. |
-| Git status | User-provided, needs direct verification | See the detailed modified/untracked file list below. |
-| Recent commits | User-provided, needs direct verification | `d7fe895 Roadmap`; `2af0a49 Initialization`. |
-| Project purpose | Partially inferred, needs verification | Repository name and docs suggest a poetry model/data/documentation project, but the specific objective must be verified from `README.md` and docs. |
-| Package manager | User-provided as likely Python, needs verification | `pyproject.toml` is untracked according to user-provided status. Its contents could not be read. |
-| Programming languages/frameworks | Needs verification | Presence of `pyproject.toml`, `src/`, `scripts/`, and `tests/` suggests Python infrastructure may exist, but this is not verified. |
-| Data folders | User-provided/tracked list | Tracked templates and placeholder data folders exist; `data/working/` is untracked. Contents need verification. |
-| Documentation | User-provided/tracked list | Existing docs include roadmap, model strategy, annotation guide, website architecture, setup, governance, and implementation guide. Additional docs `08` through `11` are untracked. |
-| Tests or validation commands | Unknown | No working test or validation command has been verified. |
-| `cxh --no-sandbox` | Added and dry-run verified | Use only for trusted local projects when nested Codex reports `windows sandbox: spawn setup refresh`. |
-| Plain `cxh "task"` | Updated | Now defaults to `--sandbox danger-full-access`; use `--safe-sandbox` to opt into `workspace-write`. |
-
-### User-Provided Git Status
-
-The user provided this repository status for the current update. It needs direct verification once shell access works:
-
-```text
- M .gitignore
- M README.md
- M data/README.md
- M docs/05_local_setup.md
- M docs/07_step_by_step_implementation_guide.pdf
- M docs/07_step_by_step_implementation_guide.tex
-?? .github/
-?? AGENTS.md
-?? OFFLOADING.md
-?? codex_with_handoff.py
-?? data/working/
-?? docs/08_text_entry_transliteration_workflow.md
-?? docs/09_automation_infrastructure.md
-?? docs/10_plain_english_automation_guide.md
-?? docs/11_codex_handoff_automation.md
-?? pyproject.toml
-?? scripts/
-?? src/
-?? tests/
-```
-
-### User-Provided Tracked Files
-
-The user provided the following tracked file list. It needs direct verification once shell access works:
-
-```text
-.gitignore
-CONTENT_LICENSE.md
-CONTRIBUTING.md
-LICENSE
-README.md
-data/README.md
-data/annotations/.gitkeep
-data/context/.gitkeep
-data/lexicon/.gitkeep
-data/processed/.gitkeep
-data/raw/public/.gitkeep
-data/templates/events.template.jsonl
-data/templates/model_outputs.template.jsonl
-data/templates/people.template.jsonl
-data/templates/poems.template.jsonl
-data/templates/qa_pairs.template.jsonl
-data/templates/reviews.template.jsonl
-data/templates/sources.template.jsonl
-data/templates/terms.template.jsonl
-data/templates/themes.template.jsonl
-docs/01_project_roadmap.md
-docs/02_model_strategy.md
-docs/03_data_and_annotation_guide.md
-docs/04_website_architecture.md
-docs/05_local_setup.md
-docs/06_open_source_governance.md
-docs/07_step_by_step_implementation_guide.fdb_latexmk
-docs/07_step_by_step_implementation_guide.fls
-docs/07_step_by_step_implementation_guide.pdf
-docs/07_step_by_step_implementation_guide.tex
-```
+| Entry-point guide | Present | `START_HERE.md` at repo root is the mostly self-contained command center; read it first, before the `docs/` set. |
+| Repository path | Verified | `D:\Harvard\Poetry Model Project` |
+| Operating system | Windows | Prefer PowerShell-compatible commands. |
+| Project name | Verified | Abshaar. |
+| Project purpose | Verified from README/docs | Local-first archive and AI-assisted translation/explanation system for South Asian mystical poetry. |
+| Git working tree | Clean at verification time | `git status --short` returned no output. |
+| Python package | Present | Package name `abshaar`, source under `src/abshaar/`, configured in `pyproject.toml`. |
+| Python version requirement | Present | `pyproject.toml` says `requires-python = ">=3.11"`. Verification used `py -3.14`. |
+| Runtime dependencies | Minimal by default | `pyproject.toml` has no base dependencies. Optional `ai` dependencies include Ollama, sentence-transformers, ChromaDB, transformers, and torch. Optional `dev` dependency includes Ruff. |
+| CLI commands | Present | `init`, `status`, `new-entry`, `build-data`, `validate`, `export-site`, `prompt-pack`, `ai-check`, `draft`. |
+| Current corpus | Empty | Status reports 0 working entries and 0 processed poems. |
+| Working entry template | Present | `data/working/bulleh_shah_entry_template.md` is the first human-friendly poem entry template. |
+| Data templates | Present | JSONL templates are in `data/templates/`. |
+| Website export data | Empty generated files | `data/site/*.json` currently appears to contain empty arrays. |
+| Validation | Passing | `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate` reports no issues. |
+| Tests | Passing | `$env:PYTHONPATH='src'; py -3.14 -m unittest discover -s tests` ran 2 tests successfully. |
+| AI setup | Not checked in this task | `ai-check` was not run; Ollama/model availability is unknown. |
+| First poet target | Suggested by current template | README recommends Bulleh Shah as starter target; template is named for Bulleh Shah. Final source/poet choice should still be consciously confirmed. |
 
 ### Current Known Working Commands
 
-- `cxh --dry-run --skip-task "Test normal sandbox prompt"`
-- `cxh --dry-run --no-sandbox --skip-task "Test no sandbox prompt"`
-- `cxh --dry-run --skip-task "Test simple cxh default"`
-- `cxh --dry-run --safe-sandbox --skip-task "Test safe sandbox opt-in"`
-- `cxh --help`
-- `powershell -ExecutionPolicy Bypass -File .\scripts\install_cxh.ps1`
+- `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 status`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate`
+- `$env:PYTHONPATH='src'; py -3.14 -m unittest discover -s tests`
+- `git status --short`
 
 ### Current Blockers
 
-- PowerShell command execution failed with `windows sandbox: spawn setup refresh`, preventing direct inspection of repository files, git status, and test commands.
-- Plain `cxh "task"` now uses the no-sandbox workaround by default. Only use it in trusted local project folders.
+- None known for starting the first corpus entry workflow.
 
 ### Current Open Questions
 
-- What is the full purpose and current implementation state of the Poetry Model Project?
-- Do the on-disk `AGENTS.md` contents exactly match the instructions provided in the user message?
-- What changed in `.gitignore`, `README.md`, `data/README.md`, `docs/05_local_setup.md`, and `docs/07_step_by_step_implementation_guide.tex/pdf`?
-- What is contained in untracked `.github/`, `codex_with_handoff.py`, `data/working/`, `pyproject.toml`, `scripts/`, `src/`, and `tests/`?
-- What setup, test, lint, build, data-processing, or documentation commands should be used?
+- Which exact source edition or public-domain/permission-cleared source should be used for the first Bulleh Shah entries?
+- What transliteration standard should be accepted as `project-latin-v1` for the first corpus?
+- What translation style guide should govern the first 20-50 works?
+- What review rubric should be used for marking entries as publishable?
+- Is Ollama installed locally, running, and configured with a model such as `qwen3:8b`? Needs verification before using `ai-check` or `draft`.
 
 ## 4. Key Decisions and Rationale
 
 | Decision | Rationale | Alternatives Considered | Effect on Future Work |
 |---|---|---|---|
-| Use the required CRAFT-based `OFFLOADING.md` structure | The user-provided `AGENTS.md` instructions explicitly require this structure after substantive work. | Free-form handoff summary | Future updates should preserve these ten sections and keep them specific. |
-| Update `OFFLOADING.md` directly from user-provided repository context | Direct shell inspection failed again, but the user explicitly asked to update the file and supplied current repository state plus existing handoff content. | Stop without editing until shell access works | The handoff is now more useful, but future assistants must verify the file system before making project-specific claims. |
-| Mark unverified repository details as `Needs verification` | The instructions prohibit inventing facts, and command execution is blocked. | Treating user-provided status as independently verified | Future work should re-run inspection and correct this document if the user-provided status differs from disk. |
-| Prefer PowerShell-compatible workflow notes | The user is on Windows and explicitly prefers PowerShell unless another shell is requested. | Bash/Linux-style instructions | Future commands should be Windows-friendly and copy-pasteable from the project root. |
-| Preserve prior failure history in the handoff | Repeated shell failure affects how the next session should proceed. | Omitting transient tool errors | Future assistants can recognize the blocker and know which verification steps still need to be performed. |
+| Treat Abshaar as an archive and annotation system first, AI system second | The roadmap and model strategy explicitly warn that model quality depends on corpus, metadata, and human feedback quality. | Start with chatbot, bulk scraping, or fine-tuning | Next work should create verified data and review structure before expanding AI features. |
+| Start with a small gold corpus rather than hundreds of poems | The roadmap recommends 20 deeply annotated poems over 2,000 weakly processed ones. | Large unreviewed corpus | The immediate milestone should be 1-3 pilot entries, then 20-50 reviewed works. |
+| Keep humans editing Markdown and computers reading JSONL | The automation guide and CLI support `data/working/*.md` conversion into `data/processed/poems.jsonl`. | Manually author JSONL records | Corpus entry is easier and less error-prone for non-technical editorial work. |
+| Preserve separate outputs for original, transliteration, literal gloss, literary translation, and tashreeh | The project's core value is avoiding flattened translation and hiding interpretation. | Single blended translation field | Future prompts, website pages, reviews, and model outputs should maintain these separations. |
+| Require source/license review before publication or training use | Copyright/source safety is a repeated project principle. | Treat classical poetry sources as automatically safe | Every source record should include rights status and allowed uses before publication/model training. |
+| Use local open-weight models only after corpus scaffolding is usable | Model strategy recommends Qwen3/Ollama and retrieval after data exists. | Fine-tune immediately or depend on hosted APIs | AI tasks should begin with `ai-check`, prompt packs, and single-poem drafts only after entries exist. |
 
 ## 5. User Preferences and Instructions
 
@@ -214,46 +161,49 @@ docs/07_step_by_step_implementation_guide.tex
 - Do not assume Unix tools or Bash are available.
 - Do not overwrite important files without inspecting them when inspection is available.
 - Do not omit errors, blockers, unresolved issues, commands, paths, or decisions that would help future work.
-- Do not claim verification was completed when shell execution or file inspection was blocked.
+- Do not claim verification was completed when it was not.
+- Do not scrape modern copyrighted translations, annotations, audio, metadata, or scans into training/public data without permission or compatible license.
 
 ## 6. Important Context a New Chat Must Know
 
-- The user explicitly requires an `OFFLOADING.md` document for continuity in `D:\Harvard\Poetry Model Project`.
-- The required offloading method is CRAFT: Context, Role, Action, Format, Tone.
-- The offloading document must be detailed, practical, and restartable.
-- The latest user task was: "Update the offload document."
-- Direct shell inspection failed during this update with `windows sandbox: spawn setup refresh`, so repository contents could not be independently verified.
-- The user supplied repository status showing several modified tracked files and many untracked files/folders, including `AGENTS.md`, `OFFLOADING.md`, `codex_with_handoff.py`, `pyproject.toml`, `scripts/`, `src/`, and `tests/`.
-- The repository already tracks documentation and data template files, including docs for roadmap, model strategy, data/annotation, website architecture, local setup, governance, and a step-by-step implementation guide.
-- The repository also has untracked documentation related to text entry/transliteration, automation infrastructure, plain-English automation guidance, and Codex handoff automation.
-- Future assistants should inspect the workspace before making implementation claims, then revise this document with concrete file contents, setup commands, test commands, dependencies, datasets, scripts, and current blockers.
-- The user prefers Windows and PowerShell-compatible instructions.
+- Abshaar is not meant to be a generic translation app. It is intended as a careful, source-grounded, human-reviewed interpretive archive for South Asian mystical poetry.
+- The project should start with one narrow corpus target. The current template and README point toward Bulleh Shah, but the exact source edition still needs selection and rights verification.
+- The immediate data goal from the docs is a first gold dataset: 20 short works, 20 glossary terms, 10 timeline events, 10 themes, 10 source notes, and 50 grounded QA pairs.
+- The current actual corpus count is zero. The infrastructure is ready, but the archive still needs real entries.
+- Humans should edit Markdown files in `data/working/`; automation converts them to JSONL for models and website export.
+- `validate` checks structure, placeholders, duplicate IDs, broken JSONL, and unsafe publication settings. It does not judge poetic accuracy.
+- Source trust, copyright safety, transliteration accuracy, translation quality, tashreeh quality, and publication approval must remain human-reviewed.
+- The AI path should be staged: create entries, build JSONL, validate, generate prompt packs, optionally draft through local Ollama, store outputs as review-needed records, then add human corrections.
+- `OFFLOADING.md` must be updated after substantive work, including analysis and documentation updates.
+- Use PowerShell commands from `D:\Harvard\Poetry Model Project` unless the user explicitly requests another shell.
 
 ## 7. Next Steps
 
 ### Urgent
 
-- [ ] Re-run workspace inspection from `D:\Harvard\Poetry Model Project` once shell access works.
-- [ ] Use plain `cxh "task"` for the simple path. Use `cxh --safe-sandbox "task"` only if the Windows sandbox starts working again and you want the original workspace-write mode.
-- [ ] Verify that `AGENTS.md` exists on disk and matches the instructions provided in the user message.
-- [ ] Verify the current `git status --short` output and reconcile it against the user-provided status above.
-- [ ] Read `README.md`, `docs/01_project_roadmap.md`, `docs/02_model_strategy.md`, and `docs/03_data_and_annotation_guide.md` to confirm the project purpose and current technical direction.
-- [ ] Inspect untracked `pyproject.toml`, `src/`, `scripts/`, and `tests/` to identify setup, runtime, and test commands.
-- [ ] Update this `OFFLOADING.md` with verified project-specific context after inspection.
+- [ ] Decide the exact first corpus scope: confirm Bulleh Shah or choose another first poet, select 1 public-domain or permission-cleared source, and define the first 3-5 pilot works.
+- [ ] Create an initial source record for the chosen edition/source in the appropriate JSONL file, likely `data/context/sources.jsonl`, using `data/templates/sources.template.jsonl` as reference.
+- [ ] Create the first working poem entry with `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 new-entry --title "First line here"`.
+- [ ] Fill the first entry in `data/working/` with original text, script notes, transliteration, literal gloss, literary translation, tashreeh, key terms, themes, source notes, and review notes.
+- [ ] Run `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate` after the first entry and resolve all errors; treat placeholder warnings as a sign the entry is not ready.
 
 ### Soon
 
-- [ ] Review modified tracked files and summarize what changed in `.gitignore`, `README.md`, `data/README.md`, `docs/05_local_setup.md`, and `docs/07_step_by_step_implementation_guide.tex/pdf`.
-- [ ] Inspect untracked `codex_with_handoff.py` and docs `08` through `11` to understand the handoff/automation workflow.
-- [ ] Identify whether the project uses Python packaging, pytest, linting, type checking, LaTeX build tooling, or documentation generation.
-- [ ] Record any existing errors, blockers, or incomplete work discovered in the repository.
+- [ ] Run `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 build-data` once at least one entry is filled.
+- [ ] Run `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 export-site` to confirm website-ready JSON exports remain clean.
+- [ ] Draft a short translation style guide for `project-latin-v1`, literal gloss style, literary translation style, and tashreeh tone.
+- [ ] Add the first 10-20 glossary terms for Bulleh Shah concepts such as `ishq`, `murshid`, `haq`, `nafs`, `fana`, and `yaar`, with poet-specific meanings and source links.
+- [ ] Add basic people/theme/event/source records needed to contextualize the first poems.
+- [ ] Run `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 ai-check` before attempting local model drafting.
 
 ### Optional Improvements
 
-- [ ] Add a concise repository file map after direct inspection succeeds.
-- [ ] Add a command reference table for common project workflows.
-- [ ] Add a short chronology of major project decisions after reviewing prior materials and commit history.
-- [ ] Add a verification matrix for data templates, scripts, tests, documentation, and generated PDFs.
+- [ ] Add an `abshaar add-source` command to reduce friction when recording source metadata.
+- [ ] Add automatic script detection for working entries.
+- [ ] Add `abshaar suggest-terms --poem-id ...` to help connect repeated terms to glossary records.
+- [ ] Add an `abshaar refresh` command that runs build-data, validate, prompt-pack, and export-site in one pass.
+- [ ] Build a small local review interface for model outputs and human corrections.
+- [ ] Add a static website prototype after the first publishable poems exist.
 
 ## 8. Restart Prompt
 
@@ -263,15 +213,15 @@ Copy and paste this into a new chat or Codex session:
 >
 > First, read `AGENTS.md` and `OFFLOADING.md`.
 >
-> The purpose of this project is: continue work in `D:\Harvard\Poetry Model Project` without context loss. The project appears to involve a poetry model, data templates, documentation, setup/governance guidance, and automation/handoff workflows, but the full project-specific purpose needs verification from repository files.
+> The purpose of this project is: Abshaar is an open-source, local-first archive and AI-assisted translation/explanation system for Punjabi, Urdu, Persian-influenced, Braj/Bhakti, and Sufi poetry in English. It should preserve original text, transliteration, literal gloss, literary translation, tashreeh, source context, glossary meaning, timelines, and human review without flattening cultural or metaphysical meaning.
 >
-> Current state: `OFFLOADING.md` has been updated from user-provided repository status because direct PowerShell inspection failed with `windows sandbox: spawn setup refresh`. User-provided status shows modified tracked files `.gitignore`, `README.md`, `data/README.md`, `docs/05_local_setup.md`, `docs/07_step_by_step_implementation_guide.pdf`, and `docs/07_step_by_step_implementation_guide.tex`; it also shows untracked `.github/`, `AGENTS.md`, `OFFLOADING.md`, `codex_with_handoff.py`, `data/working/`, docs `08` through `11`, `pyproject.toml`, `scripts/`, `src/`, and `tests/`.
+> Current state: The repository has planning docs, data templates, a Python package under `src/abshaar/`, PowerShell scripts, working-entry templates, validation/export/status commands, and passing tests. The current corpus is empty: status reports 0 working entries, 0 processed poems, 0 glossary terms, 0 sources, 0 events, 0 themes, 0 reviews, and 0 model outputs. `validate` reports no issues. Unit tests pass.
 >
-> Important files: `AGENTS.md`, `OFFLOADING.md`, `README.md`, `data/README.md`, `docs/01_project_roadmap.md`, `docs/02_model_strategy.md`, `docs/03_data_and_annotation_guide.md`, `docs/04_website_architecture.md`, `docs/05_local_setup.md`, `docs/06_open_source_governance.md`, `docs/07_step_by_step_implementation_guide.tex`, `docs/07_step_by_step_implementation_guide.pdf`, `pyproject.toml`, `codex_with_handoff.py`, `scripts/`, `src/`, `tests/`, and `data/templates/*.template.jsonl`.
+> Important files: `START_HERE.md` (read first — the command-center guide), `AGENTS.md`, `OFFLOADING.md`, `README.md`, `pyproject.toml`, `src/abshaar/cli.py`, `src/abshaar/markdown_entry.py`, `src/abshaar/validation.py`, `src/abshaar/status.py`, `scripts/abshaar.ps1`, `scripts/build_all.ps1`, `data/working/bulleh_shah_entry_template.md`, `data/templates/*.template.jsonl`, `docs/01_project_roadmap.md`, `docs/02_model_strategy.md`, `docs/03_data_and_annotation_guide.md`, and `docs/10_plain_english_automation_guide.md`.
 >
-> What has already been done: The offloading document structure was created using the required CRAFT sections; user preferences and project continuity rules were recorded; current user-provided repository status was added; direct inspection attempts and the `windows sandbox: spawn setup refresh` failure were documented.
+> What has already been done: The project infrastructure and documentation are in place. The CLI supports `init`, `status`, `new-entry`, `build-data`, `validate`, `export-site`, `prompt-pack`, `ai-check`, and `draft`. Current verification commands succeeded: `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 status`, `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate`, `$env:PYTHONPATH='src'; py -3.14 -m unittest discover -s tests`, and `git status --short`.
 >
-> Next steps: inspect the repository from `D:\Harvard\Poetry Model Project`, verify `AGENTS.md`, verify git status, read the README and core docs, inspect untracked Python/source/test/automation files, identify working commands, then update `OFFLOADING.md` with concrete verified details.
+> Next steps: Choose the exact first corpus scope, verify a public-domain or permission-cleared Bulleh Shah source, create the first source record, create and fill 1-3 working poem entries in `data/working/`, validate them, build JSONL data, and only then test prompt packs/local AI drafting.
 >
 > Follow these preferences:
 > - Use precise, practical markdown.
@@ -285,15 +235,15 @@ Copy and paste this into a new chat or Codex session:
 
 | Risk, Gap, or Unknown | Why It Matters | How to Verify or Resolve |
 |---|---|---|
-| Repository contents could not be independently inspected | The current handoff relies on user-provided status rather than direct file reads. | Run `Get-ChildItem -Force` from `D:\Harvard\Poetry Model Project` once shell access works. |
-| `AGENTS.md` file on disk was not verified | The user provided instructions, but the file itself may differ or may not exist on disk. | Read `AGENTS.md` directly and reconcile differences. |
-| Current `OFFLOADING.md` state before editing was not independently verified | The user pasted the existing content, but direct read failed. | Inspect the file directly once shell access works and confirm this update is present. |
-| Modified tracked files have unknown changes | Future work could accidentally overwrite or misunderstand user changes. | Run `git diff -- .gitignore README.md data/README.md docs/05_local_setup.md docs/07_step_by_step_implementation_guide.tex` and inspect the PDF generation context. |
-| Untracked source, scripts, tests, and package config are unverified | These likely define current implementation behavior and commands. | Inspect `pyproject.toml`, `src/`, `scripts/`, and `tests/`; then document commands and behavior here. |
-| Project purpose and implementation details are only partially inferred | Future assistants need concrete project context to continue actual work. | Read `README.md`, core docs, data templates, and relevant scripts. |
-| No test or validation command is known | Future changes cannot be safely verified without project commands. | Identify and document setup/test/run commands after inspecting dependency files. |
-| Shell tooling failure may recur | It prevents direct verification and normal development workflow. | Retry shell commands in a fresh session or fix the local sandbox issue before doing implementation-heavy work. |
+| First source edition is not selected | Corpus quality and legal safety depend on the source. | Choose a public-domain or permission-cleared source and record it in `data/context/sources.jsonl`. |
+| Copyright/license status of first texts is unknown | The project must avoid unsafe public/training data. | Document source name, URL/citation, license, rights status, and allowed uses before marking entries publishable. |
+| Transliteration standard is not finalized | Consistency matters for search, glossary links, and model prompts. | Write a short `project-latin-v1` standard or style note before entering many poems. |
+| Review rubric is not yet instantiated in project data | Human feedback is the core asset for future model improvement. | Create initial review records or a compact rubric doc before scaling beyond pilot entries. |
+| AI environment is unknown | Local drafting depends on Ollama and optional packages/models. | Run `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 ai-check`. |
+| Website is not built yet | Public output will eventually need pages and search. | Wait until there are publishable poems, then prototype static pages using exported `data/site/*.json`. |
+| Test coverage is minimal | Only 2 unit tests currently ran, so behavior outside parser/status basics may be untested. | Add focused tests when changing CLI behavior, validation, export, prompt packs, or draft storage. |
+| Empty corpus can make validation look deceptively complete | `validate` passes because there is no data to check. | Re-run validation after adding real working entries and JSONL records. |
 
 ## 10. Compact Version
 
-This repository is `D:\Harvard\Poetry Model Project`. The user requires a detailed `OFFLOADING.md` handoff after every substantive task, using CRAFT and preserving enough context for a new assistant or coding session to continue without the old chat. The project appears to involve a poetry model with documentation, data templates, possible Python source/tests, and automation/handoff workflows, but the exact implementation purpose needs verification from files. This update incorporated user-provided repository status: modified tracked files include `.gitignore`, `README.md`, `data/README.md`, `docs/05_local_setup.md`, and `docs/07_step_by_step_implementation_guide.tex/pdf`; untracked files/folders include `.github/`, `AGENTS.md`, `OFFLOADING.md`, `codex_with_handoff.py`, `data/working/`, docs `08` through `11`, `pyproject.toml`, `scripts/`, `src/`, and `tests/`. Direct PowerShell inspection failed again with `windows sandbox: spawn setup refresh`, so all disk-specific claims must be verified later. Future work should first inspect the repository, verify `AGENTS.md`, verify git status, read the README/core docs, identify setup/test/run commands, and then update `OFFLOADING.md` again. The user is on Windows, prefers PowerShell-compatible commands, precise markdown, no invented facts, and explicit `Unknown` or `Needs verification` labels for unverified information.
+Abshaar lives at `D:\Harvard\Poetry Model Project`. It is a local-first, open-source archive and AI-assisted translation/explanation project for South Asian mystical poetry. The repo has docs, Python automation under `src/abshaar/`, PowerShell scripts, JSONL templates, a Bulleh Shah working-entry template, and passing validation/tests. Current data state is empty: 0 working entries, 0 processed poems, 0 sources, 0 glossary terms, 0 people/events/themes, 0 reviews, and 0 model outputs. Known working commands include `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 status`, `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate`, and `$env:PYTHONPATH='src'; py -3.14 -m unittest discover -s tests`. The next real work is editorial/corpus work: confirm the first poet/source, likely Bulleh Shah; verify public-domain or permission-cleared source status; create a source record; create and fill 1-3 Markdown entries in `data/working/`; validate; build JSONL; then consider prompt packs and local Ollama drafting. The user wants precise markdown, PowerShell commands, no invented facts, unknowns marked clearly, and `OFFLOADING.md` updated after every substantive task.
