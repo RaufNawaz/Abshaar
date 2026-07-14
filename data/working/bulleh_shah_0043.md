@@ -120,19 +120,52 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+What use is friendship with the pitiless! —
+my eyes weep on, wailing and wailing.
+The heartless one has gone and left me,
+having driven the spear of separation into my breast,
+having drawn the very life out of my body —
+such was the deed he did, and called it friendship.
+What use is friendship with the pitiless!
+What trust can be placed in the pitiless?
+There is not an ounce of fear within his heart.
+To the boorish, the death of sparrows is sport;
+the wretch laughs and claps his hands in glee.
+What use is friendship with the pitiless!
+He promised to come, then came no more;
+he forgot every vow of coming he had made.
+I was the one cheated — I dealt in no deceit —
+what a swindling trader I chanced to meet!
+What use is friendship with the pitiless! —
+my eyes weep on, wailing and wailing.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+This kafi belongs to the register of complaint against the bedard — the "pitiless / heartless" Beloved — a mode in which the Sufi lyric dwells not on union or the sweetness of love but on the Beloved's cruelty, indifference, and broken promises. The refrain, kih bedardāṅ de sang yārī, "what use is friendship (yārī) with the pitiless!", is a cry of rhetorical despair: to love the heartless is to sign up for suffering, and the eyes' ceaseless weeping (zār o zārī) is the only return the bond yields. The first stanza renders the wound in violent physical images — the Beloved "drove the spear (sāng) of separation into my breast" and "drew the very life (jind) out of my body," separation figured as a mortal stabbing and an extraction of the soul — and then the bitter irony: "such was the deed he did, and called it friendship." What the Beloved offers under the name of love is, in its effect, a killing.
+
+The second stanza indicts the Beloved's very character: "what trust in the pitiless? — not an ounce of fear (khauf) in his heart." He is not merely absent but constitutionally without compassion, and the poem reaches for a startling emblem of that heartlessness: "to the boorish (gaṅvār), the death of sparrows is sport; the wretch laughs and claps in glee." Casual cruelty amused by small deaths, clapping at the killing of birds, measures the gulf between the lover's mortal agony and the Beloved's blithe indifference — the lover's dying is, to the pitiless one, an entertainment. This is the theological edge beneath the erotic complaint: the God who lets His lovers suffer and seems to take no notice, whose apparent cruelty is the hardest trial of faith.
+
+The third stanza turns to broken promises and the language of the marketplace: "he promised to come, then came no more; he forgot every vow of coming." The Beloved is a covenant-breaker, and the lover, recasting the relationship as a trade gone wrong, delivers the sharpest line: "I was the one cheated — I dealt in no deceit — what a swindling trader (thag beopārī) I chanced to meet!" The lover entered the transaction of love in good faith and was defrauded by a dishonest merchant. Read mystically, this is the anguish of the soul that gave itself wholly and feels betrayed by a God who promised presence and delivered only absence; the poem does not resolve the complaint but holds it open — an unusually raw registering of love's grievance against a Beloved who wounds and does not come. (Several readings — the contracted "hainī," "nimagroṅ," and the "cheated/deceit" line — are flagged medium-to-high uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- bedard: the pitiless / heartless one — the Beloved characterized by cruelty and indifference; do_not_flatten_to a merely unkind person.
+- yārī: friendship / the bond of love — here the bond with the pitiless that yields only suffering; do_not_flatten_to casual friendship.
+- sāng (hijar dī): the "spear of separation" driven into the breast — firāq as a mortal wound; do_not_flatten_to a figure of mild sadness.
+- gaṅvār: the boor to whom "the death of sparrows is sport" — the emblem of casual, unfeeling cruelty; do_not_flatten_to mere rusticity.
+- thag beopārī: the "swindling trader" — the covenant-breaking Beloved who defrauds the good-faith lover; do_not_flatten_to an ordinary cheat.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- the_pitiless_beloved
+- separation_as_wound
+- broken_promises
+- divine_indifference
+- complaint_of_the_lover
 
 # Source Notes
 

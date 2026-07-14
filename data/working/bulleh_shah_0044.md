@@ -173,19 +173,62 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Take away the gong, O bell-ringer,
+for today my beloved has come home.
+Moment by moment he strikes the gong,
+whittling down the night of union, my love.
+If he could grasp what is in my heart,
+he would fling the gong from his hands.
+Take away the gong, O bell-ringer.
+The unstruck music sounds so sweetly —
+minstrel, strike up the melody and song!
+Fasting is forgotten, and the ritual prayers;
+the vintner pours the cup of the Faith.
+Take away the gong, O bell-ringer.
+All my sorrow and want have lifted away;
+to gaze on his face is a wondrous sight.
+The night has grown long — make it stretch further,
+raise a wall against the coming of day.
+Take away the gong, O bell-ringer.
+I wove endless charms to break the spell of parting;
+the great elders came, but deaf to my plea.
+So at last my darling has come to my house —
+may the night with him last a hundred thousand years.
+Take away the gong, O bell-ringer.
+Bulleh, the true love of the Lord is dear;
+I am ferried across by the Ferryman.
+Coin by coin, my turn has come at last;
+now parting has become impossible.
+Take away the gong, O bell-ringer,
+for today my beloved has come home.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+A rare poem of union rather than longing — the joyful counterpart to the collection's many laments of separation. The dramatic situation is the "night of union" (rain vasal): the Beloved has come home at last, and the whole poem is the lover's wish to arrest time so the night of togetherness will not end. Its central figure is the ghaṛiyāl, the brass gong the night-watchman strikes to mark the passing ghaṛīs (hours), and the ghaṛiyālī who beats it. The refrain begs "take away the gong" because each stroke measures — and so consumes — the precious night of union; the lover would abolish the very instrument of time. "If he knew what is in my heart, he would fling the gong from his hands" — even the watchman, if he understood love, would stop counting.
+
+The middle stanzas render the ecstasy of presence. The anhad bājā, the "unstruck music" (the anāhad nād of the yogic-Sufi tradition, the soundless celestial sound heard in absorption), now plays sweetly, and the lover calls the minstrel (muṭrib) to strike up song — union is festival and music. In this state the external observances fall away: "fasting is forgotten, and the ritual prayers (ṣaum, ṣalvāt)," and — the antinomian wine-image — "the vintner (kalāl) pours the cup of the Faith (dīn)": in the Beloved's presence, ritual is superseded by the wine of union (the standard Sufi khamriyya trope, intoxication as the true religion). The prayer to "raise a wall against the day" and make the night stretch is the lover's tender, futile wish to hold off the dawn of separation.
+
+The closing stanzas move from ecstasy to gratitude. The lover recalls the long labour of waiting — "I wove endless charms to break the spell of parting; the great elders came deaf to my plea" (intercessions that failed) — before the Beloved at last came, so "may the night last a hundred thousand years" is the gratitude of one who suffered long for this. The final stanza names the theology beneath the romance: "the true love of the Lord (shauh) is dear; I am ferried across by the Ferryman (tāranhārā)" — union is not the lover's achievement but the work of the divine Ferryman who carries the soul across (the recurrent ferry image); "coin by coin my turn came at last" (the patient accumulation that finally earns the meeting); and the triumphant close, "now parting has become impossible (muḥāl)" — union once truly attained cannot be undone. The poem thus completes the collection's arc: after all the separations, a night of union that time must not be allowed to end and that, at the deepest level, will not. (This spans two spreads; several readings — the minstrel line, the "coin by coin" line — are flagged medium uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes — e.g. ghaṛiyāl (the timekeeper's gong), anhad (unstruck sound), kalāl (vintner), tāranhārā (ferryman/saviour).]
+- ghaṛiyāl / ghaṛiyālī: the brass hour-gong and the watchman who strikes it — the instrument of time whose every stroke consumes the night of union; do_not_flatten_to a mere bell.
+- rain vasal: "the night of union" — the longed-for togetherness the lover would prolong forever; do_not_flatten_to an ordinary night.
+- anhad bājā: the "unstruck music" (anāhad nād) — the soundless celestial sound heard in the ecstasy of union; do_not_flatten_to ordinary music.
+- kalāl / madh piyālā: the vintner and the "cup" — the wine of union that supersedes fasting and prayer (the khamriyya trope); do_not_flatten_to literal drinking.
+- tāranhārā: the Ferryman — the divine agent who carries the soul across to union; do_not_flatten_to a boatman.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- night_of_union
+- arresting_time
+- wine_of_union
+- ferryman_grace
+- union_after_long_waiting
 
 # Source Notes
 

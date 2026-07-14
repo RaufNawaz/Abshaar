@@ -87,19 +87,43 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The dogs are above you.
+You keep vigil at night, at your worship;
+but dogs keep awake at night too — they are above you.
+They never once leave off their barking,
+then go and sleep on the rubbish-heap — above you.
+They will not abandon their master's door,
+though they be beaten with shoes — above you.
+Bulleh Shah, trade for some worthy merchandise,
+or else the dogs have won the game — they are above you.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the humbling self-reproach — the dog surpasses the pious man in three things (night-vigil, indifference to comfort, unwavering loyalty to the master's door despite blows); the closing exhortation to "trade for worthy merchandise" (real spiritual gain) lest even the dog win the wager. Common Sufi trope of the faithful dog.]
+A poem of ruthless self-reproach — the address is to "Bulleh" himself, and through him to the complacent pious — built on the humiliating comparison of the worshipper to the street-dog. It belongs to a recognizable Sufi tradition that holds up the dog, despised and unclean in the conventional religious reckoning, as a teacher of the virtues the pious lack; the shock is meant to puncture spiritual vanity. The method is a three-fold comparison, each ending in the refrain's verdict: "the dog is above you (utte)."
+
+The three comparisons target three prides of the devout. First, night-vigil: the worshipper stays awake at night in ʿibādat and takes pride in it — but the dog stays awake all night too, without fuss and without applause, and so outdoes him in wakefulness. Second, indifference to comfort: the dog barks tirelessly and then sleeps content on the rūṛī, the rubbish-heap — utterly detached from comfort and status, which is precisely the faqir's ideal the worshipper only pretends to. Third, and most pointed, loyalty: the dog "will not abandon its master's door though beaten with shoes" — the emblem of unwavering fidelity to the master (khasam) regardless of ill-treatment, whereas the pious man deserts his Lord's door at the first hardship. In each case the animal embodies effortlessly and sincerely the very virtue — vigilance, detachment, faithful constancy — that the religious man merely performs.
+
+The close turns from comparison to exhortation with a merchant's metaphor: "Bulleh, trade for some worthy merchandise (rakht), or the dogs have won the wager (bāzī)." Life is a marketplace and a gamble; unless the soul acquires the real goods — genuine love, sincerity, fidelity — it loses the game to a dog, shown to possess less spiritual substance than the lowliest animal. The humility is bracing and characteristic: Bulleh Shah's self-accusation (as in 0007's "oldest sinner") refuses to exempt the poet or the pious from judgment, and uses the deliberately degrading comparison to strip away the self-satisfaction that mere ritual observance breeds. The dog is not really the subject — the counterfeit piety that an actual dog can outdo is. (Transcription is fairly secure; a couple of readings flagged.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. kutte (dogs), ibaadat (worship/vigil), rooṛi (dung/trash-heap), khasam da dar (master's door), rakht vihaajna (to acquire merchandise), baazi (the wager/game); add do_not_flatten_to notes]
+- kutte: dogs — despised in conventional reckoning, held up here as teachers of vigilance, detachment, and loyalty; do_not_flatten_to a mere insult.
+- ʿibādat: worship/devotion — specifically the night-vigil the worshipper prides himself on and the dog surpasses; do_not_flatten_to generic prayer.
+- rūṛī: the rubbish-heap / dung-pile where the dog sleeps content — the emblem of detachment from comfort and status; do_not_flatten_to literal filth.
+- khasam dā dar: "the master's door," fidelity to which (despite blows) the dog keeps and the pious man breaks; do_not_flatten_to a literal doorway.
+- rakht / bāzī: "merchandise" and "the wager/game" — life as a market and a gamble in which one must acquire real spiritual goods or lose to a dog; do_not_flatten_to literal trade or play.
 
 # Themes
 
-- [TO DO (rauf): e.g. self-reproach, humility, loyalty, worthlessness_of_mere_ritual, the_faithful_dog]
+- self_reproach
+- humility
+- loyalty
+- worthlessness_of_mere_ritual
+- the_faithful_dog
 
 # Source Notes
 

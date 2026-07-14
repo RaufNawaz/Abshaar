@@ -105,19 +105,48 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The clay moves at the beloved's step.
+Clay the saddle, clay the horse, clay the rider;
+clay makes clay gallop, and clay is the clatter of it.
+The clay moves at the beloved's step!
+Clay set out to slay clay, and clay was the weapon;
+whichever clay has the more clay, that clay is proud.
+The clay moves at the beloved's step!
+Clay the garden, clay the orchard, clay its rose-bed;
+clay came to gaze on clay, and clay is the springtime of it.
+The clay moves at the beloved's step!
+Four companions joined to play, and in the fifth is the chieftain;
+having laughed and played, they turn to clay again,
+falling, and stretching out their feet.
+The clay moves at the beloved's step!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+This is a tour de force of a single word: every hemistich turns on māī (mātī), "clay / dust / earth," repeated with an insistence that is the poem's whole method. The device — a mono-lexical litany — hammers one truth home by refusing to name anything else: horse, rider, saddle, weapon, garden, flower, lover, all dissolve into the one word "clay." The refrain's claim that "the clay moves at the beloved's step" (takes the Beloved's pace) supplies the theological frame — even the clay's motion is the Beloved's doing — but the body of the poem is the relentless reduction of every apparently-distinct thing to the same earth.
+
+The three central stanzas run the reduction through three domains: war, beauty, and desire. In war — "clay set out to slay clay, and clay was the weapon" — the whole apparatus of killing (killer, killed, sword) is one substance, so violence is clay assaulting clay, and the pride of the victor ("whichever clay has the more clay is proud") is clay puffed up over clay, a devastating deflation of martial and worldly pride, of a piece with the ubi sunt poems (0007, 0026). In beauty — "clay the garden, orchard, rose-bed" — the spring's loveliness and springtime itself are clay adorning clay. And in desire — "clay came to gaze on clay" — the lover gazing on the beloved is clay looking at clay: even love, at the level of the body, is dust contemplating dust. The cumulative effect is the memento mori pressed to its philosophical limit: nothing in the visible world is other than earth.
+
+The final stanza supplies the anthropology behind the litany and the one exception to it. "Four companions joined to play, and in the fifth is the chieftain (sardār); having laughed and played, they turn to clay again, falling and stretching out their feet." The "four" are the chār ʿanāṣir, the four elements (earth, water, fire, air) of which the body is compounded; the "fifth," the chieftain that rules them, is the rūḥ, the soul/spirit — the one thing that is not clay. The body's whole life is the four elements' brief "play" (kheḍ), after which they "turn to clay" and the corpse "stretches out its feet" in death. The point is thus double: everything of the body and the world is dust and returns to dust — so pride, beauty, and even embodied love are vanity — but the ruling "fifth," the soul, is of another order, the spirit that presided over the elements' game and does not itself dissolve into the earth. The relentless "clay, clay, clay" is finally a via negativa clearing the ground for the one thing that is not clay. (The keyword māī/clay is high-confidence; the refrain phrase and a few readings are flagged medium.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes — e.g. mātī/māī (clay, earth, dust of the body), the four elements (chār anāsir) and the fifth (soul/spirit).]
+- māī / mātī: clay, earth, dust — the one substance to which the poem reduces horse, rider, weapon, garden, and lover alike; do_not_flatten_to literal mud.
+- chār ʿanāṣir: the four elements (earth, water, fire, air) — the "four companions" that compose the body and "turn to clay"; do_not_flatten_to a scientific list.
+- sardār (the fifth): the "chieftain" ruling the four — the rūḥ, the soul/spirit, the one thing that is not clay; do_not_flatten_to a literal leader.
+- pair pasār: "stretching out the feet" — the idiom for dying, the body collapsing back to clay; do_not_flatten_to resting.
+- kheḍ: the "play" — the brief game of embodied life the elements perform before returning to dust; do_not_flatten_to idle amusement.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- all_is_clay
+- mortality_of_the_body
+- vanity_of_pride
+- four_elements_and_the_soul
+- memento_mori
 
 # Source Notes
 

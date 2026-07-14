@@ -101,19 +101,48 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Do not hide behind the veil, beloved —
+I am longing for the sight of you!
+Without you I have become a madwoman;
+the whole town makes an outcast of me.
+When I try, my love, to win your favour,
+I can only raise my complaint and cry.
+Do not hide behind the veil, beloved —
+I am longing for the sight of you!
+Cheap goes the silver-bought bondmaid;
+joined to her love, she lets needless things fall away.
+Not for a single breath can I bear the parting —
+I am the nightingale of the rose-garden.
+Do not hide behind the veil, beloved —
+I am longing for the sight of you!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+One of Bulleh Shah's best-loved kafis, and its whole force is the single plea of the refrain: ghūnghaṭ ohle na luk sajnā, "do not hide behind the veil, beloved — I long for your dīdār (sight, vision)." The ghūnghaṭ, the bride's veil, is the emblem of the Beloved's self-concealment, and the poem is the lover's demand that it be lifted so she may see the face. This is the recurrent Sufi theme of the veiled Beloved and the longing for unveiling (kashf, dīdār), but cast with unusual directness and intimacy — not a meditation on hiddenness but a lover's face-to-face entreaty: show yourself.
+
+The first stanza gives the social cost of this love. "Without you I have become a madwoman (dīvānī); the whole town makes an outcast of me" — love has driven the lover to the dīvānī/kamlī state (as in 0015), and the world responds with scorn, making her a spectacle and an outcast. This is the malāmatī dimension: the lover accepts public disgrace as the price of ʿishq, and the very intensity the world condemns is what drives her to "raise her complaint" to the Beloved. The love that ruins her standing among people is the same love that binds her to the one whose favour (diljoī) she seeks.
+
+The second stanza offers two images of total self-giving. "Cheap goes the silver-bought bondmaid (chāndī bāndī); joined to her love, she lets needless things fall away" — the lover is like a slave-girl sold cheap who, once united with her beloved, sheds everything superfluous; the low price and the shedding both figure the self-abandonment of love, which counts its own worth as nothing and drops all that is not the Beloved. And the closing self-identification is the classic Persianate emblem: "I am the nightingale (bulbul) of the rose-garden (gulzār)." The bulbul that cannot live a moment apart from the rose is the soul that "cannot bear the parting for a single breath" — the nightingale-and-rose topos of consuming, inseparable longing sealing the plea for the unveiled sight of the Beloved. (Stanza 2 is flagged low-to-medium uncertainty; the refrain and first stanza are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes — e.g. ghūṅghaṭ (bridal veil), dīdār (the sight/vision of the beloved), bulbul/gulzār (nightingale/rose-garden imagery).]
+- ghūnghaṭ: the bride's veil — emblem of the Beloved's self-concealment, whose lifting the lover begs; do_not_flatten_to a piece of cloth.
+- dīdār: the sight/vision of the Beloved's face — the object of the longing; do_not_flatten_to a casual look.
+- dīvānī: the madwoman — the lover driven out of her senses and made an outcast by love; do_not_flatten_to clinical madness.
+- chāndī bāndī: the silver-bought bondmaid "sold cheap" — the emblem of the self counted as nothing for love's sake; do_not_flatten_to a literal transaction.
+- bulbul / gulzār: the nightingale of the rose-garden — the topos of the soul that cannot live a breath apart from the Beloved; do_not_flatten_to a decorative bird.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- longing_for_unveiling
+- didar
+- madness_of_love
+- outcast_for_love
+- nightingale_and_rose
 
 # Source Notes
 

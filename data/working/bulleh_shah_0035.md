@@ -228,19 +228,85 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Enough of learning, friend!
+A single Alif is all you need.
+Learning does not enter the reckoning;
+your life slips away — there is no trusting it.
+A single Alif is all you need.
+Enough of learning, friend!
+
+Reading and writing, you pile up heaps,
+heaps of books all around you;
+ignorance rings you, darkness within;
+ask "the way" — and you have not the least news of it.
+Enough of learning, friend!
+
+You offer prayer upon voluntary prayer,
+cry the call aloud, shout it high,
+climb the pulpit and thunder your sermons —
+learning has done nothing but disgrace you.
+Enough of learning, friend!
+
+From learning, only more quarrels arise;
+the ones with eyes are blind and sightless;
+they seize the holy man and let the thief go free.
+Enough of learning, friend!
+
+Reading, reading, you style yourself Shaikh and elder,
+you fabricate rulings upside-down,
+you plunder the unlettered and devour them,
+swearing the false and the true alike.
+Enough of learning, friend!
+
+Reading, reading, mullahs turn into qazis;
+God is well pleased even without such learning.
+Greed grows fresher by the day —
+greed has disgraced you.
+Enough of learning, friend!
+
+Reading, reading, you keep reciting rulings,
+you feed on the food of doubt and suspicion;
+you preach one thing and earn by another —
+false within, upright without.
+Enough of learning, friend!
+
+When I read the lesson of love,
+I saw the river of oneness and plunged in;
+I was caught fast in its whirlpools —
+Shah Inayat carried me across!
+Enough of learning, friend!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat (who turns the murshid's name into "God's mercy"). Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the great anti-scholastic kafi — "one Alif" (the One / bare essence) against the vanity of ilm; a sustained satire of mullah/qazi/shaikh who pile books, thunder sermons, invent rulings, plunder the unlettered, chase power and greed; contrast with the "lesson of love" that plunges the poet into the river of wahdat, where the murshid Shah Inayat ferries him across. Note the inaayat/grace pun.]
+This is the great anti-scholastic manifesto of the collection — the longest poem in the selection, running eight stanzas — and its thesis is stamped in the double refrain: "enough of learning (ʿilm), friend! one Alif is all you need." Against the whole edifice of religious scholarship Bulleh Shah sets the single letter Alif, cipher of the One (as in 0002): all that ʿilm accumulates is surplus to the one thing needful, knowledge of God, which is not a body of learning but a single point. The opening gives the existential ground of the critique — "learning does not enter the reckoning; your life slips away" — the vanity of scholarship measured against death: the books will not count at the accounting, and the years spent on them are wasted.
+
+The long middle is a sustained, almost journalistic satire of the religious establishment, one of the sharpest anti-clerical passages in Punjabi literature. Bulleh Shah catalogues the ʿulamā's failings precisely: they "pile up heaps of books" that "shut off the light" (learning as an obstruction to vision, not an aid); they perform ostentatious extra prayers and thunder from the minbar (pulpit) to no inner effect; "learning breeds only quarrels" (the jurists' sectarian disputes); "those with eyes are blind" (the learned are the spiritually blindest); and, in the most cutting social charge, "they seize the holy man and free the thief" — the religious-legal establishment persecutes the true saint while colluding with the actual criminal. The indictment escalates: they "fabricate rulings upside-down," "plunder the unlettered (be-ʿilm)," style themselves Shaikh, and mullahs climb to become qazis (judges), the engine of it all being ḥirṣ, greed — "greed has disgraced you." The portrait is of a clerical class that has turned sacred knowledge into an instrument of power, fraud, and gain.
+
+The seventh stanza sharpens the charge of hypocrisy into its exact formula: "you preach one thing and earn by another — false within (khoṭ), upright without (suchiār)." This corrupt-interior-beneath-pure-exterior is the precise inverse of the mystic's ideal (pure within, indifferent to the exterior), and it names the ʿālim's sin as counterfeiting — trading on the appearance of piety while the heart is base coin.
+
+The final stanza turns from satire to autobiography and supplies the positive counter-term. "When I read the lesson of love (sabaq-e-ʿishq), I saw the river of oneness (waḥdat) and plunged in; I was caught in its whirlpools (ghuman-gher) — Shah Inayat carried me across." Against the dry heap of ʿilm stands the single "lesson of love" that opens onto the ocean of divine unity; but that river is dangerous — its whirlpools (the perils of the mystic passage, the vertigo of annihilation) would drown the seeker — and he is saved not by his own effort but by the murshid, Shah Inayat, who ferries him across. The naming is also a pun: ʿināyat means "grace/favour," so "Shah Inayat carried me across" reads at once as "the King's Grace carried me across," the personal guide and divine grace fused in one name (Rafat renders only the second sense, "God's mercy," losing the murshid). The whole poem opposes two knowledges — the ʿilm that puffs up, quarrels, and drowns in greed, and the ʿishq that drowns the self in God and is ferried home by grace. (Spanning three spreads; a few readings are flagged and stanza 4 may be missing a line, but the refrain, the satire, and the close are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. ilm (learning) vs Alif (the One), nafl namaz / baang / minbar / waaz (ritual acts), masla / qaazi / shaikh mashaaikh (jurist vocabulary), hirs (greed), wahdat (oneness), ghuman-gher (whirlpool), Shah Inayat (Bulleh's murshid; pun on inaayat = grace); add do_not_flatten_to notes]
+- ʿilm: (religious) learning/scholarship — the whole edifice the poem dismisses as surplus and corrupting; do_not_flatten_to knowledge in general.
+- Alif: the single letter, cipher of the One — "all you need," set against the heaps of ʿilm; do_not_flatten_to an alphabet letter.
+- minbar / waʿẓ: the pulpit and the sermon — the theatre of hollow religious authority; do_not_flatten_to neutral preaching.
+- ḥirṣ: greed — the engine that has "disgraced" the learned clerical class; do_not_flatten_to ordinary ambition.
+- khoṭ / suchiār: "false within, upright without" — the counterfeit hypocrisy of the ʿālim, the inverse of the mystic ideal; do_not_flatten_to simple two-facedness.
+- Shah Inayat: Bulleh Shah's murshid, who "ferries him across" the river of waḥdat; the name puns on ʿināyat, "grace"; do_not_flatten_to only "God's mercy."
 
 # Themes
 
-- [TO DO (rauf): e.g. critique_of_scholarship, anti-clericalism, hypocrisy_of_ulama, one_alif / love_over_learning, murshid_ferries_across, wahdat]
+- critique_of_scholarship
+- anti_clericalism
+- hypocrisy_of_ulama
+- love_over_learning
+- murshid_ferries_across
+- wahdat
 
 # Source Notes
 

@@ -43,19 +43,30 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Once the matter is truly grasped, what is all the clamour for?
+What, then, is "Ram," what "Rahim," what "Maula"?
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the epigram of divine unity beneath the names — once the essence (gal) is grasped, the sectarian quarrel (raula) over "Ram" vs "Rahim/Maula" (Hindu vs Muslim names for the One) is empty. Bulleh's characteristic even-handed non-sectarianism.]
+This epigrammatic couplet states, in the fewest possible words, Bulleh Shah's non-sectarian theology of the divine names. The first line lays down the condition — "once the matter (gal) is truly understood" — and the second draws the consequence: the names by which the traditions call God, Hindu "Ram" and Muslim "Rahim / Maula," are exposed as no more than names once the underlying reality is grasped. The rhetorical questions ("what, then, is Ram, what Rahim, what Maula?") do not deny the divine; they deny the significance of the labels — at the level of the Real there is one referent behind the many names, and the "clamour" (raula), the sectarian dispute over which name is correct, is simply the noise of those who have not understood the matter.
+
+The couplet is a miniature of the doctrine expounded at length in the "all cotton is one" kafi (0032) and the antinomian poems (0034): unity of being (waḥdat) issuing directly in social non-sectarianism. By pairing a Hindu name (Ram) with Muslim ones (Rahim, Maula) as equivalent designations of the one God, Bulleh Shah performs the border-crossing that scandalized the orthodox and endeared him to Hindu and Muslim alike — the insistence that the difference between "Ram" and "Rahim" is a difference of language, not of God. The form enacts the argument: a two-line poem that reduces the whole apparatus of religious contention to a single dismissive question. (Transcription is low-uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. gal (the matter/point), raula (clamour/quarrel), Ram / Raheem / Maula (Hindu and Muslim names of God); add do_not_flatten_to notes]
+- gal: "the matter / the point" — the underlying reality that, once grasped, makes the name-dispute pointless; do_not_flatten_to a casual "thing."
+- raula: clamour, uproar, quarrel — the sectarian noise of those who mistake names for the reality; do_not_flatten_to ordinary noise.
+- Ram / Rahim / Maula: a Hindu and two Muslim names of God, set as equivalents to assert one referent behind the many names; do_not_flatten_to distinct deities.
 
 # Themes
 
-- [TO DO (rauf): e.g. unity_of_divine_names, non-sectarianism, futility_of_religious_quarrel]
+- unity_of_divine_names
+- non_sectarianism
+- futility_of_religious_quarrel
 
 # Source Notes
 

@@ -88,19 +88,46 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Spin, girl — there will be no next time, girl.
+Take the reel off, gather it up now, girl.
+Your parents have settled the match;
+your wits have not yet come to you;
+the days are few, then the farewell —
+you will not come to your mother's house again, girl.
+Spin, girl — there will be no next time, girl.
+If you go without a dowry,
+you will please no one at all;
+how then will you win the Beloved over?
+Grasp the counsel of the faqirs, girl.
+Spin, girl — there will be no next time, girl.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the bridal-spinning allegory — the girl must spin her cotton (accumulate good deeds / spiritual merit) before the muklaava (departure to the in-laws = death / union with the Divine), for there is no return to the parental home (this world). Without a "dowry" (daaj = merit) she cannot please the "spouse" (shoh = God). The counsel of the faqirs.]
+Another charkhā-nāma (spinning-wheel song, cf. 0028), but where 0028 lamented the broken wheel, this one is exhortation and warning, urgent in its refrain: kat kuṛe, na vat kuṛe — "spin, girl; there is no 'again,' girl." The allegory is the tradition's standard one — the girl at the wheel is the soul in the world, and spinning (the daily drawing of thread, filling the spool) is the disciplined labour of the spiritual life: dhikr, good deeds, the making of one's "dowry." The whole force of the poem lies in the compression of time: "the days are few, then the farewell (muklāvā)."
+
+The controlling term is muklāvā — the ceremony of the bride's final departure from her parental home to the in-laws' house — which in this tradition (as in 0049) figures death and the soul's passage to the Beloved. Two facts make the warning absolute: the match is already "settled" by the parents (the appointment of death is fixed, out of one's hands), and — the sharpest point — "you will not come to your mother's house (peeke) again." The peeke, the natal home, is this world; once the soul departs at death there is no returning to it. This is the carpe diem of the spiritual life, but without the pagan sweetness: spin now because there is no second chance, no return trip in which to make up the work left undone.
+
+The second stanza states the stakes in the bridal economy: "if you go without a dowry (dāj), you will please no one; how then will you win the Beloved (shoh)?" The dowry is spiritual merit — the thread spun, the deeds and love accumulated — and the bride who arrives empty-handed cannot win her divine husband. The closing counsel names the source of the wisdom: "grasp the counsel of the faqirs (faqrāṅ dī mat)," the teaching of the dervishes who alone understand that the whole point of the girl's time at the wheel is preparation for a departure that permits no return. The poem is a memento mori in the key of women's domestic labour: the everyday task of spinning becomes the measure of a life, and its urgency the urgency of a soul with little time and no second chance. (The refrain's second line and stanza 1 line 2 are flagged HIGH uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. kat/chhalli (spin/reel), muklaava (bride's departure to in-laws — death), peeke (parents' home — this world), daaj (dowry — spiritual merit), shoh (spouse/Beloved/God), faqraan di mat (counsel of the faqirs); add do_not_flatten_to notes]
+- kat / vat: "spin" / "again" — the refrain's urgency, "spin now, for there is no next time"; do_not_flatten_to a simple stop-command.
+- muklāvā: the bride's final departure to the in-laws' house — here death and the soul's passage to the Beloved; do_not_flatten_to a wedding ceremony.
+- peeke: the parental/natal home — this world, to which the departed soul does not return; do_not_flatten_to a literal childhood home.
+- dāj: dowry — spiritual merit (deeds, love, dhikr) the soul must bring to please the Beloved; do_not_flatten_to material goods.
+- faqrāṅ dī mat: "the counsel of the faqirs" — the dervishes' wisdom about the one-way journey; do_not_flatten_to generic advice.
 
 # Themes
 
-- [TO DO (rauf): e.g. spinning_allegory, death_as_bridal_departure, no_return / carpe_diem, merit_as_dowry, feminine_voice]
+- spinning_allegory
+- death_as_bridal_departure
+- no_return
+- merit_as_dowry
+- feminine_voice
 
 # Source Notes
 

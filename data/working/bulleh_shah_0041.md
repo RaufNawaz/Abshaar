@@ -73,19 +73,42 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Someone ask: what does the Beloved do? — Whatever He does, so He does!
+In the mosque He offers the prayer, then goes and enters the idol-temple;
+He alone is one, yet the owner of countless houses, master of every home;
+He dwells close within one house, and no veil is left between;
+wherever I turn my gaze, there He is — He keeps company with all;
+within the river of Oneness He ferries the whole world across.
+Bulleh — the Beloved's love is a leech: it drinks the blood, it seizes the flesh.
+Someone ask: what does the Beloved do? — "Whatever He does, so He does!"
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): wahdat al-wujud — the one Beloved worshipped in mosque and temple alike, "master of every house," seen wherever one looks, ferrying all across the river of Oneness; the closing turn to love as a devouring leech (fana). Even-handed Hindu/Muslim non-sectarianism.]
+The poem is a compact statement of waḥdat al-wujūd cast as a series of riddling reports about "what the Beloved does," anchored by the refrain's shrug of total acceptance: eh jo karda so karda, "whatever He does, so He does" — the sovereign freedom of the One who is not answerable to human categories. The first report is the deliberately scandalous one: "in the mosque He offers the prayer, then enters the idol-temple (but-khāna)." The single Beloved is the worshipper in both houses — the one who prays in the mosque and the one worshipped in the temple are the same — Bulleh Shah's recurrent even-handed dissolution of the Hindu-Muslim divide, grounded here in strict monism: if only the One exists, then all worship, in whatever house, is His.
+
+The middle develops divine omnipresence through the image of houses: "He alone is one, yet owner of countless houses, master of every home; dwelling within one house, no veil (parda) is left between." The many "houses" are the many creatures and forms, each of which the One both owns and indwells; and where He dwells there is "no veil" — the removal of the parda (the screen separating lover and Beloved, the veil of otherness) is union itself. "Wherever I turn my gaze, there He is" is the doctrine in direct experiential form (echoing the Quranic "whithersoever you turn, there is the Face of God," 2:115), and "He keeps company (sangat) with all" universalizes it. The line "within the river of Oneness (waḥdat dā daryā) He ferries the whole world across" gathers the collection's recurrent river/ferry image into a cosmic key: not just the individual soul but "the whole world" (sab jag) is carried across the water of oneness — salvation as wide as being.
+
+The closing couplet swerves from serene metaphysics to a startlingly visceral image of love's cost: "the Beloved's love is a leech (bughelā): it drinks the blood, it seizes the flesh." After the expansive vision of the omnipresent One, the poem reminds us what participation in that One demands of the lover — love is not gentle contemplation but a leech fastened on the body, draining blood and consuming flesh, the bodily language of fanāʾ, the wasting of the self that union exacts. The two halves are deliberately jarring: the Beloved is everywhere and does as He pleases (serene), and loving Him bleeds you white (violent) — the doctrine of unity and the price of union held in one short poem. (The leech/blood/flesh reading and a couple of interior lines are flagged for confirmation.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. dilbar (Beloved), maseet vs but-khaana (mosque vs idol-temple), wahdat da darya (river of oneness), sangat (company), ishq bughela (love as a leech), rat/gosht (blood/flesh — fana); add do_not_flatten_to notes]
+- dilbar: the Beloved ("heart-ravisher") — the sole agent whose freedom the refrain accepts; do_not_flatten_to a sweetheart.
+- maseet / but-khāna: mosque and idol-temple — both houses of the one Beloved, dissolving the sectarian divide; do_not_flatten_to rival religions.
+- parda: the veil/screen of otherness between lover and Beloved, here removed in union; do_not_flatten_to a literal curtain.
+- waḥdat dā daryā: "the river of Oneness" across which the One ferries the whole world; do_not_flatten_to a literal river.
+- ishq bughelā: "love the leech" — love as a bloodsucker draining the self, the bodily image of fanāʾ; do_not_flatten_to a mild metaphor.
 
 # Themes
 
-- [TO DO (rauf): e.g. wahdat_al_wujud, divine_omnipresence, non-sectarianism, love_as_devourer / fana]
+- wahdat_al_wujud
+- divine_omnipresence
+- non_sectarianism
+- love_as_devourer
+- fana
 
 # Source Notes
 
