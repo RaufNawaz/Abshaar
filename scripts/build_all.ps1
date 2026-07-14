@@ -20,7 +20,7 @@ function Invoke-Abshaar {
 
 Invoke-Abshaar init
 Invoke-Abshaar validate
-Invoke-Abshaar build-data
+Invoke-Abshaar build-data --include-placeholders
 Invoke-Abshaar validate
 Invoke-Abshaar export-site
 Invoke-Abshaar status

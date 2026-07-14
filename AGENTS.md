@@ -22,6 +22,48 @@ Project continuity is a required part of the work.
 
 After every substantive task, update `OFFLOADING.md`.
 
+## Shared Codex and Claude Workflow
+
+This repository may be edited by Codex and Claude in overlapping sessions. The
+filesystem and current working tree are the source of truth; do not assume the
+last commit contains the latest project state.
+
+Before any substantive work:
+
+1. Read `AGENTS.md`, `CLAUDE.md` (if present), `OFFLOADING.md`, and any
+   task-specific log such as `Bulleh Shah/CORPUS_BUILD_LOG.md`.
+2. Run `git status --short --branch` and inspect the diff for every file you may
+   edit.
+3. Treat all pre-existing modifications and untracked files as another
+   contributor's work. Do not overwrite, revert, delete, stage, or commit them
+   without explicit user authorization.
+4. Re-read a target file immediately before editing it if another assistant may
+   be active.
+
+After any substantive command or task:
+
+1. Update the canonical source documentation affected by the change, not only
+   `OFFLOADING.md`. Examples include `START_HERE.md`, `README.md`, schema guides,
+   workflow docs, templates, tests, or a corpus build log.
+2. Record state-changing commands, generated outputs, verification results,
+   errors, decisions, and remaining work in `OFFLOADING.md`.
+3. Re-run proportionate verification and then re-check `git status` and relevant
+   diffs so concurrent edits are not accidentally lost.
+4. Never claim a file, command, or project state is current unless it was
+   checked in the live working tree.
+
+Coordination rules:
+
+- Prefer small, scoped edits and explicit file lists over broad rewrites or
+  commands such as `git add .`.
+- Do not remove `.git/index.lock` automatically. It may indicate another Git
+  process or assistant is active; verify ownership and activity first.
+- Generated data must be documented with the exact command and flags used.
+- Read-only inspection commands do not each need a log entry unless their result
+  changes a decision or reveals a new risk. State-changing commands always do.
+- If two assistants changed the same file, merge both useful changes; never pick
+  one version by default.
+
 A substantive task includes, but is not limited to:
 
 - Writing code.

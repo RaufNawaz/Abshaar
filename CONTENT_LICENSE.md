@@ -34,3 +34,15 @@ recording, or annotation is free to reuse.
 
 Do not publish or train on copyrighted translations, scans, annotations, audio,
 or website data unless the license allows it or permission has been granted.
+
+## Authorized Research Collaborations
+
+When a source partner authorizes private academic acquisition or model training,
+record the source, authorization scope, allowed uses, and verification status in
+`data/context/sources.jsonl`. Keep the partner's material in a distinct source
+witness layer. Authorization for private research does not automatically imply
+permission for public redistribution or a public model release.
+
+The normalized Sufinama Bulleh Shah witness dataset is included under this
+private-collaboration rule. Raw HTML remains a local cache; normalized aligned
+records and their audit manifest may be versioned in this private repository.

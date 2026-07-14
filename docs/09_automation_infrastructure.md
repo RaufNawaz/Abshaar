@@ -15,6 +15,12 @@ The automation currently handles:
 - preparing prompt packs for the local model pipeline;
 - checking whether local Ollama is available;
 - optionally drafting an interpretation through Ollama.
+- discovering, acquiring, aligning, and cross-matching the authorized Sufinama
+  Bulleh Shah kaafi source collection.
+
+Current corpus note (verified 2026-07-12): the repository contains 72 unfinished
+working entries that are intentionally built with `--include-placeholders`.
+Both full-build wrappers now preserve that flag.
 
 ## Quick Start
 
@@ -196,6 +202,62 @@ data/annotations/model_outputs.jsonl
 
 The output is marked `needs_review`. It is not automatically publishable.
 
+### Acquire the Sufinama Bulleh Shah Collection
+
+Discover and pair the 76 Roman/Urdu catalog items without fetching poem pages:
+
+```powershell
+.\scripts\abshaar.ps1 acquire-sufinama --discover-only
+```
+
+Run the authorized full acquisition on macOS/Linux with curl transport:
+
+```bash
+./scripts/abshaar.sh acquire-sufinama --transport curl
+```
+
+The collector pairs by stable Sufinama UUID, caches raw pages under
+`data/raw/private/sufinama/`, preserves Urdu plus two Roman layers and source
+alignment IDs, writes normalized private witnesses, generates reviewable source
+matches, and never modifies the 72 canonical Markdown entries.
+
+Rebuild normalized records and matching outputs from the completed local cache
+without making network requests:
+
+```bash
+./scripts/abshaar.sh acquire-sufinama --offline --transport curl
+```
+
+Useful flags: `--offline`, `--limit`, `--refresh`, `--workers`, `--delay`,
+`--transport`, and `--cache-dir`. See
+`docs/12_sufinama_source_ingestion.md` for the full workflow.
+
+### Match Another Offline Source Manifest
+
+```powershell
+.\scripts\abshaar.ps1 match-source-manifest --manifest data\path\source.jsonl
+```
+
+This uses title and all-line Urdu/Roman similarity to produce candidate links.
+Every link remains `needs_review`; source witnesses are not merged into canonical
+poems automatically.
+
+### Extract a Numbered Gurmukhi PDF Witness
+
+```powershell
+.\scripts\abshaar.ps1 extract-gurmukhi-pdf --input "Bulleh Shah\Kafian - Baba Bulleh Shah (Baba Bulle Shah) (z-library.sk, 1lib.sk, z-lib.sk).pdf"
+```
+
+This command uses the PDF's embedded text layer to segment consecutively
+numbered works. It writes a private full-text witness, a reviewable item catalog,
+and an audit record with the source hash, page count, dependency/parser versions,
+and ordinal checks. It fails on missing or duplicate ordinals. The current
+PunjabLibrary extraction is always marked `needs_visual_review` because rendered
+pages are reliable while the embedded Gurmukhi text layer is not.
+
+Install the optional dependency with `python3 -m pip install -e '.[pdf]'`. See
+`docs/13_gurmukhi_pdf_ingestion.md` for source, rights, and review details.
+
 ## Automation Flow
 
 ```text
@@ -212,6 +274,9 @@ Markdown entry
 
 ## Run the Whole Local Automation Build
 
+Both wrappers invoke `build-data --include-placeholders`, preserving all current
+unfinished entries in `data/processed/poems.jsonl`.
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\build_all.ps1
 ```
@@ -220,11 +285,11 @@ This runs:
 
 1. `init`
 2. `validate`
-3. `build-data`
+3. `build-data --include-placeholders`
 4. `validate`
 5. `export-site`
 
-It is the command to use before committing a batch of data edits.
+Use this before committing a batch of data edits.
 
 ## GitHub Actions
 
@@ -254,6 +319,9 @@ src/abshaar/validation.py      project validation checks
 src/abshaar/export.py          website data export
 src/abshaar/prompts.py         prompt-pack builder
 src/abshaar/ollama_client.py   optional local Ollama integration
+src/abshaar/gurmukhi_pdf.py    numbered Gurmukhi PDF witness extraction
+src/abshaar/sufinama.py        authorized Sufinama acquisition and audit
+src/abshaar/source_matching.py non-destructive witness candidate matching
 ```
 
 ## Testing

@@ -6,12 +6,19 @@ import sys
 from pathlib import Path
 
 from abshaar.export import export_site_data
+from abshaar.gurmukhi_pdf import extract_gurmukhi_pdf
 from abshaar.jsonl import write_jsonl
 from abshaar.markdown_entry import entry_to_poem_record, parse_markdown_entry
 from abshaar.ollama_client import check_ollama, draft_poem
 from abshaar.paths import resolve_root
 from abshaar.prompts import save_prompt_pack
 from abshaar.status import format_project_status, next_poem_id, project_status
+from abshaar.source_matching import match_source_manifest
+from abshaar.sufinama import (
+    DEFAULT_USER_AGENT,
+    acquire_sufinama_corpus,
+    acquire_sufinama_texts,
+)
 from abshaar.validation import iter_working_entries, validate_project
 
 
@@ -55,6 +62,99 @@ def main(argv: list[str] | None = None) -> int:
     draft.add_argument("--poem-id", required=True)
     draft.add_argument("--model", default="qwen3:8b")
 
+    source_match = subparsers.add_parser(
+        "match-source-manifest",
+        help="Match an offline source manifest to existing working poem entries.",
+    )
+    source_match.add_argument("--manifest", required=True, help="Input JSONL manifest path.")
+    source_match.add_argument(
+        "--output",
+        default="data/context/source_matches.jsonl",
+        help="Output JSONL path for reviewable candidate matches.",
+    )
+    source_match.add_argument("--top", type=int, default=3, help="Candidates per source item.")
+
+    sufinama = subparsers.add_parser(
+        "acquire-sufinama",
+        help="Acquire and align the authorized Sufinama Bulleh Shah kaafi corpus.",
+    )
+    sufinama.add_argument(
+        "--output",
+        default="data/processed/private/sufinama_bulleh_shah_kaafi.jsonl",
+    )
+    sufinama.add_argument(
+        "--catalog-output",
+        default="data/context/sufinama_source_items.jsonl",
+    )
+    sufinama.add_argument(
+        "--match-output",
+        default="data/context/source_matches.jsonl",
+    )
+    sufinama.add_argument("--cache-dir", default="data/raw/private/sufinama")
+    sufinama.add_argument("--delay", type=float, default=0.75)
+    sufinama.add_argument("--workers", type=int, default=3)
+    sufinama.add_argument("--limit", type=int, default=None)
+    sufinama.add_argument("--refresh", action="store_true")
+    sufinama.add_argument("--discover-only", action="store_true")
+    sufinama.add_argument(
+        "--offline",
+        action="store_true",
+        help="Rebuild from the saved 76-item catalog and raw cache without network access.",
+    )
+    sufinama.add_argument("--user-agent", default=DEFAULT_USER_AGENT)
+    sufinama.add_argument("--transport", choices=["urllib", "curl"], default="urllib")
+
+    sufinama_texts = subparsers.add_parser(
+        "acquire-sufinama-texts",
+        help="Acquire the authorized non-kaafi Bulleh Shah textual categories.",
+    )
+    sufinama_texts.add_argument(
+        "--output",
+        default="data/processed/private/sufinama_bulleh_shah_other_texts.jsonl",
+    )
+    sufinama_texts.add_argument(
+        "--catalog-output",
+        default="data/context/sufinama_text_source_items.jsonl",
+    )
+    sufinama_texts.add_argument(
+        "--match-output",
+        default="data/context/sufinama_text_source_matches.jsonl",
+    )
+    sufinama_texts.add_argument("--cache-dir", default="data/raw/private/sufinama")
+    sufinama_texts.add_argument("--delay", type=float, default=0.75)
+    sufinama_texts.add_argument("--workers", type=int, default=3)
+    sufinama_texts.add_argument("--limit", type=int, default=None)
+    sufinama_texts.add_argument("--refresh", action="store_true")
+    sufinama_texts.add_argument("--discover-only", action="store_true")
+    sufinama_texts.add_argument(
+        "--offline",
+        action="store_true",
+        help="Rebuild from the saved 48-item text catalog and raw cache without network access.",
+    )
+    sufinama_texts.add_argument("--user-agent", default=DEFAULT_USER_AGENT)
+    sufinama_texts.add_argument(
+        "--transport", choices=["urllib", "curl"], default="urllib"
+    )
+
+    gurmukhi_pdf = subparsers.add_parser(
+        "extract-gurmukhi-pdf",
+        help="Extract a numbered Gurmukhi PDF as a separate, review-required witness corpus.",
+    )
+    gurmukhi_pdf.add_argument("--input", required=True, help="Local PDF path.")
+    gurmukhi_pdf.add_argument(
+        "--output",
+        default="data/processed/private/punjab_library_bulleh_shah_kafian.jsonl",
+    )
+    gurmukhi_pdf.add_argument(
+        "--catalog-output",
+        default="data/context/punjab_library_source_items.jsonl",
+    )
+    gurmukhi_pdf.add_argument(
+        "--run-output",
+        default="data/processed/private/punjab_library_gurmukhi_run.json",
+    )
+    gurmukhi_pdf.add_argument("--expected-count", type=int, default=160)
+
     args = parser.parse_args(argv)
     root = resolve_root(args.root)
 
@@ -76,6 +176,14 @@ def main(argv: list[str] | None = None) -> int:
         return command_ai_check()
     if args.command == "draft":
         return command_draft(root, args.poem_id, args.model)
+    if args.command == "match-source-manifest":
+        return command_match_source_manifest(root, args.manifest, args.output, args.top)
+    if args.command == "acquire-sufinama":
+        return command_acquire_sufinama(root, args)
+    if args.command == "acquire-sufinama-texts":
+        return command_acquire_sufinama_texts(root, args)
+    if args.command == "extract-gurmukhi-pdf":
+        return command_extract_gurmukhi_pdf(root, args)
 
     parser.error(f"unknown command {args.command}")
     return 2
@@ -229,6 +337,148 @@ def command_draft(root: Path, poem_id: str, model: str) -> int:
         print(f"Could not generate draft: {exc}", file=sys.stderr)
         return 1
     print(f"Saved model output to {output_path.relative_to(root)}")
+    return 0
+
+
+def command_match_source_manifest(
+    root: Path,
+    manifest: str,
+    output: str,
+    top_n: int,
+) -> int:
+    manifest_path = Path(manifest)
+    output_path = Path(output)
+    if not manifest_path.is_absolute():
+        manifest_path = root / manifest_path
+    if not output_path.is_absolute():
+        output_path = root / output_path
+
+    try:
+        matches = match_source_manifest(root, manifest_path, output_path, top_n=top_n)
+    except (OSError, ValueError) as exc:
+        print(f"Could not match source manifest: {exc}", file=sys.stderr)
+        return 1
+
+    try:
+        shown_path = output_path.relative_to(root)
+    except ValueError:
+        shown_path = output_path
+    print(f"Wrote {len(matches)} source match record(s) to {shown_path}")
+    print("Review candidate matches before adding source IDs to poem entries.")
+    return 0
+
+
+def command_acquire_sufinama(root: Path, args: argparse.Namespace) -> int:
+    def resolve(value: str) -> Path:
+        path = Path(value)
+        return path if path.is_absolute() else root / path
+
+    try:
+        summary = acquire_sufinama_corpus(
+            root=root,
+            output_path=resolve(args.output),
+            catalog_output_path=resolve(args.catalog_output),
+            match_output_path=resolve(args.match_output),
+            cache_dir=resolve(args.cache_dir),
+            delay_seconds=args.delay,
+            workers=args.workers,
+            limit=args.limit,
+            refresh=args.refresh,
+            discover_only=args.discover_only,
+            user_agent=args.user_agent,
+            transport=args.transport,
+            offline=args.offline,
+        )
+    except Exception as exc:  # noqa: BLE001 - CLI should preserve a clean failure.
+        print(f"Could not acquire Sufinama corpus: {exc}", file=sys.stderr)
+        return 1
+
+    print(f"Discovered paired catalog items: {summary['catalog_items']}")
+    print(f"Normalized witness records written: {summary['records']}")
+    print(f"View errors: {summary['errors']}")
+    print(f"Requested views unavailable at source: {summary.get('unavailable', 0)}")
+    audit = summary.get("audit") or {}
+    layers = audit.get("layer_record_counts") or {}
+    if layers:
+        print(
+            "Layer coverage: "
+            f"Roman plain {layers.get('roman_plain', 0)}, "
+            f"Roman diacritic {layers.get('roman_diacritic', 0)}, "
+            f"Urdu {layers.get('urdu', 0)}, "
+            f"Devanagari {layers.get('devanagari', 0)}"
+        )
+        print(
+            "Roman/Urdu line-ID alignment: "
+            f"{audit.get('roman_urdu_line_id_matches', 0)}/"
+            f"{audit.get('roman_urdu_pair_records', 0)} paired witnesses"
+        )
+    return 0 if summary["errors"] == 0 else 1
+
+
+def command_acquire_sufinama_texts(root: Path, args: argparse.Namespace) -> int:
+    def resolve(value: str) -> Path:
+        path = Path(value)
+        return path if path.is_absolute() else root / path
+
+    try:
+        summary = acquire_sufinama_texts(
+            root=root,
+            output_path=resolve(args.output),
+            catalog_output_path=resolve(args.catalog_output),
+            match_output_path=resolve(args.match_output),
+            cache_dir=resolve(args.cache_dir),
+            delay_seconds=args.delay,
+            workers=args.workers,
+            limit=args.limit,
+            refresh=args.refresh,
+            discover_only=args.discover_only,
+            user_agent=args.user_agent,
+            transport=args.transport,
+            offline=args.offline,
+        )
+    except Exception as exc:  # noqa: BLE001 - CLI should preserve a clean failure.
+        print(f"Could not acquire Sufinama text categories: {exc}", file=sys.stderr)
+        return 1
+
+    print(f"Cataloged non-kaafi text records: {summary['catalog_items']}")
+    print(f"Normalized witness records written: {summary['records']}")
+    print(f"View errors: {summary['errors']}")
+    print(f"Requested views unavailable at source: {summary.get('unavailable', 0)}")
+    audit = summary.get("audit") or {}
+    categories = audit.get("category_record_counts") or {}
+    if categories:
+        print(
+            "Category coverage: "
+            + ", ".join(f"{category} {count}" for category, count in categories.items())
+        )
+    return 0 if summary["errors"] == 0 else 1
+
+
+def command_extract_gurmukhi_pdf(root: Path, args: argparse.Namespace) -> int:
+    def resolve(value: str) -> Path:
+        path = Path(value)
+        return path if path.is_absolute() else root / path
+
+    try:
+        run = extract_gurmukhi_pdf(
+            root=root,
+            pdf_path=resolve(args.input),
+            output_path=resolve(args.output),
+            catalog_output_path=resolve(args.catalog_output),
+            run_output_path=resolve(args.run_output),
+            expected_count=args.expected_count,
+        )
+    except Exception as exc:  # noqa: BLE001 - CLI should preserve a clean failure.
+        print(f"Could not extract Gurmukhi PDF: {exc}", file=sys.stderr)
+        return 1
+
+    audit = run["audit"]
+    print(f"Extracted Gurmukhi witness records: {audit['records']}")
+    print(f"PDF pages inspected: {run['pdf_pages']}")
+    print(f"Missing ordinals: {len(audit['missing_ordinals'])}")
+    print(f"Duplicate ordinals: {len(audit['duplicate_ordinals'])}")
+    print(f"Empty extracted texts: {audit['empty_texts']}")
+    print("All extracted text remains review-required; rendered PDF pages are authoritative.")
     return 0
 
 

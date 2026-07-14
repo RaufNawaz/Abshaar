@@ -21,6 +21,21 @@ def project_status(root: Path) -> dict[str, Any]:
     themes = _safe_read(root / "data" / "context" / "themes.jsonl")
     reviews = _safe_read(root / "data" / "annotations" / "reviews.jsonl")
     model_outputs = _safe_read(root / "data" / "annotations" / "model_outputs.jsonl")
+    source_matches = _safe_read(root / "data" / "context" / "source_matches.jsonl")
+    source_items = _safe_read(root / "data" / "context" / "sufinama_source_items.jsonl")
+    sufinama_text_items = _safe_read(
+        root / "data" / "context" / "sufinama_text_source_items.jsonl"
+    )
+    sufinama_text_matches = _safe_read(
+        root / "data" / "context" / "sufinama_text_source_matches.jsonl"
+    )
+    gurmukhi_source_items = _safe_read(
+        root / "data" / "context" / "punjab_library_source_items.jsonl"
+    )
+    biographical_claims = _safe_read(root / "data" / "context" / "biographical_claims.jsonl")
+    sufinama_inventory = _safe_read(
+        root / "data" / "context" / "sufinama_bulleh_shah_inventory.jsonl"
+    )
     issues = validate_project(root)
 
     return {
@@ -36,6 +51,13 @@ def project_status(root: Path) -> dict[str, Any]:
         "themes": len(themes),
         "reviews": len(reviews),
         "model_outputs": len(model_outputs),
+        "source_matches": len(source_matches),
+        "source_items": len(source_items),
+        "sufinama_text_items": len(sufinama_text_items),
+        "sufinama_text_matches": len(sufinama_text_matches),
+        "gurmukhi_source_items": len(gurmukhi_source_items),
+        "biographical_claims": len(biographical_claims),
+        "sufinama_inventory_categories": len(sufinama_inventory),
         "validation_errors": sum(1 for issue in issues if issue.level == "error"),
         "validation_warnings": sum(1 for issue in issues if issue.level == "warning"),
     }
@@ -55,6 +77,13 @@ def format_project_status(status: dict[str, Any]) -> str:
         f"Themes: {status['themes']}",
         f"Human reviews: {status['reviews']}",
         f"Model outputs awaiting review or archive: {status['model_outputs']}",
+        f"Source-manifest matches awaiting review: {status['source_matches']}",
+        f"Sufinama catalog source items: {status['source_items']}",
+        f"Sufinama non-kaafi text source items: {status['sufinama_text_items']}",
+        f"Sufinama non-kaafi matches awaiting review: {status['sufinama_text_matches']}",
+        f"PunjabLibrary Gurmukhi source items: {status['gurmukhi_source_items']}",
+        f"Sourced biographical claims: {status['biographical_claims']}",
+        f"Sufinama Bulleh Shah inventory categories: {status['sufinama_inventory_categories']}",
         "",
         f"Validation errors: {status['validation_errors']}",
         f"Validation warnings: {status['validation_warnings']}",

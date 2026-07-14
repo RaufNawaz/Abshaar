@@ -1,0 +1,1 @@
+- [Mac migration for Abshaar](project_mac_migration.md) — repo now supports macOS alongside Windows; cxh scripts stay Windows-only on purpose

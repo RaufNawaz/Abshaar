@@ -1,0 +1,37 @@
+{
+  "source": "Sufinama Bulleh Shah kaafi",
+  "started_or_completed_at": "2026-07-12T17:28:39.877041+00:00",
+  "parser_version": "sufinama_v1",
+  "catalog_items": 76,
+  "records_requested": 76,
+  "records_written": 76,
+  "view_errors": 0,
+  "view_unavailable": 7,
+  "offline_rebuild": true,
+  "audit": {
+    "records": 76,
+    "unique_ids": 76,
+    "duplicate_ids": [],
+    "availability_counts": {
+      "ok": 145,
+      "unavailable": 7
+    },
+    "layer_record_counts": {
+      "roman_plain": 72,
+      "roman_diacritic": 72,
+      "urdu": 73,
+      "devanagari": 3,
+      "other": 0
+    },
+    "raw_snapshots_recorded": 152,
+    "distinct_raw_sha256": 149,
+    "records_with_mapping_ids": 76,
+    "roman_urdu_pair_records": 72,
+    "roman_urdu_line_id_matches": 72,
+    "roman_urdu_mapping_id_matches": 72
+  },
+  "output_path": "data/processed/private/sufinama_bulleh_shah_kaafi.jsonl",
+  "catalog_output_path": "data/context/sufinama_source_items.jsonl",
+  "match_output_path": "data/context/source_matches.jsonl",
+  "cache_dir": "data/raw/private/sufinama"
+}

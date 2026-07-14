@@ -46,6 +46,8 @@ Start with a simple pipeline, then improve each piece:
 
 ## Start Here
 
+- [One-Stop Project Guide](START_HERE.md)
+- [Current Handoff / Project State](OFFLOADING.md)
 - [Project Roadmap](docs/01_project_roadmap.md)
 - [Model Strategy](docs/02_model_strategy.md)
 - [Data and Annotation Guide](docs/03_data_and_annotation_guide.md)
@@ -57,6 +59,9 @@ Start with a simple pipeline, then improve each piece:
 - [Automation Infrastructure](docs/09_automation_infrastructure.md)
 - [Plain-English Automation Guide](docs/10_plain_english_automation_guide.md)
 - [Codex Handoff Automation](docs/11_codex_handoff_automation.md)
+- [Sufinama Source Ingestion](docs/12_sufinama_source_ingestion.md)
+- [PunjabLibrary Gurmukhi PDF Ingestion](docs/13_gurmukhi_pdf_ingestion.md)
+- [Bulleh Shah Research and Sufinama Inventory](docs/14_bulleh_shah_research_and_sufinama_inventory.md)
 - [Contributing](CONTRIBUTING.md)
 - [Content License](CONTENT_LICENSE.md)
 - [Data Folder](data/README.md)
@@ -64,18 +69,55 @@ Start with a simple pipeline, then improve each piece:
 
 ## Important Principle
 
-Do not scrape modern translations, annotations, audio, or metadata into the
-training set unless their license allows it or permission is granted. Sites such
-as Ajab Shahar are excellent design and editorial references, but their work must
-be credited and treated as copyrighted unless stated otherwise.
+Record the source, authorization scope, and provenance of every acquired
+collection. Private collaboration-authorized research and training may proceed
+within the granted scope; public release and redistribution are separate
+decisions. Never erase source boundaries when combining editions or witnesses.
 
 ## Current Project Stage
 
-This repository currently contains the planning and technical blueprint. The
-recommended first corpus target is Bulleh Shah, using the starter templates in
-`data/templates/`. The next implementation milestone is a small corpus MVP:
-20-50 works, one reviewed translation workflow, one static website prototype, and
-one local RAG question-answering prototype.
+The repository is now in the **corpus-complete, editorial-review stage for its
+first source collection**. The live working tree contains 72 Bulleh Shah poem
+entries: one Sufinama pilot plus all 71 poems from Taufiq Rafat's 1982 selection.
+The Rafat entries include visually transcribed Shahmukhi originals,
+`project-latin-v1` transliterations, a gated copyrighted reference translation,
+and Claude-drafted English. None are public or training-cleared. Human literary
+translations, tashreeh, glossary links, themes, formal reviews, and source-text
+verification remain unfinished. See `OFFLOADING.md` and
+`Bulleh Shah/CORPUS_BUILD_LOG.md` for the exact current state and risks.
+
+The authorized Sufinama acquisition now contains two source-separated layers:
+76 UUID-paired kaafi witnesses and 48 non-kaafi category witnesses (3 kalaam,
+23 dohas, 7 shabads, 12 dohras, athvara, barahmasa, and holi). Both collectors
+preserve returned script layers, stable content/line/token IDs, raw checksums,
+source-unavailable language views, and review-only crosswalks. Reprocessing can
+run entirely offline from the saved cache.
+
+A third, source-separated witness catalog now covers all 160 numbered kafis in a
+local 149-page PunjabLibrary Gurmukhi PDF. The full embedded-text extraction is
+kept private and review-required because the text layer visibly corrupts some
+Gurmukhi characters and the 2017 digital edition's rights are unknown. Rendered
+PDF pages remain authoritative.
+
+The first sourced biography/context pass adds 11 claim-level notes, 6 cautious
+timeline events, and a 13-category inventory of Bulleh Shah material on
+Sufinama. The 48 listed kalaam/doha/shabad/dohra/athvara/barahmasa/holi records
+are now acquired as separate category witnesses. Quotes, e-book, video, and
+blog/profile material remain metadata/research targets. Categories overlap and
+are not unique-work totals.
+
+The immediate milestone is to turn a deliberately selected 5-poem subset into a
+fully reviewed vertical slice, then scale that editorial workflow toward a
+20-poem gold corpus. The website and RAG prototypes should follow reviewed,
+rights-safe data rather than precede it.
+
+## Shared AI Workflow
+
+Codex and Claude may both work in this repository. Each assistant must read
+`AGENTS.md` and `OFFLOADING.md`, preserve existing working-tree changes, update
+all affected documentation after substantive work, and record verification and
+next steps in `OFFLOADING.md`. Claude-specific startup instructions are mirrored
+in `CLAUDE.md`.
 
 ## Automation
 
@@ -87,12 +129,15 @@ Use the local automation CLI. On Windows, through PowerShell:
 .\scripts\abshaar.ps1 new-entry --title "First line here"
 .\scripts\abshaar.ps1 build-data
 .\scripts\abshaar.ps1 export-site
+.\scripts\abshaar.ps1 acquire-sufinama --discover-only
+.\scripts\abshaar.ps1 acquire-sufinama-texts --offline --transport curl
+.\scripts\abshaar.ps1 extract-gurmukhi-pdf --input "Bulleh Shah\Kafian - Baba Bulleh Shah (Baba Bulle Shah) (z-library.sk, 1lib.sk, z-lib.sk).pdf"
 ```
 
 If PowerShell blocks local scripts, use
 `powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 validate`.
-For a full local check, use
-`powershell -ExecutionPolicy Bypass -File .\scripts\build_all.ps1`.
+The `build_all` wrapper now preserves unfinished entries by passing
+`--include-placeholders` during the rebuild.
 
 On macOS/Linux, use the matching shell script (same arguments):
 
@@ -102,9 +147,12 @@ On macOS/Linux, use the matching shell script (same arguments):
 ./scripts/abshaar.sh new-entry --title "First line here"
 ./scripts/abshaar.sh build-data
 ./scripts/abshaar.sh export-site
+./scripts/abshaar.sh acquire-sufinama --discover-only
+./scripts/abshaar.sh acquire-sufinama-texts --offline --transport curl
+./scripts/abshaar.sh extract-gurmukhi-pdf --input "Bulleh Shah/Kafian - Baba Bulleh Shah (Baba Bulle Shah) (z-library.sk, 1lib.sk, z-lib.sk).pdf"
 ```
 
-If `permission denied`, run `chmod +x scripts/*.sh` once. For a full local
+If `permission denied`, run `chmod +x scripts/*.sh` once. For a complete local
 check, use `./scripts/build_all.sh`.
 
 See [Automation Infrastructure](docs/09_automation_infrastructure.md) for the

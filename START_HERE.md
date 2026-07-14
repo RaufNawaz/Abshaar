@@ -5,7 +5,7 @@
 > what to learn, and how to do the editorial work** — without needing to dig
 > through the other docs first.
 >
-> Last updated: **2026-07-04**
+> Last updated: **2026-07-12**
 > If you only read one file in this repo, read this one.
 
 ---
@@ -34,6 +34,10 @@ Two house rules carried over from `AGENTS.md`:
 2. **After any substantive work, update `OFFLOADING.md`.** That file is the
    "save game" that lets you (or any AI assistant) resume without re-explaining
    everything.
+3. **Codex and Claude share the live working tree.** Before editing, read
+   `OFFLOADING.md`, inspect `git status` and the target-file diff, and preserve
+   pre-existing changes. After running anything that changes project state,
+   update the affected canonical docs and the handoff before stopping.
 
 ---
 
@@ -46,10 +50,10 @@ Braj/Bhakti, Sufi). It is **not** a one-click translator.
 The single most important idea:
 
 > A poem is a layered cultural object, not ordinary text. Abshaar keeps the
-> layers **separate and visible**: original script → transliteration → literal
-> gloss → literary translation → *tashreeh* (explanation) → glossary → poet
-> context → sources. The reader always sees what is fact and what is
-> interpretation.
+> layers **separate and visible**: original script → transliteration → private
+> reference (when legally allowed) → AI draft → human literal gloss → human
+> literary translation → *tashreeh* (explanation) → glossary → poet context
+> → sources. The reader always sees what is fact, draft, and interpretation.
 
 The second most important idea:
 
@@ -57,81 +61,115 @@ The second most important idea:
 > source-grounding, and the human review are worth as much as any model. A great
 > model on a weak dataset still sounds shallow. So: **archive first, AI second.**
 
-The first concrete target is a **Bulleh Shah Explorer**: ~10–20 carefully
-reviewed works with original text, transliteration, translation layers, glossary,
-tashreeh, and source-grounded Q&A.
+The first concrete target is a **Bulleh Shah Explorer**: select ~10–20 works from
+the 72-entry working corpus and turn them into carefully verified, rights-safe,
+human-reviewed entries with original text, transliteration, translation layers,
+glossary, tashreeh, and source-grounded Q&A.
 
 ---
 
 ## Part 2 — Where things stand & your next moves
 
-### 2.1 Current state (verified 2026-06-27)
+### 2.1 Current state (verified 2026-07-12)
 
-The **infrastructure is built; the corpus is empty.** Running `status` reports:
+The **infrastructure and first source corpus are built; editorial review is now
+the bottleneck.** Running `./scripts/abshaar.sh status` on macOS reports:
 
 | Thing | Count |
 |---|---|
-| Working Markdown entries | 0 |
-| Processed poem records | 0 |
+| Working Markdown entries | 72 |
+| Processed poem records | 72 |
 | Poems marked public | 0 |
 | Glossary terms | 0 |
-| Sources | 0 |
-| People / events / themes | 0 / 0 / 0 |
+| Sources | 7 |
+| People / events / themes | 1 / 6 / 0 |
 | Human reviews | 0 |
 | Model outputs | 0 |
-| Validation errors / warnings | 0 / 0 |
+| Sufinama catalog items | 76 paired Roman/Urdu records |
+| Sufinama non-kaafi text items | 48 category witnesses |
+| PunjabLibrary Gurmukhi catalog items | 160 numbered records |
+| Sourced biographical claims | 11 |
+| Sufinama content categories inventoried | 13 |
+| Source-manifest matches awaiting review | 76 kaafi + 48 non-kaafi candidate records |
+| Validation errors / warnings | 0 / 144 |
 
-What *exists* and works: the Python CLI (`abshaar`), the Markdown→JSONL pipeline,
-validation, website export, prompt-pack builder, optional Ollama drafting,
-passing tests, and full planning docs. What's *missing* is **content** — not code.
+Corpus composition:
 
-> Reality check: validation passes because there is nothing to check yet. That is
-> not "done"; it's "empty." Your job from here is editorial, not engineering.
+- `bulleh_shah_0001`: Sufinama pilot, original + transliteration; interpretation
+  is unfinished and it does not yet have the newer `# AI Translation` section.
+- `bulleh_shah_0002` through `_0072`: all 71 poems from Taufiq Rafat's
+  *Bulleh Shah: A Selection*; Shahmukhi was visually transcribed from calligraphic
+  pages, transliterations and Claude translations were drafted, and Rafat's
+  copyrighted English is retained only as gated private reference material.
+- All 72 entries remain `draft`, non-public, and barred from model training.
+- The 144 warnings are intentional duplicate placeholder warnings: once for each
+  unfinished Markdown entry and once for each generated JSONL record.
+
+The Python CLI, Markdown→JSONL parser, validation, website export, prompt-pack
+builder, Sufinama acquisition/matching pipeline, Gurmukhi PDF importer, and
+optional Ollama integration exist. Nineteen unit tests pass. Structural
+validation cannot verify Shahmukhi accuracy, translation quality, copyright
+permission, or interpretive soundness.
+
+The `build_all` wrappers were fixed on 2026-07-12 and now preserve all 72 draft
+records by passing `--include-placeholders`.
+
+The first internet-research pass now documents 11 claim-level biographical
+statements and 6 cautious timeline events. It also inventories 13 Sufinama
+content categories. The central caution is that both the biography and corpus
+are partly reconstructed from later sources and performance transmission;
+Sufinama's category counts overlap and are not unique-work totals.
 
 ### 2.2 Open decisions that block real progress
 
-You can't enter poems well until you lock these down. Decide them once, write them
-down (a short note in `docs/` or in source records), and stop re-deciding:
-
-- [ ] **First source edition.** Which *specific* public-domain or
-      permission-cleared Bulleh Shah source will you transcribe from? (Edition,
-      editor, year, URL/citation.) See [Part 5.2](#52-sourcing--copyright-the-rule-that-protects-the-project).
-- [ ] **Transliteration standard (`project-latin-v1`).** A short, consistent
-      Latin scheme. Don't try to be scholarly on day one. See [Part 5.3](#53-the-transliteration-standard-project-latin-v1).
-- [ ] **Licenses.** Recommended default: **MIT or Apache-2.0** for code;
-      **mark public-domain source text as such**; **CC BY-SA 4.0** for *your*
-      translations and tashreeh.
-- [ ] **Review rubric.** The 1–5 scale you'll score translations against (a
-      starter rubric is in [Part 5.5](#55-the-review-rubric-your-quality-bar)).
+- [x] **Private repository and build safety.** Rauf confirmed the repository is
+      private. Both full-build wrappers now preserve unfinished entries.
+- [x] **Complete Sufinama acquisition.** The corpus now has 76 normalized
+      witnesses, 152 cached raw snapshots, zero fetch/parse errors, seven
+      source-unavailable requested views, and a regenerated full-text crosswalk.
+- [x] **Acquire non-kaafi Sufinama texts.** The corpus now also has 48
+      source-category witnesses with zero fetch/parse errors, 41 honest
+      source-unavailable language views, and a separate review-only crosswalk.
+- [ ] **Pilot selection.** Choose 5 poems representing short/long forms, easier
+      and harder transcriptions, and core themes. Do not try to review all 72 at
+      once.
+- [ ] **Source verification edition.** Select a public-domain or
+      permission-cleared Kulliyat/edition against which to verify the visually
+      transcribed Shahmukhi, especially files containing explicit
+      high-uncertainty readings.
+- [ ] **Translation-field semantics.** The current `literal_gloss` JSON field
+      stores Rafat's literary reference translation for entries 0002–0072, not a
+      true literal gloss. Decide and migrate to an unambiguous schema before
+      creating review or training data.
+- [ ] **Transliteration and review standards.** Formalize `project-latin-v1` and
+      the 1–5 review rubric before scaling human review.
 
 ### 2.3 Your next 5 moves (do these in order)
 
-This is the immediate path. Each move is small and verifiable. Commands are
-shown in PowerShell; on macOS/Linux use `./scripts/abshaar.sh` in place of
-`.\scripts\abshaar.ps1` (see [4.1](#41-one-time-setup-only-if-not-already-done)).
-
-1. **Pick the first source** and record it. Create
-   `data/context/sources.jsonl` with one entry (use
-   `data/templates/sources.template.jsonl` as the shape). Verify: the file exists
-   and `validate` still passes.
-2. **Create your first poem entry:**
-   ```powershell
-   .\scripts\abshaar.ps1 new-entry --title "Ranjha Ranjha kardi"
+1. **Review the generated source crosswalk** for exact matches, variants,
+   excerpts, duplicates, and Sufinama-only works. Never overwrite a witness.
+2. **Add canonical-work clusters.** Assign a stable `canonical_work_id` only
+   after reviewing the witness relationships; split training/evaluation data by
+   cluster so variants cannot leak across partitions.
+3. **Choose a 5-poem vertical slice.** Record the selected IDs and why each was
+   chosen in `OFFLOADING.md` or a dedicated editorial plan. Include at least one
+   short poem, one long poem, one core Bulleh Shah theme, and one uncertain text.
+   A balanced starting proposal is 0002, 0029, 0031, 0035, and 0038; confirm it
+   before editing because it has not yet been approved by Rauf.
+4. **Freeze the editorial contract.** Write the `project-latin-v1` rules, define
+   the three translation fields precisely, and turn the review rubric into a
+   reusable checklist/record format.
+5. **Verify and fully annotate poem 1 of the slice.** Cross-check Shahmukhi
+   against an approved edition; correct transliteration; write Rauf's literal
+   gloss, literary translation, tashreeh, key terms, themes, and review record.
+After each source or poem batch, rebuild and validate:
+   ```bash
+   ./scripts/abshaar.sh build-data --include-placeholders
+   ./scripts/abshaar.sh validate
+   PYTHONPATH=src python3 -m unittest discover -s tests -v
    ```
-   This makes `data/working/bulleh_shah_0001.md`. Verify: the file appears.
-3. **Fill the entry** completely — original, script notes, transliteration,
-   literal gloss, literary translation, tashreeh, key terms, themes, source notes,
-   review notes. (See [Part 5.4](#54-how-to-fill-a-poem-entry-field-by-field).)
-   Save as **UTF-8**.
-4. **Build and validate:**
-   ```powershell
-   .\scripts\abshaar.ps1 build-data
-   .\scripts\abshaar.ps1 validate
-   ```
-   Verify: 1 processed poem, 0 errors. Warnings about placeholders mean the entry
-   isn't finished — keep going until they're gone.
-5. **Repeat to 3 pilot poems**, then review them honestly against the rubric.
-   Once the pattern feels stable, scale toward the first gold set (below).
+   Then update every affected guide/template plus `OFFLOADING.md` and repeat the
+   review workflow for the remaining four pilot poems.
 
 ### 2.4 The milestone ladder
 
@@ -139,7 +177,8 @@ You always know what "stage" you're in by which rung is true:
 
 | Rung | Definition of done | You're here when… |
 |---|---|---|
-| **Pilot** | 1–3 fully filled, validated poems | *(next up)* |
+| **Transcription corpus** | 72 structurally valid draft entries | **complete** |
+| **Reviewed vertical slice** | 5 verified, fully annotated poems + review records | *(next up)* |
 | **Gold corpus MVP** | 20 works + 20 glossary terms + 10 events + 10 themes + 10 source notes + 50 grounded Q&A pairs | corpus is real and reviewable |
 | **AI pipeline** | baselines compared; RAG answers cite notes | you can ask a question and get a sourced answer |
 | **Website MVP** | Bulleh Shah Explorer with 10–20 polished poems + search + feedback | the project is public |
@@ -278,12 +317,20 @@ are identical.
 | `.\scripts\abshaar.ps1 prompt-pack --poem-id bulleh_shah_0001` | builds the AI prompt bundle for one poem (add `--all` for every poem) | before drafting with AI |
 | `.\scripts\abshaar.ps1 ai-check` | checks if Ollama + AI packages are ready | before any AI step |
 | `.\scripts\abshaar.ps1 draft --poem-id bulleh_shah_0001 --model qwen3:8b` | sends the prompt pack to local Ollama, saves a draft marked `needs_review` | to get an AI first draft |
+| `.\scripts\abshaar.ps1 acquire-sufinama --discover-only` | discovers and UUID-pairs the 76 Roman/Urdu Sufinama catalog items | before a source acquisition |
+| `.\scripts\abshaar.ps1 acquire-sufinama --transport curl` | caches and normalizes authorized Sufinama Urdu plus two Roman layers, then builds a crosswalk | to refresh the Sufinama witness corpus |
+| `.\scripts\abshaar.ps1 acquire-sufinama --offline --transport curl` | rebuilds normalized witnesses, audit statistics, and matching outputs from the saved catalog/cache | after parser or matcher changes; no site requests |
+| `.\scripts\abshaar.ps1 acquire-sufinama-texts --discover-only --transport curl` | discovers the 48 kalaam/doha/shabad/dohra/athvara/barahmasa/holi category records | before refreshing the non-kaafi source layer |
+| `.\scripts\abshaar.ps1 acquire-sufinama-texts --offline --transport curl` | rebuilds the 48 non-kaafi witnesses and their separate crosswalk from cache | after parser or matcher changes; no site requests |
+| `.\scripts\abshaar.ps1 match-source-manifest --manifest <path>` | matches any local source manifest to the 72 working entries without overwriting them | after importing another source collection |
+| `.\scripts\abshaar.ps1 extract-gurmukhi-pdf --input <pdf>` | extracts consecutively numbered Gurmukhi works into a private witness plus reviewable catalog | after receiving a local Gurmukhi source PDF |
 
 Useful flags:
 
 - `new-entry --id bulleh_shah_0020` — set the ID manually instead of auto.
 - `new-entry --poet-id shah_hussain` — start a different poet.
-- `build-data --include-placeholders` — include unfinished entries (normally skipped).
+- `build-data --include-placeholders` — include unfinished entries. This flag is
+  currently required to preserve the 72-entry draft corpus.
 - `prompt-pack --all` — build packs for every processed poem.
 
 ### 4.3 The two loops you'll actually run
@@ -295,11 +342,12 @@ Useful flags:
 .\scripts\abshaar.ps1 status          # where am I?
 .\scripts\abshaar.ps1 new-entry --title "..."   # if starting a poem
 # ...edit the Markdown file in data/working/...
-.\scripts\abshaar.ps1 build-data
+.\scripts\abshaar.ps1 build-data --include-placeholders
 .\scripts\abshaar.ps1 validate        # fix every error; clear placeholder warnings
 ```
 
-**Full local build** (run before committing a batch of edits):
+**Full local build:** both wrappers preserve placeholder-bearing drafts by
+calling `build-data --include-placeholders`.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\build_all.ps1
@@ -337,7 +385,7 @@ read correctly, or whether a source is trustworthy. **That is your job.** Think 
 
 ```powershell
 git status            # what changed
-git add .             # stage changes
+git add <exact-files> # stage only intended files; avoid broad staging
 git commit -m "Add first Bulleh Shah pilot entry"
 git push              # send to GitHub
 ```
@@ -352,7 +400,7 @@ future self about *why* something changed.
 This is the part the ML roadmap mostly assumes you already know. **It is the real
 bottleneck of the project.** Great ML cannot rescue a thin or unsafe corpus.
 
-### 5.1 The five layers you produce for every poem
+### 5.1 The layers you produce for every poem
 
 Keep these strictly separate. Never let one silently replace another.
 
@@ -360,8 +408,10 @@ Keep these strictly separate. Never let one silently replace another.
 |---|---|---|
 | **Original** | the poem in its source script (Shahmukhi, Gurmukhi, etc.) — the authority | replacing it with transliteration |
 | **Transliteration** | a Latin reading aid for people who can't read the script | treating it as "the text" |
-| **Literal gloss** | plain, close English meaning, line by line | smuggling in interpretation |
-| **Literary translation** | readable English that keeps poetic force | flattening the imagery |
+| **Reference translation** | a cited comparison text, kept private when copyrighted | mistaking a literary rendering for a literal gloss or publishing it without permission |
+| **AI translation** | a clearly labeled model draft for human review | treating model output as approved scholarship |
+| **Literal gloss** | Rauf's plain, close English meaning, line by line | smuggling in interpretation |
+| **Literary translation** | Rauf's readable English that keeps poetic force | flattening the imagery |
 | **Tashreeh** | explanation of metaphor, culture, Sufi meaning, ambiguity | stating one reading as the only truth |
 
 ### 5.2 Sourcing & copyright (the rule that protects the project)
@@ -373,8 +423,11 @@ annotations, recordings, and website metadata often are not.**
 annotations; permission-cleared material; short bibliographic metadata with
 attribution; source links and citations.
 
-**Do not:** copy modern translations into the data without permission; scrape
-whole websites; upload copyrighted scans; mix private notes into public files.
+**Do not:** acquire or redistribute a collection outside its authorization
+scope; mix private notes into public files; or erase which source supplied which
+text. Rauf has stated that the current Sufinama bulk acquisition is an authorized
+collaborative research task, so it may proceed as a private, attributed source
+witness dataset. Public release remains a separate decision.
 
 > Ajab Shahar and similar sites are excellent **design/editorial references**, but
 > their work is copyrighted unless stated otherwise. Learn from the structure;
@@ -413,8 +466,13 @@ speaker.
 - **# Script Notes** — `Script:` (e.g. Shahmukhi), `Language spans:` (e.g.
   Punjabi/Persian), plus any notes on mixed language.
 - **# Transliteration** — Latin, line by line, matching the original's lines.
-- **# Literal Gloss** — plain meaning, line by line. Resist interpreting.
-- **# Literary Translation** — the readable English poem/prose.
+- **# Literal Translation** — currently the cited reference translation slot.
+  For the Rafat corpus it contains copyrighted private-reference text and maps to
+  `literal_gloss` in JSON; this semantic mismatch must be resolved before review
+  or public export.
+- **# AI Translation** — a clearly labeled model draft; record model and review
+  status, and never treat it as final.
+- **# Literary Translation** — Rauf's own readable English poem/prose rendering.
 - **# Tashreeh** — explain the metaphor *after* showing it; mark alternate
   readings and uncertainty; keep religious vocabulary precise (don't blur Ram,
   Allah, haq, guru, murshid, naam, ishq into "generic spirituality").

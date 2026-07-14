@@ -23,13 +23,17 @@ review_status: "draft"
 
 [Type Latin transliteration here, line by line.]
 
-# Literal Gloss
+# Literal Translation
 
-[Plain English gloss, line by line.]
+[Reference translation, e.g. a published translator's rendering, with citation. Leave as a citation/note; do not reproduce copyrighted text into public data.]
+
+# AI Translation
+
+[AI-drafted English translation, for human review.]
 
 # Literary Translation
 
-[Readable English translation.]
+[Your own literary translation.]
 
 # Tashreeh
 

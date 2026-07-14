@@ -1,0 +1,128 @@
+---
+id: bulleh_shah_0014
+poet_id: bulleh_shah
+title: "Ulṭe hor zamaane aae (A Topsy-turvy World)"
+work_type: "kafi"
+source_ids:
+  - source_rafat_selection
+rights_status: "verify_before_publication"
+review_status: "draft"
+---
+
+# Original
+
+اُلٹے ہور زمانے آئے
+
+اُلٹے ہور زمانے آئے، تاں میں بیت بجن دے پائے
+
+کاں لگڑاں نوں مارن لگّے، چڑیاں بُرجے ڈھائے
+گھوڑے چُگّن اروڑیاں، تے گدوں خرید پوائے
+
+اپنیاں وچ اُلفت ناہیں، کیا چاچے، کیا تائے
+پیو پُتراں اِتفاق نہ کائی، دِھیّاں نال نہ مائے
+
+سچّیاں نوں پئے مِلدے دھکّے، جھوٹّے کول بہائے
+اگلے ہو کنگالے بیٹھے، پچھلیاں فرش وِچھائے
+
+بھوریاں والے راجے کیتے، راجیاں بھیک منگائے
+بُلھیا! حکم حضوروں آیا، تِس توں کون ہٹائے
+
+اُلٹے ہور زمانے آئے، تاں میں بیت بجن دے پائے
+
+# Script Notes
+
+- Script: Shahmukhi (Perso-Arabic)
+- Language spans: Punjabi
+- Notes: Vision transcription of Rafat poem 13, read from the calligraphic Nastaliq facing page (book p.64). Needs native/scholarly verification; several nouns in the first two couplets are hard calligraphy and are flagged in Review Notes.
+
+# Transliteration
+
+Ulṭe hor zamaane aae
+
+Ulṭe hor zamaane aae, taan main bait bajan de paae
+
+Kaan lagṛaan nu maaran lagge, chiṛiyaan burje ḍhaae
+Ghoṛe chuggan aroṛiyaan, te gaddon khareed puaae
+
+Apniyaan vich ulfat naaheen, kya chaache, kya taae
+Peo putraan ittifaaq na kaaee, dhiyyaan naal na maae
+
+Sachiyaan nu pae milde dhakke, jhuṭṭe kol bahaae
+Agle ho kangaale baiṭhe, pichhliyaan farsh vichhaae
+
+Bhoriyaan waale raaje keete, raajiyaan bheek mangaae
+Bulhiya! hukam hazooron aaya, tis toon kaun haṭaae
+
+Ulṭe hor zamaane aae, taan main bait bajan de paae
+
+# Literal Translation
+
+In a topsy-turvy world I saw the truth unroll
+
+Crows peck at scarecrows, pigeons fell the hawk,
+and asses have assumed the horse's role.
+
+Nor aunt nor uncle now receives respect;
+children shun the path where parents stroll.
+
+The old on bare boards sit while newness struts,
+liars have mansions, truth has the begging-bowl.
+
+It was so ordained, Bulleh, accept the fact,
+on carpets graced by lords the lackeys loll.
+
+In a topsy-turvy world I saw the truth unroll.
+
+_Reference translation by Taufiq Rafat, "Bulleh Shah: A Selection" (Vanguard, 1982), p.65. COPYRIGHTED — private reference only; do NOT publish or use for training. Rafat compresses the animal-reversal imagery and re-orders couplets freely._
+
+# AI Translation
+
+Topsy-turvy times have come — so I have set my verse to the beat.
+
+Crows have fallen to striking the eagles, and sparrows have toppled the towers;
+horses are left to peck at gravel, while donkeys are bought at a price.
+
+Among one's own there is no affection — what of uncles now, what of aunts;
+no concord of father with sons, nor of mothers with their daughters.
+
+The truthful meet with nothing but shoves, the liar is seated in the place of honour;
+those once foremost sit destitute, while the hindmost spread out their carpets.
+
+Men of the hovels are crowned as kings, and kings are sent out to beg.
+Bulleh, the command has come from the Presence — who is there to turn it aside?
+
+Topsy-turvy times have come — so I have set my verse to the beat.
+
+_AI-drafted (Claude) from the Urdu original; needs review._
+
+# Literary Translation
+
+[TO DO (rauf): your own literary translation.]
+
+# Tashreeh
+
+[TO DO (rauf): the world-turned-upside-down (adynaton) trope — reversal of natural and social order (birds, beasts, kin, truth/lie, rich/poor) read as divine decree; Bulleh's acceptance ("hukam hazooron aaya").]
+
+# Key Terms
+
+- [TO DO (rauf): e.g. ulṭe zamaane (inverted times), chaache/taae (paternal uncles/aunts), hukam hazooron (command from the divine Presence); add do_not_flatten_to notes]
+
+# Themes
+
+- [TO DO (rauf): e.g. social_inversion, decay_of_kinship, divine_decree, injustice]
+
+# Source Notes
+
+- Source ID: source_rafat_selection
+- Source title: Bulleh Shah: A Selection, Rendered into English Verse (Taufiq Rafat, 1982)
+- URL or bibliographic reference: Vanguard Books, Lahore, 1982 — Rafat poem 13 "A Topsy-turvy World", English book p.65 / Urdu original p.64
+- Rights status: Original Punjabi verse public domain; Rafat's English translation copyrighted (private reference only)
+- Can this be published? no
+- Can this be used for model training? no
+
+# Review Notes
+
+- Questions: Verify the Nastaliq transcription line by line against a print Kulliyat.
+- Uncertainties: refrain second half تاں میں بیت بجن دے پائے (reading of بیت بجن); stanza 1 nouns لگڑاں (birds of prey), بُرجے, اروڑیاں / گدوں خرید پوائے; stanza 3 جھوٹّے کول بہائے; stanza 4 بھوریاں (hovels/rags). All flagged for rauf.
+- Reviewer: (pending - rauf)
+- Date: 2026-07-06 (Urdu transcription + transliteration + AI translation by assistant; Rafat English as reference; literary translation + interpretation pending)

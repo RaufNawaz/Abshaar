@@ -7,12 +7,19 @@ Recommended workflow:
 
 1. Type or paste the original poem into a Markdown entry file.
 2. Add transliteration in Latin script.
-3. Add literal gloss.
-4. Add literary translation.
-5. Add tashreeh.
-6. Add glossary terms and source notes.
-7. Review the entry.
-8. Convert the reviewed entry into JSONL later.
+3. Add any reference translation as a cited, rights-gated comparison.
+4. Add a clearly labeled AI draft when useful.
+5. Add the project's own literal gloss and literary translation.
+6. Add tashreeh.
+7. Add glossary terms and source notes.
+8. Review the entry.
+9. Convert the reviewed entry into JSONL later.
+
+Current compatibility note (2026-07-12): the Rafat files use
+`# Literal Translation` as a legacy private-reference slot, and the parser maps
+it to `literal_gloss`. Do not copy that semantic mismatch into new reviewed data.
+The project must settle and implement a dedicated reference field before the
+manual template below can represent every layer cleanly.
 
 ## Which Scripts Go Where
 
@@ -23,6 +30,8 @@ transliteration.
 | --- | --- |
 | `original_text` | The poem in its source script, such as Shahmukhi, Gurmukhi, Perso-Arabic, Devanagari, or another source script. |
 | `transliteration` | Latin-script pronunciation guide typed by you. |
+| `reference_translation` | Optional cited comparison text; keep private when copyrighted. |
+| `ai_translation` | Clearly labeled model draft with provenance and review status. |
 | `literal_gloss` | Plain English meaning, close to the original. |
 | `literary_translation` | Readable English translation. |
 | `tashreeh` | Explanation of meaning, metaphor, cultural context, and alternate readings. |
@@ -146,6 +155,10 @@ review_status: "draft"
 
 [Plain English gloss, line by line.]
 
+# AI Translation
+
+[Optional model draft, labeled with model and review status.]
+
 # Literary Translation
 
 [Readable English translation.]
@@ -218,6 +231,7 @@ The JSONL record should preserve:
 - transliteration;
 - line segmentation;
 - literal gloss;
+- AI draft plus model provenance;
 - literary translation;
 - tashreeh;
 - source notes;

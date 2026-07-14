@@ -15,6 +15,9 @@ authors = [
 dependencies = []
 
 [project.optional-dependencies]
+pdf = [
+  "pypdf>=5.0.0"
+]
 ai = [
   "ollama>=0.3.0",
   "sentence-transformers>=3.0.0",

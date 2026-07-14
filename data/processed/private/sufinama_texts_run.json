@@ -1,0 +1,43 @@
+{
+  "source": "Sufinama Bulleh Shah non-kaafi textual categories",
+  "started_or_completed_at": "2026-07-14T00:24:15.490535+00:00",
+  "parser_version": "sufinama_texts_v1",
+  "catalog_items": 48,
+  "records_requested": 48,
+  "records_written": 48,
+  "view_errors": 0,
+  "view_unavailable": 41,
+  "offline_rebuild": true,
+  "audit": {
+    "records": 48,
+    "unique_ids": 48,
+    "duplicate_ids": [],
+    "category_record_counts": {
+      "kalaam": 3,
+      "doha": 23,
+      "shabad": 7,
+      "dohra": 12,
+      "athvara": 1,
+      "barahmasa": 1,
+      "holi": 1
+    },
+    "availability_counts": {
+      "ok": 103,
+      "unavailable": 41
+    },
+    "layer_record_counts": {
+      "roman_plain": 7,
+      "roman_diacritic": 7,
+      "urdu": 8,
+      "devanagari": 47,
+      "other": 0
+    },
+    "raw_snapshot_files": 78,
+    "distinct_raw_sha256": 56,
+    "records_with_mapping_ids": 48
+  },
+  "output_path": "data/processed/private/sufinama_bulleh_shah_other_texts.jsonl",
+  "catalog_output_path": "data/context/sufinama_text_source_items.jsonl",
+  "match_output_path": "data/context/sufinama_text_source_matches.jsonl",
+  "cache_dir": "data/raw/private/sufinama"
+}

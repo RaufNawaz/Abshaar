@@ -199,7 +199,24 @@ data/annotations/model_outputs.jsonl
 
 The model output is marked `needs_review`. It is not automatically published.
 
+### `extract-gurmukhi-pdf`
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\abshaar.ps1 extract-gurmukhi-pdf --input "Bulleh Shah\Kafian - Baba Bulleh Shah (Baba Bulle Shah) (z-library.sk, 1lib.sk, z-lib.sk).pdf"
+```
+
+Collects every consecutively numbered work in a local Gurmukhi PDF as a separate
+source witness. It records titles, page spans, source checksums, and extraction
+warnings. It does not change the 72 poem files. For the current PunjabLibrary
+PDF, the full text stays private and every record needs visual review because the
+page image is clear but the PDF's hidden text layer sometimes corrupts letters.
+
+This command needs the optional PDF package: `python3 -m pip install -e '.[pdf]'`.
+
 ### `build_all`
+
+The wrappers now include unfinished entries automatically, so the 72-entry
+processed draft corpus is preserved.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\build_all.ps1

@@ -35,6 +35,10 @@ dooji line
 
 literal gloss
 
+# AI Translation
+
+ai translation
+
 # Literary Translation
 
 literary translation
@@ -70,6 +74,12 @@ class MarkdownEntryTest(unittest.TestCase):
         self.assertEqual(len(record["segmentation"]), 2)
         self.assertIn("term_ishq_bulleh_shah", record["glossary_terms"])
         self.assertIn("theme_divine_love", record["themes"])
+        self.assertEqual(
+            [translation["kind"] for translation in record["translations"]],
+            ["literal_gloss", "ai_translation", "literary_translation"],
+        )
+        self.assertEqual(record["translations"][1]["text"], "ai translation")
+        self.assertEqual(record["translations"][1]["model"], "claude")
         self.assertTrue(record["publication"]["include_on_website"])
 
 

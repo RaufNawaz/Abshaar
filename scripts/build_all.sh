@@ -17,7 +17,7 @@ invoke_abshaar() {
 
 invoke_abshaar init
 invoke_abshaar validate
-invoke_abshaar build-data
+invoke_abshaar build-data --include-placeholders
 invoke_abshaar validate
 invoke_abshaar export-site
 invoke_abshaar status

@@ -12,6 +12,8 @@ SECTION_ALIASES = {
     "script notes": "script_notes",
     "transliteration": "transliteration",
     "literal gloss": "literal_gloss",
+    "literal translation": "literal_gloss",
+    "ai translation": "ai_translation",
     "literary translation": "literary_translation",
     "tashreeh": "tashreeh",
     "key terms": "key_terms",
@@ -138,6 +140,7 @@ def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
     original_text = sections.get("original", "")
     transliteration_text = sections.get("transliteration", "")
     literal_gloss = sections.get("literal_gloss", "")
+    ai_translation = sections.get("ai_translation", "")
     literary_translation = sections.get("literary_translation", "")
     tashreeh = sections.get("tashreeh", "")
 
@@ -202,6 +205,15 @@ def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
                 "text": literal_gloss,
                 "created_by": "human",
                 "model": None,
+                "prompt_version": None,
+                "status": review_status,
+            },
+            {
+                "id": f"trans_{poem_id}_ai",
+                "kind": "ai_translation",
+                "text": ai_translation,
+                "created_by": "ai",
+                "model": "claude",
                 "prompt_version": None,
                 "status": review_status,
             },

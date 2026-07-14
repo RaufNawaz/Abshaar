@@ -27,7 +27,14 @@ models/
 data/cache/
 data/site/
 data/raw/private/
-data/processed/private/
+data/processed/private/*
+!data/processed/private/sufinama_bulleh_shah_kaafi.jsonl
+!data/processed/private/sufinama_run.json
+!data/processed/private/sufinama_bulleh_shah_other_texts.jsonl
+!data/processed/private/sufinama_texts_run.json
+
+# Local source-book scans (bibliographic records may be committed; scans may not)
+Bulleh Shah/*.pdf
 
 # OS / editor
 .DS_Store

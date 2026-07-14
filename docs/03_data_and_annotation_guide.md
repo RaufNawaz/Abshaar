@@ -7,6 +7,9 @@ explain, and improve. A weak dataset will make even a strong model sound shallow
 
 - Store the original text, not only the English.
 - Keep transliteration separate from translation.
+- Keep copyrighted/reference translations separate from project-authored
+  translations and model drafts.
+- Label AI translations with model provenance and review status.
 - Keep literal translation separate from literary translation.
 - Keep tashreeh separate from both.
 - Track source, license, editor, reviewer, and confidence for every entry.
@@ -87,6 +90,13 @@ Each line in `data/processed/poems.jsonl` should be one JSON object:
       "status": "draft"
     },
     {
+      "kind": "ai_translation",
+      "text": "[clearly labeled model draft]",
+      "created_by": "ai",
+      "model": "[model name]",
+      "status": "needs_review"
+    },
+    {
       "kind": "literary_translation",
       "text": "[literary translation]",
       "created_by": "human/model",
@@ -110,6 +120,17 @@ Each line in `data/processed/poems.jsonl` should be one JSON object:
   }
 }
 ```
+
+### Current Translation-Schema Gap
+
+As of 2026-07-12, the working template and parser support three Markdown slots:
+`# Literal Translation`, `# AI Translation`, and `# Literary Translation`.
+However, the parser maps `# Literal Translation` to the JSON kind
+`literal_gloss`, while Rafat entries 0002–0072 use that section for Taufiq
+Rafat's copyrighted literary reference rendering. It is not a literal gloss.
+Resolve this naming/storage mismatch before building formal review, evaluation,
+public export, or training data. Until then, all Rafat records remain private,
+non-public, and training-disabled.
 
 ## Glossary Term Schema
 
@@ -214,3 +235,7 @@ Avoid:
 - scraping entire websites;
 - uploading copyrighted scans;
 - mixing private notes into public JSON files.
+
+For an authorized research collaboration, store the authorization scope and
+allowed uses in the source record, keep acquired material as a distinct witness,
+and separate private training use from public redistribution decisions.
