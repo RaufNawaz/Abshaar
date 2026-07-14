@@ -41,23 +41,57 @@ Saddo ni mainu Dhido Ranjha, Heer na aakho koi
 
 # Literal Gloss
 
-[TO DO (rauf): plain, line-by-line English meaning. Keep it literal — resist interpretation here; that belongs in Tashreeh.]
+Saying "Ranjha, Ranjha," I myself have become Ranjha.
+Call me Dhido-Ranjha; let no one say "Heer."
+Ranjha is in me, I am in Ranjha; no other thought.
+I am not; He Himself is; He does the consoling of His own self.
+Saying "Ranjha, Ranjha," I myself have become Ranjha.
+In my hand a staff, before me a begging-bowl, on my shoulder a coarse blanket;
+Bulleh — see where Heer the wretch has gone and stood.
+Saying "Ranjha, Ranjha," I myself have become Ranjha.
+Call me Dhido-Ranjha; let no one say "Heer."
+
+_AI-drafted (Claude) literal gloss of the Urdu original — for your review; keep provisional pending a scholarly check._
 
 # Literary Translation
 
-[TO DO (rauf): readable English translation that keeps the poetic force.]
+Saying "Ranjha, Ranjha," I have become Ranjha myself.
+Call me Dhido-Ranjha now; let no one call me Heer.
+Ranjha is within me, I within Ranjha — no other thought remains;
+I am not: He alone is, and He consoles His own self.
+Saying "Ranjha, Ranjha," I have become Ranjha myself.
+A staff in my hand, a begging-bowl held out, a rough blanket on my shoulder —
+Bulleh, look where Heer the wretch has gone and taken her stand!
+Saying "Ranjha, Ranjha," I have become Ranjha myself.
+Call me Dhido-Ranjha now; let no one call me Heer.
+
+_AI-drafted (Claude) literary rendering from the Urdu original. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): explain the Heer–Ranjha metaphor, the Sufi reading of fana/identity-with-the-beloved, and mark any alternate readings and uncertainty.]
+This is the Sufinama witness of Bulleh Shah's most famous kafi of fanāʾ (annihilation in the Beloved) — the same poem as the Rafat version at [[bulleh_shah_0029]], here in a differing text and line-order; the two are witnesses of one canonical work and should be clustered as such. The opening is the collection's signature statement of the union of identities: Heer, having cried her beloved Ranjha's name until the invocation consumed the invoker, declares "I have myself become Ranjha" and demands the renaming — "call me Dhido-Ranjha, let no one call me Heer." Constant remembrance (the repetition of the Beloved's name, dhikr) has transformed the lover into the Beloved, and she repudiates her own former name.
+
+The metaphysical core matches the Rafat version and is among the most exact formulations of fanāʾ in the tradition: "Ranjha is within me, I within Ranjha — no other thought remains; I am not (main nahīṅ): He alone is, and He consoles His own self (apnī āp kare diljoī)." The mutual indwelling passes into the negation of the self and then into pure monism — there are not two, lover and Beloved, but one Real that, in loving, loves itself; the duality was provisional and collapses in union. The flat "I am not" is its sharpest expression.
+
+What distinguishes this Sufinama version is its second movement, the jogi-transformation couplet absent from the Rafat text: "a staff (khundī) in my hand, a begging-bowl (mangū) held out, a rough blanket (bhūrā loī) on my shoulder — Bulleh, look where Heer the wretch (salotī) has gone and taken her stand!" In the Heer-Ranjha legend Ranjha becomes a jogi (a wandering yogi-mendicant) for love, and here Heer-become-Ranjha takes on the jogi's insignia — the staff, the begging-bowl, the coarse blanket of the renunciant. The transformation of the lover into the Beloved is completed as a transformation into the wandering ascetic: to become Ranjha is to become a faqir, to trade Heer's bridal identity and social place for the beggar's staff and bowl. The astonished "look where Heer the wretch has ended up" marks the scandal and the glory at once — the highborn Heer reduced to a mendicant, which is exactly the self-abandonment (the renunciation of name, status, and self) that love demands. The poem fuses the vernacular romance, the doctrine of fanāʾ, and the jogi-renunciation into a single figure of the soul annihilated and remade in the Beloved. (Transliteration readings — "mangū," "salotī," "khundī" — are flagged for verification; the text follows the Sufinama page and should be checked against a print Kulliyat.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): recurring terms with poet-specific meaning — e.g. Ranjha, Heer, Dhido, ishq, fana; add a do_not_flatten_to note for each]
+- Ranjha / Heer / Dhido: the lovers of the Punjabi romance — Heer becomes Ranjha (Dhido is Ranjha's given name); the idiom for the lover annihilated in the Beloved; do_not_flatten_to character names.
+- "main nahīṅ, oh āp hai": "I am not; He alone is" — the flat statement of fanāʾ and monist union; do_not_flatten_to a metaphor of devotion.
+- khundī / mangū / bhūrā loī: the jogi's staff, begging-bowl, and coarse blanket — the renunciant's insignia Heer-become-Ranjha takes on; do_not_flatten_to stage-props.
+- jogi (transformation): the wandering yogi-mendicant Ranjha becomes for love — union as renunciation of name, status, and self; do_not_flatten_to a costume change.
+- salotī: "the wretch," Heer's self-epithet in her transformed, reduced state — the glory-in-abasement of love; do_not_flatten_to a simple insult.
 
 # Themes
 
-- [TO DO (rauf): e.g. divine_love, ego_and_annihilation, identity_with_the_beloved]
+- fana_annihilation_in_beloved
+- union_of_identities
+- heer_ranjha_idiom
+- jogi_renunciation
+- wahdat_al_wujud
 
 # Source Notes
 

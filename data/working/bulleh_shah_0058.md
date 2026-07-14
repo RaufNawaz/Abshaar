@@ -43,19 +43,32 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+All the rest is idle chatter — the one true talk is "Allah, Allah."
+Some of the confusion the scholars raised, and some the papers and books stirred up.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+A terse anti-scholastic epigram that reduces all religious discourse to a single valid utterance. "All the rest is idle chatter (galṛiyāṅ) — the one talk (gal) is 'Allah, Allah'": every word that is not the remembrance of God, the dhikr of His name, is mere prattle. The doubled name "Allah, Allah" is itself the practice of dhikr, the repetition the poem holds up as the sole worthwhile speech against the whole babble of theology, jurisprudence, and disputation. This is the positive counterpart of the "one Alif" of 0002 and 0035 and the "one point" of 0013 — religion reduced to a single essential, here the Name.
+
+The second line names the two sources of the "confusion" that has buried this simple truth: "some the scholars (ʿālmāṅ) raised, and some the papers and books (kāghdāṅ) stirred up." The learned and their texts are charged not with error exactly but with rolā and jhal — "clamour" and "frenzy" — the din of scholarship and the proliferation of books that obscure the one thing needful under a mountain of words. It is the same indictment as "Enough of learning" (0035) — ʿilm as obfuscation rather than illumination — compressed into a couplet: the truth is simple ("Allah, Allah"), and the scholars and their paper have complicated it into unintelligibility. (Transcription is low-uncertainty; the word jhal, "frenzy," is confidently legible, though its exact sense is worth confirming.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- galṛiyāṅ / gal: "idle chatter" versus "the one [true] talk" — all discourse but the remembrance of God is prattle; do_not_flatten_to ordinary conversation.
+- "Allah Allah": the doubled Name as dhikr — the sole worthwhile speech; do_not_flatten_to a mere exclamation.
+- ʿālmāṅ / kāghdāṅ: the scholars and their papers/books — the two sources of the confusion that buries the simple truth; do_not_flatten_to neutral learning.
+- rolā / jhal: "clamour" and "frenzy" — the din of scholarship that obscures the one thing needful; do_not_flatten_to mere noise.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- primacy_of_dhikr
+- anti_scholasticism
+- simplicity_of_truth
+- learning_as_obfuscation
 
 # Source Notes
 

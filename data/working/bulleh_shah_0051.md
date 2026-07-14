@@ -77,19 +77,41 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The Lord has become man.
+He is Himself the deer, Himself the leopard, Himself the one who springs to kill;
+Himself the master, Himself the slave, Himself the one sold at a price.
+The Lord has become man.
+What a game the juggler has played — He has made me dance like a puppet.
+I dance to whatever measure the Friend has taught and written for me.
+The Lord has become man.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+The refrain states the boldest form of Bulleh Shah's immanence: maulā ādmī ban āyā, "the Lord has become man" — not merely that God dwells in man but that God has come as man, a near-incarnational formulation that pushes waḥdat al-wujūd to its edge and would sound frankly blasphemous to the orthodox, for whom God's absolute transcendence is non-negotiable. The first stanza spells out the monism through pairs of opposites: God "is Himself the deer, Himself the leopard, Himself the one who springs to kill; Himself the master, Himself the slave, Himself the one sold." In every scene of predator and prey, owner and owned, the single Real plays both parts — hunter and hunted, buyer and sold, one actor in two costumes. This is divine sole-agency (as in 0005, 0041) rendered as a theatre in which God performs every role, including the roles that seem to oppose one another.
+
+The second stanza turns from the cosmic to the personal and shifts the master-image from actor to puppeteer: "what a game the juggler (bāzīgar) has played — He has made me dance like a puppet (putlī)." The self is a marionette on the divine showman's strings, with no independent motion, and the next line gives predestination its most graceful statement: "I dance to whatever measure (git) the Friend has taught and written for me." The soul's every movement is choreography set down in advance by the Beloved — the "song/measure written" is qismat, the decreed pattern — so that even the dance of the lover's life is the Beloved's composition. The tone is not resentful but tender: the puppeteer is the "Friend" (yār), and dancing to His measure is the loving surrender of one who wants no motion but the Beloved's.
+
+Held together, the two stanzas make one argument about agency: since the Lord "has become man" and is Himself every actor in the world's drama, the individual's sense of being an independent doer is illusion — one is a puppet dancing the Friend's written measure. But where a bleaker theology might find this fatalistic, Bulleh Shah finds intimacy and release: to be the Beloved's puppet is to be moved by love itself, and "the Lord has become man" means the divine is not a distant puppeteer but the very life dancing in the puppet. The predestinarian and the immanentist strands fuse — the hand on the strings and the life in the marionette are the same One. (The deer/leopard line and the "measure written" line are flagged medium uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- maulā ādmī ban āyā: "the Lord has become man" — Bulleh Shah's near-incarnational statement of immanence, pushing waḥdat al-wujūd to its edge; do_not_flatten_to a doctrine of literal incarnation without noting its Sufi-monist frame.
+- āho / chītā: the deer and the leopard (prey and predator) — opposite roles both played by the one God; do_not_flatten_to mere animals.
+- bāzīgar: the juggler / showman / puppeteer — God as master of the world's play; do_not_flatten_to a street entertainer.
+- putlī: the puppet / marionette — the self with no independent motion, danced on the Friend's strings; do_not_flatten_to a doll.
+- git (jo… likhāyā): the "measure / song written" — the decreed pattern (qismat) to which the soul dances; do_not_flatten_to an ordinary tune.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- divine_immanence
+- god_as_sole_actor
+- god_as_puppeteer
+- predestination
+- loving_surrender
 
 # Source Notes
 

@@ -48,19 +48,33 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+From the half-read ones I flee — from the half-read ones I flee.
+The truly learned and accomplished are my brothers;
+it is the half-read who have driven off my reason.
+From the half-read ones I flee — from the half-read ones I flee.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+This short kafi makes a precise and unexpected distinction within Bulleh Shah's usual quarrel with learning. Elsewhere he dismisses ʿilm wholesale (0035, 0058); here he separates the truly learned from the pā-paṛhiyāṅ, the "half-read" or semi-literate — those with a little learning but no depth — and declares that it is not the learned he flees but these. "The truly learned and accomplished (ʿālam fāzil) are my brothers; it is the half-read who have driven off my reason (ʿaql)." The genuine scholar, who has gone far enough to reach humility and perhaps the threshold of maʿrifa, is a kinsman; it is the dangerous middle — enough learning to be arrogant and disputatious, not enough to be wise — that he cannot bear.
+
+The insight is the proverbial one that "a little learning is a dangerous thing," given a Sufi edge: the pā-paṛhī is worse than either the honest illiterate or the true ʿālim, because he wields fragments of knowledge as weapons of pride and quarrel while lacking the depth that would dissolve his ego. That such half-learning "drove off my reason" is pointed — it is the half-read who create the din and confusion (the rolā of 0058), unsettling even the sane. The poem thus refines Bulleh Shah's anti-scholasticism: his target was never knowledge as such but the arrogant incompetence of those who mistake a smattering of ʿilm for wisdom — and, by implication, the mullahs and qazis he attacks elsewhere belong to this dangerous middle, not to the ranks of the truly learned he calls brothers. (Transcription is low-uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- pā-paṛhī (pl. pā-paṛhiyāṅ): the "half-read" / semi-literate — those with a little learning but no depth, the poem's real target; do_not_flatten_to the illiterate.
+- ʿālam fāzil: the truly learned and accomplished — called "brothers," distinguished from the half-read; do_not_flatten_to generic scholars.
+- ʿaql: reason / sense — which the half-read "drive off" by their disputatious din; do_not_flatten_to intelligence in general.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- danger_of_half_learning
+- true_vs_false_scholars
+- critique_of_pretension
+- little_learning_is_dangerous
 
 # Source Notes
 

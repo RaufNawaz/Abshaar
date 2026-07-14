@@ -125,19 +125,51 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+You take charge of my affair —
+some heavy reckoning has fallen due.
+This heart that dwells within me
+sits beside me and laughs in my face;
+when I put it a question, it starts up and flies off,
+soaring away like a hawk.
+You take charge of my affair.
+Now I have plunged into the deep rivers,
+come face to face with the surging waves;
+the whirlpools have seized and spun me round,
+and overhead, the rain and the dark of night.
+You take charge of my affair.
+What swings are these you have set me on?
+You have hidden the stars in a basket;
+you have turned the rope of rushes into a serpent.
+I am a sacrifice to your wedding-crowns.
+You take charge of my affair.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+A plea for the Beloved's protection and intervention, its refrain casting the relationship in the idiom of stewardship and debt: "you take charge of my affair (kārī) — some heavy reckoning has fallen due." The lover cannot manage her own case and hands it over to the Beloved. The first stanza gives the reason: the unruly heart. "This heart that dwells within me sits beside me and laughs in my face; when I question it, it starts up and flies off like a hawk." The heart is intimate yet ungovernable — a companion that mocks its owner and, the instant it is interrogated or disciplined, bolts away like a hunting-hawk slipping the leash. The self cannot govern its own heart, which is exactly why it needs the Beloved to "take charge."
+
+The second stanza renders the crisis as the perilous river-crossing that recurs throughout the collection (0009, 0035, 0044): "now I have plunged into the deep rivers, come face to face with the surging waves; the whirlpools (ghuman-gher) have seized and spun me, and overhead the rain and the dark of night." The soul is caught mid-torrent in a storm — the terrifying passage of the mystic path, or of dying — swept into the whirlpools that drown the self under a black and rainy sky. It is the extremity from which the refrain's plea rises: unable to swim this river, the lover can only beg the Beloved to take charge and carry her through.
+
+The third stanza turns to the Beloved's bewildering, illusion-making power. "What swings (peenghar) have you set me on?" — the lover is tossed to and fro as on a swing, at His whim — and then two images of transformation and illusion: "you have hidden the stars in a basket" (the vast made to vanish into the small, a conjuror's feat) and "you have turned the rope of rushes into a serpent (nāg)." The rope-mistaken-for-a-snake is the classic Indian emblem of illusion (rajju-sarpa: the world taken for real when it is only appearance), here attributed to the Beloved as His power — He can make a rope of grass become a terrifying serpent, i.e. make illusion look utterly real, which is why the soul is so easily deceived and endangered. The closing "I am a sacrifice to your wedding-crowns (sehra)" is the lover's devotion amid the terror: even as the Beloved bewilders and imperils her, she offers herself up to Him as a bride to a crowned bridegroom. The poem binds the helplessness before one's own heart, the terror of love's river, and the Beloved's dizzying power over reality and illusion — all resolving into one plea and one offering: take charge of me, for I am wholly yours. (Several images — the "swings," "stars in a basket," "wedding-crowns" — are flagged HIGH uncertainty; the rope-serpent and river-storm are clearer.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- kārī: "my affair / case" — what the helpless lover begs the Beloved to "take charge of"; do_not_flatten_to a chore.
+- the heart as hawk: the intimate but ungovernable heart that mocks its owner and bolts when questioned; do_not_flatten_to a metaphor of restlessness only.
+- ghuman-gher: the whirlpools of the river of love that seize and spin the soul — the peril of the passage; do_not_flatten_to ordinary eddies.
+- rope-into-serpent (moonjh dī rassī nāg): the classic rajju-sarpa image of illusion, here the Beloved's power to make appearance look terrifyingly real; do_not_flatten_to a magic trick.
+- sehra: the bridegroom's wedding-crown / garland — the object of the lover's self-sacrificing devotion; do_not_flatten_to a decoration.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- plea_for_protection
+- ungovernable_heart
+- river_of_love
+- divine_power_and_illusion
+- self_offering
 
 # Source Notes
 

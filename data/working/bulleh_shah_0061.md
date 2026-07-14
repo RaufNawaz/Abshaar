@@ -171,19 +171,57 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Why has love descended upon us? You came, and I was undone.
+Abraham was set upon the pyre;
+Zakariya's head was laid to the saw;
+Yusuf was sold off, from shop to shop —
+say then, what has this love taken from us?
+Why has love descended upon us? You came, and I was undone.
+Shaikh Sanʿan was set to herd swine;
+Shams was flayed, his skin peeled away;
+Mansur was raised upon the gallows —
+on whom, now, has the heart been set?
+Why has love descended upon us? You came, and I was undone.
+Whatever house you turned toward
+burned down to a heap of coals;
+and when the ash blew off, it was leveled flat —
+say, on what account has your servant been laid low?
+Why has love descended upon us? You came, and I was undone.
+Sit down for the sake of the Beloved:
+make your body the furnace, your heart the anvil,
+strike within it the hammer of love,
+till the iron is beaten soft.
+Why has love descended upon us? You came, and I was undone.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; several fourth-line closers are HIGH-uncertainty. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+The poem is a meditation on the cost of love, framed by the plaintive, half-reproachful refrain: "why has love descended upon us? You came, and I was undone (pāyā, caught)." The lover half-regrets the arrival of a love she did not summon and that has cost her everything, and to measure that cost she summons a catalogue of the great sufferers of sacred history — prophets and Sufi martyrs whom love and God put to terrible trial. This martyrology is the poem's distinctive method: love's demands are proven not by argument but by the roll-call of those it destroyed.
+
+The exempla are chosen with care and span the traditions. From prophetic history: Ibrahim (Abraham) cast into Nimrod's fire; Zakariya (Zachariah), whom tradition holds was sawn in half; Yusuf (Joseph) sold into slavery, auctioned "shop to shop." From Sufi history: Shaikh Sanʿan, the revered shaikh of ʿAttar's Conference of the Birds who for love of a Christian girl herded swine and abandoned his religion; Shams-i Tabriz, Rumi's beloved master, of whom legend says he was flayed alive; and Mansur al-Hallaj, "raised on the gallows" for "Anā'l-Ḥaqq." The list gathers Abrahamic prophets and Sufi saints into one company of love's victims, and the refrain's question, "what has love taken from us?", is answered by their fates: love takes everything — life, dignity, even (in Sanʿan's swine-herding) one's very religion.
+
+The third stanza turns from the martyrs to the general devastation love works: "whatever house you turned toward burned to a heap of coals, and when the ash blew off it was leveled flat." Love is a fire that razes wherever it visits — the "house" is the self, the heart, and love's visitation reduces it to ash and then to the nothing of leveled ground. The reproachful "on what account has your servant been laid low?" continues the refrain's note of the lover arraigning the Beloved for the ruin love brings — the same audacity as 0021 and 0043, the lover's grievance against the God who wounds.
+
+The final stanza resolves the complaint into instruction and consent, with a superb forge-image: "sit for the Beloved's sake: make your body the furnace (bhaṭṭhī), your heart the anvil (āhran), strike within it the hammer of love, till the iron is beaten soft." Having catalogued love's destructions, the poem counsels not flight but submission to its smithy — the lover must become the very apparatus of her own forging, body as furnace and heart as anvil, and let love's hammer beat the iron of the self until it is soft and workable. Suffering is not love's accident but its method: as the smith heats and hammers iron into shape, love heats and hammers the self into the form the Beloved wants, and the martyrs were not love's failures but its finished work. The refrain's "why has love come to us?" is thus answered by the whole poem — love comes to forge, and its coming is inseparable from the fire and the hammer. (This spans two spreads and several fourth-line closers are flagged HIGH uncertainty; the martyr names, the refrain, and the forge image are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes — e.g. the martyr exempla (Shaikh Sanʿan, Shams, Mansur), the furnace/anvil/hammer imagery of ʿishq.]
+- "tūṉ āyā te maiṉ pāyā": "You came and I was caught / undone" — the refrain's rueful admission that love's arrival is the lover's undoing; do_not_flatten_to a happy meeting.
+- the martyr exempla (Ibrahim, Zakariya, Yusuf, Shaikh Sanʿan, Shams, Mansur): prophets and Sufi saints whom love put to terrible trial — the proof of love's cost; do_not_flatten_to a decorative list.
+- Shaikh Sanʿan: the shaikh who herded swine for love of a Christian girl (from ʿAttar) — the loss even of one's religion for love; do_not_flatten_to a minor reference.
+- Mansur (sūlī te chaṛhāio): Hallaj "raised on the gallows" for "Anā'l-Ḥaqq" — the martyr of ecstatic utterance; do_not_flatten_to a historical note.
+- bhaṭṭhī / āhran / hathoṛā: furnace / anvil / hammer — the forge of love in which the self is beaten into shape; do_not_flatten_to literal smithing.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- cost_of_love
+- martyrs_of_love
+- love_as_destroying_fire
+- forge_of_the_self
+- consent_to_suffering
 
 # Source Notes
 

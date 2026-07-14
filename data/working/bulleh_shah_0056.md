@@ -129,19 +129,54 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+How wonderful — the mystery of the Beloved is something else!
+I climb to the rooftop and call out:
+is there anyone here who deals in love?
+Its price is nothing less than swallowing deceit —
+yet neither in the wilds nor in the town is it so much as named.
+The instant of the vision led me astray;
+all at once the thing fell on me from behind;
+it played a fierce indifference with me —
+it was the thug of Lahore I met.
+How wonderful — the mystery of the Beloved is something else!
+The lovers move about hushed and silent,
+as if forever drunk, wine-intoxicated,
+caught fast in the snare of the Beloved's tresses —
+there no strength, no force avails.
+Bulleh, the Beloved's love is a wondrous thing:
+whoever has seen it does not reckon it up;
+it has no colour, no form, no outline —
+he alone becomes it who first becomes its thief.
+How wonderful — the mystery of the Beloved is something else!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+The refrain — wāh wā, ramz-i sajjan dī hor, "how wonderful, the Beloved's mystery is something else" — sets the poem as a marvelling at the strangeness (ramz, the cryptic sign or riddle) of divine love, and the first stanza casts that love as a scarce, dangerous commodity. The lover "climbs the rooftop and cries out: is there anyone who deals in love?" — publishing her search like a merchant's call (the hoka of 0033) — but finds no takers, for "neither in the wilds nor the town is it even named," because love's "price is nothing less than swallowing deceit (dhokā)": to trade in love one must swallow the bitter draught, accept betrayal and self-loss, and few will pay. Love is real but almost unpurchasable, its cost too high for the market.
+
+The middle stanza narrates the ambush of love with a striking image: "the instant of the vision (dīdār) led me astray; all at once the thing fell on me from behind; it played a fierce indifference (be-parwāhī) with me — it was the thug of Lahore (ṭhag lahore) I met." A single glimpse of the Beloved waylaid the lover like a highway robbery, struck "from behind," unawares — and the assailant is named "the thug of Lahore," at once the Beloved who robs the lover of self and, biographically, Shah Inayat of Lahore, the murshid who "robbed" Bulleh Shah of his heart (note be-parwāhī, the divine "carelessness" of 0017/0024, here felt as the robber's cool indifference to his victim). The next stanza gives the aftermath: the lovers "move hushed and silent, forever drunk," "caught in the snare of the Beloved's tresses (dām-i zulf)" — the Persianate net of the beloved's curling hair — where "no strength or force avails": once caught, the lover cannot struggle free.
+
+The closing stanza states the metaphysics of this mystery. "Whoever has seen it does not reckon it up" — the vision is beyond calculation, incommensurable with the counting mind — and "it has no colour, no form, no outline (rang, rūp, rekh)": the Beloved and love alike are formless, exceeding every sensory category (the apophatic note of 0016). The final line is the deepest turn: "he alone becomes it who first becomes its thief (chor)." To possess love one must steal it — become a thief — and in stealing it one is transformed into it; the categories of thief, theft, and thing stolen collapse (as the "thief in the shawl" of 0048 already suggested). One does not acquire love as an object; one becomes love by the audacious theft that is also self-loss, so the "thug of Lahore" who robbed the lover is answered by the lover who must herself become a thief to become the love — robber and robbed, like lover and Beloved, resolving into one. (This spans two spreads; several interior readings are flagged moderate uncertainty; the refrain, "thug of Lahore," and the closing are clearer.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- ramz: the cryptic sign / mystery / riddle of the Beloved — the "something else" the poem marvels at; do_not_flatten_to a mere secret.
+- dhokā (swallowing deceit): the "price" of love — accepting betrayal and self-loss; do_not_flatten_to a simple trick.
+- ṭhag lahore: "the thug of Lahore" — the Beloved who robs the lover of self, and biographically Shah Inayat of Lahore; do_not_flatten_to a literal criminal.
+- dām-i zulf: "the snare of the tresses" — the Persianate net of the beloved's curling hair in which the lover is caught; do_not_flatten_to a hairstyle.
+- rang, rūp, rekh: "colour, form, outline" — the sensory categories the formless Beloved and love exceed; do_not_flatten_to physical description.
+- chor: the "thief" one must become to become love itself — theft as self-loss and transformation; do_not_flatten_to a criminal.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- mystery_of_the_beloved
+- price_of_love
+- the_beloved_as_robber
+- formless_beloved
+- becoming_what_you_steal
 
 # Source Notes
 

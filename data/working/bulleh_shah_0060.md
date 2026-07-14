@@ -142,19 +142,51 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Now I have written down the beautiful Beloved, whose beauty is in high demand.
+When the One was alone, single, no radiance had yet shone forth;
+there was no Lord, no Messenger, no Allah; neither the Almighty nor the Wrathful yet.
+Without quality was He, without likeness, without doubt, without pattern;
+no colour, no model was there — and now He has become a thousandfold, of every hue.
+Then He said "Be!" and "it became"; out of the quality-less He fashioned quality;
+into the One (Ahad) He mingled a "mim" — and so He loved it as "Ahmad."
+Now I have written down the beautiful Beloved, whose beauty is in high demand.
+Saints and prophets are His slaves; men and angels bow in prostration,
+they lay their heads upon His feet — He is the highest court of all.
+For Him I would forsake the mosque, forsake the temple; I keep no fast, know no observance,
+I forget ablution and the ritual prayer — upon You I would offer up my life.
+Whoever would write Him down cannot, without a guide;
+let Shah Inayat reveal the secret, and then all mysteries open.
+Now I have written down the beautiful Beloved, whose beauty is in high demand.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+This is Bulleh Shah's cosmogony — a compressed account of creation from the pre-eternal One to the manifold world — and among the most doctrinally dense poems in the collection. The refrain frames the whole as an act of "writing down the beautiful Beloved (sohṇā yār)," the God whose beauty is "in high demand" (garam bāzār, a hot market). The first two stanzas describe the state before creation: "when the One (aḥad) was alone, single, no radiance (tajallā) had shone forth; there was no Lord, no Messenger, no Allah; neither the Almighty (Jabbār) nor the Wrathful (Qahhār)." This is the apophatic ground of Sufi metaphysics — the divine Essence (dhāt) in absolute unity before any self-disclosure, before even the divine Names (Allah, Jabbar, Qahhar are Names, belonging to the level of manifestation, not to the bare Essence). God was then "without quality (be-chūn), without likeness, without pattern, no colour, no model" — the utterly indeterminate One — and only "now has become a thousandfold, of every hue": the many-coloured world is the One after self-disclosure.
+
+The third stanza gives the mechanism of creation and its most famous piece of letter-mysticism. "Then He said 'Be!' and 'it became'" quotes the Quranic kun fayakūn (Q 2:117), the divine creative fiat, and "out of the quality-less (be-chūnī) He fashioned quality (chūn)": determinate being emerges from the indeterminate Essence. Then the exquisite wordplay: "into the One (Aḥad) He mingled a mīm, and so He loved it as Aḥmad." Aḥad (أحد, "One") becomes Aḥmad (أحمد, the Prophet Muhammad's name) by inserting a single letter mīm — a celebrated Sufi mysticism founded on the ḥadith-qudsī tradition anā Aḥmad bilā mīm ("I am Aḥmad without the mīm," i.e. Aḥad, the One): the Prophet's name is the divine One with one added letter, so the mīm is the whole of manifestation, the single "veil" distinguishing the Prophet (and the created order he heads) from the bare Unity. Creation, in this vision, is God adding a mīm to Himself — a self-differentiation moved by love (tāhioṅ kītā pyār, "and so He loved").
+
+The next stanzas move from cosmogony to worship and to transcendence-in-immanence. "Saints and prophets are His slaves; men and angels prostrate, laying their heads on His feet — He is the highest court (sarkār)": the whole hierarchy of creation, prophets included, bows to this Beloved. Then the antinomian turn familiar from the other kafis: "for Him I would forsake mosque and temple, keep no fast, forget ablution and prayer — upon You I would offer my life." Even the created order of worship — the very rituals whose ground is the cosmogony's God — is renounced for direct self-offering to the Beloved, because the God beyond the Names is not reached by the observances that belong to the level of the Names.
+
+The closing stanza names the epistemological condition of the whole poem: "whoever would write Him down cannot, without a means (vasīla) — a guide; let Shah Inayat reveal the secret (bhet), and then all mysteries (asrār) open." The cosmogony just "written" is not available to unaided reason; the pre-eternal Essence, the kun fayakūn, the mīm of Aḥmad, are asrār disclosed only through the murshid, and Shah Inayat is the vasīla — the mediating means — without whom the mysteries stay sealed. The whole is a compact Sufi summa: the Essence before manifestation, creation by the word and by love (the mīm of Aḥmad), the homage of all being to the Beloved, the antinomian priority of the Beloved over ritual, and the necessity of the guide to know any of it. (This spans two spreads; the "bartī/observance" line and a few others are flagged medium uncertainty; the kun fayakūn / Aḥad–Aḥmad / Shah Inayat lines are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes — e.g. aḥad, kun fayakūn, mīm/Aḥmad wordplay, be-chūn, Shāh ʿInāyat.]
+- aḥad: the One — the divine Essence (dhāt) in absolute unity before any self-disclosure, prior even to the divine Names; do_not_flatten_to a number.
+- tajallā: radiance / self-disclosure — the divine self-manifestation that had "not yet shone forth" before creation; do_not_flatten_to ordinary light.
+- kun fayakūn: "Be! — and it becomes" (Q 2:117) — the divine creative fiat by which determinate being arises; do_not_flatten_to a magic spell.
+- Aḥad → Aḥmad (the mīm): the wordplay whereby adding a mīm to "One" yields the Prophet's name — the mīm as the single "veil" of manifestation (ḥadith anā Aḥmad bilā mīm); do_not_flatten_to a spelling coincidence.
+- vasīla / Shah Inayat: the mediating "means" / guide (the murshid) without whom the secrets (asrār) of creation cannot be known; do_not_flatten_to a helper.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- cosmogony
+- essence_before_manifestation
+- kun_fayakun
+- letter_mysticism_ahad_ahmad
+- necessity_of_the_guide
 
 # Source Notes
 

@@ -99,19 +99,45 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+They have deserted me and gone away —
+what fault was there in me?
+By night, no sleep, no easy rest;
+by day, I am ground down and overturned —
+what fault was there in me?
+Sharper than the daggers and the swords
+are the piercing arrows of love —
+what fault was there in me?
+No tyrant is the equal of love,
+this affliction without master or guide —
+what fault was there in me?
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+A lament of abandonment built on the repeated, unanswered question of the refrain — main wich keeh taqsīr, "what fault was there in me?" The Beloved (or the departed companions) "deserted me and went away," and the lover, like the abandoned nāyikā of the viraha tradition (cf. 0019, 0052), searches her own conduct for a cause and finds none: the desertion is unearned, the suffering unmerited. The refrain's insistence — asked after each verse and never answered — is the poem's whole affect: the bewildered innocence of one punished by love without having sinned.
+
+The body anatomizes the suffering and, crucially, reassigns the blame. The symptoms are the standard ones of firāq — sleepless nights, days "ground down and overturned (zer)" — but the sharp turn is to name love itself as the culprit rather than the departed Beloved. "Sharper than daggers and swords are the arrows of love (ʿishq de tīr)": love wounds worse than any weapon. And the climactic indictment: "no tyrant (ẓālim) is the equal of love — this affliction without master or guide (be-pīr)." Love is the supreme tyrant, and be-pīr is pointed: "without a pīr / masterless" — love acknowledges no master, answers to no one, and offers no guide to relieve it, an affliction with no court of appeal.
+
+The theological force is in that reassignment. The plaintive "what was my fault?" is not answered by finding fault with the Beloved but by recognizing that love is a sovereign, lawless tyrant that afflicts without cause and without remedy — one does not suffer love because one sinned, but because love is love. This aligns the poem with Bulleh Shah's other portraits of the pitiless Beloved (0043) and love-as-ruin (0021): the point is less to accuse the Beloved of injustice than to register love as a force beyond the categories of desert and justice altogether. The lover's innocence and love's cruelty are both real, and the refrain's unanswerable question is the exact expression of a suffering that has no moral explanation — which is, for the Sufi, the very nature of ʿishq. (Transcription is low-uncertainty; "zer" and "jehadd" flagged moderate.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- taqsīr: fault / sin — what the abandoned lover searches for in herself and cannot find; the refrain's unanswered question; do_not_flatten_to a crime.
+- palttiaa zer: "ground down / overturned, laid beneath" — the day-long crushing of the deserted lover; do_not_flatten_to ordinary tiredness.
+- ʿishq de tīr: "the arrows of love" — sharper than daggers and swords, love's wounding; do_not_flatten_to a sentimental image.
+- ẓālim: the tyrant — love named as the supreme tyrant, cruel beyond all others; do_not_flatten_to a mere oppressor.
+- be-pīr: "without a pīr / masterless" — love as an affliction that answers to no master and offers no guide or remedy; do_not_flatten_to simply "guideless."
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- abandonment
+- unmerited_suffering
+- love_as_tyrant
+- arrows_of_love
+- masterless_affliction
 
 # Source Notes
 

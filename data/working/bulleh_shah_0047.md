@@ -45,19 +45,31 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The mullah and the torch-bearer are of one mind:
+they make light for others, and themselves stay in the dark.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+This razor-sharp couplet skewers the cleric with one homely comparison: the mullah is like the mashālchī, the torch-bearer or link-boy who walks ahead of a procession holding a flaming torch to light the way for others. The two are "of one mind" (iko chit) in the single damning respect the couplet isolates — they "make light for others, and themselves stay in the dark" (āp anhere vich). The torch-bearer's own face is in shadow behind the flame he carries; the mullah likewise dispenses religious guidance and "illumination" to the congregation while his own heart stays unlit — full of knowledge about God, empty of the knowledge of God.
+
+The epigram belongs to Bulleh Shah's sustained critique of the ʿālim who has ʿilm without maʿrifa (cf. 0035, 0013), but it lands its point through the sheer aptness of the image rather than through argument. The torch-bearer is a servant, not a guest at the feast; he lights others to a banquet he does not share, just as the mullah guides others toward a nearness to God he himself has never tasted. There is even a structural irony: the more brightly the torch burns for others, the deeper the shadow it casts on the one holding it — the busier the cleric is illuminating others, the darker his own neglected interior. Bulleh Shah's verdict is not that the mullah's light is false but that it never warms the one who carries it: outward function without inward reality. (Transcription is high-confidence.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes — e.g. mullāṁ (cleric), mashālchī (torch-bearer/link-boy), the irony of giving light while remaining benighted.]
+- mullāṁ: the cleric/mullah — dispenser of religious guidance who is himself unenlightened; do_not_flatten_to a neutral teacher.
+- mashālchī: the torch-bearer / link-boy who lights the way for others while his own face stays in shadow — the emblem of the cleric; do_not_flatten_to a lamplighter.
+- anhere vich: "in the dark" — the unlit interior of the one who illuminates others; do_not_flatten_to literal darkness.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- anti_clericalism
+- knowledge_without_realization
+- light_for_others_dark_within
+- hypocrisy_of_the_learned
 
 # Source Notes
 

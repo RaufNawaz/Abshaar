@@ -122,19 +122,54 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+I am speaking of that other place —
+yet even to speak of it, I am afraid.
+I made a pledge with the souls:
+"Go on ahead — I am coming right behind."
+But here I hung a curtain of silence,
+and, lost in illusion, I wander still.
+I am speaking of that other place,
+yet even to speak of it I am afraid.
+My game is played against the whole world;
+if I say "this is mine," even that is torn away.
+The capital laid up and saved is His;
+I have still to settle the account that lies ahead.
+I am speaking of that other place,
+yet even to speak of it I am afraid.
+Handing over his capital, the fool grew flustered
+and set off chasing after the thieves;
+and I myself have brought back the thieves' own trail —
+now, every night, I mount another raid.
+I am speaking of that other place,
+yet even to speak of it I am afraid.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; the third stanza's allegory is interpretively uncertain. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+The poem turns on a distinction of places — "here" (ithe, this world) and "there" (othe, the beyond / the origin) — and its refrain confesses a double bind: "I speak of that other place, yet even to speak of it I am afraid." The truth the poet would utter belongs to the beyond, and to voice it is dangerous (the fear of the God-intoxicated speaker, as in "Truth Will Out," 0050), so the poem hedges its own disclosure. The first stanza gives the soul's situation: it made a "pledge with the souls (rūḥāṅ)" — an echo of the pre-eternal covenant of azal (cf. 0055), the souls promising fidelity, "you go ahead, I am coming behind" — but arriving "here," in the world, the soul "hung a curtain (parda) of silence" and became "lost in illusion (bharam)," wandering. The covenant of "there" is obscured by the veil and delusion of "here."
+
+The second stanza states the doctrine of worldly goods as trust. "My game is played against the whole world; if I say 'this is mine,' even that is torn away" — every claim of ownership is defeated, nothing here is securely one's own — and the reason: "the capital (pūnjī) laid up and saved is His," the wealth one accumulates being God's, held in trust, so "I have still to settle the account (aglā lekhā) that lies ahead." The imagery is commercial (capital, account, reckoning) and the point eschatological: the true balance-sheet is drawn up not here but "there," which is why the poet "speaks of there, not here" — the real transaction is in the hereafter, and the world's ledger is illusory.
+
+The third stanza is the poem's most obscure, an allegory of thieves and raids that resists confident reading. Its likely sense: the "fool" who "hands over his capital and then chases the thieves" is the soul that squanders its spiritual wealth to the world (the nafs and the passions as thieves) and then vainly pursues what it has lost; "I myself brought back the thieves' trail — now every night I mount another raid" may cast the repentant seeker as one who, having learned the thieves' methods, now raids nightly to recover the stolen capital (nightly vigil and dhikr as a counter-raid on the world). But the stanza is genuinely cryptic, and the refrain — "I am afraid to speak of it" — seems to license, even to perform, that obscurity: the truth of "there" can only be gestured at in riddling images from "here." The whole poem is thus about the difficulty and danger of speaking the truth of the beyond from within the veil of the world, and it enacts that difficulty in its guarded, half-cryptic manner. (Transcription is fairly secure, but the thief/capital allegory of the third stanza is interpretively uncertain; the reading above is provisional.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- othe / ithe: "there" (the beyond, the origin) versus "here" (this world) — the axis the whole poem turns on; do_not_flatten_to literal locations.
+- rūḥāṅ (the pledge with the souls): the pre-eternal covenant of the souls (cf. azal) that "here" has obscured; do_not_flatten_to living companions.
+- parda / bharam: the "curtain of silence" and the "illusion" in which the soul wanders in the world; do_not_flatten_to a literal curtain or ordinary mistake.
+- pūnjī / aglā lekhā: "capital" held in trust for God and "the account ahead" settled in the hereafter — the eschatological ledger; do_not_flatten_to ordinary bookkeeping.
+- chor / dhāṛā (thieves and raid): the cryptic allegory of the passions that steal the soul's capital and the counter-raid to recover it; do_not_flatten_to a literal robbery (reading provisional).
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- here_and_the_beyond
+- covenant_and_forgetting
+- worldly_goods_as_trust
+- eschatological_reckoning
+- danger_of_speaking_truth
 
 # Source Notes
 

@@ -98,19 +98,47 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Saturday.
+Saturday, restless — see, by my beloved's oath:
+I shall not turn back home again; what has been, let it be.
+Ah, Saturday, the idle hours —
+the pain of my beloved has turned me sallow.
+I search the wilderness, the forest, the wilds;
+the night has lost its way, the hours twist about me —
+separation has ringed me round.
+Hour by hour, blink by blink, the longings assail me;
+the nights, the sweet crossings-over, are gone by;
+I climb up high and cry aloud, I shout;
+splinters of parting rasp within my breast —
+these longings, beloved, are all for you.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+This poem belongs to the aṭhwāra ("days-of-the-week") genre, in which a poet composes one lyric for each day, threading a single mood — here the longing of separation — through the calendar; this is the Saturday (chhinchhar) piece, with a companion for Thursday (0069). The day-frame is not incidental: the recurrence of named days measures the duration of the lover's waiting, each day another turn of the wheel of separation, so the aṭhwāra form itself enacts the slow, calendared passage of time in which the lover pines.
+
+The Saturday verse opens with a vow of no return: "by my beloved's oath, I shall not turn back home again; what has been, let it be (jo hoī ho so ho)." The lover has renounced the way back — burned her bridges for love — and accepts whatever comes; this is the irreversible commitment of ʿishq (cf. the "no return" of the spinning poems). The body is standard viraha rendered with intensity: the pain that "turns her sallow," the restless searching through "wilderness, forest, wilds" for the absent Beloved, the night that "loses its way" and hours that "twist" (time itself deranged by longing), and separation (birhoṅ) that "rings her round."
+
+The final stanza gathers the affect to a pitch: "hour by hour, blink by blink, the longings assail me… I climb high and cry aloud, I shout; splinters of parting rasp within my breast — these longings, beloved, are all for you." The lover who climbs a height to cry out (the beloved-summoning cry of the abandoned) and the "splinters (sāṅgh) of parting" that grate inside the chest render firāq as bodily laceration, and the closing address restores the object of it all: the whole restless week — the roaming, the crying, the splinters — is the shape love takes in the Beloved's absence. As an aṭhwāra day-poem it is a single frame in a serial portrait of a soul counting the days in longing. (Transcription is largely secure; a couple of cursive words flagged moderate.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- chhinchhar vaar (aṭhwāra): "Saturday," one day-poem of the aṭhwāra (days-of-the-week) genre that threads longing through the calendar; do_not_flatten_to a date.
+- "jo hoī ho so ho": "what has been, let it be" — the lover's vow of no return, accepting all consequences of love; do_not_flatten_to fatalism.
+- birhoṅ: separation, personified as encircling the lover; do_not_flatten_to ordinary sadness.
+- aujaṛ / jangal / bele: wilderness, forest, wilds — the wastes the lover roams for the absent Beloved; do_not_flatten_to scenery.
+- sāṅgh (splinters of parting): the splinters/thorns of separation that "rasp" within the breast — firāq as bodily laceration; do_not_flatten_to a vague ache.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- athwara_day_poem
+- separation_viraha
+- vow_of_no_return
+- restless_searching
+- longing_for_the_beloved
 
 # Source Notes
 

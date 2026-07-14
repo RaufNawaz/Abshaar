@@ -71,19 +71,41 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Neither Hindu nor Muslim — I sit apart from all, casting off pride.
+Not a Sunni, and not a Shia: I have taken the road of peace-with-all.
+Not hungry, and not sated; not naked, and not clothed.
+Not weeping, and not laughing; not ruined, and not settled.
+Not a sinner, and not called righteous — I know neither the road of sin nor of merit.
+Bulleh Shah — whoever fixes the heart upon the Lord
+casts off both beings, Turk and Hindu alike.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+A companion piece to "Bulleh, ki jāṇā maiṅ kaun" (0016) — the same method of self-negation (neti neti), but here turned outward into an explicit programme of non-sectarian peace and coloured by a Hindavi/sant vocabulary (abhmān, mārag, paap, pun, sudharmī) that marks Bulleh Shah's fluency in the Bhakti-sant idiom as well as the Sufi. The opening refuses the two great communal labels — "neither Hindu nor Muslim" — then the confessional sub-labels — "not Sunni, not Shia" — and names the positive alternative directly: sulah-kul kā mārag, "the road of peace-with-all." Sulah-i-kull ("peace with all," universal reconciliation) is a loaded term — the guiding principle of Akbar's inclusivist religious policy — and Bulleh Shah's adoption of it as his "road" places him in the tradition of subcontinental religious universalism against the sectarianism of his own violent age.
+
+The middle lines proceed by paired negations that dissolve not religious but existential and moral binaries: "not hungry nor sated, not naked nor clothed, not weeping nor laughing, not ruined nor settled." The self that has taken the road of peace-with-all is placed beyond the oppositions in which ordinary identity is built — appetite and satisfaction, exposure and covering, joy and grief, ruin and prosperity — the same apophatic point as 0016: the true self is captured by none of these predicates because it stands at a still point beyond the play of opposites (the "temple of peace where nothing rises and nothing sets" of 0050). The climactic pair is moral: "not a sinner, nor called righteous — I know neither the road of sin (paap) nor of merit (pun)," placing the realized self beyond the very categories of good and evil deed, in the space where the accountancy of sin and merit (the ḥisāb of 0013) no longer applies.
+
+The closing couplet gives the principle behind all the negations: "whoever fixes the heart upon the Lord (har) casts off both beings (do jan) — Turk and Hindu alike." The dissolution of identity is not nihilism but the consequence of a single positive act — fixing the heart on God — which, once done, makes the communal identities fall away as irrelevant; to be wholly God's is to be neither Hindu nor Muslim, because the labels belong to the level of self that union transcends. The poem thus fuses Bulleh Shah's mysticism (self-negation toward the One) with his social ethic (sulah-kul, the refusal of sectarian division): the same realization that empties the self of every predicate empties society of the divisions built on those predicates. (The Hindavi terms turanjan/abhmān and sulah-kul are flagged moderate uncertainty; the negation-litany and the closing couplet are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- sulah-kul (mārag): "the road of peace-with-all" — universal religious reconciliation (the Akbari principle) adopted as the poet's path; do_not_flatten_to mere tolerance.
+- abhmān: pride / ego-assertion (Hindavi) — cast off in taking the road of peace; do_not_flatten_to ordinary arrogance.
+- neti neti (method): the self-negation by paired opposites that dissolves every identifying predicate; do_not_flatten_to simple denial.
+- paap / pun: sin and merit (Hindavi) — the moral accountancy the realized self stands beyond; do_not_flatten_to crime and virtue.
+- do jan (Turk / Hindu): "both beings" — the communal identities cast off by one who fixes the heart on God; do_not_flatten_to ethnic groups.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- self_negation
+- non_sectarianism
+- sulah_kul
+- beyond_binaries
+- beyond_sin_and_merit
 
 # Source Notes
 

@@ -99,19 +99,47 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Spring (Phalgun).
+In Phalgun the fields break into bloom, decked out like a bride in flowers;
+every branch is laden with leaf and blossom — garlands upon garlands of blooms.
+The girls are playing Holi in the spring,
+while from my eyes the tears run down in streams;
+the days of my life drag by, hard and heavy,
+the arrows of love strike deep in my breast —
+and still the Holi is played.
+Whatever was decreed from the Day of Eternity,
+what the pen has written, none can erase;
+sorrows and torments have taken shelter in me.
+Bulleh — let someone go and tell the Beloved,
+the one for whom I weep.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+This is a bāramāha or month-poem — the seasonal counterpart to the aṭhwāra day-poems (0068, 0069) — set in Phalgun (phaagan), the spring month of Holi, the festival of colours. The bāramāha genre threads the lover's longing through the turning year, and its characteristic device is on full display: the pathetic fallacy of viraha, in which the joy of the season sharpens rather than relieves the lover's grief. The opening paints spring at its most abundant — "the fields break into bloom, decked like a bride in flowers; every branch laden with blossom, garlands upon garlands" — a world dressed as a bride for union, precisely when the lover is most alone.
+
+The contrast is then made explicit and painful: "the girls are playing Holi in the spring, while from my eyes the tears run in streams." Holi — the riotous spring festival of thrown colours and communal joy — is the very image of shared delight, and the lover stands outside it, weeping, while "the days of my life drag by hard and heavy, the arrows of love strike deep." The refrain-like "and still the Holi is played" (hori ho rahi) drives the season's cruelty home: the festival goes on regardless, indifferent to the one for whom every blooming branch and every thrown colour is only a reminder of the absent Beloved. The blooming world and the weeping lover are the two poles of the viraha imagination.
+
+The final stanza turns from the seasonal lament to its theological ground: "whatever was decreed from the Day of Eternity (roz azal), what the pen (qalam) has written, none can erase." The lover's suffering is not accident but destiny — inscribed at azal (the pre-eternal, cf. 0055) by the qalam, the Pen that wrote all fates on the Preserved Tablet (the Islamic doctrine of qadar) — and therefore beyond undoing; "sorrows and torments have taken shelter (ḍhoī) in me" accepts that decreed grief as a settled resident. Yet the poem does not end in mere resignation: the closing plea revives hope in the message-motif (cf. 0018) — "let someone go and tell the Beloved, the one for whom I weep." Even a fate written at azal leaves the lover the one recourse of getting word to the Beloved; the predestined grief and the irrepressible longing coexist, and the last movement of the spring-poem is neither the festival's joy nor the weeping's despair but the sending of a message across the distance to the one who alone could answer it. (A couple of cursive readings flagged moderate; the Phalgun/Holi frame, the azal/pen lines, and the closing plea are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- phaagan (bāramāha): the spring month of Phalgun, occasion of Holi — one month-poem of the bāramāha (twelve-months) genre that threads longing through the year; do_not_flatten_to a season-name.
+- Holi (hori): the spring festival of colours and shared joy — the communal delight from which the grieving lover is excluded (pathetic fallacy of viraha); do_not_flatten_to a party.
+- roz azal / qalam: the "Day of Eternity" and the Pen that wrote all fates — the doctrine of qadar (predestination), the lover's grief decreed and unerasable; do_not_flatten_to bad luck.
+- ḍhoī (dukhāṅ sūlāṅ dī): the "shelter/lodging" that sorrows and torments have taken in the lover — grief as a settled resident; do_not_flatten_to passing pain.
+- "shoh nūṅ ākho koī": "let someone tell the Beloved" — the message-motif (cf. 0018), the lover's one recourse against a decreed grief; do_not_flatten_to a casual message.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- baramaha_month_poem
+- spring_and_holi
+- pathetic_fallacy_of_viraha
+- predestination_azal
+- message_to_the_beloved
 
 # Source Notes
 

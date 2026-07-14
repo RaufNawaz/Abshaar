@@ -69,19 +69,40 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+A stove is better than Bulleh —
+at least on it a meal gets cooked.
+The faqirs gathered in company
+and shared their food, crumb by crumb.
+The Beloved runs His needle through Bulleh,
+who becomes the butcher's sacrificial goat.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+A short kafi of self-deprecation opening with a homely, self-mocking comparison: "a stove (chulha) is better than Bulleh — at least on it a meal gets cooked." The chulha, the humble cooking-hearth, is useful; the poet declares himself less worthy than it, since at least the stove serves a purpose. This is the recurrent Bulleh Shah gesture of radical self-lowering (cf. the dog of 0037, the sweepress of 0053, the "oldest sinner" of 0007) — the deliberate placing of the self beneath the meanest useful thing, the humility that is the precondition of love.
+
+The middle couplet turns to the faqirs' way of life: "the faqirs gathered in company (majlis) and shared their food crumb by crumb (bhorā bhorā)." The dervishes' communal meal, dividing even morsels among all, is held up as the model — poverty shared as the antithesis of the world's accumulation and hoarding (cf. the plundering ʿulamā of 0035). The majlis of faqirs living on and sharing crumbs is the true community, over against the useless self and the greedy world.
+
+The closing couplet gives the poem its sharp devotional point through a startling image: "the Beloved runs His needle (soī) through Bulleh, who becomes the butcher's (qasāī) sacrificial goat (bakrā)." The lover is the goat prepared for slaughter — the sacrificial victim of love — and the Beloved threads the needle through him as the butcher skewers the carcass. This is fanāʾ as sacrificial death: to be loved by the Beloved is to be made His sacrificial animal, killed and skewered, the self offered up on the spit of love. The self that was "worse than a stove" finds its one worth precisely here — not in usefulness but in being the Beloved's chosen victim, the goat sewn onto love's skewer. The poem moves from self-mockery, through the faqirs' shared poverty, to the acceptance of self-sacrifice as the lover's true vocation. (The "taam" (food) and "soī paave" (threads the needle) readings are flagged moderate.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- chulha: the cooking-stove / hearth — the humble useful thing the poet ranks himself beneath; do_not_flatten_to a mere appliance.
+- majlis (of faqirs): the dervishes' gathering that shares even crumbs — the model of shared poverty against worldly hoarding; do_not_flatten_to a social meeting.
+- bhorā bhorā: "crumb by crumb" — the faqirs' sharing of the little they have; do_not_flatten_to stinginess.
+- bakrā / qasāī: the sacrificial goat and the butcher — the lover as love's slaughter-victim (fanāʾ); do_not_flatten_to a literal animal.
+- soī (paave): the needle the Beloved "threads through" the lover — the skewering of the sacrificial self; do_not_flatten_to sewing.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- self_deprecation
+- humility
+- faqirs_shared_poverty
+- lover_as_sacrifice
+- fana
 
 # Source Notes
 

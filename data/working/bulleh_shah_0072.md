@@ -125,19 +125,52 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+What do I know of the wedding-business — how many knots am I to tie?
+The date will come at its fixed hour; quickly, let me tie the knots.
+Father came and said: you must go to your in-laws' house;
+the custom there is other than here — once gone, you set foot here no more.
+Undoing the first knot, I sat and wept aloud.
+The days of leaving run out at last; now let me have my dowry dyed.
+I look toward the marketplace — every kinsman has already set off;
+nothing in my purse, no ready cash — and they have all fled from me.
+Saying "Bismillah," I began to undo the knots in haste.
+Whoever has lost her own self — she is the one who reaches the Beloved.
+Lovely is the appointed day; longing, I wait — He who bears the bride away is coming.
+Whoever loves the Beloved becomes the Beloved.
+Leaving reason and worry behind, she sets out with the Bridegroom.
+Without untying the knots, we gave no thought to the matter of the Unseen.
+Now say "To God we belong," and cast your gaze:
+all has become God alone — there is no servant of God any more.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; the third block is HIGH-uncertainty. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+The poem's controlling image is the bride tying and untying knots (gunḍhāṅ) as she counts down to her wedding — a real Punjabi custom, a thread knotted once for each remaining day and one undone daily until the wedding — and it maps onto the collection's central allegory: the wedding is death and the departure to the in-laws' house (muklāvā), and the countdown of knots is the counting-down of the days of life. "What do I know of the wedding-business — how many knots to tie? The date will come at its fixed hour" (sāhā, the astrologically fixed wedding-date = the appointed hour of death, which cannot be moved). The father's words state the irreversibility once more: "you must go to your in-laws' house… once gone, you set foot here no more" — this world is the natal home the departing soul will never re-enter (cf. 0036, 0049).
+
+The middle develops the bridal-death economy with a sharper edge of unpreparedness. "Undoing the first knot, I sat and wept" — the countdown itself provokes grief — and "the days of leaving run out; now let me have my dowry (dāj) dyed": the last-minute scramble to ready the dowry of good deeds before the days run out. The marketplace stanza dramatizes the soul's isolation at the end: "every kinsman has already set off; nothing in my purse, no ready cash — they have all fled from me." At the hour of death the worldly relations desert the soul, and it faces the passage penniless (the "all kin flee" of 0040, the empty purse of 0033).
+
+The turn comes with "Bismillah" — "in the name of God" — as the soul finally begins to undo the knots "in haste," surrendering to the passage, and the poem states its doctrine plainly: "whoever has lost her own self (apnā āp vanjāliā), she is the one who reaches the Beloved." Self-loss (fanāʾ) is the condition of union — and then the boldest identity-claim: "whoever loves the Beloved becomes the Beloved" (the transformation of Heer into Ranjha, 0029). "Leaving reason (ʿaql) and worry behind, she sets out with the Bridegroom": the ʿaql that love always shipwrecks (0020) is abandoned, and the soul-bride departs with the divine Groom.
+
+The final couplet is the collection's most absolute statement of monist annihilation. "Say 'inna lillāh' (Q 2:156, 'to God we belong, and to Him we return') and cast your gaze: all has become God alone (Allāh hī sab ho gayā) — there is no servant of God (ʿabdullāh) any more." The formula normally uttered at a death here announces the mystical death of fanāʾ: when the bride reaches the Bridegroom, the duality of Lord and servant collapses entirely — not only is the self annihilated, but even the category "servant of God," which presupposes a servant distinct from God, vanishes, leaving only God. This is waḥdat al-wujūd carried to its terminus: in perfect union there is no longer a worshipper over against the worshipped, no ʿabd distinct from Allah. The wedding-knots poem thus ends where the whole collection tends — the bride's countdown to the muklāvā is the soul's countdown to the death-in-God in which the servant disappears into the One. (This spans two spreads and the third block is textually rough — "gunḍhon bin… ghaib" and "innā lillāh… nigāheeṅ" are flagged HIGH uncertainty; the wedding-knot frame and the closing "Allah hī sab ho gayā" are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- gunḍhāṅ: the wedding-countdown knots (one undone each day until the wedding) — the counting-down of the days of life to death; do_not_flatten_to ordinary knots.
+- sāhā: the astrologically fixed wedding-date — the appointed, unmovable hour of death; do_not_flatten_to a chosen date.
+- muklāvā / sāhoriāṅ ghar: the bride's departure to the in-laws' house — death and the soul's passage, this world being the natal home never re-entered; do_not_flatten_to a wedding trip.
+- "apnā āp vanjāliā / lāl ho jāve": "whoever loses her self / becomes the Beloved" — fanāʾ as the condition of union and the transformation of lover into Beloved; do_not_flatten_to strong feeling.
+- "Allāh hī sab ho gayā, ʿabdullāh nāhīṅ": "all has become God, there is no servant of God" — the terminal waḥdat statement, the collapse of the Lord/servant duality in union; do_not_flatten_to pious hyperbole.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- wedding_knots_and_death
+- death_as_bridal_departure
+- fana_self_loss
+- lover_becomes_beloved
+- wahdat_no_servant_remains
 
 # Source Notes
 

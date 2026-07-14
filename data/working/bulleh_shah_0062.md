@@ -43,19 +43,32 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Devoted, indeed, are we to those full of pious chatter:
+who hand back a found cowrie — and gulp down a whole purse in one swallow.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+A satirical couplet on the selective conscience of the sanctimonious, delivered with heavy irony. "Devoted are we (vāre jāīe) to those" — the mock-praise opening — "who go about full of pious chatter (gap-shap)": the target is the ostentatiously religious, forever talking piety. The sting is the contrast of scales — they scrupulously "hand back a found cowrie (kauḍī)," the most trivial of coins, making a show of honesty over a trifle, "yet gulp down a whole purse (baghchā) in one swallow." The petty honesty is theatre; the real appetite is for the large theft that the display of scruple conceals.
+
+The epigram exposes the structure of hypocrisy: conspicuous virtue over small matters is precisely the cover for concealed vice over large ones — a man advertises his honesty about a cowrie so no one suspects him of swallowing the purse. It belongs to Bulleh Shah's steady attack on outward religiosity masking inward corruption (cf. 0042's hollow repentance, 0035's plundering ʿulamā): the "pious chatter" is the verbal equivalent of returning the cowrie, a cheap public performance of goodness that costs nothing and hides everything, and the ironic "devotion" the couplet professes is the sharpest form of contempt. (Transcription is medium-confidence; the cowrie/purse contrast is secure.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes — e.g. gaudī/kauḍī (cowrie = trivial coin) vs baghchā (bundle/purse), and the irony of gap-shap (empty pious talk).]
+- gap-shap: idle / pious chatter — the verbal show of the sanctimonious; do_not_flatten_to friendly conversation.
+- kauḍī: the cowrie, the most trivial coin — the trifle over which false honesty is displayed; do_not_flatten_to money in general.
+- baghchā: the bundle / purse "gulped down" — the large theft hidden behind the petty scruple; do_not_flatten_to a literal bag.
+- vāre jāīe (irony): "devoted are we to…" — mock-praise that delivers contempt; do_not_flatten_to sincere admiration.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- hypocrisy
+- false_piety
+- selective_conscience
+- satire_of_the_sanctimonious
 
 # Source Notes
 
