@@ -97,19 +97,43 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Topsy-turvy times have come — so I have set my verse to the beat.
+Crows have taken to striking the hawks, and sparrows have toppled the towers;
+horses are left to peck at gravel, while donkeys are bought at a price.
+Among one's own there is no love now — what of the uncles, what of the aunts;
+no accord of father with sons, nor of mothers with their daughters.
+The truthful meet with nothing but shoves, the liar is seated in the place of honour;
+those once foremost sit destitute, the hindmost spread out their carpets.
+Men of the hovels are crowned as kings, and kings are sent out to beg.
+Bulleh, the command has come from the Presence — who is there to turn it aside?
+Topsy-turvy times have come — so I have set my verse to the beat.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the world-turned-upside-down (adynaton) trope — reversal of natural and social order (birds, beasts, kin, truth/lie, rich/poor) read as divine decree; Bulleh's acceptance ("hukam hazooron aaya").]
+The poem works the ancient rhetorical figure of the "world turned upside down" (adynaton — the catalogue of impossible reversals; in the Indic frame the ulṭā or inverted world, as in Kabir's ulaṭbānsī). Its method is a mounting inventory of reversals across three registers: the natural order (crows striking hawks, sparrows toppling towers, horses reduced to pecking gravel while donkeys fetch a price), the kinship order (no affection among uncles and aunts, no accord of fathers and sons, mothers and daughters), and the social-moral order (the truthful shoved aside while liars take the seat of honour, the once-foremost destitute while the hindmost spread their carpets, hovel-dwellers crowned and kings sent begging). The accumulation is the argument: every level of the created hierarchy has flipped.
+
+What lifts Bulleh Shah's use of the topos above mere social complaint is the theological turn of the final couplet: "the command has come from the Presence (ḥukam ḥazūroṅ) — who can turn it aside?" The inversion is not chaos but decree; the upheaval of the natural and social orders is read as the ḥukm, the divine command, against which no created power avails. This folds the adynaton into the Sufi discipline of ridā and taslīm — acceptance of and submission to the decree — so that the catalogue of scandalous reversals ends not in protest but in recognition that even the overturning is God's doing. There is an implicit warning in it too: the proud on their carpets today are as subject to the ḥukm as the kings now begging.
+
+Read against Bulleh Shah's own turbulent age — the collapse of Mughal authority in eighteenth-century Punjab, invasion and social churn — the poem can be heard as a response to real historical upheaval, the sense of an era whose settled orders had come loose. But the deeper implication is characteristic of him: worldly hierarchy (of species, kin, wealth, rank) is neither stable nor ultimately meaningful, and its very reversibility exposes its emptiness; the only fixed point is the ḥukm of the Presence. (Several nouns in the first two couplets — the birds of prey, "towers," the gravel/donkey line, "hovels" — are flagged tentative, so the exact inventory of reversals is provisional.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. ulṭe zamaane (inverted times), chaache/taae (paternal uncles/aunts), hukam hazooron (command from the divine Presence); add do_not_flatten_to notes]
+- ulṭe zamāne: "inverted times," the world-turned-upside-down — the adynaton of reversed natural and social order; do_not_flatten_to merely "bad times."
+- chāche / tāe: paternal uncles (younger and elder) — synecdoche for the kinship bonds that have decayed; do_not_flatten_to generic relatives.
+- ḥukam ḥazūroṅ: "the command from the Presence" — the divine decree behind the upheaval; do_not_flatten_to a human order.
+- ridā / taslīm: acceptance of and submission to the decree — the posture the closing couplet counsels; do_not_flatten_to passive resignation.
 
 # Themes
 
-- [TO DO (rauf): e.g. social_inversion, decay_of_kinship, divine_decree, injustice]
+- social_inversion
+- decay_of_kinship
+- divine_decree
+- injustice
+- acceptance_of_the_decree
 
 # Source Notes
 

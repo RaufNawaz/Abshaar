@@ -99,19 +99,45 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The people have come out to the spectacle, O friend!
+What did I do today? what must I do tomorrow? — and now our own turn has come.
+Such a plot I sowed that the birds laid the whole field waste.
+One reproach comes from the loved ones, the other from the world;
+the honour and shame of this place stay here — one lets go and clutches at the dust, O friend.
+He makes one young, He makes one old, each in his own turn:
+be she lady or bondmaid or slave-girl, be she washerwoman or innkeeper's wife.
+Bulleh sets out to see the Beloved, making of himself a pretext;
+having shaped all manner of pots, He breaks them back to shards.
+Watch this show and move along; go and look at the next bazaar —
+what a throng has gathered at the court! The people have come out to the spectacle, O friend!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the world as a transient fair/spectacle (tamaasha); the ubi sunt levelling of ranks (lady, maid, washerwoman); the potter-God who shapes vessels and smashes them (creation and death); the counsel to watch and move on without attachment.]
+The refrain — khalq tamāshe āī, "creation has come out to the spectacle" — frames worldly existence as a tamāsha, a passing fair or show that people crowd to watch and then leave. It is one of Bulleh Shah's central figures for dunyā: not so much evil as ephemeral entertainment, a bazaar one strolls through without settling. The opening folds the spectator into the show — "what did I do today, what tomorrow — now our own turn has come" — so that the watcher of the fair is himself one of its acts, subject to the same passing vārī (turn). The sown plot that "the birds laid waste" is the futility of worldly labour: what one cultivates in the world is eaten up before it can be reaped.
+
+The middle is a classic ubi sunt levelling. "He makes one young, one old, each in his turn," and the roll-call refuses all rank — "lady or bondmaid or slave-girl, washerwoman or innkeeper's wife" — every station of woman, high and low, equal before the turn of mortality. It is the same democratic sweep of death as in the graveyard poem (0007): worldly hierarchy dissolved by the one fact that levels everyone. The couplet on "honour and shame" (nang, nāmūs) staying behind while "one clutches at the dust" reinforces it — the reputation the world prizes cannot be carried out of the fair; only the dust of the grave awaits.
+
+The boldest stroke is theological: the potter-God. "Having shaped all manner of pots, He breaks them back to shards (ṭheekriyāṅ)" — the Beloved as the kumbhār, the potter who moulds vessels (creatures) from clay and then smashes them, an ancient figure (biblical, Quranic, and central to Kabir and the Bhakti-Sufi world) for a Creator who makes and unmakes at will. Creation and death are one continuous act of the divine potter, and the shattering is not cruelty but the nature of the craft. The counsel that follows is detachment: "watch this show and move along, look at the next bazaar" — the right relation to the world's tamāsha is to witness it without clinging, passing through the fair toward the darbār, the court where the real throng gathers. (Several nouns — the "our turn" word, the honour/shame line, and the pot-shaping line — are flagged tentative.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. khalq/tamaasha (creation/spectacle), kiaari (sown plot), bhaanḍe/ṭheekriyaan (pots/potsherds — the potter-God image), vaari (turn), darbaar (court); add do_not_flatten_to notes]
+- tamāsha: the passing fair/spectacle — the world as transient entertainment one watches and leaves; do_not_flatten_to mere fun.
+- khalq: creation / the people — the crowd at the fair, and the creatures God shapes; do_not_flatten_to a generic "public."
+- ṭheekriyāṅ / bhānḍe: potsherds and pots — the potter-God's vessels (creatures) shaped and then smashed; do_not_flatten_to literal crockery.
+- vārī: one's "turn" — to be born, to age, to die — that comes round to each; do_not_flatten_to a game-turn.
+- nang / nāmūs: honour and shame — worldly reputation left behind at the grave; do_not_flatten_to abstract "dignity."
 
 # Themes
 
-- [TO DO (rauf): e.g. transience_of_world, ubi_sunt / levelling_of_ranks, potter-God_creation_and_death, non-attachment]
+- world_as_spectacle
+- transience_of_world
+- levelling_of_ranks
+- potter_god_creation_and_death
+- non_attachment
 
 # Source Notes
 

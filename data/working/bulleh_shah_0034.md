@@ -139,19 +139,58 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Love's spring is forever new.
+The moment I read the lesson of love,
+my heart shrank away from the mosque;
+asking my way, I entered the temple
+where a thousand strains resound.
+Love's spring is forever new.
+Weary from poring over Vedas and Qur'ans,
+foreheads worn thin with prostration —
+God is neither in Tirath nor in Mecca;
+whoever found Him found the Light of lights.
+Love's spring is forever new.
+Burn the prayer-mat, smash and toss the ablution-pot;
+tell no rosary, drop the beggar's staff —
+the lovers cry aloud their call:
+"Renounce the lawful — eat the forbidden!"
+Love's spring is forever new.
+Heer and Ranjha have become one;
+the bewildered Heer scoured the wild pastures,
+while Ranjha, her love, was in her own arms all along.
+No awareness stayed — so guard your awareness!
+Love's spring is forever new.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat (which softens the antinomian line). Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): love's perennial "spring"; even-handed rejection of mosque and scripture-drudgery, of Tirath and Mecca alike; the antinomian shock-line "renounce the lawful, eat the forbidden"; God found only by love, "the Light of lights"; the Heer-Ranjha union as the parable of the sought Beloved never absent.]
+This is among the most openly antinomian of Bulleh Shah's kafis, and its refrain — "love's spring is forever new (naveeyoṅ naveen bahār)" — frames the whole as the perennial freshness of ʿishq against the staleness of dead observance. The first stanza dramatizes the turn: "the moment I read the lesson of love, my heart shrank from the mosque; I entered the temple where a thousand strains resound." The point is not conversion from Islam to Hinduism but the abandonment of the sober mosque of law for the place of music and ecstatic sound (the naad, the thousand strings) — love drives the seeker out of the house of prohibition toward the house of song, and that he names the Hindu temple (ṭhākur-duārā) as that place is deliberate provocation, the even-handed border-crossing that scandalized his co-religionists.
+
+The second stanza levels the two scriptural establishments together: "weary from Vedas and Qur'ans, foreheads worn thin with prostration — God is neither in Tirath nor in Mecca." Hindu pilgrimage-site (tīrath) and Muslim pilgrimage-goal (Mecca) are dismissed in one breath, along with the exhausting labour of scripture-reading and prostration, and the positive claim follows: "whoever found Him found the Light of lights (nūr al-anwār)" — God is an interior illumination, not a location or a text. This is the recurrent Bulleh Shah relocation of the divine from the sanctioned external sites into the heart.
+
+The third stanza is the shock-centre: "burn the prayer-mat (musallā), smash the ablution-pot (loṭā), tell no rosary (tasbīh), drop the staff" — a systematic demolition of the props of both Muslim ritual and dervish-mendicant paraphernalia — climaxing in the deliberately blasphemous cry the lovers raise, tark halāloṅ, khā murdār, "renounce the lawful, eat the forbidden!" This is antinomianism at its most provocative, inverting the sharīʿa's core categories of ḥalāl and ḥarām. It reads not as a literal licence for transgression but as the malāmatī gesture of the ecstatic who has passed beyond the law, deliberately courting blame and shattering the categories by which the pious measure worth, insisting that love's spring makes the whole apparatus of lawful/forbidden irrelevant. (Rafat softens it to "taste prohibited things"; the Punjabi is far starker.)
+
+The closing stanza returns to the Heer-Ranjha parable and gives the poem its deepest turn: "Heer and Ranjha have become one; the bewildered Heer scoured the wild pastures for him, while Ranjha was in her own arms all along." The seeking soul ranges the world for a Beloved who was never absent — the indwelling God of "the thief in the shawl" (0048), "nearer than the jugular vein" — and the whole tragedy is only the failure of awareness. Hence the final admonition: "no awareness (surat) stayed — so guard your awareness!" The antinomian demolition has a constructive purpose: to clear away the external apparatus (mosque, temple, scripture, ritual, even the categories of lawful and forbidden) that distracts the seeker from the one thing needful — the surat, the awareness that would recognize the Beloved already held in one's own arms. (The poem spans two spreads; a few readings are flagged tentative, but the antinomian line and the Heer-Ranjha close are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. ishq/bahaar (love/spring), ṭhaakur-duaara vs masjid, teerath vs makke, musalla/loṭa/tasbeeh (prayer-mat/ablution-pot/rosary), halaal vs murdaar (lawful vs carrion/forbidden), noor anwaar (Light of lights), Heer-Ranjha; add do_not_flatten_to notes]
+- bahār: spring — love's ever-renewing freshness set against dead observance; do_not_flatten_to a literal season.
+- tīrath / Mecca: Hindu pilgrimage-site and Muslim pilgrimage-goal — dismissed together as places God is not; do_not_flatten_to travel destinations.
+- musallā / loṭā / tasbīh: prayer-mat, ablution-pot, rosary — the ritual props the poem orders destroyed; do_not_flatten_to mere objects.
+- tark halāloṅ, khā murdār: "renounce the lawful, eat the forbidden" — the antinomian/malāmatī shock-cry inverting ḥalāl and ḥarām; do_not_flatten_to a literal dietary licence.
+- nūr al-anwār: "the Light of lights" — God as interior illumination rather than location or text; do_not_flatten_to ordinary light.
+- surat: awareness / consciousness — the faculty whose lapse alone keeps Heer from the Ranjha in her arms; do_not_flatten_to mere attention.
 
 # Themes
 
-- [TO DO (rauf): e.g. antinomianism, love_over_ritual, even-handed_critique_hindu_muslim, god_within, heer_ranjha_union]
+- antinomianism
+- love_over_ritual
+- even_handed_critique_hindu_muslim
+- god_within
+- heer_ranjha_union
 
 # Source Notes
 

@@ -98,19 +98,48 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Fasts, the Hajj, the prayer, O mother —
+the Beloved came and made me forget them all.
+When word of the Beloved reached me,
+logic and grammar were all forgotten;
+love struck the strings of that One alone.
+Fasts, the Hajj, the prayer, O mother —
+the Beloved came and made me forget them all.
+The moment the Beloved entered my house,
+I forgot even the Sharh al-Wiqaya;
+in every form it is He alone I see,
+His radiance within and without.
+The heedless folk have no inkling of it.
+Fasts, the Hajj, the prayer, O mother —
+the Beloved came and made me forget them all.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): love effacing both ritual observance (fasting/hajj/prayer) and religious learning (logic, grammar, the fiqh text Sharh al-Wiqaya); the vision of the One in "every manifestation" (mazhar) — wahdat al-shuhud; the "heedless" (bhulle lok) who cannot perceive it.]
+The poem is a hymn to the way love effaces both wings of institutional religion — observance and learning — and it is unusually specific about what love makes the lover forget. The refrain sweeps away the ritual pillars: rozē (fasts), ḥajj (pilgrimage), namāz (the five prayers) — "the Beloved came and made me forget them all." This is not irreligion but supersession: the coming of the Beloved (piyā) renders the disciplines that were meant to lead to Him beside the point once He has actually arrived — the means fall away in the presence of the end. The address "ni māe," "O mother," sets it in the intimate feminine confessional voice, the girl telling her mother of the love that has overturned her observances.
+
+Its distinctive move is to name the scholastic curriculum precisely and have love erase that too: "when word of the Beloved reached me, manṭiq (logic) and naḥv (grammar) were all forgotten," and "when the Beloved entered my house, I forgot even the Sharh al-Wiqaya" — a specific, well-known Hanafi fiqh manual studied in the madrasa. By naming the actual textbooks of the religious sciences — logic, Arabic grammar, jurisprudence — Bulleh Shah, himself trained in them, stages the defeat of his own scholarship by love: acquired knowledge (ʿilm) evaporates before the tasted knowledge of the Beloved's presence (maʿrifa). "Love struck the strings of that One (Aḥad)" gives the positive counterpart — where the curriculum falls silent, the music of the divine Unity (al-Aḥad, the One) sounds.
+
+The second stanza states the doctrine that replaces the forgotten learning: "in every manifestation (maẓhar) He alone appears; His radiance (jalwa) is within and without." This is the vision of divine self-disclosure — every form in the world a maẓhar, a locus in which the one Real shows Himself, the jalwa (theophanic radiance) pervading inner and outer alike. Whether read as waḥdat al-wujūd (He is in every form) or the more cautious waḥdat al-shuhūd (He is witnessed in every form), the point is that once the Beloved has come He is seen everywhere, and the apparatus of ritual and scholarship that assumed His absence becomes superfluous. The closing sting — "the heedless (bhulle lok) have no inkling of it" — divides humanity by perception, not observance: the ritualists and scholars unvisited by the Beloved simply cannot see what the lover sees, however correct their fasting and their fiqh. (A few readings — the "word reached me" line and the Aḥad/strings line — are flagged tentative.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. roze/hajj/namaz (the rituals), mantiq/nahv (logic/grammar), Sharh al-Wiqaya (Hanafi fiqh manual), Ahad (the One), mazhar/jalwa (manifestation/radiance); add do_not_flatten_to notes]
+- rozē / ḥajj / namāz: the ritual pillars (fasting, pilgrimage, prayer) love makes the lover "forget" — superseded, not despised; do_not_flatten_to a wholesale rejection of religion.
+- manṭiq / naḥv: logic and (Arabic) grammar — the scholastic curriculum erased by love; do_not_flatten_to generic "study."
+- Sharh al-Wiqaya: a specific Hanafi jurisprudence manual — named to stage the defeat of the poet's own learning; do_not_flatten_to "religious books."
+- Aḥad: the One (a divine name) — whose "strings" love strikes when the curriculum falls silent; do_not_flatten_to a number.
+- maẓhar / jalwa: the locus of divine self-manifestation and its theophanic radiance, seen "within and without"; do_not_flatten_to ordinary appearance or brightness.
 
 # Themes
 
-- [TO DO (rauf): e.g. love_over_ritual, love_over_scholarship, divine_manifestation, wahdat]
+- love_over_ritual
+- love_over_scholarship
+- divine_manifestation
+- wahdat
+- perception_vs_observance
 
 # Source Notes
 

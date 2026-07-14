@@ -89,19 +89,48 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The friends next door have risen and gone —
+O Lord, what do we do now!
+They have gone, they will not stay;
+the caravan stands ready.
+O Lord, what do we do now!
+On all four sides the talk of leaving,
+on every side a cry goes up.
+O Lord, what do we do now!
+The heart wails and blazes into flame
+for want of the Beloved's sight.
+O Lord, what do we do now!
+Bulleh — without the dear Lord
+there is neither this shore nor the far.
+O Lord, what do we do now!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the companions/neighbours departing (death, or the caravan of life moving on) leaving the speaker behind; the refrain of helpless appeal to God; the heart aflame without the Beloved's darshan; being stranded "neither on this shore nor the far one" without the Lord.]
+The poem is a lament of being left behind, and its engine is the helpless refrain Rabbā! hun kīh karīye — "O Lord, what do we do now!" — returning after each unit like the recurring cry of someone watching a departure they cannot halt. The literal scene is domestic and communal: the "friends next door" (gvāndhoṅ yār) have "risen and gone," and the caravan (sāth) is packed and ready. But the departure is death's — the neighbours who rise and leave are the dead, and the speaker is the one not yet summoned, watching the procession of mortality thin the world around him. "On all four sides the talk of leaving, on every side a cry" universalizes it: death is the ambient news of existence.
+
+The third unit turns from the communal to the private wound: "the heart wails and blazes into flame for want of the Beloved's sight" (bin dekhe dīdār). Here the poem discloses that the grief beneath the grief of losing companions is the absence of dīdār — the unbeheld face of the Beloved. The burning heart (kalejā bal bal uṭhdī) is the fire of firāq, separation, the standard Sufi affect; losing friends has only exposed the deeper, prior loss that structures the soul's whole condition — its separation from God.
+
+The closing couplet supplies the diagnosis and the poem's finest line: "without the dear Lord (shoh) there is neither this shore nor the far" — na urār na pār. The image is riverine again (the near bank and the far bank), but the claim is radical: without the Beloved the very coordinates of the crossing collapse — there is no here to stand on and no there to reach, only a stranded liminality. This says more than ordinary lament: the Beloved is not merely the destination of the crossing but the condition of there being any shore at all; in His absence, being itself loses its banks. Read back through this line, the helpless refrain is not rhetorical despair but the exact posture of a soul that has found it cannot locate itself without God. (The first word of the "heart wails" line is a tentative reading, so that image is provisional.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. gvaandhon (neighbours), saath (caravan/company), deedaar (sight/darshan), shoh (the Lord/Beloved), uraar/paar (near shore / far shore); add do_not_flatten_to notes]
+- gvāndhoṅ yār: "the friends next door" — companions and neighbours who "rise and go," i.e. the dead departing; do_not_flatten_to literal neighbours only.
+- sāth: the caravan or company made ready to leave — the procession of mortality; do_not_flatten_to mere "company."
+- dīdār: the sight or vision of the Beloved's face, whose absence sets the heart aflame; do_not_flatten_to an ordinary glimpse.
+- shoh: the dear Lord/Beloved, without whom the shores themselves vanish; do_not_flatten_to a human beloved only.
+- urār / pār: the near shore and the far shore — the coordinates of the crossing that collapse without the Beloved; do_not_flatten_to literal riverbanks.
 
 # Themes
 
-- [TO DO (rauf): e.g. abandonment, mortality, separation_from_the_beloved, helpless_appeal_to_God, liminality]
+- abandonment
+- mortality
+- separation_from_the_beloved
+- helpless_appeal_to_god
+- liminality
 
 # Source Notes
 

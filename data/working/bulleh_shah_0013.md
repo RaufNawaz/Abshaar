@@ -151,19 +151,64 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+In a single point the whole matter is sealed.
+Seize the point, let the reckonings go;
+give up the dread of hell and the torments of the grave.
+Bolt fast the doors of unbelief,
+scour clean the dreamings of the heart —
+the matter comes home to a house like this:
+in a single point the whole matter is sealed.
+
+For nothing you grind your brow in the dust,
+stretch out long at the prayer-niche for show,
+recite the creed to make the people gape,
+and plant no understanding within the heart.
+Even the true word, one day, gives out:
+in a single point the whole matter is sealed.
+
+Off to the jungle some go fleeing,
+living on a single grain a day,
+wearing the body out without understanding,
+coming home worn to the bone;
+deep within, the soul keeps fretting:
+in a single point the whole matter is sealed.
+
+Many come back turned into pilgrims,
+blue robes draped about the throat,
+swaying and strutting through the Hajj —
+but whom is such a show to please?
+Somewhere even the true word is choked:
+in a single point the whole matter is sealed.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): explain the "one point / nuqta" conceit — the single dot/point (the One, or the dot that distinguishes letters) against the futility of hell-fear, ritual display, ostentatious pilgrimage and mere book-piety. Anti-ritual, wahdat theme.]
+The poem is built as a doctrine (the refrain) followed by a triage of false paths that fail it. The refrain — "in a single nuqta (point/dot) the whole matter is sealed" — makes the nuqta the emblem of the One: the point that is the source of all letters and forms (see 0002, 0003) and the single, indivisible Reality in which the whole of religion is concluded. The first stanza states the positive program with startling economy: "seize the point, drop the reckonings (ḥisāb)" — abandon the accountancy of reward-and-punishment religion, the fear of hell and the grave's torments, which the poem treats as spiritually beside the point — and "bolt shut unbelief, scour clean the heart's dreams," since the real work is interior purification (taṣfiya), not the ledger of merit and dread. This is Bulleh Shah's recurring claim that fear-based, transactional piety distracts from the one thing needful.
+
+The remaining stanzas form a catalogue of misdirected religiosity, each measured against the nuqta and found wanting. The second targets ritual performed for display: "grinding the brow in the dust," long theatrical prostrations at the miḥrāb (prayer-niche), reciting the kalma "to make people gape" — all outward form with no inner understanding — and the sting is that even "the true word runs out," recitation without realization exhausting itself, empty of the thing it names. This is the classic bāṭin/ẓāhir (inner/outer) critique: ritual is condemned not in itself but as hollow theatre when the heart is absent.
+
+The third stanza turns to the opposite error, world-renouncing asceticism: those who "flee to the jungle" and "live on a single grain a day" merely "wear out the body without understanding" and "come home spent," their souls still fretting. Extreme austerity, no less than ritual display, misses the point — mortification of the flesh is not the nuqta either. The fourth aims at the ostentation of pilgrimage: men who "come back made into hajis," parade in "blue robes," and "strut through the Hajj" — "but whom does such a show please?" The Hajj too, performed for status and spectacle, "chokes the true word." Across the three false paths — transactional fear, ritual display, and showy asceticism or pilgrimage — the poem builds one argument: every externalized religion, whether performative or austere, is surplus to the single interior point.
+
+The cumulative claim is Bulleh Shah's tawḥīd as radical simplification: the whole of religion reduces to one point, and everything that is not that point — the ledger of hell, the theatre of prayer, the vanity of pilgrimage, the self-punishment of the ascetic — is at best distraction and at worst hypocrisy. The nuqta works simultaneously as the metaphysical One (waḥdat) and as the epistemic demand that knowledge be interior and realized (maʿrifa) rather than performed. (This poem carries HIGH transcription uncertainty on several interior lines — the bird/jungle word, the "soul frets" refrain-line, and the pilgrimage stanza's middle line — so specific glosses are provisional even though the four-part structure and the anti-ritual argument are clear.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. nuqta (the point/dot), hisaab (reckoning), mehraab (prayer-niche), kalma, haaji; add do_not_flatten_to notes]
+- nuqta: the point/dot — the One, the indivisible Reality in which "the whole matter is sealed," and the source-point of all letters and forms; do_not_flatten_to a punctuation mark.
+- ḥisāb: the "reckoning," the accountancy of reward and punishment — the transactional religion the poem sets aside; do_not_flatten_to ordinary arithmetic.
+- miḥrāb: the prayer-niche — here the stage of ostentatious prostration; do_not_flatten_to mere architecture.
+- kalma: the Islamic creed/testimony — recited "to make people gape," form without inner understanding; do_not_flatten_to a magic formula.
+- bāṭin / ẓāhir: the inner and the outer — the axis of the poem's critique, true religion being interior; do_not_flatten_to a simple private/public split.
 
 # Themes
 
-- [TO DO (rauf): e.g. divine_unity, critique_of_ritual, critique_of_ostentatious_piety, inner_vs_outer]
+- divine_unity
+- critique_of_ritual
+- critique_of_ostentatious_piety
+- inner_vs_outer
+- critique_of_asceticism
 
 # Source Notes
 

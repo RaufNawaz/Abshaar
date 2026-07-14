@@ -102,19 +102,47 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+My heart longs for the beloved Maahi.
+Some, laughing and laughing, chatter away;
+others wander weeping, searching.
+Tell the spring in all its blossoming —
+my heart longs for the beloved Maahi.
+I was left all bathed and adorned, still waiting;
+some knot has turned the Beloved's heart away.
+Let me set fire to all my finery —
+my heart longs for the beloved Maahi.
+The tale-bearers have left me wounded;
+torments have ringed me round on every side.
+Come home, Maahi, and grant me one sight of you —
+my heart longs for the beloved Maahi.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the virahini's longing — contrast of the carefree and the grieving; the adorned, waiting bride abandoned; burning her finery in despair; the tale-bearers (dooti) and encircling "sools" (agonies); the closing plea for the Beloved's deedaar (glimpse).]
+A pure virahiṇī lyric — the lament of the woman-soul for the absent Māhī, "the buffalo-herd," the beloved cowherd whose name (the Ranjha-figure of Punjabi romance) Bulleh Shah, like the whole Punjabi Sufi tradition, uses for God and the Beloved. The refrain, dil loche māhī yār nu, "the heart longs for the beloved Maahi," sets the single note the poem sustains: unslaked longing. The opening contrast — "some laugh and chatter, others wander weeping and searching" — divides the world into the carefree (the unloving, or the already united) and the grieving lover, and the address "tell the blossoming spring" turns the season of union and fertility into a reproach: the world blooms while she withers, the pathetic fallacy of viraha in which spring itself must be informed of her grief.
+
+The second stanza gives the poignant image of the adorned, waiting bride: "I was left all bathed and adorned, still waiting," dressed for a union that never came, while "some knot (gaṇḍh) has turned the Beloved's heart away" — a mysterious estrangement, a knot tied in his heart by fate or by tale-bearers. Her response is the violent gesture of despair: "let me set fire to my finery (hār siṅgār)." The ornaments and bridal dress are worthless, even hateful, without the one they were meant for, so she would burn them — the burning of the siṅgār being a recurrent image of the lover for whom all adornment is mockery in the Beloved's absence.
+
+The third stanza names the social machinery of separation: the dūtī — the go-betweens, tale-bearers, slanderers who "left me wounded." In the conventions of the genre these are the gossips and mischief-makers who poison the bond; they also figure the worldly voices that come between the soul and God. "Torments (sūlāṅ, literally stakes) have ringed me round on every side" renders the encircling agony of separation, and the poem ends, as so many do, on the bare plea for dīdār: "come home, Maahi, grant me one sight of you." The whole movement — the blooming world that mocks her, the burnt finery, the wounding tale-bearers, the encircling pain — funnels into that single wish for the Beloved's face. (Stanza 2's "knot" line and the dūtī reading are flagged tentative; note Rafat renders dūtī as "my eyes," a different reading to confirm.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. maahi (beloved), loche (yearns), haar singaar (finery/adornment), dooti (go-between/tale-bearer), sool (agony/stake), deedaar (glimpse); add do_not_flatten_to notes]
+- Māhī: the beloved buffalo-herd / cowherd (the Ranjha-figure of Punjabi romance) — used for God/the Beloved; do_not_flatten_to a literal herdsman.
+- loche: yearns, aches for — the sustained longing of the refrain; do_not_flatten_to mild wishing.
+- hār siṅgār: finery and bridal adornment — worthless in the Beloved's absence, so she would burn it; do_not_flatten_to mere jewellery.
+- dūtī: the go-between / tale-bearer / slanderer who wounds the lover and sows estrangement; do_not_flatten_to a neutral messenger (Rafat reads it as "eyes").
+- dīdār: the sight or glimpse of the Beloved, the closing plea; do_not_flatten_to a casual look.
 
 # Themes
 
-- [TO DO (rauf): e.g. separation_viraha, longing, abandonment, feminine_voice, plea_for_glimpse]
+- separation_viraha
+- longing
+- abandonment
+- feminine_voice
+- plea_for_glimpse
 
 # Source Notes
 

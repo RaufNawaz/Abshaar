@@ -89,19 +89,43 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The sisters and the sisters-in-law came to counsel Bulleh:
+"Take our advice, Bulleh — let go the Arain's hem!
+You, of the Prophet's house, of Ali's line — why have you stained us so?"
+Whoever calls me a Sayyid — may the torments of hell be his;
+whoever calls me a Rai — his are the swings of paradise.
+The Master is present in every place — such are the careless ways of God:
+He pushes the lovely ones aside and clasps the homely to His breast.
+If you long for the garden in bloom, make yourself the Arain's servant.
+Why ask what caste Bulleh Shah is? Be content within His will.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat (whose English is a free adaptation here). Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the biographical/caste conflict — Bulleh (a Sayyid) defying family pressure to reject his Arain murshid Shah Inayat; the deliberate inversion of caste honour ("call me Sayyid → hell; call me Rai → paradise"); God's "be-parwaahi" that favours the humble over the fair.]
+This is the most nakedly autobiographical of Bulleh Shah's caste poems, dramatizing the central scandal of his life. The frame is a domestic intervention: his kinswomen — "sisters and sisters-in-law" — come to "counsel" him (samjhāvan, i.e. to shame him back into propriety), urging him to "let go the hem of the Arain" (Rāī), his murshid Shah Inayat, who belonged to the Arain caste of market-gardeners. Their argument is one of honour and blood: Bulleh is Aal-e-Nabi, of the Prophet's house, aulād-e-Ali, of the line of Ali — a Sayyid — and by submitting to a low-caste master he has "drawn lines on," stained (leekāṅ lāīyāṅ), the family's sacred status.
+
+His answer is a deliberate, provocative inversion of the whole caste calculus: "whoever calls me a Sayyid — hell to him; whoever calls me a Rai — the swings of paradise to him." He does not merely tolerate the low-caste association; he claims it and curses the honorific, making the prized title (Sayyid) a passport to hell and the "insult" (Arain) a passport to paradise. In the economy of love the only rank is nearness to the Beloved through the murshid, and worldly caste-honour is exactly the ego that bars the way — which is why "become the Arain's servant if you want the garden in bloom" turns discipleship to the low-caste master into the very condition of spiritual flowering.
+
+The theological centre is the couplet on divine "carelessness": "the Master is present in every place — such are the be-parwāhī (unconcerned, careless) ways of God: He pushes the lovely aside and clasps the homely to His breast." God's be-parwāhī is His sovereign indifference to human hierarchies of merit and beauty — election is not earned by status or comeliness, and grace characteristically falls on the despised. That is the doctrine beneath the social defiance: since God Himself disregards rank and prefers the lowly, clinging to caste-honour is to be out of step with the divine disposition. The close then dismisses the question of zāt altogether — "why ask Bulleh Shah's caste? be content (shākir) in His will (riḍā)" — binding his social radicalism to his mysticism: the annihilation of the status-seeking self into acceptance. (Rafat's English flattens the Sayyid/Rai retort into "My caste? I've none. I'm just a man," so the entry's own AI translation is closer to the Punjabi; a few rhyme-tail readings are flagged tentative.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. Rai/Arain (murshid's caste), Syed, Aal-e-Nabi / aulaad-e-Ali, leekaan laaiyaan (to stain/disgrace), chaakar (servant), shaakir/rizaa (contentment in God's will); add do_not_flatten_to notes]
+- Rāī / Arain: the market-gardener caste of Bulleh Shah's murshid Shah Inayat — the "low" association he defiantly embraces; do_not_flatten_to a surname.
+- Sayyid / Aal-e-Nabi: descendant of the Prophet's house — the honorific the family prizes and he repudiates; do_not_flatten_to a mere title.
+- leekāṅ lāīyāṅ: "to draw lines on," to stain or disgrace — the charge that he has dishonoured the lineage; do_not_flatten_to a light insult.
+- be-parwāhī: God's sovereign "carelessness," His unconcern with human rank and merit; do_not_flatten_to negligence.
+- shākir / riḍā: contentment and acceptance of the divine will — the poem's resolution of the identity question; do_not_flatten_to passive resignation.
 
 # Themes
 
-- [TO DO (rauf): e.g. rejection_of_caste, devotion_to_murshid, humility_over_lineage, divine_will]
+- rejection_of_caste
+- devotion_to_murshid
+- humility_over_lineage
+- divine_election_of_the_lowly
+- contentment_in_the_will
 
 # Source Notes
 

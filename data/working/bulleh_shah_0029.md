@@ -93,19 +93,46 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Crying "Ranjha, Ranjha," I have myself become Ranjha now.
+Call me Dhido-Ranjha; let no one call me "Heer."
+Ranjha is within me, and I within Ranjha — no other thought remains;
+I am not: He alone is, consoling His own self.
+Whatever dwells within us, that is our very essence;
+the one I gave my love to, I have become just like him.
+Cast off the white sheet, girl, and put on the faqir's coarse blanket;
+the white sheet will show every stain — the blanket takes no stain.
+Take me to Takht Hazara, Bulleh — among the Sials I find no refuge.
+Crying "Ranjha, Ranjha," I have myself become Ranjha now.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the classic fana / union-of-identities — Heer so absorbed in Ranjha that she becomes him (the lover annihilated in the Beloved); the white sheet (worldly purity/reputation) vs the faqir's stain-proof blanket (loi); Takht Hazara (Ranjha's home) vs Sial (Heer's people). Cross-ref the Sufinama version [[bulleh_shah_0001]].]
+This is Bulleh Shah's most celebrated statement of fanāʾ fī'l-maḥbūb, annihilation in the Beloved, and it works entirely through the Punjabi romance of Heer and Ranjha. Heer has invoked her beloved's name so long and so wholly — "Ranjha, Ranjha" — that the invocation has consumed the invoker: "I have myself become Ranjha." The lover, by constant remembrance (the dynamic is exactly dhikr, repetition of the Beloved's name), is transformed into the Beloved, and she demands the consequence in her very name — "call me Dhido-Ranjha, let no one call me Heer" — for the separate identity of the lover has dissolved. Carrying the highest Sufi doctrine on the vernacular love-legend is the signature of the Punjabi qissa-Sufi synthesis.
+
+The second couplet is the metaphysical core and one of the most exact formulations of fanāʾ in the whole collection: "Ranjha is within me, I within Ranjha — no other (ghair) thought remains; I am not (main naheen): it is He alone, consoling His own self." The mutual indwelling passes into outright negation of the self — main naheen, "I am not" — and then into pure monism: there is no lover and Beloved as two, only the One who, in loving, "consoles His own self" (apnī āp kare diljoī). Love at its term is God's love of God; the duality of lover and Beloved was provisional, and in union it collapses into the single Real loving itself — waḥdat al-wujūd stated as lived experience rather than as doctrine.
+
+The third and fourth couplets draw the consequences. "Whatever dwells within us is our essence (zāt); the one I loved, I have become like him" restates love's transforming power — you become what you contemplate, the indwelling Beloved becoming the lover's very zāt (and note the pointed reuse of zāt, "caste/essence," the word Bulleh Shah everywhere empties of social meaning: one's true zāt is not birth but the Beloved within). Then the renunciation of reputation: "cast off the white sheet (chiṭṭī chādar), put on the faqir's coarse blanket (loi); the white sheet shows every stain, the blanket takes none." White cloth — the garment of respectability, purity, honour — is exactly what registers every blemish and must be anxiously guarded; the faqir's dark rough blanket cannot be stained, and so is free. To trade the appearance of purity for the faqir's indifference to it is to be free of the anxiety of reputation altogether.
+
+The close returns to the legend's geography: "take me to Takht Hazara (Ranjha's home); among the Sials (Heer's own clan) I find no refuge (ḍhoi)." Having become Ranjha, Heer can no longer belong among her own people; the transformed lover is an exile from her natal identity, at home only in the Beloved's country — an image of the Sufi's alienation from ordinary belonging once annihilated in the Beloved. A textual note for the corpus: this same kafi is present as [[bulleh_shah_0001]] from the Sufinama source, with different wording and line-order — the two should be kept distinct and eventually clustered as witnesses of one canonical work. (Readings "Dhido" and "Siyāleṅ… ḍhoi" are flagged for confirmation.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. Ranjha/Heer/Dhido (Heer-Ranjha legend), neonh (love/attachment), zaat (essence/self), chiṭṭi chaadar vs loi (white sheet vs faqir's blanket), Takht Hazara / Sial; add do_not_flatten_to notes]
+- Ranjha / Heer / Dhido: the lovers of the Punjabi romance — Heer becomes Ranjha (Dhido is Ranjha's given name); the idiom for the lover annihilated in the Beloved; do_not_flatten_to mere character names.
+- fanāʾ: annihilation of the self in the Beloved — "I am not; He alone is"; do_not_flatten_to a metaphor of strong feeling.
+- neonh: love, deep attachment — the bond that transforms the lover into the Beloved; do_not_flatten_to ordinary affection.
+- zāt: essence/self (and "caste") — here the indwelling Beloved becomes one's true essence, the word again voided of social meaning; do_not_flatten_to birth-caste.
+- chiṭṭī chādar / loi: the white sheet (respectability that shows every stain) versus the faqir's coarse blanket (stain-proof, free); do_not_flatten_to literal laundry.
 
 # Themes
 
-- [TO DO (rauf): e.g. fana_annihilation_in_beloved, union_of_identities, renunciation_of_reputation, heer_ranjha_idiom]
+- fana_annihilation_in_beloved
+- union_of_identities
+- renunciation_of_reputation
+- heer_ranjha_idiom
+- wahdat_al_wujud
 
 # Source Notes
 

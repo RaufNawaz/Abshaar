@@ -117,19 +117,49 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+O wayfarer, ho!
+Quick, bring me some word of comfort —
+O wayfarer, ho!
+I have grown thin, I am bent with grief;
+tell him all my sorrows —
+O wayfarer, ho!
+My hair hangs loose, the braid-cord in my hand;
+do not be ashamed to tell him even this —
+O wayfarer, ho!
+The Friend has written and sent a letter;
+sit in some quiet corner and read it out to me —
+O wayfarer, ho!
+Bulleh — may the Beloved's reins turn homeward;
+take my message and come running back —
+O wayfarer, ho!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the virahini (separated lover) sending word to the absent Beloved via a passing wayfarer/messenger; the disheveled hair and wasted body as conventional signs of viraha; the letter from the Friend that must be interpreted.]
+The poem belongs to the "message" or sandeśa tradition — the separated lover (virahiṇī) entrusting word to a passing traveller to carry to the absent Beloved, a topos with a long Indic pedigree (Kalidasa's Meghadūta, where a cloud is the messenger) and a natural home in the Punjabi landscape of wayfarers and caravans. The refrain Pāndhiyā ho! — "O wayfarer!" — is the repeated hail flagging down the messenger, and it gives the poem its breathless, imploring pulse. The speaker is again the soul as woman, and the addressee (pāndhi) is anyone travelling toward the Beloved — a saint, a fellow-seeker, even the breath or the word itself.
+
+The imagery is the standard iconography of viraha, the wasting of the body in separation: "I have grown thin and bent (dublī, kubṛī) with grief," and the disheveled hair with the braid-cord loose in the hand (khullī laṭ, hatth purāndā) — unbound hair being a conventional sign of a woman undone by longing, careless of the grooming that belongs to a settled, loved life. The striking instruction "do not be ashamed to tell him even this" presses the messenger to report the lover's abject, unkempt state without decorous softening: love has stripped away shame, and the Beloved must be told the naked truth of her ruin. This shamelessness of ʿishq — the willingness to be exposed in one's abjection — is a recurrent Bulleh Shah value.
+
+The fourth couplet turns on a received letter: "the Friend has written and sent a letter; sit in a quiet corner and read it out to me." The Beloved's kitābat is the intimation of grace already given — scripture, or an inward sign — that the lover cannot decipher alone and needs interpreted "in a quiet corner" (the khalwa, the seclusion of contemplation). The closing couplet is a prayer for reciprocity — "may the Beloved's reins (mahārāṅ) turn homeward," may He turn His mount back toward the waiting lover — with a last urgent charge to the messenger to "take my message and come running." The whole poem is thus the drama of separation seeking a channel across the distance: the soul, unable to reach the Beloved directly, casts its longing onto every passing traveller. (Several interior images — the "bent with grief" line and especially the disheveled-hair line — are flagged HIGH uncertainty, so those glosses are provisional.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. paandhi (wayfarer/messenger), sanehṛa (message), kubṛi (bent with grief), laṭ/puraanda (loose locks / braid-cord), shoh (Beloved), mahaaraan (reins); add do_not_flatten_to notes]
+- pāndhi: the wayfarer/traveller pressed into service as messenger to the Beloved; do_not_flatten_to a random passer-by.
+- sanehṛā: the message or word of comfort the lover begs to send and receive; do_not_flatten_to casual news.
+- khullī laṭ / purāndā: loosened locks and the braid-cord in hand — the conventional sign of a woman undone by longing; do_not_flatten_to a description of hairstyle.
+- kitābat: the Beloved's letter — the intimation of grace that must be interpreted in seclusion; do_not_flatten_to ordinary correspondence.
+- mahārāṅ: the reins of the Beloved's mount that the lover prays will "turn homeward"; do_not_flatten_to literal reins.
 
 # Themes
 
-- [TO DO (rauf): e.g. separation_viraha, longing, message_to_the_beloved, feminine_voice]
+- separation_viraha
+- longing
+- message_to_the_beloved
+- shamelessness_of_love
+- feminine_voice
 
 # Source Notes
 

@@ -114,19 +114,50 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+All are of one colour — all of them cotton.
+Warp-thread and warp-beam, weft and spools,
+the back-beam, the reed, the shuttle, the rings —
+each announces a name of its own,
+each goes about under a separate name;
+all are of one colour — all of them cotton.
+Chunni and fine weave, khaddar and dhoti-cloth,
+muslin and khaasa — all a single thread;
+each comes forth from the very same spool,
+even the saffron robe of the ascetic.
+All are of one colour — all of them cotton.
+Bangles, arm-rings, signet-rings and bands,
+each of them with a name of its own —
+call it all one and the same silver:
+the kangan, the churra on the arms —
+all are of one colour — all of them cotton.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): unity-behind-diversity (wahdat) argued through craft catalogues — many named loom-parts yield one cloth; many cloths (khaddar to muslin, even the ascetic's saffron) from one cotton; many ornaments from one silver. The named forms differ; the substance is one.]
+The poem argues waḥdat — the unity of being beneath the multiplicity of forms — not through abstraction but through the concrete catalogues of craft, and that is its distinction: metaphysics done in the vocabulary of the weaver's shed and the jeweller's bench. The refrain, sab iko rang kapāhāṅ da, "all are of one colour, [all] of cotton," states the thesis, and each stanza runs a list of many-named things back to one substance. The first names the loom's parts — warp-thread, warp-beam, weft, spools, reed, shuttle — and observes that "each announces a name of its own, each goes about under a separate name," yet all are stages of the one cotton: the diversity is nominal, a matter of names (nām), while the substance is single.
+
+The second stanza widens from the loom's parts to the finished cloths, and here the argument turns pointedly religious. Chunnī, khaddar, dhotī-cloth, fine muslin (malmal), khāsa — the whole range from coarsest peasant weave to most refined — are "all a single thread," and then the clinching example: "even the saffron robe (bhagwā bhes) of the ascetic (gusāīṅ)." By folding the Hindu renunciant's saffron in among the cottons, Bulleh Shah makes the metaphysical point do social-religious work — the robe that marks a man as a holy renunciant is, in substance, the same cotton as the ploughman's shirt; the outward signs that sort people into castes and sects are mere dyeings of one cloth. The third stanza repeats the move with jewellery: bangles, arm-rings, signet-rings, the kangan and churra — many named ornaments, "all one and the same silver."
+
+The cumulative argument is Bulleh Shah's characteristic fusion of the metaphysical and the anti-sectarian. Ontologically it is waḥdat al-wujūd: the manifold of forms is the one Real diversely named, as many cloths are one cotton and many ornaments one silver — the differences real as forms, illusory as substance. Socially and religiously it dissolves the distinctions people build their identities and hostilities on (Hindu and Muslim, high and low, ascetic and layman), since these too are only different cuts and dyes of one underlying stuff. The craft imagery is not decoration but proof: everyone already knows muslin and sackcloth are both cotton, and Bulleh Shah simply asks them to see creation the same way. (The dense weaving and jewellery vocabulary is the main uncertainty; several specific terms are flagged for verification, though the argument is unmistakable.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. kapaah (cotton), taani/taana/peṭa/naliyaan/naṛa (loom parts), khaddar/malmal/khaasa/dhotar (cloth types), bhagwa bhes / gusaaeen (saffron robe / Hindu ascetic), chaandi + kangan/churra/chhaap (silver ornaments); add do_not_flatten_to notes]
+- kapāh: cotton — the one substance beneath all the named cloths, the emblem of the single Real; do_not_flatten_to literal fibre only.
+- rang: colour/dye — here the "one colour" of the shared substance versus the many dyed appearances; do_not_flatten_to mere hue.
+- bhagwā bhes / gusāīṅ: the saffron robe of the Hindu ascetic — included among the cottons to dissolve the badge of religious distinction; do_not_flatten_to a costume.
+- khaddar / malmal / khāsa: the range of cloths from coarse homespun to fine muslin — many forms from one thread; do_not_flatten_to fabric names alone.
+- chāndī: silver — the single substance of the many named ornaments, the second proof of unity-in-multiplicity; do_not_flatten_to the metal alone.
 
 # Themes
 
-- [TO DO (rauf): e.g. unity_behind_diversity, one_substance_many_names, craft_imagery, wahdat]
+- unity_behind_diversity
+- one_substance_many_names
+- craft_imagery
+- wahdat
+- dissolution_of_sect_and_caste
 
 # Source Notes
 

@@ -43,19 +43,31 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+What trust is there in mere acquaintance? —
+it is the indifference it may breed that I fear.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the aphoristic fear that familiarity (ashnaai) breeds indifference (be-parwaai) — read on the human plane and as the murid's fear of the Beloved's aloofness.]
+This aphoristic couplet compresses a whole psychology of love into an antithesis between āshnāī (acquaintance, the intimacy of being known) and be-parwāhī (indifference, unconcern, heedlessness). On the surface it is a worldly-wise caution: do not place your trust in mere familiarity, for the very closeness that seems a guarantee can curdle into indifference; intimacy is no security against neglect. Read plainly it is the perennial fear that "familiarity breeds contempt" — that to be known is also to risk being taken for granted.
+
+In the mystical register that governs the whole collection, however, the couplet voices the murīd's fear about the Beloved. Āshnāī with God — the achieved intimacy of the seeker — does not guarantee the Beloved's constant attention, and the lover dreads the divine be-parwāhī, that sovereign "unconcern" which appears elsewhere in Bulleh Shah as God's careless freedom (cf. 0017, where be-parwāhī is God's indifference to human rank). What is glorious from one angle is a threat from the lover's: the God gloriously unconcerned with human hierarchies may also be unconcerned with the individual lover. The couplet thus holds intimacy and dread together — to draw near the Beloved is exactly to become vulnerable to His aloofness. (Transcription here is low-uncertainty; worth confirming whether it stands alone or is excerpted from a longer kafi.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. bharosa (trust), ashnaai (acquaintance/intimacy), be-parwaai (indifference/heedlessness); add do_not_flatten_to notes]
+- āshnāī: acquaintance, achieved intimacy, being known — whose "trust" the couplet questions; do_not_flatten_to a casual acquaintance.
+- be-parwāhī: indifference, unconcern, heedlessness — feared here as the Beloved's (and elsewhere God's sovereign) aloofness; do_not_flatten_to simple rudeness.
+- bharosā: trust, reliance — the security the couplet denies to mere intimacy; do_not_flatten_to blind faith.
 
 # Themes
 
-- [TO DO (rauf): e.g. fear_of_indifference, fragility_of_intimacy, aphorism]
+- fear_of_indifference
+- fragility_of_intimacy
+- divine_aloofness
+- aphorism
 
 # Source Notes
 

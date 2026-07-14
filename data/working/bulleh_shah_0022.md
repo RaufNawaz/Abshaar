@@ -87,19 +87,45 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Whatever hue was dyed was dyed deep and fast — the crimson of the murshid, O friend.
+The pearl of meaning has set up a clamour; lift the veil from your eyes, O friend.
+In your black tresses let there be the radiant hand of Moses — show me that flash of light, O friend.
+Silence has become the highest silence; keep faith with those who gave themselves to you, O friend.
+"Die before you die" — then breathe life once more into her who has died, O friend.
+The quarrel of love goes half-concealed; set your feet down with care, O friend.
+You are Yourself within every thing; unveil Yourself and let Yourself be seen, O friend.
+Bulleh — the Beloved has come to my house; dance and dance and show it, O friend!
+Whatever hue was dyed was dyed deep and fast — the crimson of the murshid, O friend.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the murshid's "dye" (rang) transforming the disciple; the moon-behind-clouds / yad-e-baiza image for the unveiled radiant face; the hadith "die before you die" (fana); divine immanence ("You are within every thing"); the ecstatic dance at the Beloved's arrival.]
+The controlling image is the dyer's again (as in 0002), but here the dye is explicitly the murshid's: "whatever hue was dyed was dyed fast and deep — the crimson (lālī) of the murshid." The disciple is cloth taking the master's colour, and the force of the fast, deep dye (gohṛā) is permanence — the transformation the murshid works does not wash out; the seeker is coloured all the way through. The lālī, the red glow, is the flush of love and spiritual life imparted by the master, so the poem opens by declaring the disciple wholly remade in the master's hue.
+
+It then piles up images of unveiling and radiance. "The pearl of meaning (dur-e-maʿānī) has raised a clamour; lift the veil (ghūnḍ) from your eyes" — the hidden meaning presses to be seen, and the lover begs the Beloved to unveil face and gaze; and "in your black tresses be the radiant hand of Moses (yad-e-bayḍā) — show me that flash." The yad-e-bayḍā is the Quranic miracle of Moses, whose hand drawn from his cloak shone dazzling white (Q 7:108, 20:22); set against the black tresses (zulf, the stock figure for the Beloved's concealing beauty and the darkness of manifestation), it makes the Beloved's face a theophany of blinding light breaking through darkness — concealment and disclosure imaged together.
+
+The doctrinal heart is the quoted hadith: Mūtū qabla an tamūtū, "die before you die" — the classic warrant for fanāʾ, the voluntary death of the ego before physical death — followed at once by "then breathe life into her who has died," the baqāʾ that follows fanāʾ, the revived life-in-God after annihilation. The couplet compresses the whole Sufi itinerary (die to self, then be granted the higher life) into a single line, anchoring Bulleh Shah's ecstatic Punjabi in formal Sufi doctrine and in Arabic scripture, while "keep faith with those who gave themselves to you" appeals to the Beloved's fidelity toward the lovers who have already died into Him.
+
+The poem culminates in immanence and ecstasy. "You are Yourself within every thing; unveil Yourself and let Yourself be seen" is a flat statement of waḥdat al-wujūd — the one Real indwelling all forms — with the lover's plea that the omnipresent-but-hidden Beloved make Himself perceptible (the same seer/seen problem as in 0050). And the close turns longing into joy: "the Beloved has come to my house; dance and show it!" — the ecstatic dance again (as in 0020), but now celebration rather than compulsion; the Beloved has arrived, and the only fitting response is the dance of union. The kafi's arc is thus transformation (the murshid's dye) → longing for unveiling → death-and-revival (fanāʾ/baqāʾ) → recognition of immanence → the dance of union. (Stanza 2's "silence" line and a few other readings are flagged HIGH uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. rang / gohṛa (dye, deep hue), murshid, ghoonḍ (veil), yad-e-baiza (radiant hand of Moses), "Mūtū qabla an tamūtū" (hadith), naach (dance); add do_not_flatten_to notes]
+- rang / gohṛā: the fast, deep dye — the murshid's transforming colour worked permanently into the disciple; do_not_flatten_to a change of mood.
+- lālī: the crimson glow — the flush of love and spiritual life imparted by the master; do_not_flatten_to a literal red colour.
+- yad-e-bayḍā: the "radiant white hand" of Moses (Quranic miracle) — the Beloved's face as blinding theophany breaking through darkness; do_not_flatten_to a generic bright light.
+- Mūtū qabla an tamūtū: the hadith "die before you die" — the warrant for fanāʾ, ego-death before physical death; do_not_flatten_to a morbid slogan.
+- fanāʾ / baqāʾ: annihilation of the self and the revived life-in-God that follows it ("breathe life into the one who has died"); do_not_flatten_to literal death and resurrection.
 
 # Themes
 
-- [TO DO (rauf): e.g. transformation_by_murshid, unveiling, die_before_death_fana, divine_immanence, ecstatic_dance]
+- transformation_by_murshid
+- unveiling
+- die_before_death_fana
+- divine_immanence
+- ecstatic_dance
 
 # Source Notes
 

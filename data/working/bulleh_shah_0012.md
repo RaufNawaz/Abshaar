@@ -57,19 +57,39 @@ _AI-drafted (Claude) from the Urdu original; needs review. Interior lines rest o
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+What "goodness" did mother and father leave us — and where has it brought us now?
+Mother and father, thieves of ill repute — and this they call the son's renown.
+Courtyard scuffles, hair pulled house to house, quarrels breaking out door to door;
+we were hauled into the lawsuits the moment they made off with the wheat.
+They ate the funeral alms — and the knock came back reversed upon them.
+What "goodness" did mother and father leave us — and where has it brought us now?
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; interior lines rest on tentative readings. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the ironic "inheritance" from one's parents/lineage — not virtue but quarrels, theft, and strife; a satirical/social kafi on how a bad legacy is passed down; contrast with the spiritual inheritance the seeker should seek instead.]
+This is Bulleh Shah in a rare satirical-social register, and the engine is irony. The refrain asks what the "goodness/benefit" (bhalyāī) bequeathed by one's parents has actually amounted to — "where has it reached us now?" — and the answer, line by line, is not virtue but a legacy of theft, ill repute, brawling, and litigation. The poem inverts the pious commonplace of honouring the inheritance of one's forebears: what is really handed down, it says, is strife. Set against Bulleh Shah's wider work, the target is the whole notion of inherited worth — the same suspicion of lineage and zāt (caste, family honour) that drives "Chal Bulleh" (0008). The only inheritance worth having is not the ancestors' name or property but a purified heart, and the bitter comedy is that the actual bequest is quarrels over wheat and misappropriated alms.
+
+The concrete images root the satire in the everyday economic life of a Punjabi village: hair-pulling scuffles from courtyard to courtyard, lawsuits (qaziye) erupting the instant the harvest is divided, and the sharp line about eating the khairāt — funeral or charity alms — with "the knock coming back reversed," a folk image of a curse rebounding or of alms turning to affliction. The critique is at once social and spiritual: greed and litigiousness are the true "heritage," and the misused alms suggest that even religious observance has been bent into another instrument of grasping.
+
+A prominent caveat: this entry carries HIGH transcription uncertainty across its interior lines (the phrase rendered "thieves of ill repute," the wheat/lawsuit line, and the "funeral alms / reversed knock" line are all tentative), so the reading above is provisional and a priority for native/scholarly verification. The general satirical thrust — ironic inheritance, strife over property, corrupted charity — is secure; the specific glosses are not.
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. bhalyaai (goodness/benefit — here ironic), gut-baguti (hair-pulling brawl), qaziya (dispute/lawsuit), khairaat (alms); add do_not_flatten_to notes]
+- bhalyāī: "goodness/benefit" — used ironically for the dubious inheritance of one's forebears; do_not_flatten_to sincere praise.
+- gut-bagutī: a hair-pulling brawl — the household strife that is the real legacy; do_not_flatten_to a mild quarrel.
+- qaziya: a dispute or lawsuit — here the litigation over property that consumes the heirs; do_not_flatten_to an abstract "issue."
+- khairāt: alms, especially funeral or charity alms — misappropriated here, marking the corruption of religious giving; do_not_flatten_to ordinary charity.
 
 # Themes
 
-- [TO DO (rauf): e.g. inherited_strife, social_satire, critique_of_lineage, irony]
+- inherited_strife
+- social_satire
+- critique_of_lineage
+- corruption_of_charity
+- irony
 
 # Source Notes
 

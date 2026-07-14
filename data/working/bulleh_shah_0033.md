@@ -93,19 +93,44 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The traders have come, O mother — the traders have come!
+They deal in rubies, crying their wares aloud.
+Hearing the cry, my heart was seized: I too will bring home rubies;
+I'll set one or two in my ears and show them off to the world.
+Raw and untried, I know nothing of the trade, yet I set out to buy rubies;
+no money in my purse, no credit at all — look, my necklace won't even cover it.
+When I asked them the price, they named a heavy one;
+I who never so much as bore a needle's prick — and they demand my very head.
+Those who would trade in rubies must first have their heads struck off.
+The traders have come, O mother — the traders have come!
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the marketplace allegory — the peddlers of the "ruby" (laal = love / the Beloved) whose true price is the buyer's own head (fana). The naïve soul wants the gem for show but cannot pay; only those who surrender their heads may possess it.]
+The poem is a marketplace allegory, and its "ruby" (lāl) is the pearl-of-great-price of love — the Beloved, or the state of union — cried for sale by the vanjāre, the travelling traders (the saints, the murshids, or the very lovers who publish love's availability with their street-cry, hoka). The soul, hearing the cry, is seized with desire — but note the quality of that first desire: she wants the rubies "to set in my ears and show off to the world." She covets love as an ornament, a possession for display — the immature seeker who mistakes the spiritual treasure for something that will adorn her status.
+
+The comedy and the lesson turn on the price. She is "raw and untried" (kachchī), knows nothing of this trade, and — crucially — has no capital: "no money in my purse, no credit (sākh); my necklace won't even cover it." The worldly currency she owns is worthless in this market; the ordinary goods of the self cannot buy the ruby of love. And when she finally asks the price, it is staggering — "they demand my very head." The self-mocking line — "I who never so much as bore a needle's prick" — measures the gulf between her softness and the cost: she flinches at a pinprick, yet the ruby costs a beheading.
+
+The final line states the doctrine the whole allegory has been driving toward: "those who would trade in rubies must first have their heads struck off" (sees luhāʾe). The price of love is the head — that is, fanāʾ, the annihilation of the self; one cannot possess the Beloved and keep one's own head/ego. This is the Hallajian economy (the ruby literally cost Mansur his head), and the point is that love is not an ornament to be bought with spare change and worn for show but a transaction in which the only acceptable coin is the buyer's own life; the immature soul who wanted the gem for her ears discovers that this counter accepts nothing less than the head. (Rafat's closing couplet diverges freely into "the lowly should not reach for the sky"; the Punjabi's point is nearly the opposite — not that the poor should not aspire, but that the price of aspiration is total self-surrender. Several trade/price words, including the refrain word satte, are flagged tentative.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. vanjaara (trader/peddler), laal (ruby / the beloved), hoka (street-cry), mul (price), sees luhaana (to have one's head struck off / self-sacrifice); add do_not_flatten_to notes]
+- vanjāra: the travelling trader/peddler crying rubies for sale — the saint or murshid who publishes love's availability; do_not_flatten_to a mere merchant.
+- lāl: the ruby — love, the Beloved, the pearl-of-great-price; do_not_flatten_to a literal gem.
+- hoka: the street-cry advertising the wares — the call that seizes the soul's desire; do_not_flatten_to ordinary shouting.
+- sākh: credit / creditworthiness — the worldly capital worthless in this market; do_not_flatten_to reputation alone.
+- sees luhāʾe: "to have one's head struck off" — the price of the ruby, i.e. fanāʾ, self-annihilation; do_not_flatten_to literal execution only.
 
 # Themes
 
-- [TO DO (rauf): e.g. price_of_love_is_the_head, fana, marketplace_allegory, love_beyond_the_worldly-poor]
+- price_of_love_is_the_head
+- fana
+- marketplace_allegory
+- immature_vs_true_seeking
+- self_surrender
 
 # Source Notes
 

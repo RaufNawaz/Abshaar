@@ -104,19 +104,48 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Let us pass our days keeping silent.
+Hearing the truth, people will not sit still;
+speak the truth, and they fly at your throat;
+they will not so much as sit beside the truthful —
+yet to the loving lover, truth is sweet.
+Truth brings the ruin of dogmatic law,
+truth is a wedding in the lover's house,
+truth raises a whole new settlement —
+as befits one who has traded the Law for the Path.
+The lover cannot keep his silence;
+the one to whom truth has come is bound by it,
+bound in the fragrant bridal knot of union —
+leave the world and its tangled spread behind.
+Let us pass our days keeping silent.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the paradox of truth-telling and silence — truth as intolerable to the crowd and to dogmatic shara, yet "sweet" and world-making for the lover; the lover who cannot stay silent; the closing counsel to renounce the world and keep silence (a Mansur/blasphemy-and-silence theme).]
+The poem turns on the paradox announced by its refrain: it counsels silence ("let us pass our days keeping silent") precisely because it has just discovered that truth cannot be spoken safely. The anaphora on sach (truth), hammered at the head of successive lines, builds the case — people "will not sit still" to hear the truth, "fly at your throat" when you speak it, and will not even sit beside the truthful. This is the social danger of ḥaqīqa in a world governed by convention: truth is intolerable to the crowd. It places the poem in the same lineage as "Truth Will Out" (0050) and under the shadow of Hallaj — the one who speaks the Real is attacked for it — and yet its central tension is that "to the lover, truth is sweet," so silence and the sweetness of truth pull hard against each other.
+
+The middle stanza sets truth against religious law in Bulleh Shah's signature opposition: "truth brings the ruin of dogmatic law (shara), truth is a wedding in the lover's house … as befits one who has traded the Law (sharīʿa) for the Path (ṭarīqa)." The formal Sufi scheme of stages — sharīʿa (the outer law), ṭarīqa (the mystic path), toward ḥaqīqa (the Real) — is invoked directly: truth "wrecks" the shara because the Real dissolves the merely legal, while for the lover that same truth is a wedding (shādī, union) and "a new settlement" (ābādī), a whole new inhabited world. The one truth that is catastrophe to the dogmatist is nuptial joy and new creation to the lover — the poem's finest antithesis.
+
+The third stanza then undoes the counsel it began with: "the lover cannot keep silent" (chup ʿāshiq toṅ na hundī), because the one whom truth has seized is bound by it and cannot but speak. The opening advice to "keep silent" is thus revealed as a counsel the lover is constitutionally unable to follow — ʿishq is irrepressible (again the theme of 0050, "the word will not stay unspoken"). The close turns to renunciation — "leave the world and its tangled spread" — resolving the dilemma not by choosing speech or silence but by quitting the world whose hostility made silence necessary in the first place. (Stanza 3's middle lines, the fragrant-bridal-knot image, are flagged HIGH uncertainty.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. sach (truth), shara (religious law) vs tareeqat (the Path), aabaadi (settlement/world), guzaara (getting by), chup (silence); add do_not_flatten_to notes]
+- sach: truth / the Real (ḥaqīqa) — intolerable to the crowd, sweet to the lover; do_not_flatten_to mere factual accuracy.
+- sharīʿa (shara) / ṭarīqa: the outer religious Law and the inner mystic Path — the pair whose "trade" the poem endorses; do_not_flatten_to a glib "religion vs spirituality."
+- ābādī: a settlement, an inhabited world — truth as world-making for the lover; do_not_flatten_to a mere town.
+- guzārā: getting by, passing one's days — here "passing one's days in silence"; do_not_flatten_to bare survival.
+- chup: silence — counselled for safety yet impossible for the lover; do_not_flatten_to ordinary quiet.
 
 # Themes
 
-- [TO DO (rauf): e.g. truth_vs_dogma, silence, shara_vs_tareeqat, lover's_inability_to_be_silent]
+- truth_vs_dogma
+- silence_and_its_impossibility
+- shara_vs_tareeqat
+- irrepressibility_of_love
+- renunciation
 
 # Source Notes
 

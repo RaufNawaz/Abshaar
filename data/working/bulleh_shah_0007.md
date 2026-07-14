@@ -96,19 +96,48 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Name your dwelling — where did you come from, where must you go?
+The rank you take such pride in
+will not go with you.
+You deal in cruelty, you torment the people,
+you have made plunder your trade;
+after your four days' revelry
+you too must rise and leave.
+Come, let us live in the City of the Silent,
+where whole kingdoms lie folded away.
+Boatload on boatload the mighty ferryman rows them across —
+Azrael, the Angel of Death, at the oar.
+And of all of them, Bulleh,
+you are the oldest sinner of all.
+Name your dwelling — where did you come from, where must you go?
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the ubi sunt / memento mori theme — pride in worldly station is useless at death; oppression and plunder condemned; the graveyard as "city of the silent" that swallows kingdoms; Death as the ferryman (malak-ul-maut) who carries all across; Bulleh's self-accusation as the "old sinner."]
+This is Bulleh Shah in the ubi sunt / memento mori register, framed by the refrain's triple question — "where is your home; whence did you come, where must you go?" These are the questions the Sufi puts to the heedless soul (and that the interrogating angels of the grave, Munkar and Nakir, are said to put to the dead), exposing the traveller who has forgotten he is only passing through. The poem's strategy is to strip the illusions of permanence one at a time, beginning with "the station you pride in" — rank, martaba, worldly position — which "will not go with you": status is the first thing death renders non-transferable.
+
+The middle turns unusually political for a devotional lyric. Bulleh Shah names oppression outright — "you do violence and torment the people; you have made plunder (luṭ) your trade" — and sets the tyrant's "four days' merriment" (chār dihāṛe, the proverbial brevity of worldly power) against the certainty that "you too must rise and go." This is the socially critical Bulleh Shah for whom mortality is not a private meditation but a leveller that indicts the powerful: the plunderer's rank is precisely what death voids, and the implied address to kings and oppressors gives the memento mori a prophetic edge.
+
+The imagery of the destination is superb. The graveyard is shahr-e-khamoshān, "the City of the Silent" — a Persianate epithet that dignifies the burial ground as a populous city "where whole kingdoms lie contained," so that all earthly empire is shown already gathered into the silent town. Death is then a ferryman: the malak-ul-maut, Azrael, is the mighty muhāṇā who rows "boatload after boatload" across — the river-crossing as passage out of the world, an image that fuses the Punjabi riverine landscape (the ferry over Chenab or Ravi) with the universal death-crossing that the Islamic ṣirāṭ, Charon's Styx, and the Indic Vaitaraṇī all shadow. The closing move is self-reproach, the ethical hinge: having arraigned the oppressor, Bulleh Shah turns the indictment on himself — "of all these, Bulleh is the oldest sinner." He refuses to stand outside the judgment he pronounces, and the naming of others' cruelty ends in confession of his own — the Sufi discipline of beginning all accountability with the nafs, the self. That reflexive turn is what keeps the poem from mere moralizing: the refrain's questions are, in the end, asked of the poet himself. (Readings of "kisb phaṛyo luṭ khānā" and "chāor chār dihāṛe" are flagged tentative.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. tikaana (abode), thaan (station/place), shahr-e-khamoshaan (city of the silent = graveyard), malak-ul-maut (Angel of Death), muhaana (boatman); add do_not_flatten_to notes]
+- tikāṇā: dwelling or abode — the soul's true home against its transient lodging; the refrain's demand to "name your dwelling"; do_not_flatten_to a house.
+- shahr-e-khamoshān: "the City of the Silent," the graveyard imagined as a populous city that swallows kingdoms; do_not_flatten_to a cemetery.
+- malak-ul-maut: Azrael, the Angel of Death, here the ferryman rowing souls across; do_not_flatten_to a generic reaper.
+- muhāṇā: the boatman/ferryman — death conveying souls over the river out of the world; do_not_flatten_to an ordinary boatman.
+- chār dihāṛe: "four days," the proverbial brevity of worldly power and pleasure; do_not_flatten_to a literal count of days.
 
 # Themes
 
-- [TO DO (rauf): e.g. mortality, transience_of_worldly_power, critique_of_oppression, death_as_ferryman, self_reproach]
+- mortality
+- transience_of_worldly_power
+- critique_of_oppression
+- death_as_ferryman
+- self_reproach
 
 # Source Notes
 

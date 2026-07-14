@@ -118,19 +118,56 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Come, let us go and see that ecstatic one —
+the one the spinning-circles are all abuzz about.
+He is steeped in the dye of Oneness;
+he never asks, "what caste are you, who are you?"
+He whose clamour has spread on every side,
+who dwells forever close beside you,
+who says, "We are nearer" (naḥnu aqrab),
+who says, "within your very selves" (fī anfusikum).
+Leave behind the town of falsehood and illusion,
+make firm within you the intoxication of love —
+they have already reached the town of Truth.
+It is neither yours nor mine —
+this mortal world, a mere quarrel and squabble;
+and without a murshid, who can be the guide?
+Recite: "Remember Me, and I will remember you" (fazkurūnī azkurkum).
+Bulleh Shah, the whole thing turns on a subtle sign:
+those seized by the longing for the Vision —
+to them the trader-wayfarer's destination came in sight.
+"The Hand of God is above their hands" (yadu-Llāhi fawqa aydīhim).
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the God-intoxicated one indifferent to caste; divine immanence and nearness built almost entirely on Qur'anic proof-texts (50:16, 51:21, 2:152, 48:10); leaving the "town of falsehood" for the "town of Truth"; the murshid as indispensable guide; the vanjaara (trader) as the seeking soul.]
+This kafi is unusual in the collection for building its mysticism almost entirely out of Qur'anic proof-texts, and it is best read as Bulleh Shah's demonstration that his "heretical" doctrine of divine nearness and immanence is in fact grounded in scripture. The frame is an invitation: "come, let us go and see that ecstatic one (mastāna)" whom the trinjan — the women's spinning-circle, the gossips of the town — are abuzz about. The mastāna, the God-intoxicated saint, is described first by his social mark: "steeped in the dye of Oneness (waḥdat), he never asks what caste (zāt) you are" — the recurrent Bulleh Shah sign of realization being precisely indifference to caste (cf. 0008, 0017).
+
+The doctrine of nearness is then asserted through two Qur'anic tags placed as clinching authorities. "He dwells forever close beside you… who says naḥnu aqrab" quotes Q 50:16, "We are nearer to him than his jugular vein," and "who says fī anfusikum" quotes Q 51:21, "and within your own selves; will you not see?" Together these are the scriptural backbone of the whole collection's insistence (in 0048, 0004, and elsewhere) that God is the indwelling Real, nearer than the self, to be found within — and by putting them in the mastāna's mouth, Bulleh Shah claims Qur'anic warrant for the immanence the orthodox found scandalous. The exhortation follows: "leave the town of falsehood and illusion (jhūṭh, bharam), make firm the intoxication of love (ʿishq dī mastī)," and the report that "they have reached the town of Truth (sach dī bastī)" — a geography of two cities, illusion versus the Real, between which the lover must migrate.
+
+The second half adds two more proof-texts and the indispensable figure of the guide. "It is neither yours nor mine — this mortal (fānī) world, a mere quarrel" states the vanity of possession and dispute, and "without a murshid, who is the guide?" makes the master indispensable: realization is not self-achieved but requires the shaykh. The command "recite fazkurūnī azkurkum" quotes Q 2:152, "Remember Me, and I will remember you," installing dhikr (remembrance) as the practice that binds lover and Beloved in mutual recollection. The close names the hermeneutic key — "the whole thing turns on a subtle sign (ishāra)" — the Sufi principle that scripture and world speak in signs legible only to those with the eye for them.
+
+The final images gather it up: "those seized by the longing for the Vision (nazārā)" are the ones to whom "the trader-wayfarer's (vanjārā) destination came in sight" — the soul figured as a travelling merchant whose long-sought goal is finally glimpsed — and the poem seals it with a fourth tag, Q 48:10, yadu-Llāhi fawqa aydīhim, "the Hand of God is above their hands," originally the verse of the bayʿa, the pledge of allegiance in which God's hand is said to rest over the pledgers'. Here it consecrates the disciple's pledge to the murshid: in taking the master's hand, the seeker takes God's. The kafi is thus a compact catechism — immanence, the two cities, the necessity of the guide, dhikr, and the pledge — each doctrine nailed to a Qur'anic verse. (A couple of Punjabi lines, especially the "spinning-circle / gossip" line, are flagged tentative; the Arabic tags are read confidently.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. mastaana (God-intoxicated), trinjan (women's spinning-circle, i.e. the gossips), wahdat (oneness), naḥnu aqrab / fī anfusikum / fazkurūnī azkurkum / yadu-Llāhi fawqa aydīhim (Qur'anic tags), vanjaara (trader/wayfarer); add do_not_flatten_to notes]
+- mastāna: the God-intoxicated one / saint — "steeped in the dye of Oneness," indifferent to caste; do_not_flatten_to a drunkard.
+- trinjan: the women's spinning-circle — the village gathering, here the "gossips" abuzz about the saint; do_not_flatten_to random bystanders.
+- naḥnu aqrab / fī anfusikum: Q 50:16 and 51:21 — "We are nearer [than the jugular vein]" and "within your own selves" — the scriptural warrant for divine immanence; do_not_flatten_to loose paraphrase.
+- fazkurūnī azkurkum: Q 2:152, "Remember Me, I will remember you" — dhikr as the mutual remembrance binding lover and Beloved; do_not_flatten_to a slogan.
+- yadu-Llāhi fawqa aydīhim: Q 48:10, "the Hand of God is above their hands" — the pledge-verse consecrating allegiance to the murshid; do_not_flatten_to a generic phrase.
+- vanjārā: the trader-wayfarer — the soul as travelling merchant whose true destination is finally glimpsed; do_not_flatten_to a literal merchant.
 
 # Themes
 
-- [TO DO (rauf): e.g. divine_immanence, indifference_to_caste, quranic_intertext, need_for_murshid, the_seeking_soul]
+- divine_immanence
+- indifference_to_caste
+- quranic_intertext
+- need_for_murshid
+- the_seeking_soul
 
 # Source Notes
 

@@ -111,19 +111,48 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+The spinning-wheel's handle has slipped — no spinning can be done at all.
+The spindle keeps bending out of true — who will go and call the smith?
+Straighten the bent spindle, O smith — the thread keeps snapping, snapping;
+round and round it wobbles and jerks, and not one full spool winds off.
+Whatever thread I wind will not hold; nothing comes right to hand;
+the leather straps are dry of grease, the drive-belt whines and groans.
+The spinning-wheel's handle has slipped — no spinning can be done at all.
+How is this endless day to pass? — may my darling show me his face.
+Maahi has gone off with the buffaloes; who now has any heart to spin?
+Wherever the Friend turns, there turn my eyes; my heart races to the pasture.
+The spinning-companions call me to the wheel, but separation beats its drum.
+This alone is my plea: let him come to me now — what go-between shall I send?
+The reckoning of my sleeping heart is settled — let the Beloved fold me to his breast.
+How is this endless day to pass? — may my darling show me his face.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; this dense page is HIGH-uncertainty on the wheel-mechanism words. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the charkha (spinning-wheel) as an extended metaphor — its slipped handle, bent spindle, snapping thread and ungreased belt figuring the lover's disordered heart; the beloved (Maahi) gone to graze the buffaloes; the trinjan companions calling her to spin while birhon (separation) "beats its drum"; the plea for union.]
+The poem belongs to the charkhā-nāma tradition — the spinning-wheel song, one of the most characteristic Punjabi Sufi genres, in which the woman at her wheel becomes the figure of the soul at its life's work. Here the wheel is broken: "the handle has slipped, no spinning can be done," the spindle (teeklā) bends out of true, the thread (tand) snaps again and again, the drive-belt (māhl) runs dry of grease and "whines and groans." Every part of the mechanism has failed, and the extended conceit is that the disordered, unworkable charkha is the lover's own heart and life, thrown out of true by separation, unable to perform the steady spinning that is its proper task.
+
+The spinning carries a precise spiritual meaning in this tradition. To spin — to draw the thread and fill the spool, day after day — is the disciplined daily work of the soul: dhikr, remembrance, the patient labour of preparing one's "dowry" of good deeds and love before the wedding-departure to the Beloved (the same bridal-death economy as 0049). A woman who cannot spin is a bride who will arrive empty-handed, so the broken wheel is not a domestic misfortune but a spiritual crisis: separation from the Beloved (Māhī, the cowherd, "gone off with the buffaloes") has so unstrung the lover that she cannot do the work by which the soul is made ready. "Who will call the smith (luhār)?" to mend the wheel is, at this level, the cry for the murshid — or the Beloved — who alone can repair the instrument.
+
+The second stanza drops the mechanism and states the longing directly. The endless day that will not pass, the eyes that follow the Friend wherever he turns, the heart that "races to the pasture (belā)" after him — the standard motions of viraha; and the social frame returns with the trinjan, the spinning-companions who call her to the communal wheel while "separation (birhoṅ) beats its drum" — birhoṅ personified as a drummer whose beat drowns their summons. The poem ends on the plea for union and a tender resolution: "let him come… let the Beloved fold me to his breast." Its arc runs from the broken instrument (the incapacitated soul), through the naming of the loss, to the wish for the embrace that would mend everything. (A dense page: the charkha-mechanism nouns and the penultimate line are flagged HIGH uncertainty, so specific glosses are provisional.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. charkha/hatthi/teekla/tand/maahl (spinning-wheel and its parts), katna (to spin), Maahi (beloved cowherd), bela (riverside pasture), birhon (separation), trinjan (spinning-circle), shoh (Beloved); add do_not_flatten_to notes]
+- charkhā: the spinning-wheel — the soul's daily disciplined work (dhikr, preparation), here broken by separation; do_not_flatten_to a household object.
+- teeklā / tand / māhl: the spindle, thread, and drive-belt — the parts of the self thrown out of true by longing; do_not_flatten_to mere machinery.
+- Māhī: the beloved cowherd (Ranjha-figure) gone with the buffaloes — God/the Beloved; do_not_flatten_to a literal herder.
+- birhoṅ: separation personified — here "beating its drum," drowning the companions' call; do_not_flatten_to ordinary sadness.
+- trinjan: the spinning-companions / women's circle calling her to the communal wheel; do_not_flatten_to random friends.
 
 # Themes
 
-- [TO DO (rauf): e.g. charkha_as_metaphor, separation_viraha, feminine_voice, labour_and_longing, union_plea]
+- charkha_as_metaphor
+- separation_viraha
+- labour_and_longing
+- feminine_voice
+- union_plea
 
 # Source Notes
 

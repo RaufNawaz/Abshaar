@@ -62,19 +62,41 @@ _AI-drafted (Claude) from the Urdu original; needs review. Lines 2-3 rest on ten
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Merge me into yourself, beloved — merge me into yourself.
+The road is beset with raiders, my friend: jungle, thicket, lurking terrors;
+the beasts lie in wait and block the paths,
+and beyond you the ground rears up, a hundred thousand thorns and dangers.
+The heart shakes and shudders with dread — ferry my boat across.
+Lift the veil and show Bulleh Shah the Beloved's face.
+Merge me into yourself, beloved — merge me into yourself.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; lines 2–3 rest on tentative readings. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the perilous journey to the Beloved — a road beset with robbers, wild beasts, thorns and terrors; the trembling heart begging to be ferried across; the closing plea to be shown the Beloved's unveiled face and merged (rulaaeen) into the Beloved. Union/annihilation imagery.]
+The refrain sets the poem's goal as union in its strongest form: rulāīṅ, "merge me into yourself" — not nearness to the Beloved but absorption into the Beloved, the language of fanāʾ, the annihilation of the separate self in the divine. Everything framed between the two statements of the refrain is the obstacle-course that lies between the seeker and that merging, and the method is to render the spiritual path as a literal perilous journey — the old topos of the ṭarīqa, the "road," as a dangerous crossing through wild country.
+
+The danger-catalogue — raiders on the road, jungle and thicket, wild beasts, "a hundred thousand thorns," terrors on the far side — allegorizes the perils of the path: the highwaymen (dhāṛe) are the passions and the nafs that ambush the traveller, and the beasts and thorns are the trials and the "hundred thousand" veils that stand between the soul and God. (Several of these words are calligraphically obscure and only tentatively read, so the exact inventory of dangers is provisional — but the structure, a gauntlet barring the way to union, is unmistakable.) The trembling heart that "shakes and shudders with dread" is the seeker's fear before the crossing, and the plea "ferry my boat across" (beṛā pār langhāīṅ) reaches for Bulleh Shah's recurrent image of grace as a ferrying: the traveller cannot cross by his own effort; he must be carried.
+
+The climax joins two images: "ferry my boat across" and "lift the veil (ghūnghaṭ) and show me the Beloved's face (mukhṛā)." The ghūnghaṭ, the bride's veil, once again casts the soul as feminine and names the goal as dīdār, the unveiled vision of the Beloved. Read as a sequence, the poem lays out the classic mystical arc in miniature — the perilous road, the ferrying by grace, the unveiling, and the merging of the refrain — from separation through trial to union and annihilation; and the "boat" and "ferry" set the whole drama on the Punjabi river, where to cross the water is to cross out of the self.
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. rulaaeen (merge/mingle), bera (boat), paar langhaana (ferry across), shoh (the Lord/Beloved), ghoonghat (veil), mukhra (face); add do_not_flatten_to notes]
+- rulāīṅ: "merge/mingle me" — absorption into the Beloved, the vocabulary of fanāʾ; do_not_flatten_to a simple embrace.
+- dhāṛe: raiders/highwaymen on the road — the passions and the nafs that ambush the traveller; do_not_flatten_to ordinary bandits.
+- beṛā pār langhāīṅ: "ferry my boat across" — grace carrying the soul over water it cannot cross alone; do_not_flatten_to literal boating.
+- ghūnghaṭ: the bride's veil, whose lifting is the unveiling (dīdār) of the Beloved's face; do_not_flatten_to a piece of cloth.
+- shoh: the Beloved/Lord, a Punjabi endearment for the divine spouse; do_not_flatten_to a human lover only.
 
 # Themes
 
-- [TO DO (rauf): e.g. union_with_the_beloved, perilous_path, annihilation_fana, unveiling_of_the_divine]
+- union_with_the_beloved
+- perilous_path
+- annihilation_fana
+- grace_as_ferrying
+- unveiling_didar
 
 # Source Notes
 

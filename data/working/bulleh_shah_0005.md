@@ -56,19 +56,39 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+You tied the knots yourself, and yourself you draw the cord —
+turn your face to us.
+The call rose to the Throne and the Footstool; an uproar swept through Mecca.
+Bulleh Shah, we shall not die — let some other one die —
+turn your face to us.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the self-caused entanglement (I tied the knots, I pull the cord) as the divine/self as sole agent; the plea "turn your face toward us"; the Mecca/Throne imagery and Bulleh's defiant "we shall not die."]
+The opening line is a compact statement of divine sole-agency: "you yourself tied the knots, and you yourself pull the cord." The gundiyan (knots) and dor (cord) figure the entanglements of the created self — the bindings of fate, love, and existence — but the couplet's point is that there is no second agent; the hand that ties also pulls. Read theologically this is the strong monist strain in Bulleh Shah, the conviction that "there is no agent but God" (lā fāʿila illā Allāh): the human being is not an independent doer but a knot in a cord held at the far end by the One. Rafat's title "I swallowed the hook" catches the helplessness exactly — the self is caught on a line it did not cast.
+
+Against that helplessness the refrain sets the poem's whole affective charge: mukhṛā moṛ, "turn your face toward us" — the lover's demand for dīdār, the vision of the Beloved's face, which in the Sufi lexicon is the sole object of longing and the very substance of union. Agency and intimacy prove to be one relation: the one who holds the cord is begged to turn and show the face. The cosmic backdrop universalizes the cry — the call rising to ʿarsh and kursī (Throne and Footstool, the highest tiers of the created cosmos) and the "uproar in Mecca" carry the plea from the earthly qibla to the summit of the heavens.
+
+The close is defiant and doctrinally pointed: "we shall not die — let some other die." This is the Sufi conviction that the lover who has died to self before death — the ḥadith "die before you die," the state of fanāʾ — is exempt from real death; what perishes is only the ghayr, the "other," the not-self, while the soul absorbed in the ever-living One (al-Ḥayy) does not. It is bravado on the surface and metaphysics underneath: immortality here is not the survival of the ego but its replacement by the One who cannot die. (Line 1's verb "khichāīṅ," pull, and the refrain word "mukhṛā," face, are flagged tentative readings, so keep the reading provisional.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. gundiyan (knots), dor (cord/thread), mukhra (face), arsh/kursi (Throne/Footstool); add do_not_flatten_to notes]
+- gundiyan: knots — the entanglements of fate and self, tied by the One; do_not_flatten_to ordinary knots.
+- dor: the cord held and pulled by God — the line of divine agency on which the self is caught; do_not_flatten_to a simple string.
+- mukhṛā moṛ: "turn your face" — the plea for dīdār, the vision of the Beloved's face; do_not_flatten_to a casual "look our way."
+- arsh / kursī: the Throne and Footstool, the highest tiers of the cosmos to which the cry ascends; do_not_flatten_to furniture or sky.
+- fanāʾ: the annihilation of the self that grounds "we shall not die" (dying before death); do_not_flatten_to literal physical immortality.
 
 # Themes
 
-- [TO DO (rauf): e.g. divine_agency, longing_for_the_beloved, defiance_of_death, self_entanglement]
+- divine_sole_agency
+- predestination
+- longing_for_didar
+- death_before_death
+- immortality_of_the_lover
 
 # Source Notes
 

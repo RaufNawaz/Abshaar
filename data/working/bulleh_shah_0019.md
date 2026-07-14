@@ -125,19 +125,53 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+At dusk I sit and write my letters, but my love is nowhere in sight;
+the empty courtyard frightens me — how am I to pass this night?
+The wayfarers, the pandits of the world — I keep asking them, still hoping,
+and the books, the Vedas: what is my fault, that my fortune runs reversed?
+O brother astrologer, speak for once a single true word —
+if I was born to a mean fate, then do not keep it from me.
+Could I flee, I would flee — give up everything, take to beggary —
+but round my neck is wound the chain of love.
+To what country has my sleep gone? — it too has forsaken me,
+lest he come and meet me in dreams; and what sleep would that even be?
+Weeping and wailing I drag out my life, doubling my own grief;
+not even tears will run from my eyes — someone has cast a spell on me.
+Beloved, from loving you, what did I ever gain in hand?
+A canopy of thorns I bore upon my head, yet never found your path.
+Come, let us go and dwell in the city of love, where my Beloved abides.
+Bulleh — I beg only this of the Beloved: grant me one glimpse of your face.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; this is the densest page in the source and is HIGH-uncertainty throughout. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the sleepless virahini writing unanswered letters at dusk; consulting astrologers/pandits about her "reversed fortune"; the "chain of love" that forbids escape; tearless, bewitched grief; the closing turn toward the "city of love" and a plea for a single glimpse (nazaara) of the Beloved.]
+This is a sustained lament of viraha in the register of the Hindi/Braj-inflected virah-gīt, and its diction is markedly more Indic than most of Bulleh Shah's Punjabi kafis (mujh ko, tumri, kyā dos, ved, kant, prem nagar) — a reminder that his idiom moves fluidly across the Punjabi–Braj continuum and draws openly on the Bhakti vocabulary of the pining nāyikā. The opening sets the scene of the woman whose lover is absent (the proṣitabhartṛkā of Sanskrit poetics): at dusk she writes letters that go unanswered, and "the empty courtyard frightens" her — the domestic space, emptied of the beloved, turned uncanny and unbearable as night comes on.
+
+The middle develops the motif of consulting fate. She interrogates "the wayfarers, the pandits of the world," "the books, the Vedas," and finally the astrologer (jotshī), demanding to know her "fault" and whether her "fortune runs reversed" (ulṭe bhāg). The implication cuts two ways: on the surface it is the desperate lover's folk recourse to omen and horoscope; underneath, it dramatizes the soul's temptation to seek the cause of its separation in fate, learning, or scripture — all of which fail her, because the wound of separation is not a problem astrology or the Vedas can solve. What does hold her is named next: "I would flee to beggary if I could, but round my neck is the chain of love (prem zanjīrī)." That chain is the poem's key image — love is at once the affliction and the bond that forbids escape from the affliction; she cannot renounce the world into faqīrī because love has already fettered her to the Beloved.
+
+The symptoms then turn uncanny. Sleep has "gone to some other country," and — in a fine paradox — she suspects it fled deliberately "lest he come and meet me in dreams," so that even the dream-consolation of union is denied ("and what sleep would that be" that keeps the lover from her only remaining meeting). Then the tearless grief: she cannot even weep — "someone has cast a spell (kītā lūṇā, bewitched) on me" — the folk idiom for a grief so deep or so cursed that it cannot find its natural release. The penultimate couplet renders the bitter account of love: "what did I gain from loving you? — a canopy of thorns on my head, yet I never found your path" — love has yielded suffering and not attainment.
+
+The turn comes only at the very end, the characteristic Bulleh Shah pivot from complaint to desire: "let us go and dwell in the city of love (prem nagar) where my Beloved (kant) abides," and the final plea, "grant me one glimpse (nazārā) of your face." After the exhaustion of fate, learning, sleep, and tears, nothing remains but the naked wish for dīdār; the "city of love" is the only destination left once every worldly recourse has failed. A strong caveat: the entry flags this as the densest, hardest page in the source, HIGH uncertainty throughout (the courtyard line, the pandits/Vedas couplet, the "chain" noun, and the dream and bewitchment couplets are all tentative), so the reading is provisional and the whole entry is a priority for careful verification.
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. paandhe/jotshi (wayfarer/astrologer), bhaag (fortune), prem zanjeeri (chain of love), keeta loona (bewitched), kant/shoh (Beloved), nazaara (glimpse); add do_not_flatten_to notes]
+- ulṭe bhāg: "reversed fortune" — the ill-starred fate the lover suspects and interrogates; do_not_flatten_to bad luck in general.
+- jotshī / pāndhe-panḍat: the astrologer and pandits consulted about her fate — the failed recourse to omen and learning; do_not_flatten_to neutral scholars.
+- prem zanjīrī: "the chain of love" — love as the fetter that both afflicts and forbids escape; do_not_flatten_to a metaphor of mere attachment.
+- kītā lūṇā: "bewitched / spell-bound" — the folk idiom for a cursed grief that cannot even weep; do_not_flatten_to ordinary sadness.
+- prem nagar / kant: the "city of love" and the "husband"/Beloved who dwells there — the Braj-Bhakti vocabulary of the goal; do_not_flatten_to a literal city or spouse.
+- nazārā: the single glimpse or vision of the Beloved's face, the closing plea; do_not_flatten_to a casual look.
 
 # Themes
 
-- [TO DO (rauf): e.g. separation_viraha, fate_and_astrology, sleeplessness, bewitched_grief, longing_for_glimpse]
+- separation_viraha
+- fate_and_astrology
+- sleeplessness
+- bewitched_grief
+- longing_for_glimpse
 
 # Source Notes
 

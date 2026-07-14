@@ -102,19 +102,47 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+My life is brought to the brink of ruin.
+Your love weighs on me heavier than a mountain;
+for the sake of one moment's glimpse it has plundered me whole.
+Will my labour be requited or not — this acquaintance with the Mighty One?
+My life is brought to the brink of ruin.
+The pure have only this one recourse: that You come running to me Yourself.
+When I wake, wake beside me; when I sleep, sleep alongside me.
+Whoever set her heart on You — what ease did she ever gain?
+My life is brought to the brink of ruin.
+Your name shines through the world — why then do You flee the lover?
+You suspend even love's own custom; You will not tell me Your secret.
+[torn line — left hanging; reading uncertain].
+My life is brought to the brink of ruin.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; stanzas 2–3 are HIGH-uncertainty. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): love as a mountain-weight and a plundering bait; the lover reduced to dire straits (kaṛki); pleading for the Beloved's presence and reciprocity; the Beloved famed to the world yet fleeing the lover.]
+The refrain's idiom sets the key — jind kaṛkī de munh āī, the life/soul brought to kaṛkī (destitution, dire straits, the brink of ruin): love here is not sweetness but a force that has reduced the lover to ruin, and the poem is the complaint of that ruin. The first stanza states the paradox of ʿishq at its starkest: the Beloved's love "weighs heavier than a mountain," and "for the sake of one moment's glimpse it has plundered me whole." The economy is brutally uneven — a single instant of dīdār costs the lover the entire self (sir sārā, the whole head) — and the stanza ends on a genuinely searching question: "will my labour (mehnat) be requited, or not?" Is acquaintance (āshnāī) with the Mighty One (ḍāḍhā, the Overpowering, a divine epithet) a love that ever repays the seeker's toil, or is it labour spent for nothing?
+
+The second stanza turns to petition and to the paradox of helplessness: "the pure have only this one recourse — that You come running to me Yourself." The lover cannot reach God by her own effort; even the pure (pāk) depend wholly on the Beloved's initiative — grace, not works. The intimate plea "when I wake, wake beside me; when I sleep, sleep alongside" asks for the unbroken companionship of presence, and the rueful "whoever set her heart on You — what ease did she gain?" universalizes the complaint: to love God is to forfeit ease, as every lover before has found.
+
+The third stanza sharpens into something like reproach: "Your name shines through the world — why then do You flee the lover?" The Beloved is famed and praised everywhere yet withholds Himself from the one who actually loves Him, and "You suspend even love's own custom (dastūr); You will not tell me Your secret (bheet)." The charge is that the Beloved breaks the very etiquette of love — which is mutual disclosure — by keeping His secret hidden; divine hiddenness is felt here not as metaphysical necessity but as a lover's grievance. This is the audacity Bulleh Shah grants the lover: to arraign the Beloved for the injustice of remaining concealed. (Stanzas 2–3 are flagged HIGH uncertainty and the final line is largely conjectural, so specific glosses are provisional; the arc — ruinous love, dependence on grace, reproach of the hidden Beloved — is the secure sense.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. jind (life/soul), kaṛki (destitution/dire straits), ḍaaḍha (the Mighty One), vaseela (means/recourse), bheet (secret); add do_not_flatten_to notes]
+- kaṛkī: destitution, dire straits, the brink of ruin — the state to which love has reduced the soul; do_not_flatten_to a "trap" (Rafat's free rendering) or ordinary trouble.
+- jind: the life or soul brought to ruin; do_not_flatten_to mere "life."
+- ḍāḍhā: "the Mighty/Overpowering One," a divine epithet — the powerful Beloved whose acquaintance costs everything; do_not_flatten_to a bully.
+- vaseela: the means or recourse — here the sole recourse of the pure is the Beloved's own coming (grace); do_not_flatten_to a worldly connection.
+- bheet: the secret/mystery the Beloved withholds — His concealment felt as a breach of love's custom; do_not_flatten_to trivial gossip.
 
 # Themes
 
-- [TO DO (rauf): e.g. love_as_snare, separation, plea_for_reciprocity, hidden_beloved]
+- love_as_ruin
+- dependence_on_grace
+- separation
+- plea_for_reciprocity
+- hiddenness_of_the_beloved
 
 # Source Notes
 

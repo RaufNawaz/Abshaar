@@ -101,19 +101,63 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Come gather round me, my dear ones, my playmates —
+I am leaving now for the house of the in-laws.
+Your turn, too, will come as God wills it —
+I am leaving now for the house of the in-laws.
+
+The dowry my mother and father gave me:
+one bodice, one veil, and no more.
+I look at what the others were given
+and my eyes brim over, and brim over again.
+One grief is the parting of long-stitched seams —
+a crane cut loose from her flock.
+
+Pains of every colour are mine;
+they cut the cloth of my soul.
+Forewarned by the sorrow of this place,
+to whom shall I make my next vows?
+The cheap ones sneer, and the shame falls on me.
+
+Here we are granted no lasting stay;
+each in her turn must rise and go.
+They will send for the best of the best,
+and I am the least-worthy bride.
+Only she who carries sweet words in her lap
+is the one they hold dear.
+
+Come gather round me, my dear ones, my playmates —
+I am leaving now for the house of the in-laws.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): brief interpretive note of the poem's theme/imagery.]
+The kafi is an extended metaphor sustained without a seam: the Punjabi rite of vidāī, the bride's weeping departure from her natal home to the sāhūre, the in-laws' house, is read throughout as death and the soul's passage to the world beyond. The first analytic point is the voice. Bulleh Shah speaks as the soul-bride, in the feminine — a deliberate subordination of the male ego that enlists him in the virahiṇī lineage of Bhakti (Mira's pining, the gopis' separation from Krishna) and in the register of the Punjabi qissa (Hir). This is not ornament: to take the bride's posture is to argue that the way to God is surrender and longing, not conquest or mastery, and that the self must be feminized — made receptive, dispossessed — before it can be received.
+
+The dowry sequence is an eschatological economy. "One bodice, one veil" is a pointedly impoverished trousseau, and the implication is that no material capital is transferable across death — only deeds and a cleaned heart cross over. The envy at others' richer dowries and the taunts of "the cheap ones" are not petty detail; they stage the comparison and reckoning of the grave, the anxious accounting the tradition sets at the threshold of the hereafter.
+
+"A crane cut loose from her flock" (kūñj vichhunnī) activates the tradition's master-topos: the soul's exile from its origin. It is the same wound Rumi sounds at the opening of the Masnavi, the reed torn from the reed-bed whose music is nothing but its cry of separation — hijr in the Perso-Arabic key, viraha in the Indic. Bulleh Shah is fluent in both and fuses them here, which is exactly why the poem reads at once as a Punjabi wedding-lament and as a Sufi meditation on the primal division from the Source.
+
+The moral turn belongs to the last stanza, and it reorganizes everything before it: only the bride "who carries sweet words in her lap" is held dear at the destination. The "sweet words" are dhikr — truthful, loving remembrance of the Name — reframed as the one dowry that counts, so the poem's economy resolves from goods to speech, from having to remembering. And the refrain, flat and universal — "your turn, too, will be God's will" — works as memento mori, pressing the listener toward riḍā, acceptance of the decree, before the palanquin comes for them in turn.
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): key Punjabi/Sufi terms with do_not_flatten_to notes.]
+- sāhūre: the in-laws' house — here the grave and the hereafter to which the soul-bride departs; do_not_flatten_to literal marital in-laws.
+- dāj: dowry — the provision of deeds the soul carries into the next world; do_not_flatten_to material wedding goods alone.
+- kūñj: the crane — emblem of a soul severed from its flock and homeland; do_not_flatten_to a generic bird.
+- vichhoṛā: the pain of separation and parting, a central Sufi affect; do_not_flatten_to an ordinary goodbye.
+- bhānā: (God's) will and pleasure, to be accepted; do_not_flatten_to a mere wish.
 
 # Themes
 
-- [TO DO (rauf): 3-5 theme tags.]
+- death_as_bridal_journey
+- separation_and_longing
+- accountability_and_deeds
+- soul_as_bride
+- impermanence
 
 # Source Notes
 

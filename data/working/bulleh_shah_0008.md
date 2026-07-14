@@ -41,19 +41,31 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Come, Bulleh, let us go to that place where all are blind —
+where no one knows our caste, and no one holds us in regard.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the longing for a place beyond caste and social recognition — "where all are blind" so that identity/zaat cannot be seen; a classic Bulleh Shah rejection of social hierarchy and the ego of status.]
+This celebrated couplet distils Bulleh Shah's lifelong assault on zāt — caste, lineage, inherited social identity — into a single wish: to reach "a place where all are blind," where the eye that classifies cannot function. The blindness he longs for is not a defect but a liberation. Sight, here, is the faculty that sorts people into castes and ranks, that "recognizes" a man's zāt and accords or withholds regard accordingly; to go where all are blind is to go where the social gaze is abolished and with it the whole apparatus of hierarchy, honour, and shame. Historically the verse is inseparable from Bulleh Shah's own scandal — a Sayyid who took an Arain (lower-status) gardener, Shah Inayat, as his murshid and was reproached by family and clerics for the choice; the couplet is, among other things, the retort of a man who preferred love to the accounting of birth.
+
+The second half sharpens the paradox: he wants a place where "no one holds us in regard" (na koī sānūn manne) — where he is neither honoured nor even acknowledged. That inverts ordinary desire: the ego craves recognition, and the poem craves its opposite, anonymity, because recognition is the food of the nafs. To be unseen and unranked is to be freed of the self that lives on others' regard, so the social critique folds into a mystical one — the dissolution of zāt is also the dissolution of the ego's hunger to be seen, a step toward fanāʾ. The "place where all are blind" therefore reads on two registers at once: a utopian society without caste, and the inner station beyond self-regard, which is why the line has served both as a slogan of social equality and as a mystic's confession. (Gemination in "annhe"/"manne" and the reading "pachhāne," recognise, are flagged tentative.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. zaat (caste/identity), annhe (the blind), manne (to heed/acknowledge); add do_not_flatten_to notes]
+- zāt: caste, lineage, inherited social identity — the very thing the poem wishes to escape; do_not_flatten_to abstract "essence" or bare "identity."
+- annhe: "the blind" — those who cannot see and so cannot rank caste; a longed-for condition, not a disability; do_not_flatten_to literal blindness.
+- manne: to acknowledge, heed, hold in regard — the social recognition that feeds the ego; do_not_flatten_to simply "believe."
 
 # Themes
 
-- [TO DO (rauf): e.g. rejection_of_caste, anonymity_before_God, social_equality, dissolution_of_identity]
+- rejection_of_caste
+- anonymity_before_god
+- social_equality
+- dissolution_of_ego
 
 # Source Notes
 

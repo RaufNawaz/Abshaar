@@ -53,19 +53,37 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+Alif — I am a sacrifice to those who come, and give myself up for those who go.
+A fine love has caught fast in my eye; not an hour, not a moment, have I let the Friend slip from mind.
+My very bones waste away with longing; I sit shooing the crow, watching for his sign.
+Bulleh — I have gone mad for the Beloved; I keep crying out to the Friend, that he may hear.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat; this entry is HIGH-uncertainty (see below). Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the beloved's coming and going; the folk motif of shooing the crow (kaang) as an omen of the beloved's arrival; sleeplessness and remembrance; the lover turned "kamli" (mad) for the Shoh.]
+The heading marks this as the alif verse of a Sī Ḥarfī — the "thirty-letter" genre in which a poet composes a verse (or set) on each letter of the alphabet in sequence, an acrostic devotional form widespread in Punjabi and Sindhi Sufi poetry. Beginning at alif — which, as everywhere in Bulleh Shah, points to Allah and the One — the verse voices the pang of firāq, the longing of separation, in the conventional feminine posture of the waiting lover: she makes herself a sacrifice to those who "come and go" (the travellers who might carry news of the Beloved), cannot forget the Friend "for a single moment," and wastes to her bones in the waiting.
+
+The one securely legible image is the folk motif of "shooing the crow" (kāṅg uḍārnī). In Punjabi village belief a crow that alights on the housetop or wall is an omen that a traveller — the awaited beloved — is coming, and the longing woman shoos or coaxes it, half superstition and half prayer, as she scans the road for a sign. Bulleh Shah folds this domestic augury into the Sufi vigil: the soul watches for any token of the absent Beloved. The verse closes on his recurring self-image of the lover as kamlī, the "mad-woman" driven out of her senses by love, calling aloud to the Friend "that he may hear" — the crazed, shameless publicity of ʿishq that Bulleh embraces against the decorum of respectable religion.
+
+A prominent caveat: this entry is flagged HIGH uncertainty throughout, and line 3 in particular is described as "largely conjectural" — only "shooing the crow" is fairly clear. The reading above should be treated as provisional scaffolding for review rather than a settled text, and it is a priority for verification against a print Kulliyat, including confirming whether more of the Sī Ḥarfī belongs with this alif verse.
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. sadqe/waari (sacrifice, devotion), yaar/shoh (Friend/Beloved), kaang (crow omen), kamli (mad-woman for love); add do_not_flatten_to notes]
+- Sī Ḥarfī: the "thirty-letter" acrostic genre — one verse per alphabet letter, a Punjabi/Sindhi devotional form; do_not_flatten_to a random lyric.
+- sadqe / wārī: "I am a sacrifice / an offering to you" — idioms of self-giving devotion; do_not_flatten_to literal sacrifice.
+- kāṅg: the crow whose alighting augurs a traveller's arrival, shooed and watched by the waiting lover; do_not_flatten_to a mere bird.
+- kamlī: the "mad-woman," the lover driven senseless by love who calls out shamelessly; do_not_flatten_to clinical madness.
 
 # Themes
 
-- [TO DO (rauf): e.g. longing, remembrance_of_beloved, madness_of_love, waiting]
+- longing
+- remembrance_of_beloved
+- madness_of_love
+- waiting
+- omen_of_arrival
 
 # Source Notes
 

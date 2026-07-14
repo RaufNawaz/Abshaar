@@ -107,19 +107,54 @@ _AI-drafted (Claude) from the Urdu original; needs review._
 
 # Literary Translation
 
-[TO DO (rauf): your own literary translation.]
+I will sing a spell of my own,
+I will win my estranged love back.
+This charm I will read and breathe out;
+I will kindle the fire of the sun.
+Kohl in my eyes, dark thunderheads,
+from my brows I will call up a storm.
+Seven seas lie within the heart —
+from the heart I will raise their wave.
+Neither wife am I nor maiden,
+yet a son I will rock in my lap.
+As lightning I will flash and terrify,
+as cloud I will roll and thunder.
+Love is my brazier, the wild rue smoulders;
+of the moon I will fashion my shroud.
+On the seat of the Placeless, above,
+I will sit and sound the unstruck note.
+When I clasp my Lord to my breast,
+then, only then, shall I be called His woman.
+
+_AI-drafted (Claude) literary rendering from the Urdu original — original wording, NOT derived from Rafat. Draft for your review; replace with your own._
 
 # Tashreeh
 
-[TO DO (rauf): the female lover as enchantress casting a "spell" (toona) to win the divine Beloved; escalating cosmic/magical boasts (kindling the sun, summoning storms from her brows, raising waves, becoming lightning and thunder, shrouding herself with the moon); the Sufi turn — sitting on the "seat of the Placeless" (laa-makaan), sounding the anahad naad, and being united with / named the Lord's own. Note gendered voice (viraha / the soul as bride).]
+This is one of Bulleh Shah's most audacious performances in the feminine voice. Every line ends in the feminine future "…vāṅ gī," "I shall…", so the whole poem is a mounting series of vows by a woman-enchantress who will win back her estranged yār (Beloved) through ṭūnā — spell, charm, sympathetic magic. The framing matters: the soul (feminine, as always in this genre) does not petition politely but boasts, arrogating cosmic powers to herself. The register is lifted from the village magic of the Punjabi countryside — the woman who reads a charm and blows it (paṛh paṛh phūkāṅ), the burning of harmal (wild rue) against the evil eye — and raised into a theology of desire.
+
+The boasts trace a deliberate cosmic ascent. She will "kindle the fire of the sun"; her kohl-dark eyes and brows will "summon a storm"; she carries "seven seas within the heart" and will "raise their wave" — the microcosm again containing the macrocosm, the heart as ocean. The paradox "neither wife nor maiden, yet I will rock a son in my lap" is her boldest figure: a virgin-mother image that marks her as a being outside the ordinary categories, one who generates spiritual life without ordinary union. Turning to lightning and thunder, she becomes the very forces she summoned — the lover assimilating herself to cosmic power in her frenzy to compel the Beloved's return.
+
+The explicitly mystical turn arrives with the brazier and the shroud: "love is my brazier (angīṭhī), the wild rue smoulders; of the moon I will make my shroud (kafan)." Love is the fire in which she burns — the self offered up as incense — and the shroud woven of moonlight announces that this winning-back is also a dying: union requires her death, fanāʾ figured at once as bridal veil and burial cloth. Then the summit: she sits "on the seat of the Placeless" (lā-makān, the no-place beyond spatial existence, the divine station) and "sounds the unstruck note" (nād, the anāhad nād of the yogic-Sufi tradition, the soundless sound heard in deep absorption) — the enchantress has climbed from a village charm to the throne beyond place.
+
+The final couplet supplies the poem's whole logic and its condition: "when I clasp my Lord (shoh) to my breast, then shall I be called His woman (nār)." Everything before — spells, storms, burning, the ascent to lā-makān — is prologue to this, and identity itself is deferred until union: she is not yet "His woman"; she becomes so only in the embrace, the name following the union. Read mystically, the self has no true name or being of its own and receives its identity only in annihilating union with the Beloved — to be "called His" is to be constituted by belonging. (Several interior readings — the harmal/brazier line, "seat of the Placeless," the clasping line — are flagged tentative, so specific glosses are provisional.)
+
+_AI-drafted (Claude) interpretive note; needs your review._
 
 # Key Terms
 
-- [TO DO (rauf): e.g. toona (spell/charm), harmal (wild rue burnt against the evil eye), laa-makaan (the Placeless/Infinite), naad (mystic sound), naar (woman/bride); add do_not_flatten_to notes]
+- ṭūnā: spell, charm, sympathetic magic — village enchantment reframed as the soul's stratagem to compel the Beloved's return; do_not_flatten_to a party trick.
+- harmal: wild rue, burned as incense against the evil eye — here the incense of love's brazier; do_not_flatten_to a mere herb.
+- lā-makān: "the Placeless," the no-place beyond spatial existence, the divine station; do_not_flatten_to an ordinary location.
+- nād: the "unstruck," soundless mystic note (anāhad nād) heard in deep absorption; do_not_flatten_to ordinary music.
+- nār: woman/wife — the name the soul-bride earns only in union, "His woman"; do_not_flatten_to a generic "woman."
 
 # Themes
 
-- [TO DO (rauf): e.g. the_soul_as_bride, longing_for_union, magical_hyperbole, annihilation_and_naming, feminine_voice]
+- soul_as_bride
+- longing_for_union
+- magical_hyperbole
+- annihilation_and_naming
+- feminine_voice
 
 # Source Notes
 
