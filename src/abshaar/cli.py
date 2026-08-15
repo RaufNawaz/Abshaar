@@ -95,6 +95,25 @@ def main(argv: list[str] | None = None) -> int:
         help="Build the templated train/eval instruction dataset with all gates.",
     )
 
+    subparsers.add_parser(
+        "build-probes",
+        help="Build the fixed 50-probe evaluation set (factual/honesty/disputed).",
+    )
+
+    subparsers.add_parser(
+        "export-mlx-dataset",
+        help="Write messages-only train/valid JSONL for mlx_lm.lora into data/processed/training/mlx/.",
+    )
+
+    run_eval = subparsers.add_parser(
+        "run-eval",
+        help="Evaluate a model over the probe set; appends to eval_baseline.md.",
+    )
+    run_eval.add_argument("--model", default="qwen3:8b")
+    run_eval.add_argument("--rag", action="store_true", help="Answer through retrieval (ask) instead of bare chat.")
+    run_eval.add_argument("--judge", default="qwen3:4b")
+    run_eval.add_argument("--limit", type=int, default=None)
+
     prompt_pack = subparsers.add_parser("prompt-pack", help="Build a model prompt pack for one poem.")
     prompt_pack.add_argument("--poem-id", default=None)
     prompt_pack.add_argument("--all", action="store_true", help="Build prompt packs for all poems.")
@@ -227,6 +246,12 @@ def main(argv: list[str] | None = None) -> int:
         return command_ask(root, args)
     if args.command == "generate-training-data":
         return command_generate_training_data(root)
+    if args.command == "build-probes":
+        return command_build_probes(root)
+    if args.command == "export-mlx-dataset":
+        return command_export_mlx_dataset(root)
+    if args.command == "run-eval":
+        return command_run_eval(root, args)
     if args.command == "prompt-pack":
         return command_prompt_pack(root, args.poem_id, args.all)
     if args.command == "ai-check":
@@ -336,6 +361,40 @@ def command_generate_training_data(root: Path) -> int:
     for family in sorted(stats["by_family"]):
         counts = stats["by_family"][family]
         print(f"  - {family}: {counts['train']} train / {counts['eval']} eval")
+    return 0
+
+
+def command_export_mlx_dataset(root: Path) -> int:
+    from abshaar.jsonl import read_jsonl, write_jsonl as _write_jsonl
+
+    training_dir = root / "data" / "processed" / "training"
+    out_dir = training_dir / "mlx"
+    counts = {}
+    for source, target in [("train.jsonl", "train.jsonl"), ("eval.jsonl", "valid.jsonl")]:
+        examples = read_jsonl(training_dir / source)
+        _write_jsonl(out_dir / target, [{"messages": e["messages"]} for e in examples])
+        counts[target] = len(examples)
+    print(f"Wrote mlx dataset: train {counts['train.jsonl']} / valid {counts['valid.jsonl']} to {out_dir.relative_to(root)}/")
+    return 0
+
+
+def command_build_probes(root: Path) -> int:
+    from abshaar.evaluate import PROBES_PATH, build_probes
+
+    count = build_probes(root)
+    print(f"Wrote {count} probe(s) to {PROBES_PATH}")
+    return 0
+
+
+def command_run_eval(root: Path, args: argparse.Namespace) -> int:
+    from abshaar.evaluate import run_eval
+
+    summary = run_eval(root, args.model, args.rag, judge_model=args.judge, limit=args.limit)
+    print(
+        f"{summary['model']}{' + RAG' if summary['rag'] else ''}: "
+        f"factual {summary['factual']} | honesty {summary['honesty']} | "
+        f"disputed {summary['disputed']} ({summary['probes']} probes)"
+    )
     return 0
 
 
