@@ -74,6 +74,27 @@ def main(argv: list[str] | None = None) -> int:
         help="Build the consolidated private knowledge base; fails on any reference leak.",
     )
 
+    build_index = subparsers.add_parser(
+        "build-index",
+        help="Embed the knowledge base into the local Chroma index (requires the .venv AI stack).",
+    )
+    build_index.add_argument("--model", default=None, help="Embedding model; defaults to BAAI/bge-m3.")
+
+    ask = subparsers.add_parser(
+        "ask",
+        help="Ask a grounded question over the knowledge base (retrieval + local Ollama).",
+    )
+    ask.add_argument("question")
+    ask.add_argument("--model", default="qwen3:8b")
+    ask.add_argument("--k", type=int, default=8)
+    ask.add_argument("--min-score", type=float, default=None)
+    ask.add_argument("--retrieve-only", action="store_true", help="Show retrieved records without generation.")
+
+    subparsers.add_parser(
+        "generate-training-data",
+        help="Build the templated train/eval instruction dataset with all gates.",
+    )
+
     prompt_pack = subparsers.add_parser("prompt-pack", help="Build a model prompt pack for one poem.")
     prompt_pack.add_argument("--poem-id", default=None)
     prompt_pack.add_argument("--all", action="store_true", help="Build prompt packs for all poems.")
@@ -200,6 +221,12 @@ def main(argv: list[str] | None = None) -> int:
         return command_build_clusters(root)
     if args.command == "build-kb":
         return command_build_kb(root)
+    if args.command == "build-index":
+        return command_build_index(root, args.model)
+    if args.command == "ask":
+        return command_ask(root, args)
+    if args.command == "generate-training-data":
+        return command_generate_training_data(root)
     if args.command == "prompt-pack":
         return command_prompt_pack(root, args.poem_id, args.all)
     if args.command == "ai-check":
@@ -288,6 +315,71 @@ def command_build_data(root: Path, include_placeholders: bool) -> int:
         print(f"Skipped {len(skipped)} placeholder entry file(s):")
         for path in skipped:
             print(f"  - {path.relative_to(root)}")
+    return 0
+
+
+def command_generate_training_data(root: Path) -> int:
+    from abshaar.dataset_gen import TRAINING_DIR, generate_training_data
+
+    stats, failures = generate_training_data(root)
+    if failures:
+        print("GATE FAILURE — no dataset written:", file=sys.stderr)
+        for failure in failures[:20]:
+            print(f"  - {failure}", file=sys.stderr)
+        if len(failures) > 20:
+            print(f"  ... and {len(failures) - 20} more", file=sys.stderr)
+        return 1
+    print(
+        f"Wrote {stats['train']} train / {stats['eval']} eval example(s) "
+        f"({stats['total']} total) to {TRAINING_DIR}/"
+    )
+    for family in sorted(stats["by_family"]):
+        counts = stats["by_family"][family]
+        print(f"  - {family}: {counts['train']} train / {counts['eval']} eval")
+    return 0
+
+
+def command_build_index(root: Path, model: str | None) -> int:
+    try:
+        from abshaar.rag import EMBED_MODEL, build_index
+    except ImportError as exc:
+        print(f"AI stack unavailable ({exc}). Run via the .venv python after installing requirements.txt.", file=sys.stderr)
+        return 1
+
+    count = build_index(root, model_name=model or EMBED_MODEL)
+    print(f"Indexed {count} knowledge-base record(s) into data/cache/chroma/")
+    return 0
+
+
+def command_ask(root: Path, args: argparse.Namespace) -> int:
+    try:
+        from abshaar.rag import DEFAULT_MIN_SCORE, ask
+    except ImportError as exc:
+        print(f"AI stack unavailable ({exc}). Run via the .venv python after installing requirements.txt.", file=sys.stderr)
+        return 1
+
+    result = ask(
+        root,
+        args.question,
+        model=args.model,
+        k=args.k,
+        min_score=args.min_score if args.min_score is not None else DEFAULT_MIN_SCORE,
+        retrieve_only=args.retrieve_only,
+    )
+    if args.retrieve_only:
+        for hit in result["hits"]:
+            print(f"{hit['score']:.4f}  {hit['id']}  ({hit['metadata'].get('kind')})")
+        return 0
+    print(result["answer"])
+    print()
+    print("Retrieved records:")
+    for hit in result["hits"]:
+        print(f"  {hit['score']:.4f}  {hit['id']}")
+    if result["invalid_citations"]:
+        print("ERROR: answer cites record ids that were not retrieved:", file=sys.stderr)
+        for cited in result["invalid_citations"]:
+            print(f"  - {cited}", file=sys.stderr)
+        return 1
     return 0
 
 
