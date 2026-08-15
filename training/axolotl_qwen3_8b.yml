@@ -1,0 +1,45 @@
+# Path B (cloud QLoRA) — Qwen3-8B on a rented single GPU (~24GB VRAM).
+# Verify field names against the current Axolotl docs before a paid run;
+# axolotl evolves quickly. Estimated cost at typical spot prices: $5–20.
+#
+# Launch (on the cloud box, from the repo root):
+#   pip install axolotl
+#   axolotl train training/axolotl_qwen3_8b.yml
+
+base_model: Qwen/Qwen3-8B
+load_in_4bit: true
+adapter: qlora
+
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_linear: true
+
+datasets:
+  - path: data/processed/training/mlx/train.jsonl
+    type: chat_template
+    field_messages: messages
+test_datasets:
+  - path: data/processed/training/mlx/valid.jsonl
+    type: chat_template
+    field_messages: messages
+    split: train
+
+chat_template: qwen3
+sequence_len: 2048
+sample_packing: true
+
+micro_batch_size: 2
+gradient_accumulation_steps: 4
+num_epochs: 3
+learning_rate: 0.0002
+lr_scheduler: cosine
+warmup_ratio: 0.05
+optimizer: adamw_torch
+
+bf16: auto
+gradient_checkpointing: true
+logging_steps: 10
+eval_steps: 100
+save_steps: 200
+output_dir: training/adapters/axolotl_qwen3_8b

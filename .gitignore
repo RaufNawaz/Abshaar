@@ -53,3 +53,7 @@ Thumbs.db
 
 # Python packaging
 *.egg-info/
+
+# Model weights (large; record SHA-256 + eval scores in training/EVAL_MATRIX.md)
+training/adapters/
+training/fused/

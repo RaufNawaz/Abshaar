@@ -6,9 +6,17 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
+from abshaar.devanagari import transliterate_devanagari
 from abshaar.jsonl import read_jsonl, write_jsonl
 from abshaar.markdown_entry import parse_markdown_entry
 from abshaar.validation import iter_working_entries
+
+
+# Devanagari comparison runs through an APPROXIMATE transliteration, so a
+# similarity derived from it must never reach 1.0: exact-score candidates are
+# auto-merged into canonical work clusters, and approximate evidence must not
+# trigger that.
+DEVANAGARI_SCORE_CAP = 0.98
 
 
 ARABIC_CHAR_EQUIVALENTS = str.maketrans(
@@ -115,6 +123,15 @@ def _score_item(item: dict[str, Any], candidate: dict[str, Any]) -> dict[str, An
     roman_exact = _exact_line_matches(roman_source_lines, candidate_roman_lines)
     urdu_exact = _exact_line_matches(urdu_source_lines, candidate_urdu_lines)
 
+    devanagari_title = normalize_roman(
+        transliterate_devanagari(str(item.get("devanagari_title") or ""))
+    )
+    devanagari_lines = [
+        normalize_roman(transliterate_devanagari(line))
+        for line in _lines(item.get("devanagari_text"))
+    ]
+    devanagari_lines = [line for line in devanagari_lines if line]
+
     signals = {
         "roman_title_to_title": _similarity(roman_title, candidate_title),
         "roman_title_to_any_line": _best_line_similarity([roman_title], title_targets),
@@ -122,11 +139,19 @@ def _score_item(item: dict[str, Any], candidate: dict[str, Any]) -> dict[str, An
         "urdu_title_to_any_line": _best_line_similarity([urdu_title], candidate_urdu_lines),
         "urdu_any_line": _best_line_similarity(urdu_source_lines, candidate_urdu_lines),
     }
+    devanagari_signals = {
+        "devanagari_title_to_any_line": _best_line_similarity([devanagari_title], title_targets)
+        if devanagari_title
+        else 0.0,
+        "devanagari_any_line": _best_line_similarity(devanagari_lines, candidate_roman_lines),
+    }
     best_roman = max(signals["roman_title_to_any_line"], signals["roman_any_line"])
     best_urdu = max(signals["urdu_title_to_any_line"], signals["urdu_any_line"])
     score = max(signals.values(), default=0.0)
     if best_roman >= 0.75 and best_urdu >= 0.75:
         score = max(score, min(1.0, (best_roman + best_urdu) / 2 + 0.05))
+    score = max(score, min(DEVANAGARI_SCORE_CAP, max(devanagari_signals.values(), default=0.0)))
+    signals.update(devanagari_signals)
     if roman_exact or urdu_exact:
         score = 1.0
     nonzero = {key: round(value, 4) for key, value in signals.items() if value > 0}

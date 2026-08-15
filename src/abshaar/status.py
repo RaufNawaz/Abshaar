@@ -36,6 +36,12 @@ def project_status(root: Path) -> dict[str, Any]:
     sufinama_inventory = _safe_read(
         root / "data" / "context" / "sufinama_bulleh_shah_inventory.jsonl"
     )
+    clusters = _safe_read(root / "data" / "context" / "canonical_clusters.jsonl")
+    kb_records = _safe_read(root / "data" / "processed" / "private" / "knowledge_base.jsonl")
+    trainable_layers = _safe_read(root / "data" / "processed" / "training" / "trainable_layers.jsonl")
+    train_examples = _safe_read(root / "data" / "processed" / "training" / "train.jsonl")
+    eval_examples = _safe_read(root / "data" / "processed" / "training" / "eval.jsonl")
+    probes = _safe_read(root / "data" / "processed" / "training" / "probes.jsonl")
     issues = validate_project(root)
 
     return {
@@ -58,6 +64,13 @@ def project_status(root: Path) -> dict[str, Any]:
         "gurmukhi_source_items": len(gurmukhi_source_items),
         "biographical_claims": len(biographical_claims),
         "sufinama_inventory_categories": len(sufinama_inventory),
+        "canonical_clusters": len(clusters),
+        "multi_member_clusters": sum(1 for c in clusters if len(c.get("members", [])) > 1),
+        "knowledge_base_records": len(kb_records),
+        "trainable_layers": len(trainable_layers),
+        "training_examples": len(train_examples) + len(eval_examples),
+        "eval_examples": len(eval_examples),
+        "eval_probes": len(probes),
         "validation_errors": sum(1 for issue in issues if issue.level == "error"),
         "validation_warnings": sum(1 for issue in issues if issue.level == "warning"),
     }
@@ -84,6 +97,12 @@ def format_project_status(status: dict[str, Any]) -> str:
         f"PunjabLibrary Gurmukhi source items: {status['gurmukhi_source_items']}",
         f"Sourced biographical claims: {status['biographical_claims']}",
         f"Sufinama Bulleh Shah inventory categories: {status['sufinama_inventory_categories']}",
+        "",
+        f"Canonical work clusters: {status['canonical_clusters']} ({status['multi_member_clusters']} multi-member)",
+        f"Knowledge-base records (private): {status['knowledge_base_records']}",
+        f"Rights-safe trainable layers: {status['trainable_layers']}",
+        f"Training examples (train+eval): {status['training_examples']} ({status['eval_examples']} eval)",
+        f"Evaluation probes: {status['eval_probes']}",
         "",
         f"Validation errors: {status['validation_errors']}",
         f"Validation warnings: {status['validation_warnings']}",

@@ -324,6 +324,21 @@ are identical.
 | `.\scripts\abshaar.ps1 acquire-sufinama-texts --offline --transport curl` | rebuilds the 48 non-kaafi witnesses and their separate crosswalk from cache | after parser or matcher changes; no site requests |
 | `.\scripts\abshaar.ps1 match-source-manifest --manifest <path>` | matches any local source manifest to the 72 working entries without overwriting them | after importing another source collection |
 | `.\scripts\abshaar.ps1 extract-gurmukhi-pdf --input <pdf>` | extracts consecutively numbered Gurmukhi works into a private witness plus reviewable catalog | after receiving a local Gurmukhi source PDF |
+| `.\scripts\abshaar.ps1 export-training-corpus` | exports rights-safe trainable layers; **fails loudly** if any text overlaps a copyrighted reference translation | before building training data |
+| `.\scripts\abshaar.ps1 extract-lexicon` | mechanically parses every entry's Key Terms/Themes into `data/lexicon/terms.jsonl` + `data/context/themes.jsonl` | after entry Key Terms change |
+| `.\scripts\abshaar.ps1 build-clusters` | builds conservative canonical-work clusters from the crosswalks (only exact 1.0 matches merge) | after crosswalks or matcher change |
+| `.\scripts\abshaar.ps1 build-kb` | consolidates poem layers, lexicon, biography, witnesses into the private knowledge base (leak-scanned) | after any KB input changes |
+| `.\scripts\abshaar.ps1 build-index` | embeds the knowledge base with BGE-M3 into the local Chroma index (needs `.venv` AI stack) | after `build-kb` |
+| `.\scripts\abshaar.ps1 ask "question"` | grounded retrieval + local-Ollama answer with kb citations; declines out-of-corpus questions | to query the archive |
+| `.\scripts\abshaar.ps1 generate-training-data` | builds the templated train/eval instruction dataset with all gates (leak scan, dedup, hedging, cluster-safe split) | after KB or lexicon changes |
+| `.\scripts\abshaar.ps1 build-probes` | builds the fixed 50-probe eval set (factual/honesty/disputed) | once per eval design |
+| `.\scripts\abshaar.ps1 run-eval --model qwen3:8b [--rag]` | scores a model over the probes into `eval_baseline.md` | before AND after any fine-tune |
+| `.\scripts\abshaar.ps1 export-mlx-dataset` | writes messages-only train/valid JSONL for `mlx_lm.lora` | before local LoRA training |
+| `./scripts/train_lora.sh` (macOS only) | runs the local MLX LoRA fine-tune on Apple Silicon | Phase 5 of the training plan |
+
+The training-pipeline commands follow
+`docs/15_bulleh_shah_expert_model_implementation_plan.md` — read its §0 and
+§2 (rights constraints) before running any of them.
 
 Useful flags:
 

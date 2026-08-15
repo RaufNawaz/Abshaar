@@ -667,6 +667,7 @@ def _match_manifest(records: list[dict[str, Any]], path: Path) -> None:
         views = record.get("views", {})
         roman_layer = views.get("roman_plain") or views.get("roman_diacritic") or {}
         urdu_layer = views.get("urdu") or {}
+        devanagari_layer = views.get("devanagari") or {}
         manifest.append(
             {
                 "id": record["id"],
@@ -677,9 +678,19 @@ def _match_manifest(records: list[dict[str, Any]], path: Path) -> None:
                 "urdu_title": record["catalog_title_urdu"],
                 "roman_text": _layer_text(roman_layer),
                 "urdu_text": _layer_text(urdu_layer),
+                "devanagari_title": _first_layer_line(devanagari_layer),
+                "devanagari_text": _layer_text(devanagari_layer),
             }
         )
     write_jsonl(path, manifest)
+
+
+def _first_layer_line(layer: dict[str, Any]) -> str:
+    for line in layer.get("lines", []):
+        text = str(line.get("text") or "").strip()
+        if text:
+            return text
+    return ""
 
 
 def _alignment_signature(layer: dict[str, Any]) -> list[tuple[str, str, tuple[str, ...]]]:
@@ -1039,6 +1050,7 @@ def _text_match_manifest(records: list[dict[str, Any]], path: Path) -> None:
         views = record.get("views", {})
         roman = views.get("roman_plain") or views.get("roman_diacritic") or {}
         urdu = views.get("urdu") or {}
+        devanagari = views.get("devanagari") or {}
         manifest.append(
             {
                 "id": record["id"],
@@ -1046,16 +1058,11 @@ def _text_match_manifest(records: list[dict[str, Any]], path: Path) -> None:
                 "url": record["source_urls"]["default"],
                 "url_urdu": record["source_urls"]["urdu"],
                 "roman_title": record.get("catalog_title", ""),
-                "urdu_title": next(
-                    (
-                        str(line.get("text") or "")
-                        for line in urdu.get("lines", [])
-                        if str(line.get("text") or "").strip()
-                    ),
-                    "",
-                ),
+                "urdu_title": _first_layer_line(urdu),
                 "roman_text": _layer_text(roman),
                 "urdu_text": _layer_text(urdu),
+                "devanagari_title": _first_layer_line(devanagari),
+                "devanagari_text": _layer_text(devanagari),
             }
         )
     write_jsonl(path, manifest)

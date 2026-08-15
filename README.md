@@ -155,6 +155,16 @@ On macOS/Linux, use the matching shell script (same arguments):
 If `permission denied`, run `chmod +x scripts/*.sh` once. For a complete local
 check, use `./scripts/build_all.sh`.
 
+The expert-model training pipeline (knowledge base, RAG index, grounded `ask`,
+gated training-data generation, evaluation, local LoRA) is driven by the same
+CLI — `extract-lexicon`, `build-clusters`, `build-kb`, `build-index`, `ask`,
+`export-training-corpus`, `generate-training-data`, `build-probes`,
+`run-eval`, `export-mlx-dataset` — and documented end to end in
+[docs/15](docs/15_bulleh_shah_expert_model_implementation_plan.md). The
+AI-stack commands need the project venv (`python3 -m venv .venv &&
+.venv/bin/pip install -r requirements.txt`); both wrappers prefer `.venv`
+automatically when it exists.
+
 See [Automation Infrastructure](docs/09_automation_infrastructure.md) for the
 full command reference, or [Plain-English Automation Guide](docs/10_plain_english_automation_guide.md)
 for a non-technical explanation.

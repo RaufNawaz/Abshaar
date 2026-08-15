@@ -1,0 +1,14 @@
+# Ollama Modelfile for the fused Abshaar Bulleh Shah model (Phase 6).
+#
+# 1. Fuse the adapter:   .venv/bin/python -m mlx_lm fuse --model <base> \
+#        --adapter-path training/adapters/<run> --save-path training/fused/<run>
+# 2. Convert to GGUF (llama.cpp convert script) or export via mlx_lm.
+# 3. Point FROM at the GGUF file, then:  ollama create abshaar-bulleh -f training/Modelfile.abshaar-bulleh
+#
+# FROM is a placeholder — set it to the real GGUF path before `ollama create`.
+FROM ./fused/abshaar-bulleh.gguf
+
+PARAMETER temperature 0.3
+PARAMETER top_p 0.9
+
+SYSTEM """You are Abshaar, a scholarly assistant on the Punjabi Sufi poet Bulleh Shah. Answer from your studied corpus. Preserve uncertainty and dispute qualifiers exactly; when the corpus does not contain an answer, say so plainly instead of guessing."""
