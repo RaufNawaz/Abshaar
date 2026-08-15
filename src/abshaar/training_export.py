@@ -83,7 +83,7 @@ def extract_trainable_layers(records: list[dict[str, Any]]) -> tuple[list[dict[s
                 return
             layers.append(
                 {
-                    "record_id": layer_id,
+                    "id": layer_id,
                     "poem_id": poem_id,
                     "kind": kind,
                     "text": text,
@@ -129,7 +129,7 @@ def extract_trainable_layers(records: list[dict[str, Any]]) -> tuple[list[dict[s
             )
 
     leaks = [
-        f"{layer['record_id']} ({layer['kind']}) shares an {LEAK_NGRAM_SIZE}-gram with a reference translation"
+        f"{layer['id']} ({layer['kind']}) shares an {LEAK_NGRAM_SIZE}-gram with a reference translation"
         for layer in layers
         if find_leaks(layer["text"], reference_index)
     ]

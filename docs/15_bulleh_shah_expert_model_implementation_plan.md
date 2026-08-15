@@ -403,9 +403,19 @@ phase's gate commands still pass."
 - [ ] Phase 0.4 deps/models installed (chromadb/transformers/torch missing per
       `ai-check`; Ollama status: needs verification); push decision: authorized
       and completed 2026-08-15
-- [ ] Phase 1.1 lexicon + themes extracted
-- [ ] Phase 1.2 canonical clusters built
-- [ ] Phase 1.3 knowledge base built
+- [x] Phase 1.1 lexicon + themes extracted (2026-08-15): 321 terms, 297 themes,
+      every entry contributed; purely mechanical parse of Key Terms/Themes
+      sections, review_status `ai_draft`.
+- [x] Phase 1.2 canonical clusters built (2026-08-15): 343 clusters / 356
+      members (72 entries + 76 + 48 Sufinama + 160 PunjabLibrary), 12
+      multi-member. Rule strengthened during execution: ALL 1.0-score
+      candidates of a witness merge (union-find), not just the top one —
+      kaafi-12 scored 1.0 against BOTH 0001 and 0029, so the variant pair now
+      shares `work_bulleh_shah_0001` and cannot straddle a split. Deterministic
+      rerun verified.
+- [x] Phase 1.3 knowledge base built (2026-08-15): 1,303 records at
+      `data/processed/private/knowledge_base.jsonl` (private dir because it
+      embeds Sufinama witness text). All records leak-scanned; deterministic.
 - [ ] Phase 2 RAG index + `ask` command, smoke test passed
 - [ ] Phase 3 training data generated, verified, gated; manifest written
 - [ ] Phase 4 baseline eval saved (base 4B / base 8B / base+RAG)

@@ -61,6 +61,19 @@ def main(argv: list[str] | None = None) -> int:
         default="data/processed/training/trainable_layers.jsonl",
     )
 
+    subparsers.add_parser(
+        "extract-lexicon",
+        help="Extract Key Terms and Themes from working entries into terms/themes JSONL.",
+    )
+    subparsers.add_parser(
+        "build-clusters",
+        help="Build conservative canonical-work clusters from the source crosswalks.",
+    )
+    subparsers.add_parser(
+        "build-kb",
+        help="Build the consolidated private knowledge base; fails on any reference leak.",
+    )
+
     prompt_pack = subparsers.add_parser("prompt-pack", help="Build a model prompt pack for one poem.")
     prompt_pack.add_argument("--poem-id", default=None)
     prompt_pack.add_argument("--all", action="store_true", help="Build prompt packs for all poems.")
@@ -181,6 +194,12 @@ def main(argv: list[str] | None = None) -> int:
         return command_export_site(root)
     if args.command == "export-training-corpus":
         return command_export_training(root, args.output)
+    if args.command == "extract-lexicon":
+        return command_extract_lexicon(root)
+    if args.command == "build-clusters":
+        return command_build_clusters(root)
+    if args.command == "build-kb":
+        return command_build_kb(root)
     if args.command == "prompt-pack":
         return command_prompt_pack(root, args.poem_id, args.all)
     if args.command == "ai-check":
@@ -269,6 +288,48 @@ def command_build_data(root: Path, include_placeholders: bool) -> int:
         print(f"Skipped {len(skipped)} placeholder entry file(s):")
         for path in skipped:
             print(f"  - {path.relative_to(root)}")
+    return 0
+
+
+def command_extract_lexicon(root: Path) -> int:
+    from abshaar.lexicon import extract_lexicon
+
+    report = extract_lexicon(root)
+    print(f"Wrote {report['terms']} term(s) to data/lexicon/terms.jsonl")
+    print(f"Wrote {report['themes']} theme(s) to data/context/themes.jsonl")
+    if report["entries_without_terms"]:
+        print("Entries contributing no key terms:")
+        for poem_id in report["entries_without_terms"]:
+            print(f"  - {poem_id}")
+    else:
+        print("Every working entry contributed at least one key term.")
+    return 0
+
+
+def command_build_clusters(root: Path) -> int:
+    from abshaar.clusters import build_clusters
+
+    counts = build_clusters(root)
+    print(
+        f"Wrote {counts['clusters']} cluster(s) covering {counts['members']} member(s) "
+        f"({counts['auto_merged_witnesses']} witness(es) auto-merged on exact 1.0 matches) "
+        "to data/context/canonical_clusters.jsonl"
+    )
+    return 0
+
+
+def command_build_kb(root: Path) -> int:
+    from abshaar.knowledge_base import KB_PATH, build_kb
+
+    counts, leaks = build_kb(root)
+    if leaks:
+        print("LEAK DETECTED — reference-translation text in knowledge base; nothing written:", file=sys.stderr)
+        for leak in leaks:
+            print(f"  - {leak}", file=sys.stderr)
+        return 1
+    print(f"Wrote {counts['total']} knowledge-base record(s) to {KB_PATH}")
+    for kind in sorted(k for k in counts if k != "total"):
+        print(f"  - {kind}: {counts[kind]}")
     return 0
 
 
