@@ -416,8 +416,22 @@ phase's gate commands still pass."
 - [x] Phase 1.3 knowledge base built (2026-08-15): 1,303 records at
       `data/processed/private/knowledge_base.jsonl` (private dir because it
       embeds Sufinama witness text). All records leak-scanned; deterministic.
-- [ ] Phase 2 RAG index + `ask` command, smoke test passed
-- [ ] Phase 3 training data generated, verified, gated; manifest written
-- [ ] Phase 4 baseline eval saved (base 4B / base 8B / base+RAG)
-- [ ] Phase 5 LoRA trained; eval acceptance met (path: ___)
+- [~] Phase 2 RAG code done (rag.py: build-index/ask with citation validation,
+      decline threshold; smoke script scripts/rag_smoke_test.py). GATE PENDING:
+      index build + Ollama model pulls were still downloading; run the smoke
+      test when they finish.
+- [x] Phase 3 core dataset done (2026-08-15): 1,178 examples (1,035 train /
+      143 eval) across 9 families via `generate-training-data` — MECHANICAL
+      TEMPLATES ONLY (template_v1), answers are corpus text, no LLM, all gates
+      pass (leak scan, dedup, uncertainty hedging, cluster-disjoint split),
+      deterministic. Honesty family 99 examples (8.4% — below the ~15% target;
+      LLM paraphrase augmentation pass with the same gates remains open).
+- [~] Phase 4 harness done (build-probes: 50 fixed probes 25/15/10;
+      run-eval with judge/F1/decline scoring). GATE PENDING: baseline runs
+      (base 4B / base 8B / base 8B+RAG) once models are pulled. Caveat noted:
+      disputed probes embed the claim text, so they test qualifier
+      preservation under pressure, not independent recall.
+- [ ] Phase 5 LoRA trained; eval acceptance met (path: ___). Scaffolding
+      ready: export-mlx-dataset + scripts/train_lora.sh (mlx-lm, default
+      mlx-community/Qwen3-4B-4bit — verify repo id at run time).
 - [ ] Phase 6 `ask --model abshaar-bulleh` serving tuned+RAG; eval matrix committed
