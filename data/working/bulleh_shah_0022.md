@@ -36,18 +36,18 @@ review_status: "draft"
 
 Jo rang rangiya gohṛa rangiya
 
-Jo rang rangiya gohṛa rangiya, murshid vaali laali o yaar
-Dur-e-maani ki dhoom machi hai, nainaan toon ghoonḍ uṭhaalen o yaar
-Zulf siyaah vich ho yad-e-baiza, oh chamkaar dikhaalen o yaar
+Jo rang rangiya gohṛa rangiya, murshid vāli lāli o yār
+Dur-e-māni ki dhūm machi hai, nainān tūn ghūnḍ uṭhālen o yār
+Zulf siyāh vich ho yad-e-baiza, oh chamkār dikhālen o yār
 
-Chup ko chup uzma hoiyaan, laaiyaan di laj paalen o yaar
-Mūtū qabla an tamūtū, moee nu pher jawaalen o yaar
+Chup ko chup uzma hoiyān, lāiyān di laj pālen o yār
+Mūtū qabla an tamūtū, moī nu pher jawālen o yār
 
-Adkha jheṛa ishq de vaala, sambhal ke pair pukaalen o yaar
-Har shai andar toon aape hain, aape dekh dikhaalen o yaar
+Adkha jheṛa ishq de vāla, sambhal ke pair pukālen o yār
+Har shai andar tūn āpe hain, āpe dekh dikhālen o yār
 
-Bulhiya! shoh ghar mere aaya, kar kar naach dikhaalen o yaar
-Jo rang rangiya gohṛa rangiya, murshid vaali laali o yaar
+Bulhiya! shoh ghar mere āya, kar kar nāch dikhālen o yār
+Jo rang rangiya gohṛa rangiya, murshid vāli lāli o yār
 
 # Literal Translation
 

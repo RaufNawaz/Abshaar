@@ -35,21 +35,21 @@ review_status: "draft"
 
 # Transliteration
 
-Bulha! keh jaanaan main kaun
+Bulha! keh jānān main kaun
 
-Bulha! keh jaanaan main kaun?
+Bulha! keh jānān main kaun?
 
-Na main momin vich maseetaan
-Na main vich kufar di reet aan
-Na main paakaan vich paleet aan
-Na main Moosa, na Firaun
-Bulha! keh jaanaan main kaun?
+Na main momin vich masītān
+Na main vich kufar di rīt ān
+Na main pākān vich palīt ān
+Na main Mūsa, na Firaun
+Bulha! keh jānān main kaun?
 
-Na main vich paleeti paaki
-Na vich shaadi, na ghamnaaki
-Na main aabi, na main khaaki
-Na main aatish, na main paun
-Bulha! keh jaanaan main kaun?
+Na main vich palīti pāki
+Na vich shādi, na ghamnāki
+Na main ābi, na main khāki
+Na main ātish, na main paun
+Bulha! keh jānān main kaun?
 
 # Literal Translation
 

@@ -45,31 +45,31 @@ review_status: "draft"
 
 # Transliteration
 
-Patiyaan likhaan main shaam nu
+Patiyān likhān main shām nu
 
-Patiyaan likhaan main shaam nu, mainu piya nazar na aave
-Aangan bhaana ḍaraavna, kit budh rain vihaave
+Patiyān likhān main shām nu, mainu piya nazar na āve
+Āngan bhāna ḍarāvna, kit budh rain vihāve
 
-Paandhe panḍat jagat ke, main puchh rahi aas laae
-Pothi ved, kya dos hai, jo ulṭe bhaag hamaare
+Pāndhe panḍat jagat ke, main puchh rahi ās lāe
+Pothi ved, kya dos hai, jo ulṭe bhāg hamāre
 
-Bhaaiya ve jotshiya! ik sachi baat bhi kahiyo
-Je main heṭi bhaag di, tum chup na rahiyo
+Bhāiya ve jotshiya! ik sachi bāt bhi kahiyo
+Je main heṭi bhāg di, tum chup na rahiyo
 
-Bhaj sakaan te bhaj jaavaan, sab chhaḍ ke karaan faqiri
-Par ḍolṛi hai gal vich prem zanjeeri
+Bhaj sakān te bhaj jāvān, sab chhaḍ ke karān faqiri
+Par ḍolṛi hai gal vich prem zanjīri
 
-Neend gayi kit des nu, oh bhi vairaan meri
-Mat sufne main aan mile, oh neendar kehṛi
+Nīnd gayi kit des nu, oh bhi vairān meri
+Mat sufne main ān mile, oh nīndar kehṛi
 
-Ro ro jiyo vilaandiyaan, gham karni aan doona
-Nainaan zahr bhi na chalan, kise keeta loona
+Ro ro jiyo vilāndiyān, gham karni ān dūna
+Nainān zahr bhi na chalan, kise kīta lūna
 
-Saajan tumri preet se, mujh ko haath keh aaya
-Chhatar soolaan sir jhaaliya, par tera panth na paaya
+Sājan tumri prīt se, mujh ko hāth keh āya
+Chhatar sūlān sir jhāliya, par tera panth na pāya
 
-Prem nagar chal vaseeye, jitthe vasse kant hamaara
-Bulhiya! shoh toon mangni haan, de de mainu nazaara
+Prem nagar chal vasīye, jitthe vasse kant hamāra
+Bulhiya! shoh tūn mangni hān, de de mainu nazāra
 
 # Literal Translation
 

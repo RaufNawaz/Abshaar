@@ -25,10 +25,10 @@ review_status: "draft"
 
 # Transliteration
 
-Ape paiyan gundiyan te ape khichaeen dor
+Ape paiyan gundiyan te ape khichaīn dor
 Sade wal mukhra mor
-Arsh kursi te baangaan miliyan, Makke pe gaya shor
-Bulhe Shah! asaan marna nahin, mar jaave koi hor
+Arsh kursi te bāngān miliyan, Makke pe gaya shor
+Bulhe Shah! asān marna nahin, mar jāve koi hor
 Sade wal mukhra mor
 
 # Literal Translation

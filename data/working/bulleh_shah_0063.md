@@ -42,28 +42,28 @@ review_status: "draft"
 
 # Transliteration
 
-main gal othay di kar daahaan!
+Main gal othay di kar dāhān!
 
-naal roohaan de laaraa laayaa
-tusi chalo! main naale aayaa
-ithe parda chup banaayaa
-main bharam bhulaayaa phir daahaan
-main gal othay di kar daahaan
-par gal kar da bhi dar daahaan
+Nāl rūhān de lārā lāyā
+Tusi chalo! main nāle āyā
+Ithe parda chup banāyā
+Main bharam bhulāyā phir dāhān
+Main gal othay di kar dāhān
+Par gal kar da bhi dar dāhān
 
-naal aalam de kheedd usaaddi
-je main meri taan wi phaaddi
-dhari dharaai poonji haaddi
-main aglaa lekhaa bhar daahaan
-main gal othay di kar daahaan
-par gal kar da bhi dar daahaan
+Nāl ālam de khīdd usāddi
+Je main meri tān wi phāddi
+Dhari dharāi pūnji hāddi
+Main aglā lekhā bhar dāhān
+Main gal othay di kar dāhān
+Par gal kar da bhi dar dāhān
 
-de poonji moorakh jhanjhlaayaa
-choraan pichhe paidaa laayaa
-choraan di main paidd leyaayaa
-har shab dhaadde dhar daahaan
-main gal othay di kar daahaan
-par gal kar da bhi dar daahaan
+De pūnji mūrakh jhanjhlāyā
+Chorān pichhe paidā lāyā
+Chorān di main paidd leyāyā
+Har shab dhādde dhar dāhān
+Main gal othay di kar dāhān
+Par gal kar da bhi dar dāhān
 
 # Literal Translation
 

@@ -35,21 +35,21 @@ review_status: "draft"
 
 # Transliteration
 
-Bulhe nu samjhaavan aaiyaan
+Bulhe nu samjhāvan āiyān
 
-Bulhe nu samjhaavan aaiyaan bhainaan te bharjaaiyaan
+Bulhe nu samjhāvan āiyān bhainān te bharjāiyān
 
-Man lai Bulhiya saaḍa kehna, chhaḍ de palla Raaiyaan
-Aal-e-Nabi aulaad-e-Ali nu, toon kyun leekaan laaiyaan?
+Man lai Bulhiya sāḍa kehna, chhaḍ de palla Rāiyān
+Āl-e-Nabi aulād-e-Ali nu, tūn kyun līkān lāiyān?
 
-Jehṛa saanu Syed sadde, dozakh milan sazaaiyaan
-Jo koi saanu Raeen aakhe, bihishti pinghaan paaiyaan
+Jehṛa sānu Syed sadde, dozakh milan sazāiyān
+Jo koi sānu Raīn ākhe, bihishti pinghān pāiyān
 
-Raeen, saaeen sabhni thaaeen, rab diyaan be-parwaaiyaan
-Sohniyaan pare haṭaaiyaan, te kojhiyaan lai gal laaiyaan
+Raīn, sāīn sabhni thāīn, rab diyān be-parwāiyān
+Sohniyān pare haṭāiyān, te kojhiyān lai gal lāiyān
 
-Je toon loṛein baagh bahaaraan, chaakar ho ja Raaiyaan
-Bulhe Shah di zaat keh puchhnein? shaakir ho rizaaiyaan
+Je tūn loṛein bāgh bahārān, chākar ho ja Rāiyān
+Bulhe Shah di zāt keh puchhnein? shākir ho rizāiyān
 
 # Literal Translation
 

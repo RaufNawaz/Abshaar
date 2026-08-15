@@ -30,16 +30,16 @@ review_status: "draft"
 
 # Transliteration
 
-bullhe naalon chulha changga
+Bullhe nālon chulha changga
 
-bullhe naalon chulha changga
-jis par taam pakaai da
+Bullhe nālon chulha changga
+Jis par tām pakāi da
 
-ral faqiraan majlis keeti
-bhoraa bhoraa khaai da
+Ral faqirān majlis kīti
+Bhorā bhorā khāi da
 
-bullha shoh noon soi paave
-jehadaa bakraa bane qasaai da
+Bullha shoh nūn soi pāve
+Jehadā bakrā bane qasāi da
 
 # Literal Translation
 

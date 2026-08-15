@@ -45,29 +45,29 @@ review_status: "draft"
 
 # Transliteration
 
-wah wa, ramz-i sajjan di hor!
+Wah wa, ramz-i sajjan di hor!
 
-koṭhe te chaṛh diwaan hoka
-ishq wahaaju koi nah loka
-is da mool nah khaana dhoka
-jangal, basti mile nah mazkoor
+Koṭhe te chaṛh diwān hoka
+Ishq wahāju koi nah loka
+Is da mūl nah khāna dhoka
+Jangal, basti mile nah mazkūr
 
-shai deedaar hoya bad-raahi
-achan chet pai gal pachhaahi
-ḍaahḍi keeti be-parwaahi
-mainun miliya ṭhag lahore
-wah wa, ramz-i sajjan di hor!
+Shai dīdār hoya bad-rāhi
+Achan chet pai gal pachhāhi
+Ḍāhḍi kīti be-parwāhi
+Mainun miliya ṭhag lahore
+Wah wa, ramz-i sajjan di hor!
 
-aashiq phir de chup chupaate
-jeehe mast sada, madh maate
-daam-i zulf de andar phaate
-othe chale was nah zor
+Āshiq phir de chup chupāte
+Jīhe mast sada, madh māte
+Dām-i zulf de andar phāte
+Othe chale was nah zor
 
-bullhiya! shoh da niyoon anokha
-jo dekhe so ke nah lekhe
-us da rang, nah roop, nah rekh e
-ohi howe ho ke chor
-wah wa, ramz-i sajjan di hor!
+Bullhiya! shoh da niyūn anokha
+Jo dekhe so ke nah lekhe
+Us da rang, nah rūp, nah rekh e
+Ohi howe ho ke chor
+Wah wa, ramz-i sajjan di hor!
 
 # Literal Translation
 

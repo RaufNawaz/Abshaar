@@ -36,22 +36,22 @@ review_status: "draft"
 
 # Transliteration
 
-mainoon chhadd gaye
+Mainūn chhadd gaye
 
-mainoon chhadd gaye, aap lad gaye
-main wich keeh taqseer
+Mainūn chhadd gaye, āp lad gaye
+Main wich kīh taqsīr
 
-raateen neendar na sukh sutti
-dine palttiaa zer
-main wich keeh taqseer
+Rātīn nīndar na sukh sutti
+Dine palttiā zer
+Main wich kīh taqsīr
 
-chhuriaan te talwaaraan kolon
-tikkhe ishq de teer
-main wich keeh taqseer
+Chhuriān te talwārān kolon
+Tikkhe ishq de tīr
+Main wich kīh taqsīr
 
-ishqe jehadd na zaalim koi
-eho zahmat be-peer
-main wich keeh taqseer?
+Ishqe jehadd na zālim koi
+Eho zahmat be-pīr
+Main wich kīh taqsīr?
 
 # Literal Translation
 

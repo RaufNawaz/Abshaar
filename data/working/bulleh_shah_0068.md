@@ -36,22 +36,22 @@ review_status: "draft"
 
 # Transliteration
 
-chhinchhar vaar
+Chhinchhar vār
 
-chhinchhar vaar, anaawle dekh sajjan di soh
-asaan muṛ ghar phera nah aaonaa jo hoī ho so ho
+Chhinchhar vār, anāwle dekh sajjan di soh
+Asān muṛ ghar phera nah āonā jo hoī ho so ho
 
-vaah chhinchhar vaar vehele
-dukh sajjan de main val pele
-ḍhoonḍaan aujaṛ, jangal, bele
-audhṛi rain, goulṭe vele
-birhoon gheriaan
+Vāh chhinchhar vār vehele
+Dukh sajjan de main val pele
+Ḍhūnḍān aujaṛ, jangal, bele
+Audhṛi rain, goulṭe vele
+Birhūn gheriān
 
-ghaṛi palak tasaa ḍain taanghaan
-raateen, miṭre sheer o laanghaan
-uchchi chaṛh ke kookaan, chaanghaan
-seene andar raṛkan saanghaan
-piaare teriaan
+Ghaṛi palak tasā ḍain tānghān
+Rātīn, miṭre shīr o lānghān
+Uchchi chaṛh ke kūkān, chānghān
+Sīne andar raṛkan sānghān
+Piāre teriān
 
 # Literal Translation
 

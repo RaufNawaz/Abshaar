@@ -34,20 +34,20 @@ review_status: "draft"
 
 # Transliteration
 
-Apna das tikaana; kidhron aaya, kidhar jaana?
-Jis thaane da maan karein tun
-Ohne tere naal na jaana
-Zulm karein te lok sataavein
-Kisb pharyo lut khaana
-Karke chaaor chaar dihaare
-Orak tun uth jaana
-Shahr khamoshaan de chal vaseeye
-Jithe mulk samaana
-Bhar bhar poor langhaave, daahda
-Malak-ul-maut muhaana
-Eihnaan sabhnaan theen hai Bulleh
-O gunahgaar puraana
-Apna das tikaana; kidhron aaya, kidhar jaana?
+Apna das tikāna; kidhron āya, kidhar jāna?
+Jis thāne da mān karein tun
+Ohne tere nāl na jāna
+Zulm karein te lok satāvein
+Kisb pharyo lut khāna
+Karke chāor chār dihāre
+Orak tun uth jāna
+Shahr khamoshān de chal vasīye
+Jithe mulk samāna
+Bhar bhar pūr langhāve, dāhda
+Malak-ul-maut muhāna
+Eihnān sabhnān thīn hai Bulleh
+O gunahgār purāna
+Apna das tikāna; kidhron āya, kidhar jāna?
 
 # Literal Translation
 

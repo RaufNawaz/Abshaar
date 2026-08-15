@@ -26,12 +26,12 @@ review_status: "draft"
 
 # Transliteration
 
-Amaan baabe di bhalyaai, oh hun kitt asaade aayi
-Amaan baaba chor dhumraan de, putar di vadyaai
-Dalaae utton gut baguti, ghar ghar payi laraai
-Asaan qaziye taaeen jaahle, jad kanak unhaan turkaai
-Khaae khairaate pachaahiye jamma, ulti dastak laai
-Amaan baabe di bhalyaai, oh hun kitt asaade aayi
+Amān bābe di bhalyāi, oh hun kitt asāde āyi
+Amān bāba chor dhumrān de, putar di vadyāi
+Dalāe utton gut baguti, ghar ghar payi larāi
+Asān qaziye tāīn jāhle, jad kanak unhān turkāi
+Khāe khairāte pachāhiye jamma, ulti dastak lāi
+Amān bābe di bhalyāi, oh hun kitt asāde āyi
 
 # Literal Translation
 

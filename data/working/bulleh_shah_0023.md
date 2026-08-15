@@ -38,24 +38,24 @@ review_status: "draft"
 
 # Transliteration
 
-Chup kar ke karin guzaara
+Chup kar ke karin guzāra
 
-Chup kar ke karin guzaare nu
+Chup kar ke karin guzāre nu
 Sach suṇ ke lok na behnde nen
-Sach aakhe te gal painde nen
-Phir sachche paas na behnde nen
-Sach miṭha aashiq pyaare nu
+Sach ākhe te gal painde nen
+Phir sachche pās na behnde nen
+Sach miṭha āshiq pyāre nu
 
-Sach shara kare barbaadi ae
-Sach aashiq de ghar shaadi ae
-Sach kar da naveen aabaadi ae
-Jeha shara tareeqat haare nu
+Sach shara kare barbādi ae
+Sach āshiq de ghar shādi ae
+Sach kar da navīn ābādi ae
+Jeha shara tarīqat hāre nu
 
-Chup aashiq toon na hundi ae
-Jis aai sach sogandi ae
-Jis maahal suhaag di gandhi ae
-Chhaḍ dunya, gauṛ pasaare nu
-Chup kar ke karin guzaare nu
+Chup āshiq tūn na hundi ae
+Jis āi sach sogandi ae
+Jis māhal suhāg di gandhi ae
+Chhaḍ dunya, gauṛ pasāre nu
+Chup kar ke karin guzāre nu
 
 # Literal Translation
 

@@ -36,22 +36,22 @@ review_status: "draft"
 
 # Transliteration
 
-Satte vanjaare aae
+Satte vanjāre āe
 
-Satte vanjaare aae ni maae, satte vanjaare aae
-Laalaan da oh vanj kareende, hoka aakh sunaae
+Satte vanjāre āe ni māe, satte vanjāre āe
+Lālān da oh vanj karīnde, hoka ākh sunāe
 
-Suṇiya hoka, main dil guzri, main bhi laal liaavaan
-Ik na ik kittanaan vich paa ke, lokaan nu dikhlaavaan
+Suṇiya hoka, main dil guzri, main bhi lāl liāvān
+Ik na ik kittanān vich pā ke, lokān nu dikhlāvān
 
-Kachchi kach, vihaaj na jaanaan, laal vihaajan challi
-Palle kharch na, saakh na kaai, dekho haar na challi
+Kachchi kach, vihāj na jānān, lāl vihājan challi
+Palle kharch na, sākh na kāi, dekho hār na challi
 
-Jaan main mul ohnaan toon puchhiya, mul karen oh bhaare
-Ḍumbh sooi da kade na khaahda, oh puchhan sir bhaare
+Jān main mul ohnān tūn puchhiya, mul karen oh bhāre
+Ḍumbh sūi da kade na khāhda, oh puchhan sir bhāre
 
-Jehṛiyaan guttiyaan laal vihaajan, ohnaan sees luhaaye
-Satte vanjaare aae ni maae, satte vanjaare aae
+Jehṛiyān guttiyān lāl vihājan, ohnān sīs luhāye
+Satte vanjāre āe ni māe, satte vanjāre āe
 
 # Literal Translation
 

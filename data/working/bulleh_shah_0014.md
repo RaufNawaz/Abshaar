@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-Ulṭe hor zamaane aae
+Ulṭe hor zamāne āe
 
-Ulṭe hor zamaane aae, taan main bait bajan de paae
+Ulṭe hor zamāne āe, tān main bait bajan de pāe
 
-Kaan lagṛaan nu maaran lagge, chiṛiyaan burje ḍhaae
-Ghoṛe chuggan aroṛiyaan, te gaddon khareed puaae
+Kān lagṛān nu māran lagge, chiṛiyān burje ḍhāe
+Ghoṛe chuggan aroṛiyān, te gaddon kharīd puāe
 
-Apniyaan vich ulfat naaheen, kya chaache, kya taae
-Peo putraan ittifaaq na kaaee, dhiyyaan naal na maae
+Apniyān vich ulfat nāhīn, kya chāche, kya tāe
+Peo putrān ittifāq na kāī, dhiyyān nāl na māe
 
-Sachiyaan nu pae milde dhakke, jhuṭṭe kol bahaae
-Agle ho kangaale baiṭhe, pichhliyaan farsh vichhaae
+Sachiyān nu pae milde dhakke, jhuṭṭe kol bahāe
+Agle ho kangāle baiṭhe, pichhliyān farsh vichhāe
 
-Bhoriyaan waale raaje keete, raajiyaan bheek mangaae
-Bulhiya! hukam hazooron aaya, tis toon kaun haṭaae
+Bhoriyān wāle rāje kīte, rājiyān bhīk mangāe
+Bulhiya! hukam hazūron āya, tis tūn kaun haṭāe
 
-Ulṭe hor zamaane aae, taan main bait bajan de paae
+Ulṭe hor zamāne āe, tān main bait bajan de pāe
 
 # Literal Translation
 

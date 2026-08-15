@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-ghūṅghaṭ ohle na luk sajnā!
+Ghūn̄ghaṭ ohle na luk sajnā!
 
-ghūṅghaṭ ohle na luk sajnā
-maiṁ mushtāq dīdār dī hāṁ!
-tere bājh dīvānī hoī
-lokāṁ kar de lok sabhoī
-jis kar yār kareṁ diljoī
-tāṁ faryād pukār dī hāṁ
-ghūṅghaṭ ohle na luk sajnā
-maiṁ mushtāq dīdār dī hāṁ!
+Ghūn̄ghaṭ ohle na luk sajnā
+Main̄ mushtāq dīdār dī hān̄!
+Tere bājh dīvānī hoī
+Lokān̄ kar de lok sabhoī
+Jis kar yār karen̄ diljoī
+Tān̄ faryād pukār dī hān̄
+Ghūn̄ghaṭ ohle na luk sajnā
+Main̄ mushtāq dīdār dī hān̄!
 
-muft vikāndī chāndī bāndī
-ril māhī bijhand ateveṁ jāndī
-ik dam hijar nahīṁ maiṁ sāhndī
-bulbul maiṁ gulzār dī hāṁ
-ghūṅghaṭ ohle na luk sajnā
-maiṁ mushtāq dīdār dī hāṁ!
+Muft vikāndī chāndī bāndī
+Ril māhī bijhand ateven̄ jāndī
+Ik dam hijar nahīn̄ main̄ sāhndī
+Bulbul main̄ gulzār dī hān̄
+Ghūn̄ghaṭ ohle na luk sajnā
+Main̄ mushtāq dīdār dī hān̄!
 
 # Literal Translation
 

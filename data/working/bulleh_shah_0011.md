@@ -38,24 +38,24 @@ review_status: "draft"
 
 # Transliteration
 
-Ik toona apna gaavaan gi
-Main rutha yaar manaavaan gi
-Eh toona main parh parh phookaan
-Sooraj agan jalaavaan gi
-Akhiyyeen kaajal, kaale baadal
-Bhanwaan se aandhi liaavaan gi
+Ik tūna apna gāvān gi
+Main rutha yār manāvān gi
+Eh tūna main parh parh phūkān
+Sūraj agan jalāvān gi
+Akhiyyīn kājal, kāle bādal
+Bhanwān se āndhi liāvān gi
 Sat samandar dil de andar
-Dil se lahar uthaavaan gi
-Na main byaahi na main kuaari
-Beta god khadaavaan gi
-Bijli ho kar chamak daraavaan
-Baadal ho garjaavaan gi
-Ishq angeethi, harmal talke
-Chaand se kafan banaavaan gi
-Laa makaan ki peerhi udpar
-Baih kar naad bajaavaan gi
-Laae savaan main shoh gal apne
-Tad main naar kahaavaan gi
+Dil se lahar uthāvān gi
+Na main byāhi na main kuāri
+Beta god khadāvān gi
+Bijli ho kar chamak darāvān
+Bādal ho garjāvān gi
+Ishq angīthi, harmal talke
+Chānd se kafan banāvān gi
+Lā makān ki pīrhi udpar
+Baih kar nād bajāvān gi
+Lāe savān main shoh gal apne
+Tad main nār kahāvān gi
 
 # Literal Translation
 

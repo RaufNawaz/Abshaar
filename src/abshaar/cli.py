@@ -105,6 +105,12 @@ def main(argv: list[str] | None = None) -> int:
         help="Write messages-only train/valid JSONL for mlx_lm.lora into data/processed/training/mlx/.",
     )
 
+    normalize_translit = subparsers.add_parser(
+        "normalize-translit",
+        help="Normalize entry Transliteration sections to project-latin-v1 (dry-run unless --apply).",
+    )
+    normalize_translit.add_argument("--apply", action="store_true")
+
     augment = subparsers.add_parser(
         "augment-training-data",
         help="Paraphrase-augment training questions via local Ollama (answers stay verbatim); re-runs all gates.",
@@ -260,6 +266,8 @@ def main(argv: list[str] | None = None) -> int:
         return command_export_mlx_dataset(root)
     if args.command == "augment-training-data":
         return command_augment_training_data(root, args)
+    if args.command == "normalize-translit":
+        return command_normalize_translit(root, args.apply)
     if args.command == "run-eval":
         return command_run_eval(root, args)
     if args.command == "prompt-pack":
@@ -371,6 +379,21 @@ def command_generate_training_data(root: Path) -> int:
     for family in sorted(stats["by_family"]):
         counts = stats["by_family"][family]
         print(f"  - {family}: {counts['train']} train / {counts['eval']} eval")
+    return 0
+
+
+def command_normalize_translit(root: Path, apply: bool) -> int:
+    from abshaar.translit import normalize_entries
+
+    report = normalize_entries(root, apply=apply)
+    mode = "APPLIED to" if apply else "DRY RUN — would change"
+    print(f"{mode} {len(report['changed'])} entr(ies); {len(report['unchanged'])} already conform")
+    for stem in report["changed"]:
+        print(f"  ~ {stem}")
+    if report["residual_lint"]:
+        print("Residual style issues after normalization (need manual review):")
+        for stem, issues in report["residual_lint"].items():
+            print(f"  ! {stem}: {'; '.join(issues)}")
     return 0
 
 

@@ -25,9 +25,9 @@ review_status: "draft"
 
 # Transliteration
 
-pā-paṛhiyāṉ toṉ nasdā hāṉ maiṉ, pā-paṛhiyāṉ toṉ nasdā hāṉ
-ʿālam fāzil mere bhāī, pā-paṛhiyāṉ merī ʿaql gavāī
-pā-paṛhiyāṉ toṉ nasdā hāṉ maiṉ, pā-paṛhiyāṉ toṉ nasdā hāṉ
+Pā-paṛhiyān̄ ton̄ nasdā hān̄ main̄, pā-paṛhiyān̄ ton̄ nasdā hān̄
+ʿālam fāzil mere bhāī, pā-paṛhiyān̄ merī ʿaql gavāī
+Pā-paṛhiyān̄ ton̄ nasdā hān̄ main̄, pā-paṛhiyān̄ ton̄ nasdā hān̄
 
 # Literal Translation
 

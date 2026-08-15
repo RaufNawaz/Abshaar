@@ -24,10 +24,10 @@ review_status: "draft"
 
 # Transliteration
 
-Aai rut shagufiyan wali, chiryan chugan aaiyan
-Iknaan noon churiyaan phar khaahda, iknaan phaaiyan laaiyan
-Iknaan aas muran di aahe, ik seekh kabaab charhaaiyan
-Bulhe Shah! keeh vas unhaan jo maar taqdeer phasaaiyan
+Āi rut shagufiyan wali, chiryan chugan āiyan
+Iknān nūn churiyān phar khāhda, iknān phāiyan lāiyan
+Iknān ās muran di āhe, ik sīkh kabāb charhāiyan
+Bulhe Shah! kīh vas unhān jo mār taqdīr phasāiyan
 
 # Literal Translation
 

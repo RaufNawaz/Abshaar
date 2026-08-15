@@ -36,22 +36,22 @@ review_status: "draft"
 
 # Transliteration
 
-jummeraat
+Jummerāt
 
-jummeraat suhaaoni dukh dard nah aahaa paap
-oh jaamaa saaḍaa pahn ke aaye tamaashe aap
+Jummerāt suhāoni dukh dard nah āhā pāp
+Oh jāmā sāḍā pahn ke āye tamāshe āp
 
-aggon aa gaī jummeraat
-sharaaboon laagaa gir rili baraat
-laagaa, mast, piaalaa haat
-mainoon bhullī zaat sifaat
-diwaani ho rahi
+Aggon ā gaī jummerāt
+Sharābūn lāgā gir rili barāt
+Lāgā, mast, piālā hāt
+Mainūn bhullī zāt sifāt
+Diwāni ho rahi
 
-aisi zahmat lok nah paavan
-mullaan ghamol taaweez pilaavan
-paṛh man azeemat, jin bhulaavan
-sitiaan shaah madaar khaḍaavan
-main chup ho rahi
+Aisi zahmat lok nah pāvan
+Mullān ghamol tāwīz pilāvan
+Paṛh man azīmat, jin bhulāvan
+Sitiān shāh madār khaḍāvan
+Main chup ho rahi
 
 # Literal Translation
 

@@ -110,6 +110,8 @@ def iter_working_entries(root: Path) -> list[Path]:
 
 
 def validate_working_entries(root: Path) -> list[Issue]:
+    from abshaar.translit import lint_translit_v1
+
     issues: list[Issue] = []
     for path in iter_working_entries(root):
         location = str(path.relative_to(root))
@@ -120,6 +122,12 @@ def validate_working_entries(root: Path) -> list[Issue]:
             issues.append(Issue("error", location, f"could not parse entry: {exc}"))
             continue
         issues.extend(validate_poem_record(record, location))
+        transliteration = entry.sections.get("transliteration", "")
+        if transliteration and not has_placeholder(transliteration):
+            for problem in lint_translit_v1(transliteration):
+                issues.append(
+                    Issue("warning", location, f"transliteration style: {problem}")
+                )
     return issues
 
 

@@ -29,15 +29,15 @@ review_status: "draft"
 
 # Transliteration
 
-Ranjha Ranjha kardi ni, main aape Ranjha hoi
-Saddo ni mainu Dhido Ranjha, Heer na aakho koi
+Ranjha Ranjha kardi ni, main āpe Ranjha hoi
+Saddo ni mainu Dhido Ranjha, Hīr na ākho koi
 Ranjha main wich, main Ranjhe wich, hor khayal na koi
-Main nahin, oh aap hai, apni aap kare diljoi
-Ranjha Ranjha kardi ni, main aape Ranjha hoi
+Main nahin, oh āp hai, apni āp kare diljoi
+Ranjha Ranjha kardi ni, main āpe Ranjha hoi
 Hath khundi, mere agge mangu, modhe bhura loi
-Bullha, Heer saloti wekho, kithe ja khaloi
-Ranjha Ranjha kardi ni, main aape Ranjha hoi
-Saddo ni mainu Dhido Ranjha, Heer na aakho koi
+Bullha, Hīr saloti wekho, kithe ja khaloi
+Ranjha Ranjha kardi ni, main āpe Ranjha hoi
+Saddo ni mainu Dhido Ranjha, Hīr na ākho koi
 
 # Literal Gloss
 

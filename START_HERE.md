@@ -454,14 +454,17 @@ unpublishable material goes in `data/raw/private/` (Git-ignored).
 
 ### 5.3 The transliteration standard (`project-latin-v1`)
 
-Start simple. You can add a scholarly system later as a *second* field; never
-overwrite the first.
+**Decided 2026-08-15 — the normative spec is `docs/16_project_latin_v1_evidence.md` §5.**
+In brief: macron long vowels (`ā ī ū`), dotted retroflexes (`ṭ ḍ ṛ ṇ`),
+nasalization `n̄`, aspiration digraphs, `ʿ` for ʿain and `ġ` for ġain, `-e-`
+izafat, line starts capitalized (mixed case tolerated), and full Arabic-loan
+marking (`ḥ ṣ ẓ …`) as the review-time target. All 72 entries were normalized
+mechanically with `./scripts/abshaar.sh normalize-translit --apply`
+(dry-run without the flag); `validate` warns on rejected-style markers.
 
-Rules:
+Rules that still stand:
 
-- Plain Latin characters; avoid decorative diacritics at first.
 - Keep repeated sounds consistent (so search and glossary links work).
-- Prioritize readability for English-speaking learners.
 - Add a pronunciation note when a sound is genuinely ambiguous.
 - **The original script stays the authority.** Transliteration is a reading aid.
 

@@ -36,22 +36,22 @@ review_status: "draft"
 
 # Transliteration
 
-toon nahiyyon main naahin
+Tūn nahiyyon main nāhin
 
-toon nahiyyon main naahin we sajnaan
-toon nahiyyon main naahin
-khole de parchhaanven waangon ghoom rahiaa man maahin
-toon nahiyyon main naahin
+Tūn nahiyyon main nāhin we sajnān
+Tūn nahiyyon main nāhin
+Khole de parchhānven wāngon ghūm rahiā man māhin
+Tūn nahiyyon main nāhin
 
-jaan toon bulaanven nalme bolaan chup karaan main naahin
-toon nahiyyon main naahin
+Jān tūn bulānven nalme bolān chup karān main nāhin
+Tūn nahiyyon main nāhin
 
-jaan savaan taan nalme sonven jaan tturaan toon raahin
-toon nahiyyon main naahin
+Jān savān tān nalme sonven jān tturān tūn rāhin
+Tūn nahiyyon main nāhin
 
-bullha shoh ghar aayaa saadde chhindarri ghol ghamaain
-toon nahiyyon main naahin we sajnaan
-toon nahiyyon main naahin
+Bullha shoh ghar āyā sādde chhindarri ghol ghamāin
+Tūn nahiyyon main nāhin we sajnān
+Tūn nahiyyon main nāhin
 
 # Literal Translation
 

@@ -51,31 +51,31 @@ review_status: "draft"
 
 Ik nuqte vich gal mukdi ae
 
-Phaṛ nuqta, chhoṛ hisaabaan nu
-Chhaḍ dozakh, gor azaabaan nu
-Kar band kufar diyaan baabaan nu
-Kar saaf dilaan diyaan khaabaan nu
+Phaṛ nuqta, chhoṛ hisābān nu
+Chhaḍ dozakh, gor azābān nu
+Kar band kufar diyān bābān nu
+Kar sāf dilān diyān khābān nu
 Gal aise ghar vich ḍhukdi ae
 Ik nuqte vich gal mukdi ae
 
-Aiven mattha zameen ghasaaida
-Paa lammaa mehraab dikhaaida
-Paṛh kalma lok hasaaida
-Dil andar samajh na laaida
-Kadi sachi baat vi mukdi ae
+Aiven mattha zamīn ghasāida
+Pā lammā mehrāb dikhāida
+Paṛh kalma lok hasāida
+Dil andar samajh na lāida
+Kadi sachi bāt vi mukdi ae
 Ik nuqte vich gal mukdi ae
 
-Ik jangal bhajreen jaande nen
-Ik daana roz da khaande nen
-Be-samajh wujood thakaande nen
-Ghar aavan ho ke maande nen
-Pichhliyaan andar jind shakdi ae
+Ik jangal bhajrīn jānde nen
+Ik dāna roz da khānde nen
+Be-samajh wujūd thakānde nen
+Ghar āvan ho ke mānde nen
+Pichhliyān andar jind shakdi ae
 Ik nuqte vich gal mukdi ae
 
-Kaee haaji ban ban aae ji
-Gal neele jaame paae ji
-Hajj vich pech, thumke lai khaae ji
-Par eh gal kehnu bhaae ji
+Kaī hāji ban ban āe ji
+Gal nīle jāme pāe ji
+Hajj vich pech, thumke lai khāe ji
+Par eh gal kehnu bhāe ji
 Kitte sachi gal vi rukdi ae
 Ik nuqte vich gal mukdi ae
 

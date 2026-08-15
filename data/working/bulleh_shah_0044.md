@@ -55,41 +55,41 @@ review_status: "draft"
 
 # Transliteration
 
-ghaṛiyālī deo nikāl nī
+Ghaṛiyālī deo nikāl nī
 
-ghaṛiyālī deo nikāl nī
-aj pī ghar āyā lāl nī
+Ghaṛiyālī deo nikāl nī
+Aj pī ghar āyā lāl nī
 
-ghaṛī ghaṛī ghaṛiyāl bajāve
-rain vaṣal dī piyā ghaṭāve
-mere man dī bāt je pāve
-hathoṁ chā suṭṭe ghaṛiyāl nī
-ghaṛiyālī deo nikāl nī
+Ghaṛī ghaṛī ghaṛiyāl bajāve
+Rain vaṣal dī piyā ghaṭāve
+Mere man dī bāt je pāve
+Hathon̄ chā suṭṭe ghaṛiyāl nī
+Ghaṛiyālī deo nikāl nī
 
-anhad bājā baje suhānā
-muṭrib! shaghṛā tān tarānā
-bhullā ṣaum, ṣalvāt dogānah
-madh piyālā dīn kalāl nī
-ghaṛiyālī deo nikāl nī
+Anhad bājā baje suhānā
+Muṭrib! shaghṛā tān tarānā
+Bhullā ṣaum, ṣalvāt dogānah
+Madh piyālā dīn kalāl nī
+Ghaṛiyālī deo nikāl nī
 
-dukh dalidar uṭh gayā sārā
-mukh dekhāṁ te ʿajab naẓārā
-rain vadhī, kujh karo pasārā
-din agge dharo dīvāl nī
-ghaṛiyālī deo nikāl nī
+Dukh dalidar uṭh gayā sārā
+Mukh dekhān̄ te ʿajab naẓārā
+Rain vadhī, kujh karo pasārā
+Din agge dharo dīvāl nī
+Ghaṛiyālī deo nikāl nī
 
-ṭuṭne kāman kīe batere
-bahre āe vaḍ vaḍere
-tāṁ jānī ghar āyā mere
-rāth lakh varhe us nāl nī
-ghaṛiyālī deo nikāl nī
+Ṭuṭne kāman kīe batere
+Bahre āe vaḍ vaḍere
+Tān̄ jānī ghar āyā mere
+Rāth lakh varhe us nāl nī
+Ghaṛiyālī deo nikāl nī
 
-bulhiyā! shauh dī sach piyārī
-nī maiṁ tāranhāre tārī
-koṛeṁ koṛeṁ marī āī vārī
-hun vichhṛan hoyā muḥāl nī
-ghaṛiyālī deo nikāl nī
-aj pī ghar āyā lāl nī
+Bulhiyā! shauh dī sach piyārī
+Nī main̄ tāranhāre tārī
+Koṛen̄ koṛen̄ marī āī vārī
+Hun vichhṛan hoyā muḥāl nī
+Ghaṛiyālī deo nikāl nī
+Aj pī ghar āyā lāl nī
 
 # Literal Translation
 

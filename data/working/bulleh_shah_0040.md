@@ -71,57 +71,57 @@ review_status: "draft"
 
 # Transliteration
 
-Kar kattan val dhyaan kuṛe
+Kar kattan val dhyān kuṛe
 
-Kar kattan val dhyaan kuṛe!
+Kar kattan val dhyān kuṛe!
 
-Nit matteen dendi maa, dhiya!
-Kyun phirni es ainven aa, dhiya!
+Nit mattīn dendi mā, dhiya!
+Kyun phirni es ainven ā, dhiya!
 Na sharam haya nu gua, dhiya
-Toon kadre taan samajh nadaan kuṛe
-Kar kattan val dhyaan kuṛe
+Tūn kadre tān samajh nadān kuṛe
+Kar kattan val dhyān kuṛe
 
-Nit matteen diyaan diyaan valli nu
+Nit mattīn diyān diyān valli nu
 Is bholi, kamli, jhalli nu
 Bad paosi vakht ikalli nu
-Tad thala! karsi jaan kuṛe
-Kar kattan val dhyaan kuṛe
+Tad thala! karsi jān kuṛe
+Kar kattan val dhyān kuṛe
 
-Aj ghar vich naveen kapaah kuṛe
-Toon jhab jhab velna ḍaah kuṛe
-Toon vel, panjaaon jaah kuṛe
-Pher kal na tera jaan kuṛe
-Kar kattan val dhyaan kuṛe
+Aj ghar vich navīn kapāh kuṛe
+Tūn jhab jhab velna ḍāh kuṛe
+Tūn vel, panjāon jāh kuṛe
+Pher kal na tera jān kuṛe
+Kar kattan val dhyān kuṛe
 
-Eh peeka raj din chaar kuṛe
-Na kheḍo kheḍ guzaar kuṛe
-Na vehli roh, kar kaar kuṛe
-Ghar baar na kar veeraan kuṛe
-Kar kattan val dhyaan kuṛe
+Eh pīka raj din chār kuṛe
+Na kheḍo kheḍ guzār kuṛe
+Na vehli roh, kar kār kuṛe
+Ghar bār na kar vīrān kuṛe
+Kar kattan val dhyān kuṛe
 
-Toon sada na peeke rehna e
-Na paas ummṛi de behna e
+Tūn sada na pīke rehna e
+Na pās ummṛi de behna e
 Bhulla! ant vichhoṛa sehna e
-Vat paeen gi sust binaan kuṛe
-Kar kattan val dhyaan kuṛe
+Vat paīn gi sust binān kuṛe
+Kar kattan val dhyān kuṛe
 
 Kat lai ni bujh, kata lai ni
-Hun taani tand una lai ni
-Toon apna daaj ranga lai ni
-Toon tand hoseen pur dhyaan kuṛe
-Kar kattan val dhyaan kuṛe
+Hun tāni tand una lai ni
+Tūn apna dāj ranga lai ni
+Tūn tand hosīn pur dhyān kuṛe
+Kar kattan val dhyān kuṛe
 
-Kar gumaan na husn javaani da
-Pardes na rehan bilaani da
-Is dunya jhooṭhi faani da
-Na rahsi naam nishaan kuṛe
-Kar kattan val dhyaan kuṛe
+Kar gumān na husn javāni da
+Pardes na rehan bilāni da
+Is dunya jhūṭhi fāni da
+Na rahsi nām nishān kuṛe
+Kar kattan val dhyān kuṛe
 
-Ik aukha vela aave ga
-Sab saak saeen bhaj jaave ga
-Kar madad paar langhaa ve ga
+Ik aukha vela āve ga
+Sab sāk saīn bhaj jāve ga
+Kar madad pār langhā ve ga
 Oh Bulhe da Sultan kuṛe
-Kar kattan val dhyaan kuṛe
+Kar kattan val dhyān kuṛe
 
 # Literal Translation
 

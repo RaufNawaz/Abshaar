@@ -39,25 +39,25 @@ review_status: "draft"
 
 # Transliteration
 
-gunḍhaan
+Gunḍhān
 
-keho surti gal kaaj di main gunḍhaan ketiaan paawaan
-saahe te veej aavasi, tuhn chaahli gunḍh ghataawaan
-baabal aakhiaa aan ke, tain saahoriaan ghar jaanaa
-reet othon di aur hai, muṛ pair nah ethe paanaa
-gunḍh pahli noon khol ke, main baiṭhi birlaawaan
-auṛak jaavan jaavataan, tuhn main daaj rangaawaan
-dekhoon taraf bazaar di, sab riste laage
-palle kujh nah rokaṛi, sab mujh se bhaage
+Keho surti gal kāj di main gunḍhān ketiān pāwān
+Sāhe te vīj āvasi, tuhn chāhli gunḍh ghatāwān
+Bābal ākhiā ān ke, tain sāhoriān ghar jānā
+Rīt othon di aur hai, muṛ pair nah ethe pānā
+Gunḍh pahli nūn khol ke, main baiṭhi birlāwān
+Auṛak jāvan jāvatān, tuhn main dāj rangāwān
+Dekhūn taraf bazār di, sab riste lāge
+Palle kujh nah rokaṛi, sab mujh se bhāge
 
-kar bismillaah kholiaan, main gunḍhaan chaahli
-jis apnaa aap vanjaaliaa, so surjin vaali
-veej sohni main bhaavandi, mukleendaa aave
-jis noon ishq hai laal daa, so laal ho jaave
-aqal fikar sab chhoṛ ke, shoh naal sidhaave
-gunḍhon bin, gal ghaib di asaan yaad nah kaae
-tuhn innaa lillaah aakh ke, tum karo nigaaheen
-allaah hi sab ho gayaa, abdullaah naa hain
+Kar bismillāh kholiān, main gunḍhān chāhli
+Jis apnā āp vanjāliā, so surjin vāli
+Vīj sohni main bhāvandi, muklīndā āve
+Jis nūn ishq hai lāl dā, so lāl ho jāve
+Aqal fikar sab chhoṛ ke, shoh nāl sidhāve
+Gunḍhon bin, gal ghaib di asān yād nah kāe
+Tuhn innā lillāh ākh ke, tum karo nigāhīn
+Allāh hi sab ho gayā, abdullāh nā hain
 
 # Literal Translation
 

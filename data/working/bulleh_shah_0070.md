@@ -36,22 +36,22 @@ review_status: "draft"
 
 # Transliteration
 
-phaagan
+Phāgan
 
-phaagan phulle khet jiyon ban ṭan phul singaar
-har ḍaali phul pattiaan; gul phoolan ke haar
+Phāgan phulle khet jiyon ban ṭan phul singār
+Har ḍāli phul pattiān; gul phūlan ke hār
 
-hori khelan sitiaan phaagan
-mere nain jhalaareen vaggan
-aukhe jiivan de din ṭaggan
-seene baan prem de laggan
-hori ho rahi
+Hori khelan sitiān phāgan
+Mere nain jhalārīn vaggan
+Aukhe jiivan de din ṭaggan
+Sīne bān prem de laggan
+Hori ho rahi
 
-jo kujh roz azal theen hoī
-likkhi qalam nah meeṭe koī
-dukhaan soolaan ditti ḍhoī
-bullhaa! shoh noon aakho koī
-jis noon ro rahi
+Jo kujh roz azal thīn hoī
+Likkhi qalam nah mīṭe koī
+Dukhān sūlān ditti ḍhoī
+Bullhā! shoh nūn ākho koī
+Jis nūn ro rahi
 
 # Literal Translation
 

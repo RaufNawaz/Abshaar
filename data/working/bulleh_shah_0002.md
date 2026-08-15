@@ -29,13 +29,13 @@ review_status: "draft"
 # Transliteration
 
 Alif Allah, dil ratta mera
-Mainu 'be' di khabar na kaai
-Be parhiyan, kujh samajh na aawe
-Alif di lazzat aai
-'Ain te 'ghain da farq na jaanaan
-Eh gal Alif samjhaai
+Mainu 'be' di khabar na kāi
+Be parhiyan, kujh samajh na āwe
+Alif di lazzat āi
+ʿAin te ġain da farq na jānān
+Eh gal Alif samjhāi
 Bulhiya! qaul Alif de pure
-Jehre dil di karan safaai
+Jehre dil di karan safāi
 
 # Literal Translation
 

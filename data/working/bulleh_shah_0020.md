@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-Tere ishq nachaaiyaan
+Tere ishq nachāiyān
 
-Tere ishq nachaaiyaan kar ke thaiyya thaiyya!
-Tere ishq ne ḍera mere andar keeta
-Bhar ke zahr piyaala main taan aape peeta
-Jhab se bohṛeen ve tabeeba, naheen te main mar giya
-Tere ishq nachaaiyaan kar ke thaiyya thaiyya!
+Tere ishq nachāiyān kar ke thaiyya thaiyya!
+Tere ishq ne ḍera mere andar kīta
+Bhar ke zahr piyāla main tān āpe pīta
+Jhab se bohṛīn ve tabība, nahīn te main mar giya
+Tere ishq nachāiyān kar ke thaiyya thaiyya!
 
-Chhup gaya ve sooraj, baahar reh gayi aa laali
-Ve main sadqe hovaan, deven muṛ je vikhaali
-Peera! main bhul giyaan tere, naal na giya
-Tere ishq nachaaiyaan kar ke thaiyya thaiyya!
+Chhup gaya ve sūraj, bāhar reh gayi ā lāli
+Ve main sadqe hovān, deven muṛ je vikhāli
+Pīra! main bhul giyān tere, nāl na giya
+Tere ishq nachāiyān kar ke thaiyya thaiyya!
 
-Is ishqe de kolon mainu haṭak na maae
-Laahu jaandṛe beṛe, kehṛa moṛ liaae
-Meri aqal jo bhulli, naal mahaaniyaan de giya
-Tere ishq nachaaiyaan kar ke thaiyya thaiyya!
+Is ishqe de kolon mainu haṭak na māe
+Lāhu jāndṛe beṛe, kehṛa moṛ liāe
+Meri aqal jo bhulli, nāl mahāniyān de giya
+Tere ishq nachāiyān kar ke thaiyya thaiyya!
 
 # Literal Translation
 

@@ -22,7 +22,7 @@ review_status: "draft"
 
 # Transliteration
 
-Jaisi soorat 'ain di, waisi soorat ghain
+Jaisi sūrat ʿain di, waisi sūrat ġain
 Ik nuqte da farq hai: bhalli phire ku'in
 
 # Literal Translation

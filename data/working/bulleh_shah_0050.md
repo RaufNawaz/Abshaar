@@ -57,43 +57,43 @@ review_status: "draft"
 
 # Transliteration
 
-munh āī bāt nah rahndī ae
+Munh āī bāt nah rahndī ae
 
-sach kahvāṅ te bhāṅbaṛ machdā ae
-jhūṭh ākhiyāṅ kujh nah bachdā ae
-jī dohāṅ galāṅ tūṅ jachdā ae
-sach sach ke jehā kahndī ae
-munh āī bāt nah rahndī ae
+Sach kahvān̄ te bhān̄baṛ machdā ae
+Jhūṭh ākhiyān̄ kujh nah bachdā ae
+Jī dohān̄ galān̄ tūn̄ jachdā ae
+Sach sach ke jehā kahndī ae
+Munh āī bāt nah rahndī ae
 
-eh talkan bāzī vihṛā ae
-tam tam ke turo andherā ae
-var andar dekho kehṛā ae
-kyūṅ khalqat bāhar ḍhūṇḍdī nīndī ae
-munh āī bāt nah rahndī ae
+Eh talkan bāzī vihṛā ae
+Tam tam ke turo andherā ae
+Var andar dekho kehṛā ae
+Kyūn̄ khalqat bāhar ḍhūṇḍdī nīndī ae
+Munh āī bāt nah rahndī ae
 
-jis pāyā bhet qalandar dā
-rāh khojiyā apne andar dā
-oh vāsī hai sukh mandar dā
-jitthe koī nah chaṛhdī lahndī ae
-munh āī bāt nah rahndī ae
+Jis pāyā bhet qalandar dā
+Rāh khojiyā apne andar dā
+Oh vāsī hai sukh mandar dā
+Jitthe koī nah chaṛhdī lahndī ae
+Munh āī bāt nah rahndī ae
 
-ik lāzim shart-i udab dī ae
-sānūṅ bāt maalūmī sab dī ae
-har har vich sūrat rab dī ae
-kitte zāhir, kitte chhapendī ae
-munh āī bāt nah rahndī ae
+Ik lāzim shart-i udab dī ae
+Sānūn̄ bāt mālūmī sab dī ae
+Har har vich sūrat rab dī ae
+Kitte zāhir, kitte chhapendī ae
+Munh āī bāt nah rahndī ae
 
-asāṅ paṛhiā ilm tahqīqī ae
-othe iko haraf haqīqī ae
-hor jhagṛā sab vadhīkī ae
-eveṅ raulā pā pā bahndī ae
-munh āī bāt nah rahndī ae
+Asān̄ paṛhiā ilm tahqīqī ae
+Othe iko haraf haqīqī ae
+Hor jhagṛā sab vadhīkī ae
+Even̄ raulā pā pā bahndī ae
+Munh āī bāt nah rahndī ae
 
-shoh bullhā! sāṅ tīṅ dukh nahīṅ
-bin shoh de dūjā sukh nahīṅ
-par dekhan vālī akh nahīṅ
-tahīṅ jān judāiyāṅ sahndī ae
-munh āī bāt nah rahndī ae
+Shoh bullhā! sān̄ tīn̄ dukh nahīn̄
+Bin shoh de dūjā sukh nahīn̄
+Par dekhan vālī akh nahīn̄
+Tahīn̄ jān judāiyān̄ sahndī ae
+Munh āī bāt nah rahndī ae
 
 # Literal Translation
 

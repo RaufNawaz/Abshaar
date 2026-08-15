@@ -33,19 +33,19 @@ review_status: "draft"
 
 # Transliteration
 
-Kutte teethon utte
+Kutte tīthon utte
 
-Raateen jaageen, karen ibaadat
-Raateen jaagan kutte, teethon utte
+Rātīn jāgīn, karen ibādat
+Rātīn jāgan kutte, tīthon utte
 
-Bhaunkan toon band mool na hunde
-Jaa rooṛi te sutte: teethon utte
+Bhaunkan tūn band mūl na hunde
+Jā rūṛi te sutte: tīthon utte
 
 Khasam apne da dar na chhaḍ de
-Bhaanven vajan jutte: teethon utte
+Bhānven vajan jutte: tīthon utte
 
-Bulhe Shah! koi rakht vihaaj lai
-Naheen te baazi lai gaye kutte, teethon utte
+Bulhe Shah! koi rakht vihāj lai
+Nahīn te bāzi lai gaye kutte, tīthon utte
 
 # Literal Translation
 

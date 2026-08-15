@@ -27,13 +27,13 @@ review_status: "draft"
 
 # Transliteration
 
-Apne sang rulaaeen pyaare! apne sang rulaaeen
-Raah puaan te dhaare beli; jangal, rakh, balaaeen
-Baghman piite, chit machte, baghne rokan raaheen
-Tere paar jaga dhar charhya, kande lakh balaaeen
-Haul dile tun thar thar kanbda, bera paar langhaaeen
-Bulhe Shah noon shoh da mukhra, ghoonghat khol dikhaaeen
-Apne sang rulaaeen pyaare! apne sang rulaaeen
+Apne sang rulāīn pyāre! apne sang rulāīn
+Rāh puān te dhāre beli; jangal, rakh, balāīn
+Baghman piite, chit machte, baghne rokan rāhīn
+Tere pār jaga dhar charhya, kande lakh balāīn
+Haul dile tun thar thar kanbda, bera pār langhāīn
+Bulhe Shah nūn shoh da mukhra, ghūnghat khol dikhāīn
+Apne sang rulāīn pyāre! apne sang rulāīn
 
 # Literal Translation
 

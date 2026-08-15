@@ -69,55 +69,55 @@ review_status: "draft"
 
 # Transliteration
 
-Ilmon bas kareen o yaar
+Ilmon bas karīn o yār
 
-Ilmon bas kareen o yaar!
-Ikko Alif tere darkaar
-Ilm na aave vich shumaar
-Jaandi umar, naheen aitbaar
-Ikko Alif tere darkaar
-Ilmon bas kareen o yaar!
+Ilmon bas karīn o yār!
+Ikko Alif tere darkār
+Ilm na āve vich shumār
+Jāndi umar, nahīn aitbār
+Ikko Alif tere darkār
+Ilmon bas karīn o yār!
 
-Paṛh paṛh, likh likh laaven ḍher
-Ḍher kitaabaan chaar chupher
-Girde jahaalat, vich anher
-Puchho: "raah"; te khabar na saar
-Ilmon bas kareen o yaar!
+Paṛh paṛh, likh likh lāven ḍher
+Ḍher kitābān chār chupher
+Girde jahālat, vich anher
+Puchho: "rāh"; te khabar na sār
+Ilmon bas karīn o yār!
 
-Paṛh paṛh nafl namaz guzaaren
-Uchchiyaan baangaan chaanghaan maaren
-Minbar te chaṛh waaz pukaaren
-Keeta tainu ilm khwaar
-Ilmon bas kareen o yaar!
+Paṛh paṛh nafl namaz guzāren
+Uchchiyān bāngān chānghān māren
+Minbar te chaṛh wāz pukāren
+Kīta tainu ilm khwār
+Ilmon bas karīn o yār!
 
 Ilmon pae qaziyate hor
-Akhaan vaale anhe kor
-Phiṛ de saadh, te chhaḍan chor
-Ilmon bas kareen o yaar!
+Akhān vāle anhe kor
+Phiṛ de sādh, te chhaḍan chor
+Ilmon bas karīn o yār!
 
-Paṛh paṛh Shaikh Mashaaikh kahaaven
-Ulṭe maslay ghaṛon banaaven
-Be-ilmaan nu luṭ luṭ khaaven
-Jhoote sachche karen iqraar
-Ilmon bas kareen o yaar!
+Paṛh paṛh Shaikh Mashāikh kahāven
+Ulṭe maslay ghaṛon banāven
+Be-ilmān nu luṭ luṭ khāven
+Jhūte sachche karen iqrār
+Ilmon bas karīn o yār!
 
-Paṛh paṛh mullaan hoye qaazi
-Allah ilmaan baajhon raazi
-Hove hirs dinon din taazi
-Tainu keeta hirs khwaar
-Ilmon bas kareen o yaar!
+Paṛh paṛh mullān hoye qāzi
+Allah ilmān bājhon rāzi
+Hove hirs dinon din tāzi
+Tainu kīta hirs khwār
+Ilmon bas karīn o yār!
 
-Paṛh paṛh maslay piya sunaaven
-Khaana shak shubhe da khaaven
-Dassen hor, te hor kamaaven
-Andar khoṭ, baahar suchiaar
-Ilmon bas kareen o yaar!
+Paṛh paṛh maslay piya sunāven
+Khāna shak shubhe da khāven
+Dassen hor, te hor kamāven
+Andar khoṭ, bāhar suchiār
+Ilmon bas karīn o yār!
 
 Jad main sabaq ishq da paṛhiya
 Darya dekh wahdat da vaṛiya
-Ghuman gheraan de vich aṛiya
-Shah Inaayat laaya paar!
-Ilmon bas kareen o yaar!
+Ghuman gherān de vich aṛiya
+Shah Ināyat lāya pār!
+Ilmon bas karīn o yār!
 
 # Literal Translation
 

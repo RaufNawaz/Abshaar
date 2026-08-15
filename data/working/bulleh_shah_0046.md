@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-māī qadam karendī yār
+Māī qadam karendī yār
 
-māī joṛā, māī ghoṛā, māī dā asvār
-māī nūṁ māī doṛāe, māī dā khaṛkār
-māī qadam karendī yār!
+Māī joṛā, māī ghoṛā, māī dā asvār
+Māī nūn̄ māī doṛāe, māī dā khaṛkār
+Māī qadam karendī yār!
 
-māī nūṁ māī māran lagī, māī dā hathiyār
-jis māī par buhtī māī, tis māī hankār
-māī qadam karendī yār!
+Māī nūn̄ māī māran lagī, māī dā hathiyār
+Jis māī par buhtī māī, tis māī hankār
+Māī qadam karendī yār!
 
-māī bāgh, baghīchā māī, māī dī gulzār
-māī nūṁ māī dekhan āī, māī dī e bahār
-māī qadam karendī yār!
+Māī bāgh, baghīchā māī, māī dī gulzār
+Māī nūn̄ māī dekhan āī, māī dī e bahār
+Māī qadam karendī yār!
 
-chār riyāṁ ral kheḍan lagiyāṁ, panjveṁ vich sardār
-has kheḍ muṛ māī hoyāṁ, poṁdiyāṁ pair pasār
-māī qadam karendī yār!
+Chār riyān̄ ral kheḍan lagiyān̄, panjven̄ vich sardār
+Has kheḍ muṛ māī hoyān̄, pon̄diyān̄ pair pasār
+Māī qadam karendī yār!
 
 # Literal Translation
 

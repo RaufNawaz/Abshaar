@@ -38,17 +38,17 @@ review_status: "draft"
 Kat kuṛe na vat kuṛe
 
 Kat kuṛe, na vat kuṛe
-Laah chhalli, bhar vaṇe lagmat kuṛe
-Maan peo tere ganḍh main paaiyaan
-Aje na tainu mitraan aaiyaan
-Din thoṛe te cha muklaaiyaan
-Na aaseen peeke vat kuṛe
+Lāh chhalli, bhar vaṇe lagmat kuṛe
+Mān peo tere ganḍh main pāiyān
+Aje na tainu mitrān āiyān
+Din thoṛe te cha muklāiyān
+Na āsīn pīke vat kuṛe
 Kat kuṛe, na vat kuṛe
 
-Je daaj vihooni jaaven gi
-Taan kise bhali na bhaaven gi
-Toon shoh nu kiven rijhaaven gi
-Bujh lai faqraan di mat kuṛe
+Je dāj vihūni jāven gi
+Tān kise bhali na bhāven gi
+Tūn shoh nu kiven rijhāven gi
+Bujh lai faqrān di mat kuṛe
 Kat kuṛe, na vat kuṛe
 
 # Literal Translation

@@ -36,22 +36,22 @@ review_status: "draft"
 
 # Transliteration
 
-saawan
+Sāwan
 
-saawan sohe meenh gala, ghaṭ sohe kutaar
-thoor thoor inaayat vaste peehaa kare pukaar
+Sāwan sohe mīnh gala, ghaṭ sohe kutār
+Thūr thūr ināyat vaste pīhā kare pukār
 
-sohan malhaaraan saare saawan
-dooti dukh lagge uṭh jaavan
-binengar kheḍan, gaḍiaan gaavan
-main ghar rang rangeele aavan
-aasaan punniaan
+Sohan malhārān sāre sāwan
+Dūti dukh lagge uṭh jāvan
+Binengar kheḍan, gaḍiān gāvan
+Main ghar rang rangīle āvan
+Āsān punniān
 
-meriaan aasaan rabb puchchaaiaan
-sitiaan deen mubaarak aaiaan
-main taan un sang akhiaan laaiaan
-shaah inaayat rang lagaaiaan
-aasaan punniaan
+Meriān āsān rabb puchchāiān
+Sitiān dīn mubārak āiān
+Main tān un sang akhiān lāiān
+Shāh ināyat rang lagāiān
+Āsān punniān
 
 # Literal Translation
 

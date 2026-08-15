@@ -39,21 +39,21 @@ review_status: "draft"
 
 Kaisi tauba
 
-Kaisi tauba hai eh tauba, aisi tauba na kar yaar
+Kaisi tauba hai eh tauba, aisi tauba na kar yār
 
-Moonhon tauba, dilon na karda, is tauba theen tark na phaṛda
-Kis ghaflat ne paayo parda, tainu bakhshe kyun Ghaffaar
+Mūnhon tauba, dilon na karda, is tauba thīn tark na phaṛda
+Kis ghaflat ne pāyo parda, tainu bakhshe kyun Ghaffār
 
-Saanveen de ke laun savaaye, ḍuhṛiyaan utte baazi laaye
-Musalmaani oh kitthon paaye, jis da hove eh kirdaar
+Sānvīn de ke laun savāye, ḍuhṛiyān utte bāzi lāye
+Musalmāni oh kitthon pāye, jis da hove eh kirdār
 
-Jit na jaana utte jaaven, hataa begaana ṭhamkar khaaven
-Thoṛ kitaaban sir te chaaven, hove keh tera aitbaar
+Jit na jāna utte jāven, hatā begāna ṭhamkar khāven
+Thoṛ kitāban sir te chāven, hove keh tera aitbār
 
-Zaalim zulmon naaheen ḍarde, apni keetion aape marde
-Naaheen khauf Khuda da karde, ette utte hovan khwaar
+Zālim zulmon nāhīn ḍarde, apni kītion āpe marde
+Nāhīn khauf Khuda da karde, ette utte hovan khwār
 
-Kaisi tauba hai eh tauba, aisi na kar yaar
+Kaisi tauba hai eh tauba, aisi na kar yār
 
 # Literal Translation
 

@@ -41,27 +41,27 @@ review_status: "draft"
 
 # Transliteration
 
-Kadi aa mil yaar pyaariya
+Kadi ā mil yār pyāriya
 
-Door o door asaathon gaiyon
-Aslaate jaa ke beh rahiyon
-Kyun Qasoor visaariya
-Kadi aa mil yaar pyaariya
+Dūr o dūr asāthon gaiyon
+Aslāte jā ke beh rahiyon
+Kyun Qasūr visāriya
+Kadi ā mil yār pyāriya
 
-Dar khulla hashar azaab da
-Bura haal hoya Punjab da
-Vich haavele dozakh saaṛiya
-Kadi aa mil yaar pyaariya
+Dar khulla hashar azāb da
+Bura hāl hoya Punjab da
+Vich hāvele dozakh sāṛiya
+Kadi ā mil yār pyāriya
 
-Kadeen aaven vaḍḍh parvaariya
-Tere dukhaan saanu maariya
-Munh baarhveen sadi palsaariya
-Kadi aa mil yaar pyaariya
+Kadīn āven vaḍḍh parvāriya
+Tere dukhān sānu māriya
+Munh bārhvīn sadi palsāriya
+Kadi ā mil yār pyāriya
 
-Bulha! shoh mere ghar aavsi
-Meri baldi bhaah bujhaavsi
-Inaayat dam dam naal chataariya
-Kadi aa mil yaar pyaariya
+Bulha! shoh mere ghar āvsi
+Meri baldi bhāh bujhāvsi
+Ināyat dam dam nāl chatāriya
+Kadi ā mil yār pyāriya
 
 # Literal Translation
 

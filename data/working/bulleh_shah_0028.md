@@ -39,21 +39,21 @@ review_status: "draft"
 
 Ḍhalak gayi charkhe di hatthi
 
-Ḍhalak gayi charkhe di hatthi, kattiya mool na jaave
-Teekle toon val pae jaande, kaun luhaar sada ve
-Teekle toon val laaheen luhaara, tandi ṭuṭ ṭuṭ jaave
-Ghumṛi ghumṛi eh jhoṭe khaanda, chhaṭṭi ik na laahove
-Piya naheen jo beṛi bannhaan, baaiṭ hatth na aave
-Chamṛiyaan lutte chopaṛ naaheen, maahl pai baṛlaave
-Ḍhalak gayi charkhe di hatthi, kattiya mool na jaave
+Ḍhalak gayi charkhe di hatthi, kattiya mūl na jāve
+Tīkle tūn val pae jānde, kaun luhār sada ve
+Tīkle tūn val lāhīn luhāra, tandi ṭuṭ ṭuṭ jāve
+Ghumṛi ghumṛi eh jhoṭe khānda, chhaṭṭi ik na lāhove
+Piya nahīn jo beṛi bannhān, bāiṭ hatth na āve
+Chamṛiyān lutte chopaṛ nāhīn, māhl pai baṛlāve
+Ḍhalak gayi charkhe di hatthi, kattiya mūl na jāve
 
-Din phaṛmiya kad guzre, mainu pyaara mukh dikhlaave
-Maahi chhoṛ gaya naal maheen de, kittan kis nu bhaave
-Jit val yaar utte val akhiyaan, dil mera bele dhaave
-Taranjan kittan sadan saheliyaan, birhon ḍhol vajaave
-Arz eho, mainu aan mile hun, kaun vaseela jaave
-Sutte manaan da kat liya uṭṭha, mainu shoh gal laave
-Din phaṛmiya kad guzre, mainu pyaara munh dikhlaave
+Din phaṛmiya kad guzre, mainu pyāra mukh dikhlāve
+Māhi chhoṛ gaya nāl mahīn de, kittan kis nu bhāve
+Jit val yār utte val akhiyān, dil mera bele dhāve
+Taranjan kittan sadan saheliyān, birhon ḍhol vajāve
+Arz eho, mainu ān mile hun, kaun vasīla jāve
+Sutte manān da kat liya uṭṭha, mainu shoh gal lāve
+Din phaṛmiya kad guzre, mainu pyāra munh dikhlāve
 
 # Literal Translation
 

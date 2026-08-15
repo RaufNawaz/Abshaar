@@ -34,20 +34,20 @@ review_status: "draft"
 
 # Transliteration
 
-Uth chale gvaandhon yaar
-Rabba! hun keeh kariye!
-Uth chale, hun rahnde naaheen
-Hoya saath tayyaar
-Rabba! hun keeh kariye!
-Chaaro taraf chalan de charche
-Har soo payi pukaar
-Rabba! hun keeh kariye!
-Dhaande kaleje bal bal uthdi
-Bin dekhe deedaar
-Rabba! hun keeh kariye!
-Bulha! shoh pyaare baajhon
-Nahe uraar na paar
-Rabba! hun keeh kariye!
+Uth chale gvāndhon yār
+Rabba! hun kīh kariye!
+Uth chale, hun rahnde nāhīn
+Hoya sāth tayyār
+Rabba! hun kīh kariye!
+Chāro taraf chalan de charche
+Har sū payi pukār
+Rabba! hun kīh kariye!
+Dhānde kaleje bal bal uthdi
+Bin dekhe dīdār
+Rabba! hun kīh kariye!
+Bulha! shoh pyāre bājhon
+Nahe urār na pār
+Rabba! hun kīh kariye!
 
 # Literal Translation
 

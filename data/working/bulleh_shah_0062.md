@@ -24,8 +24,8 @@ review_status: "draft"
 
 # Transliteration
 
-vāre jāīe ohnāṉ toṉ, jehṛe māran gap-shap
-gaudī labhī de dewan, te baghchā khāo ghap
+Vāre jāīe ohnān̄ ton̄, jehṛe māran gap-shap
+Gaudī labhī de dewan, te baghchā khāo ghap
 
 # Literal Translation
 

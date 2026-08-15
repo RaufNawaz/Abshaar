@@ -22,8 +22,8 @@ review_status: "draft"
 
 # Transliteration
 
-Chal Bulleh! chal oothe chaliye, jithe saare annhe
-Na koi saadi zaat pachhaane, na koi saanoon manne
+Chal Bulleh! chal ūthe chaliye, jithe sāre annhe
+Na koi sādi zāt pachhāne, na koi sānūn manne
 
 # Literal Translation
 

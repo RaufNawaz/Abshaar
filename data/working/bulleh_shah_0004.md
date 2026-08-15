@@ -34,20 +34,20 @@ review_status: "draft"
 
 # Transliteration
 
-Ab to jaag, musafir pyare
-Rain gaee, latke sab tare
-Aa wagon saraeen dere
-Saath tayyar, musafir tere
-Ajje na suniyon goonj naqare
-Ab to jaag, musafir pyare
+Ab to jāg, musafir pyare
+Rain gaī, latke sab tare
+Ā wagon saraīn dere
+Sāth tayyar, musafir tere
+Ajje na suniyon gūnj naqare
+Ab to jāg, musafir pyare
 Gare aj garni da wera
-Mur na hosi aavan tera
-Saathi chalo chal pukare
-Ab to jaag, musafir pyare
+Mur na hosi āvan tera
+Sāthi chalo chal pukare
+Ab to jāg, musafir pyare
 Moti, chuni, paras pase
-Paas samandar, maro pyase
+Pās samandar, maro pyase
 Khol akhiyan, uth boh bikare
-Ab to jaag, musafir pyare
+Ab to jāg, musafir pyare
 
 # Literal Translation
 

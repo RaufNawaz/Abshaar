@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-Dil loche maahi yaar nu
+Dil loche māhi yār nu
 
-Dil loche maahi yaar nu
-Ik has has galaan kar diyaan
-Ik rondiyaan dhondiyaan phir diyaan
-Kaho phulli basant bahaar nu
-Dil loche maahi yaar nu
+Dil loche māhi yār nu
+Ik has has galān kar diyān
+Ik rondiyān dhondiyān phir diyān
+Kaho phulli basant bahār nu
+Dil loche māhi yār nu
 
-Main nahaati dhoti reh gayi
+Main nahāti dhoti reh gayi
 Koi ganḍh sajjan dil peh gayi
-Bhaah laaviye haar singaar nu
-Dil loche maahi yaar nu
+Bhāh lāviye hār singār nu
+Dil loche māhi yār nu
 
-Main dootiyaan ghaayil keeti aan
-Soolaan gheer chupheeron leeti aan
-Ghar aa maahi deedaar nu
-Dil loche maahi yaar nu
+Main dūtiyān ghāyil kīti ān
+Sūlān ghīr chuphīron līti ān
+Ghar ā māhi dīdār nu
+Dil loche māhi yār nu
 
 # Literal Translation
 

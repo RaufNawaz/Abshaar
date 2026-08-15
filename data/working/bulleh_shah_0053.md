@@ -39,23 +39,23 @@ review_status: "draft"
 
 # Transliteration
 
-main chuhr metri aan sachche sahib de darbaroon
-pairoon nangi, siroon jhandoli, sanheya aaya paaroon
-toroṛ braat kujh banda naahin, keh laisaan sansaaroon
-dhyaan ki chhajli, gyaan ka jhaaṛoo, kaam karodh nit jhaaṛoon
-pakṛaan bhajli, hiras uḍaavaan, puchhaan maalguzaaroon
-qazi jaane, haakim jaane, faarigh-khati begaaroon
-raat dinen main eho mangdi: door nah kar darbaaroon
-main chuhr metri aan sachche sahib de darbaaroon
+Main chuhr metri ān sachche sahib de darbarūn
+Pairūn nangi, sirūn jhandoli, sanheya āya pārūn
+Toroṛ brāt kujh banda nāhin, keh laisān sansārūn
+Dhyān ki chhajli, gyān ka jhāṛū, kām karodh nit jhāṛūn
+Pakṛān bhajli, hiras uḍāvān, puchhān mālguzārūn
+Qazi jāne, hākim jāne, fārigh-khati begārūn
+Rāt dinen main eho mangdi: dūr nah kar darbārūn
+Main chuhr metri ān sachche sahib de darbārūn
 
-kya chuhri, kya zaat chuhri di, har koi saatoon natte
-kar kaar begaar arthiya, hona jaan par saaeen watte
-keh kujh paṛni, laag chuhri da, ghanḍi aur sirhaana
-jo kujh ditta aap saaeen ne, so gharre ke jaana
-phaṭṭa puraana bhaag asaaḍa, bhukh, ṭukaṛ: sach, beemah
-faaqa kaṛaaka, mangan pinan, chaal asaaḍi eh
-richh richhoṛte teele kaane, eh asaaḍi kaaroon
-main chuhr metri aan sachche sahib de darbaaroon
+Kya chuhri, kya zāt chuhri di, har koi sātūn natte
+Kar kār begār arthiya, hona jān par sāīn watte
+Keh kujh paṛni, lāg chuhri da, ghanḍi aur sirhāna
+Jo kujh ditta āp sāīn ne, so gharre ke jāna
+Phaṭṭa purāna bhāg asāḍa, bhukh, ṭukaṛ: sach, bīmah
+Fāqa kaṛāka, mangan pinan, chāl asāḍi eh
+Richh richhoṛte tīle kāne, eh asāḍi kārūn
+Main chuhr metri ān sachche sahib de darbārūn
 
 # Literal Translation
 

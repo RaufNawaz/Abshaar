@@ -102,16 +102,22 @@ public-domain, permission-cleared, or allowed by license.
 
 ## Recommended Transliteration Style
 
-Start with a simple project transliteration instead of trying to solve every
-scholarly system on day one.
+**`project-latin-v1` was formally decided on 2026-08-15; the normative spec
+is `docs/16_project_latin_v1_evidence.md` §5.** The earlier "plain Latin,
+no diacritics" advice below is superseded.
 
-Rules for `project-latin-v1`:
+Rules for `project-latin-v1` (summary — see docs/16 §5 for the full table):
 
-- write in plain Latin characters;
-- preserve repeated sounds consistently;
-- avoid decorative diacritics at first;
-- prioritize readability for English-speaking learners;
-- add pronunciation notes when needed;
+- long vowels take macrons: `ā ī ū`; short vowels stay plain;
+- retroflexes take dots: `ṭ ḍ ṛ ṇ`; nasalization is `n̄`; aspiration uses
+  digraphs (`kh gh chh bh …`);
+- `ʿ` marks ʿain, `ġ` marks ġain; Arabic-loan marks (`ḥ ṣ ẓ …`) are the
+  review-time target; izafat is `-e-`;
+- line starts are capitalized (mixed case tolerated elsewhere);
+- normalize with `./scripts/abshaar.sh normalize-translit --apply`
+  (dry-run without the flag); `validate` warns on rejected-style markers;
+- preserve repeated sounds consistently and add pronunciation notes when
+  needed;
 - keep original script as the authority.
 
 Example policy:

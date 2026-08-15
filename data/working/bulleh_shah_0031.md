@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-Roze hajj namaz ni maae
+Roze hajj namaz ni māe
 
-Roze, hajj, namaz ni maae
-Mainu piya ne aan bhulaae
-Jaan piya diyaan khabraan paiyaan
-Mantiq, nahv sabhe bhul gaiyaan
-Us Ahad de taar bajaaye
-Roze, hajj, namaz ni maae
-Mainu piya ne aan bhulaae
+Roze, hajj, namaz ni māe
+Mainu piya ne ān bhulāe
+Jān piya diyān khabrān paiyān
+Mantiq, nahv sabhe bhul gaiyān
+Us Ahad de tār bajāye
+Roze, hajj, namaz ni māe
+Mainu piya ne ān bhulāe
 
-Jaan piya mere ghar aaya
-Bhulli mainu Sharh Vaqaaya
+Jān piya mere ghar āya
+Bhulli mainu Sharh Vaqāya
 Har mazhar vich oha disda
-Andar baahar jalwa is da
-Bhulle lokaan khabar na kaaye
-Roze, hajj, namaz ni maae
-Mainu piya ne aan bhulaae
+Andar bāhar jalwa is da
+Bhulle lokān khabar na kāye
+Roze, hajj, namaz ni māe
+Mainu piya ne ān bhulāe
 
 # Literal Translation
 

@@ -24,8 +24,8 @@ review_status: "draft"
 
 # Transliteration
 
-Bharosa keh ashnaai da
-Ḍar lagda be-parwaai da
+Bharosa keh ashnāi da
+Ḍar lagda be-parwāi da
 
 # Literal Translation
 

@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-Jind kaṛki de munh aai
+Jind kaṛki de munh āi
 
-Jind kaṛki de munh aai
-Ishq tusaaḍa mainu disda, parbat kolon bhaara
-Ik ghaṛi de dekhan kaaran, luṭ liya sir saara
-Mehnat mille ke mildi naaheen? ḍaaḍhe di ashnaai
-Jind kaṛki de munh aai
+Jind kaṛki de munh āi
+Ishq tusāḍa mainu disda, parbat kolon bhāra
+Ik ghaṛi de dekhan kāran, luṭ liya sir sāra
+Mehnat mille ke mildi nāhīn? ḍāḍhe di ashnāi
+Jind kaṛki de munh āi
 
-Paakaan da hai vahi vaseela, mere taeen aape ho daud
-Jaagdiyaan sang mere jaago, saunvaan naale saundo
-Jis ne taeen sang preet lagaai, kehṛe sukh savaai
-Jind kaṛki de munh aai
+Pākān da hai vahi vasīla, mere taīn āpe ho daud
+Jāgdiyān sang mere jāgo, saunvān nāle saundo
+Jis ne taīn sang prīt lagāi, kehṛe sukh savāi
+Jind kaṛki de munh āi
 
-Jag vich roshan naam tusaaḍa, aashiq toon kyun nasde ho
-Dastoor to vich bahl de, apna bheet na dasde ho
-Udhakke vichkaaron phaṭ ke, yain ulṭi laṭkaai
-Jind kaṛki de munh aai
+Jag vich roshan nām tusāḍa, āshiq tūn kyun nasde ho
+Dastūr to vich bahl de, apna bhīt na dasde ho
+Udhakke vichkāron phaṭ ke, yain ulṭi laṭkāi
+Jind kaṛki de munh āi
 
 # Literal Translation
 

@@ -46,32 +46,32 @@ review_status: "draft"
 
 # Transliteration
 
-Ishq di naveeyon naveen bahaar
+Ishq di navīyon navīn bahār
 
-Ishq di naveeyon naveen bahaar
-Jaan main sabaq ishq da paṛhiya
+Ishq di navīyon navīn bahār
+Jān main sabaq ishq da paṛhiya
 Masjid kolon jeoṛa ḍariya
-Puchh puchh ṭhaakur duaare vaṛiya
-Jitte vajde naad hazaar
-Ishq di naveeyon naveen bahaar
+Puchh puchh ṭhākur duāre vaṛiya
+Jitte vajde nād hazār
+Ishq di navīyon navīn bahār
 
-Ved quraanaan paṛh paṛh thakke
-Sajde kar diyaan ghis gaye matthe
-Na rab teerath, na rab makke
-Jis paaya tis noor anwaar
-Ishq di naveeyon naveen bahaar
+Ved qurānān paṛh paṛh thakke
+Sajde kar diyān ghis gaye matthe
+Na rab tīrath, na rab makke
+Jis pāya tis nūr anwār
+Ishq di navīyon navīn bahār
 
-Phook musalle, bhan suṭ loṭa
-Na paṛh tasbeeh, aasa, soṭa
-Aashiq kahnde de de hoka:
-"Tark halaalon, kha murdaar!"
-Ishq di naveeyon naveen bahaar
+Phūk musalle, bhan suṭ loṭa
+Na paṛh tasbīh, āsa, soṭa
+Āshiq kahnde de de hoka:
+"Tark halālon, kha murdār!"
+Ishq di navīyon navīn bahār
 
-Heer Ranjhe de ho gaye mele
-Bhulli Heer ḍhoonḍendi bele
-Ranjhan yaar baghal vich khele
-Surat na rahtiya, surat sambhaar!
-Ishq di naveeyon naveen bahaar
+Hīr Ranjhe de ho gaye mele
+Bhulli Hīr ḍhūnḍendi bele
+Ranjhan yār baghal vich khele
+Surat na rahtiya, surat sambhār!
+Ishq di navīyon navīn bahār
 
 # Literal Translation
 

@@ -37,22 +37,22 @@ review_status: "draft"
 
 # Transliteration
 
-mainun lagṛa ishq
-mainun lagṛa ishq awallṛa
-awwal da, roz-i azal da
-wich kaṛaahi til til paa de
-tiliyaan nun cha talda
+Mainun lagṛa ishq
+Mainun lagṛa ishq awallṛa
+Awwal da, roz-i azal da
+Wich kaṛāhi til til pā de
+Tiliyān nun cha talda
 
-moyaan nun eh wal wal maare
-diliyaan nun cha dalda
+Moyān nun eh wal wal māre
+Diliyān nun cha dalda
 
-kya jaanaan koi chang sakhi e
-nit sool kaleje sall da
+Kya jānān koi chang sakhi e
+Nit sūl kaleje sall da
 
-bullha! shoh da niyoon anokha
-oh nahin ralaayaan ralda
-mainun lagṛa ishq awallṛa
-awwal da, roz-i azal da
+Bullha! shoh da niyūn anokha
+Oh nahin ralāyān ralda
+Mainun lagṛa ishq awallṛa
+Awwal da, roz-i azal da
 
 # Literal Translation
 

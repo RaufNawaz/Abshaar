@@ -31,17 +31,17 @@ review_status: "draft"
 
 # Transliteration
 
-maulā ādmī ban āyā
+Maulā ādmī ban āyā
 
-maulā ādmī ban āyā
+Maulā ādmī ban āyā
 
-āpe āho, āpe chītā, āpe māran dhāyā
-āpe sāhib, āpe bardā, āpe mul vikāyā
-maulā ādmī ban āyā
+Āpe āho, āpe chītā, āpe māran dhāyā
+Āpe sāhib, āpe bardā, āpe mul vikāyā
+Maulā ādmī ban āyā
 
-bāzīgar keh bāzī kheḍī, mainūṅ putlī vāng nachāyā
-maiṅ us tālī par nachnāṅ hāṅ jo git mat yār likhāyā
-maulā ādmī ban āyā
+Bāzīgar keh bāzī kheḍī, mainūn̄ putlī vāng nachāyā
+Main̄ us tālī par nachnān̄ hān̄ jo git mat yār likhāyā
+Maulā ādmī ban āyā
 
 # Literal Translation
 

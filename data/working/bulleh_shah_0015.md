@@ -28,10 +28,10 @@ review_status: "draft"
 
 Ek harf — Si Harfi
 
-A. aandiyaan toon main sadqaṛe haan, jaandiyaan toon sirwaari haan
-Matthi preet ankhaṛi lag rahi, ghaṛi pal na yaar visaari haan
-Kehe haḍ nakaaḍose pae, meṇoon onsiyaan paavandi, kaang uḍaarni haan
-Bulhiya! shoh te kamli main hoee, suṇein jaa ke yaar pukaarni haan
+A. āndiyān tūn main sadqaṛe hān, jāndiyān tūn sirwāri hān
+Matthi prīt ankhaṛi lag rahi, ghaṛi pal na yār visāri hān
+Kehe haḍ nakāḍose pae, meṇūn onsiyān pāvandi, kāng uḍārni hān
+Bulhiya! shoh te kamli main hoī, suṇein jā ke yār pukārni hān
 
 # Literal Translation
 

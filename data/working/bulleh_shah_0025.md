@@ -42,27 +42,27 @@ review_status: "draft"
 
 # Transliteration
 
-Chalo dekhiye os mastaanṛe nu
+Chalo dekhiye os mastānṛe nu
 
-Chalo dekhiye os mastaanṛe nu
-Jinhaan taranjanaan de vich pai ae dhum
+Chalo dekhiye os mastānṛe nu
+Jinhān taranjanān de vich pai ae dhum
 Oh te e wahdat vich rangda ae
-Naheen puchhda zaat de keh ho tum
+Nahīn puchhda zāt de keh ho tum
 Jidha shor cho pher pya painda ae
 Oh kol tere nit rehnda ae
 Kahe "naḥnu aqrab" kahnda ae
-Kahe aakhda ae "fī anfusikum"
-Chhaḍ jhooṭh bharam di basti nu
-Kar ishq di qaaim masti nu
+Kahe ākhda ae "fī anfusikum"
+Chhaḍ jhūṭh bharam di basti nu
+Kar ishq di qāim masti nu
 Gaye pahunch sachchi di basti nu
 
 Na tera ae, na mera ae
-Jag faani jhagṛa jheṛa ae
+Jag fāni jhagṛa jheṛa ae
 Bina murshid rehbar kehṛa ae
 Paṛh: "fazkurūnī azkurkum"
-Bulhe Shah! eh baat ishaare di
-Jinhaan laggi taangh nazaare di
-Dis pai manzil vanjaare di
+Bulhe Shah! eh bāt ishāre di
+Jinhān laggi tāngh nazāre di
+Dis pai manzil vanjāre di
 Hai "yadu-Llāhi fawqa aydīkum"
 
 # Literal Translation

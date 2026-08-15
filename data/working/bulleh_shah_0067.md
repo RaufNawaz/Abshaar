@@ -42,28 +42,28 @@ review_status: "draft"
 
 # Transliteration
 
-tusi karo asaaddi kaari
+Tusi karo asāddi kāri
 
-tusi karo asaaddi kaari
-ni koi ho gai deen bhaari
+Tusi karo asāddi kāri
+Ni koi ho gai dīn bhāri
 
-eho dil mere wich wasda
-bahh naal asaadde hasda
-puchhi aan baataan taan utth uddda
-le ke baazaan waang uddaari
-tusi karo asaaddi kaari
+Eho dil mere wich wasda
+Bahh nāl asādde hasda
+Puchhi ān bātān tān utth uddda
+Le ke bāzān wāng uddāri
+Tusi karo asāddi kāri
 
-hun main shoh daryaavaan paayaan
-tthaatthaan lehraan de moonh aayaan
-ghuman gheeraan pakarr bhavaayaan
-uproon barkha rain andhaari
-tusi karo asaaddi kaari
+Hun main shoh daryāvān pāyān
+Tthātthān lehrān de mūnh āyān
+Ghuman ghīrān pakarr bhavāyān
+Uprūn barkha rain andhāri
+Tusi karo asāddi kāri
 
-we tain kehe peenghar paaye
-taare khaari baheetth lukaaye
-moonjh di rassi naag banaaye
-tere sehraan toon balihaari
-tusi karo asaaddi kaari
+We tain kehe pīnghar pāye
+Tāre khāri bahītth lukāye
+Mūnjh di rassi nāg banāye
+Tere sehrān tūn balihāri
+Tusi karo asāddi kāri
 
 # Literal Translation
 

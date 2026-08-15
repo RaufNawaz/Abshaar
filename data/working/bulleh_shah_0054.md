@@ -36,21 +36,21 @@ review_status: "draft"
 
 # Transliteration
 
-main kis(a)nba chun chun haari
-main kis(a)nba chun chun haari
+Main kis(a)nba chun chun hāri
+Main kis(a)nba chun chun hāri
 
-ais gasnb de khaar bhalere! uṛ uṛ chunti paaṛi
-ais gasnb da haakim kaṛaa, zaalim hai patwaari
-ais gasnb de chaar muqaddam, malba mangde bhaari
-hornaan chagiya phoya phoya, bhar laii main paṭyaari
-chig chig ke jo ḍheri keeta, an lainde beopaari
+Ais gasnb de khār bhalere! uṛ uṛ chunti pāṛi
+Ais gasnb da hākim kaṛā, zālim hai patwāri
+Ais gasnb de chār muqaddam, malba mangde bhāri
+Hornān chagiya phoya phoya, bhar laii main paṭyāri
+Chig chig ke jo ḍheri kīta, an lainde beopāri
 
-aukhi ghaaṭi mushkil painḍa, sirte gaṭhṛi bhaari
-amlaan waaliyaan sab langh gaiyaan, rah gaii oganhaari
-saari umra kheḍ gawaai aur tak baazi haari
-main kameen, uchchi, kohji, be-gun kaun wichaari
-bullha shoh de laayaq naahin, shah inaayat taari
-main kis(a)nba chun chun haari
+Aukhi ghāṭi mushkil painḍa, sirte gaṭhṛi bhāri
+Amlān wāliyān sab langh gaiyān, rah gaii oganhāri
+Sāri umra kheḍ gawāi aur tak bāzi hāri
+Main kamīn, uchchi, kohji, be-gun kaun wichāri
+Bullha shoh de lāyaq nāhin, shah ināyat tāri
+Main kis(a)nba chun chun hāri
 
 # Literal Translation
 

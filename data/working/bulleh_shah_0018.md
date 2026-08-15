@@ -40,26 +40,26 @@ review_status: "draft"
 
 # Transliteration
 
-Paandhiya ho!
+Pāndhiya ho!
 
-Jhab sukh da sanehṛa liaaven ve
-Paandhiya ho!
+Jhab sukh da sanehṛa liāven ve
+Pāndhiya ho!
 
-Main dubli neen kubṛi hoiyaan
-Mere dukhṛe sab batlaaven ve
-Paandhiya ho!
+Main dubli nīn kubṛi hoiyān
+Mere dukhṛe sab batlāven ve
+Pāndhiya ho!
 
-Khulli laṭ gal, hatth puraanda
-Eh kahndiyaan na sharmaaven ve
-Paandhiya ho!
+Khulli laṭ gal, hatth purānda
+Eh kahndiyān na sharmāven ve
+Pāndhiya ho!
 
-Yaaraan likh ke kitaabat bheji
-Kise goshe beh samjhaaven ve
-Paandhiya ho!
+Yārān likh ke kitābat bheji
+Kise goshe beh samjhāven ve
+Pāndhiya ho!
 
-Bulha! shoh diyaan muṛan mahaaraan
-Lai paighaam toon jhab dhaaven ve
-Paandhiya ho!
+Bulha! shoh diyān muṛan mahārān
+Lai paighām tūn jhab dhāven ve
+Pāndhiya ho!
 
 # Literal Translation
 

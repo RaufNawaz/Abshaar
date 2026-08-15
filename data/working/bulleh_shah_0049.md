@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-mil laio sahelṛiyo
+Mil laio sahelṛiyo
 
-mil laio sahelṛiyo, merī rilaj gahelṛiyo, maiṅ sāhūriyāṅ ghar jānā
-tusāṅ bhī hosī allāh bhānā, maiṅ sāhūriyāṅ ghar jānā
-ammāṅ bābal dāj jo dittā: ik cholī ik chunnī
-dāj tinhāṅ dā dekh ke tun haiṅ, jinhoṅ bhar bhar rattī
-ik vichhoṛā sīāṅ dā, jo veṅ ḍāroṅ kūñj vichhunnī
+Mil laio sahelṛiyo, merī rilaj gahelṛiyo, main̄ sāhūriyān̄ ghar jānā
+Tusān̄ bhī hosī allāh bhānā, main̄ sāhūriyān̄ ghar jānā
+Ammān̄ bābal dāj jo dittā: ik cholī ik chunnī
+Dāj tinhān̄ dā dekh ke tun hain̄, jinhon̄ bhar bhar rattī
+Ik vichhoṛā sīān̄ dā, jo ven̄ ḍāron̄ kūñj vichhunnī
 
-rang barange sūl apanne, jāṇḍe chīr niṅ jī nūṅ
-aithoṅ de dukh nāl bhulāvāṅ, agle sonhāṅ kehnūṅ
-sasat zināmāṅ devan táne, baṛī namoshī mainūṅ
+Rang barange sūl apanne, jāṇḍe chīr nin̄ jī nūn̄
+Aithon̄ de dukh nāl bhulāvān̄, agle sonhān̄ kehnūn̄
+Sasat zināmān̄ devan táne, baṛī namoshī mainūn̄
 
-aithe sānūṅ rihan nah mildā, jānā vār o vārī
-change changere pakaṛ mangāse, maiṅ kamaidī pahlāī
-jis gunnī palle bol sautte, soī hove nūṅ piārī
-mil laio sahelṛiyo, merī rilaj gahelṛiyo, maiṅ sāhūriyāṅ ghar jānā
-tusāṅ bhī hosī allāh bhānā, maiṅ sāhūriyāṅ ghar jānā
+Aithe sānūn̄ rihan nah mildā, jānā vār o vārī
+Change changere pakaṛ mangāse, main̄ kamaidī pahlāī
+Jis gunnī palle bol sautte, soī hove nūn̄ piārī
+Mil laio sahelṛiyo, merī rilaj gahelṛiyo, main̄ sāhūriyān̄ ghar jānā
+Tusān̄ bhī hosī allāh bhānā, main̄ sāhūriyān̄ ghar jānā
 
 # Literal Translation
 

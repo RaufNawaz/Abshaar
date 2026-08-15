@@ -205,6 +205,15 @@ the Rafat Urdu pages instead of hand-transcription.
 
 ## Changelog
 
+- 2026-08-15 (project-latin-v1 normalization, per Rauf's docs/16 decisions):
+  All 72 entries' Transliteration sections converted to the decided standard
+  (macrons ā ī ū, dots ṭ ḍ ṛ ṇ, nasalization n̄, ʿain/ġain symbols, digraphs,
+  line-start capitalization). Original and translation sections byte-identical
+  (protected-section hash verified). Matching keys made style-invariant, which
+  immediately surfaced 3 previously hidden exact witness matches (0010, 0033,
+  0054) — 16 exact pairs now, none lost. A `translit-lint` runs in validate.
+  Unmarked ʿain/loan consonants remain review work per the spec's honesty note.
+
 - 2026-08-15 (Devanagari-aware matching): `src/abshaar/devanagari.py` adds an
   approximate, comparison-only Devanagari→Roman transliteration; the matcher
   gains capped (≤0.98) Devanagari signals so approximate evidence can never

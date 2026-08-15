@@ -33,12 +33,12 @@ review_status: "draft"
 Koi puchho dilbar keh karda
 
 Koi puchho dilbar keh karda? Eh jo karda so karda!
-Vich maseet namaz guzaare, but-khaane jaa vaṛda
-Aap iko, kai lakh gharaan de, maalik hai ghar ghar da
-Ikse ghar vich rasde vasde, naheen rehnda vich parda
-Jit val dekhaan ut val oho, har di sangat karda
+Vich masīt namaz guzāre, but-khāne jā vaṛda
+Āp iko, kai lakh gharān de, mālik hai ghar ghar da
+Ikse ghar vich rasde vasde, nahīn rehnda vich parda
+Jit val dekhān ut val oho, har di sangat karda
 Wahdat de darya de andar, sab jag ditte tarda
-Bulhiya! shoh da ishq bughela, rat peenda gosht phaṛda
+Bulhiya! shoh da ishq bughela, rat pīnda gosht phaṛda
 Koi puchho dilbar keh karda? "Eh jo karda so karda!"
 
 # Literal Translation

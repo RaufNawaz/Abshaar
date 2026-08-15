@@ -44,8 +44,22 @@ def _without_marks(value: str) -> str:
 
 
 def normalize_roman(value: str) -> str:
+    """Style-invariant comparison key.
+
+    Both transliteration styles in play (project-latin-v1 macrons and the
+    plain doubled-vowel style used by witnesses) must map to one key, or a
+    style migration would silently break exact-line matches: ā and aa → a,
+    ee/ī → i, oo/ū → u, and the ʿ/ʾ modifier letters (which survive isalnum)
+    are dropped.
+    """
     value = _without_marks(value).casefold()
-    return "".join(character for character in value if character.isalnum())
+    value = "".join(
+        character for character in value if character.isalnum() and character not in "ʿʾʻ"
+    )
+    for doubled, single in (("aa", "a"), ("ee", "i"), ("oo", "u")):
+        while doubled in value:
+            value = value.replace(doubled, single)
+    return value
 
 
 def normalize_arabic(value: str) -> str:

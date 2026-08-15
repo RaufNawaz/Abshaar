@@ -24,8 +24,8 @@ review_status: "draft"
 
 # Transliteration
 
-ho nahīṉ sabhe galṛiyāṉ, allāh allāh dī gal
-kujh rolā pāyā ʿālmāṉ, kujh kāġẖdāṉ pāyā jhal
+Ho nahīn̄ sabhe galṛiyān̄, allāh allāh dī gal
+Kujh rolā pāyā ʿālmān̄, kujh kāġẖdān̄ pāyā jhal
 
 # Literal Translation
 

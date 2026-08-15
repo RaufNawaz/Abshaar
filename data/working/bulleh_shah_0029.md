@@ -38,20 +38,20 @@ review_status: "draft"
 
 "Ranjha Ranjha" kar di
 
-"Ranjha Ranjha" kar di, hun main aape Ranjha hoi
-Sado mainu Dhido Ranjha, "Heer" na aakho koi
+"Ranjha Ranjha" kar di, hun main āpe Ranjha hoi
+Sado mainu Dhido Ranjha, "Hīr" na ākho koi
 
-Ranjha main vich, main Ranjhe vich, ghair khayaal na koi
-Main naheen, oh aape hai, apni aap kare diljoi
+Ranjha main vich, main Ranjhe vich, ghair khayāl na koi
+Main nahīn, oh āpe hai, apni āp kare diljoi
 
-Jo kujh saaḍe andar vaste, zaat asaaḍi soi
-Jis de naal main neonh lagaaya, oho jaisi hoi
+Jo kujh sāḍe andar vaste, zāt asāḍi soi
+Jis de nāl main neonh lagāya, oho jaisi hoi
 
-Chiṭṭi chaadar laah suṭ kuṛiye, pahin faqeeraan loi
-Chiṭṭi chaadar daagh lagesi, loi daagh na koi
+Chiṭṭi chādar lāh suṭ kuṛiye, pahin faqīrān loi
+Chiṭṭi chādar dāgh lagesi, loi dāgh na koi
 
-Takht Hazaare lai chal Bulhiya, Siyaalein mile na ḍhoi
-"Ranjha Ranjha" kar di, hun main aape Ranjha hoi
+Takht Hazāre lai chal Bulhiya, Siyālein mile na ḍhoi
+"Ranjha Ranjha" kar di, hun main āpe Ranjha hoi
 
 # Literal Translation
 

@@ -37,23 +37,23 @@ review_status: "draft"
 
 # Transliteration
 
-Khalq tamaashe aai yaar
+Khalq tamāshe āi yār
 
-Khalq tamaashe aai yaar!
-Aj keh keeta; kal keh karna; vat asaaḍa aaya!
-Aisi vaah kiaari beeji, chiṛiyaan khet vanjaaya
+Khalq tamāshe āi yār!
+Aj keh kīta; kal keh karna; vat asāḍa āya!
+Aisi vāh kiāri bīji, chiṛiyān khet vanjāya
 
-Ik ulaanbha siyaan da hai, dooja hai sansaar
-Nang naamoos ithon de aithe, laah pakṛi bhoin yaar
+Ik ulānbha siyān da hai, dūja hai sansār
+Nang nāmūs ithon de aithe, lāh pakṛi bhoin yār
 
-Niḍha karda, buḍha karda, aapo apni vaari
-Keh bibi, keh baandi launḍi, keh dhoban bhaṭiaari
+Niḍha karda, buḍha karda, āpo apni vāri
+Keh bibi, keh bāndi launḍi, keh dhoban bhaṭiāri
 
-Bulha shoh nu dekhan jaave, aap bahaana karda
-Gaun-goi bhaanḍe ghaṛ ke, ṭheekriyaan kar dhar da
+Bulha shoh nu dekhan jāve, āp bahāna karda
+Gaun-goi bhānḍe ghaṛ ke, ṭhīkriyān kar dhar da
 
-Eh tamaasha dekh ke chal pau, agla dekh bazaar
-Vaah va phunj pai darbaar, khalq tamaashe aai yaar!
+Eh tamāsha dekh ke chal pau, agla dekh bazār
+Vāh va phunj pai darbār, khalq tamāshe āi yār!
 
 # Literal Translation
 

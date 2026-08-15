@@ -25,7 +25,7 @@ review_status: "draft"
 # Transliteration
 
 Gal samajh lai te raula keh
-Eh Ram, Raheem te Maula keh?
+Eh Ram, Rahīm te Maula keh?
 
 # Literal Translation
 

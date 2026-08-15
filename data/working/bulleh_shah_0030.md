@@ -24,8 +24,8 @@ review_status: "draft"
 
 # Transliteration
 
-Dharamsaal dhaaṛvi vasde, ṭhaakur duaare ṭhag
-Vich maseet kose te rehnde, aashiq rahn alag
+Dharamsāl dhāṛvi vasde, ṭhākur duāre ṭhag
+Vich masīt kose te rehnde, āshiq rahn alag
 
 # Literal Translation
 

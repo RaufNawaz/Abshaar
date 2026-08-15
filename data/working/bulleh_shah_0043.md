@@ -42,28 +42,28 @@ review_status: "draft"
 
 # Transliteration
 
-kih bedardāṁ de sang yārī!
+Kih bedardān̄ de sang yārī!
 
-kih bedardāṁ de sang yārī!
-rovaṇ akkhiyāṁ zār o zārī
-sānūṁ gae bedardī chhaḍ ke
-sīne sāng hijar dī gaḍ ke
-jismoṁ jind nūṁ le gae kaḍ ke
-e gall kar gae hainī yārī
-kih bedardāṁ de sang yārī!
+Kih bedardān̄ de sang yārī!
+Rovaṇ akkhiyān̄ zār o zārī
+Sānūn̄ gae bedardī chhaḍ ke
+Sīne sāng hijar dī gaḍ ke
+Jismon̄ jind nūn̄ le gae kaḍ ke
+E gall kar gae hainī yārī
+Kih bedardān̄ de sang yārī!
 
-bedardāṁ dā kih bharvāsā
-khauf nahīṁ dil andar māsā
-chiṛiyāṁ maut, gaṁvārāṁ hāsā
-nimagroṁ has has tāṛī mārī
-kih bedardāṁ de sang yārī!
+Bedardān̄ dā kih bharvāsā
+Khauf nahīn̄ dil andar māsā
+Chiṛiyān̄ maut, gan̄vārān̄ hāsā
+Nimagron̄ has has tāṛī mārī
+Kih bedardān̄ de sang yārī!
 
-āvaṇ kah gae, pher na āe
-āvaṇ de sab qaul bhulāe
-maiṁ bhajlī, bhajal naīṁ lagāe
-kīhe mile san ṭhag beopārī
-kih bedardāṁ de sang yārī!
-rovaṇ akkhiyāṁ zār o zārī
+Āvaṇ kah gae, pher na āe
+Āvaṇ de sab qaul bhulāe
+Main̄ bhajlī, bhajal naīn̄ lagāe
+Kīhe mile san ṭhag beopārī
+Kih bedardān̄ de sang yārī!
+Rovaṇ akkhiyān̄ zār o zārī
 
 # Literal Translation
 

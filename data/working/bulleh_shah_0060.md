@@ -43,27 +43,27 @@ review_status: "draft"
 
 # Transliteration
 
-jadoṉ aḥad ik iklā sī, na ẓāhir koī tajallā sī
-na rabb rasūl na allāh sī, na sī jabbār te na qahhār
+Jadon̄ aḥad ik iklā sī, na ẓāhir koī tajallā sī
+Na rabb rasūl na allāh sī, na sī jabbār te na qahhār
 
-be-chūn o be-chagūn sī, be-shubhe te be-namūna sī
-na koī rang namūna sī, hun hoyā gūnāgūn hazār
+Be-chūn o be-chagūn sī, be-shubhe te be-namūna sī
+Na koī rang namūna sī, hun hoyā gūnāgūn hazār
 
-phir "kun" kihā "fayakūn" kamāyā, be-chūnī toṉ chūn banāyā
-aḥad de vich "mīm" ralāyā, tāhioṉ kītā "aḥmad" pyār
+Phir "kun" kihā "fayakūn" kamāyā, be-chūnī ton̄ chūn banāyā
+Aḥad de vich "mīm" ralāyā, tāhion̄ kītā "aḥmad" pyār
 
-hun maiṉ likhyā sohṇā yār, jis de husn dā garam bāzār
+Hun main̄ likhyā sohṇā yār, jis de husn dā garam bāzār
 
-pīr paighambar us de barde, ins malāʾik sajde karde
-sir qadmāṉ de utte dharde, sab toṉ vaḍī oh sarkār
+Pīr paighambar us de barde, ins malāʾik sajde karde
+Sir qadmān̄ de utte dharde, sab ton̄ vaḍī oh sarkār
 
-tajoṉ masīt tajoṉ but-khāna, bartī rahāṉ na roza jānāṉ
-bhulā vazū, namāz dogāna, tainiṉ par jān karāṉ nisār
+Tajon̄ masīt tajon̄ but-khāna, bartī rahān̄ na roza jānān̄
+Bhulā vazū, namāz dogāna, tainin̄ par jān karān̄ nisār
 
-jo koī us noṉ likhyā chāhe, be-vasīle na likhyā jāe
-shāh ʿināyat bhet batāe, tāhīṉ khulle sab asrār
+Jo koī us non̄ likhyā chāhe, be-vasīle na likhyā jāe
+Shāh ʿināyat bhet batāe, tāhīn̄ khulle sab asrār
 
-hun maiṉ likhyā sohṇā yār, jis de husn dā garam bāzār
+Hun main̄ likhyā sohṇā yār, jis de husn dā garam bāzār
 
 # Literal Translation
 

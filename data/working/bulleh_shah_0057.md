@@ -30,14 +30,14 @@ review_status: "draft"
 
 # Transliteration
 
-hindu nahin, nah musalman, bahe turanjan, taj abhmaan
-sunni nah, nahin ham shia, sulah-kul ka maarag liya
-bhukhe nah, nahin ham rajje, nange nah, nahin ham kajje
-runde nah, nahin ham hasde, ujṛe nah, nahin ham wasde
-paapi nah, sudharmi naan, paap pun ki raah nah jaan
+Hindu nahin, nah musalman, bahe turanjan, taj abhmān
+Sunni nah, nahin ham shia, sulah-kul ka mārag liya
+Bhukhe nah, nahin ham rajje, nange nah, nahin ham kajje
+Runde nah, nahin ham hasde, ujṛe nah, nahin ham wasde
+Pāpi nah, sudharmi nān, pāp pun ki rāh nah jān
 
-bullhe shah! jo har chit laage
-turk aur hindu do jan tyaage
+Bullhe shah! jo har chit lāge
+Turk aur hindu do jan tyāge
 
 # Literal Translation
 

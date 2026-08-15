@@ -41,27 +41,27 @@ review_status: "draft"
 
 # Transliteration
 
-maiṅ uḍīkāṅ kar rahī
+Main̄ uḍīkān̄ kar rahī
 
-maiṅ uḍīkāṅ kar rahī, gedī ā, kar pherā
-pachhmāṅ sej vichhāiyāṅ, dil kītā vahṛā
-tūṅ luk keindā āvṛeṅ shāh ináyat merā
-maiṅ uḍīkāṅ kar rahī, gedī ā, kar pherā
+Main̄ uḍīkān̄ kar rahī, gedī ā, kar pherā
+Pachhmān̄ sej vichhāiyān̄, dil kītā vahṛā
+Tūn̄ luk keindā āvṛen̄ shāh ináyat merā
+Main̄ uḍīkān̄ kar rahī, gedī ā, kar pherā
 
-oh ajehā kaun hai jā ākhe jehṛā
-maiṅ vich keh taqsīr hai, maiṅ bardā terā
-taiṅ bājhoṅ marā kaun hai, dil ḍhāhnā merā
-maiṅ uḍīkāṅ kar rahī, gedī ā, kar pherā
+Oh ajehā kaun hai jā ākhe jehṛā
+Main̄ vich keh taqsīr hai, main̄ bardā terā
+Tain̄ bājhon̄ marā kaun hai, dil ḍhāhnā merā
+Main̄ uḍīkān̄ kar rahī, gedī ā, kar pherā
 
-hath kangan, bānh chūṛiyāṅ, gal no rang cholā
-māhī mainūṅ kar gayā koī rāval raulā
-jhul bhul ḍhāhīṅ māriyāṅ, dil patthar terā
-maiṅ uḍīkāṅ kar rahī, gedī ā, kar pherā
+Hath kangan, bānh chūṛiyān̄, gal no rang cholā
+Māhī mainūn̄ kar gayā koī rāval raulā
+Jhul bhul ḍhāhīn̄ māriyān̄, dil patthar terā
+Main̄ uḍīkān̄ kar rahī, gedī ā, kar pherā
 
-bulhiā! shoh de vāste dil bhaṛkan bhāīṅ
-okhā painḍā prem dā, dukh ghaṭdā nā hīṅ
-dil vich dhaṛke jhīṛ de, sir dhāhīṅ merā
-maiṅ uḍīkāṅ kar rahī, gedī ā, kar pherā
+Bulhiā! shoh de vāste dil bhaṛkan bhāīn̄
+Okhā painḍā prem dā, dukh ghaṭdā nā hīn̄
+Dil vich dhaṛke jhīṛ de, sir dhāhīn̄ merā
+Main̄ uḍīkān̄ kar rahī, gedī ā, kar pherā
 
 # Literal Translation
 

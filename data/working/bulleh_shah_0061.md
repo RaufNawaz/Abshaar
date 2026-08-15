@@ -56,40 +56,40 @@ review_status: "draft"
 
 # Transliteration
 
-kyoṉ ʿishq asāṉ te āyā e?
-tūṉ āyā te maiṉ pāyā e
+Kyon̄ ʿishq asān̄ te āyā e?
+Tūn̄ āyā te main̄ pāyā e
 
-ibrāhīm chā pakhā satāio [~ set upon the pyre/fire]
-zakariye sir kalotar dharāio [Zakariya's head was laid to the saw]
-yūsuf haṭo-haṭ vikāio [Yusuf was sold shop-to-shop / at auction]
-kaho sāauṉ kih liyā yā e [say, what has [love] taken/gained from us?]
+Ibrāhīm chā pakhā satāio [~ set upon the pyre/fire]
+Zakariye sir kalotar dharāio [Zakariya's head was laid to the saw]
+Yūsuf haṭo-haṭ vikāio [Yusuf was sold shop-to-shop / at auction]
+Kaho sāaun̄ kih liyā yā e [say, what has [love] taken/gained from us?]
 
-kyoṉ ʿishq asāṉ te āyā e?
-tūṉ āyā te maiṉ pāyā e
+Kyon̄ ʿishq asān̄ te āyā e?
+Tūn̄ āyā te main̄ pāyā e
 
-shaikh sanʿān toṉ khok charāio [Shaikh Sanʿan was made to herd swine]
-shams dī khal ulaṭ lahāio [Shams's skin was flayed off]
-sūlī te mansūr chaṛhāio [Mansur was raised on the gallows/cross]
-kar hath hun kis dil dhāyā e [...]
+Shaikh sanʿān ton̄ khok charāio [Shaikh Sanʿan was made to herd swine]
+Shams dī khal ulaṭ lahāio [Shams's skin was flayed off]
+Sūlī te mansūr chaṛhāio [Mansur was raised on the gallows/cross]
+Kar hath hun kis dil dhāyā e [...]
 
-kyoṉ ʿishq asāṉ te āyā e?
-tūṉ āyā te maiṉ pāyā e
+Kyon̄ ʿishq asān̄ te āyā e?
+Tūn̄ āyā te main̄ pāyā e
 
-jis ghar terā pherā hoyā
-so jal bal koelā ḍher hoyā
-jad rākh uḍī tad ser hoyā
-kaho kis gal dās dharāyā e
+Jis ghar terā pherā hoyā
+So jal bal koelā ḍher hoyā
+Jad rākh uḍī tad ser hoyā
+Kaho kis gal dās dharāyā e
 
-kyoṉ ʿishq asāṉ te āyā e?
-tūṉ āyā te maiṉ pāyā e
+Kyon̄ ʿishq asān̄ te āyā e?
+Tūn̄ āyā te main̄ pāyā e
 
-buṭhā shoh de kāran kar
-tan bhaṭṭhī, man āhran kar
-vich prem hathoṛā māran kar
-lohā bhanbiyā, kis aṭkāyā e
+Buṭhā shoh de kāran kar
+Tan bhaṭṭhī, man āhran kar
+Vich prem hathoṛā māran kar
+Lohā bhanbiyā, kis aṭkāyā e
 
-kyoṉ ʿishq asāṉ te āyā e?
-tūṉ āyā te maiṉ pāyā e
+Kyon̄ ʿishq asān̄ te āyā e?
+Tūn̄ āyā te main̄ pāyā e
 
 # Literal Translation
 

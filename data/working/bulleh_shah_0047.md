@@ -24,10 +24,10 @@ review_status: "draft"
 
 # Transliteration
 
-mullāṁ te mashālchī
+Mullān̄ te mashālchī
 
-mullāṁ te mashālchī donhāṁ iko chit
-lokāṁ kar de chānnā, āp anhere vich
+Mullān̄ te mashālchī donhān̄ iko chit
+Lokān̄ kar de chānnā, āp anhere vich
 
 # Literal Translation
 

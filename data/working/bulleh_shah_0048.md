@@ -35,21 +35,21 @@ review_status: "draft"
 
 # Transliteration
 
-merī bukkal de vich chor!
+Merī bukkal de vich chor!
 
-merī bukkal de vich chorī, merī bukkal de vich chor
+Merī bukkal de vich chorī, merī bukkal de vich chor
 
-sāḍho kis nūn kūk sunāvāṅ: merī bukkal de vich chor
-chorī chorī nikal gayā te jag vich pai gayā shor
-merī bukkal de vich chor
+Sāḍho kis nūn kūk sunāvān̄: merī bukkal de vich chor
+Chorī chorī nikal gayā te jag vich pai gayā shor
+Merī bukkal de vich chor
 
-jis jātā tis jān liyā, ate hor hoe jhammar mor
-thak gae sāre jhagṛe jhīṛe, nikal payā koī hor
-merī bukkal de vich chor
+Jis jātā tis jān liyā, ate hor hoe jhammar mor
+Thak gae sāre jhagṛe jhīṛe, nikal payā koī hor
+Merī bukkal de vich chor
 
-arsh mantūr bāṅgāṅ miliyāṅ, suṇiyāṅ takht lahaur
-shāh ináyat gaṇḍiyāṅ pāiyāṅ, thak chup rakhdā dūr
-merī bukkal de vich chorī, merī bukkal de vich chor
+Arsh mantūr bān̄gān̄ miliyān̄, suṇiyān̄ takht lahaur
+Shāh ináyat gaṇḍiyān̄ pāiyān̄, thak chup rakhdā dūr
+Merī bukkal de vich chorī, merī bukkal de vich chor
 
 # Literal Translation
 

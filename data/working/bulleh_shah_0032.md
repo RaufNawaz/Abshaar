@@ -40,26 +40,26 @@ review_status: "draft"
 
 # Transliteration
 
-Sab iko rang kapaahaan da
+Sab iko rang kapāhān da
 
-Sab iko rang kapaahaan da
-Taani, taana, peṭa, naliyaan
-Peṭh, naṛa, te chhabba, chhalliyaan
-Aapo apne naam jataavan
-Vakho vakhi jaaeen da
-Sab iko rang kapaahaan da
+Sab iko rang kapāhān da
+Tāni, tāna, peṭa, naliyān
+Peṭh, naṛa, te chhabba, chhalliyān
+Āpo apne nām jatāvan
+Vakho vakhi jāīn da
+Sab iko rang kapāhān da
 
-Chuni, peeni, khaddar, dhotar
-Malmal, khaasa, ikka sootar
-Pooi vichon baahar aave
-Bhagwa bhes gusaaeen da
-Sab iko rang kapaahaan da
+Chuni, pīni, khaddar, dhotar
+Malmal, khāsa, ikka sūtar
+Pūi vichon bāhar āve
+Bhagwa bhes gusāīn da
+Sab iko rang kapāhān da
 
-Guṛiyaan, hattheen, chhaapaan, chhalle
-Aapo apne naam saule
-Sabha ikka chaandi aakho
-Kangan, chhuṛa baaheen da
-Sab iko rang kapaahaan da
+Guṛiyān, hatthīn, chhāpān, chhalle
+Āpo apne nām saule
+Sabha ikka chāndi ākho
+Kangan, chhuṛa bāhīn da
+Sab iko rang kapāhān da
 
 # Literal Translation
 
