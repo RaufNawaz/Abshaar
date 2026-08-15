@@ -1,6 +1,6 @@
 # OFFLOADING.md
 
-Last updated: 2026-07-13
+Last updated: 2026-08-15
 
 ## 1. Project Overview
 
@@ -12,15 +12,14 @@ Abshaar is an open-source, local-first archive and AI-assisted translation and e
 
 ### Current Stage
 
-- Rafat source collection complete; Sufinama 76-kaafi and 48-record non-kaafi textual acquisition complete; PunjabLibrary 160-item Gurmukhi extraction complete but textually unverified; biography/context research and all Sufinama categories are inventoried. Canonical clustering, cross-script matching, and editorial review are now the principal bottlenecks.
-- Verified on 2026-07-13: 72 working entries, 72 processed records, 7 sources, 76 normalized Sufinama kaafi witnesses, 48 normalized non-kaafi category witnesses, 160 Gurmukhi catalog/witness records, 124 Sufinama candidate-match records, 1 person, 11 sourced biographical claims, 6 timeline events, 13 Sufinama inventory categories, 0 public poems, 0 glossary/themes/reviews/model outputs, 0 validation errors, 144 expected placeholder warnings, and 19 passing tests.
+- Rafat source collection complete; Sufinama 76-kaafi and 48-record non-kaafi textual acquisition complete; PunjabLibrary 160-item Gurmukhi extraction complete but textually unverified; biography/context research and all Sufinama categories are inventoried. **AI-drafted interpretive layers (Literary Translation, Tashreeh, Key Terms, Themes) are now complete for all 72 entries** (commits `663bec2`, `bfbd30e`, `2651e33`, 2026-07-13/14).
+- Verified live on 2026-08-15: clean working tree on `draft`, 4 commits ahead of `origin/draft` (unpushed); 72 working entries, 72 processed records, 7 sources, 76 + 48 Sufinama witnesses, 160 Gurmukhi records, 124 candidate-match records, 1 person, 11 biographical claims, 6 timeline events, 13 inventory categories, 0 public poems, 0 extracted glossary/themes/reviews/model outputs, 0 validation errors, **34 warnings (all false positives — see below)**, 19 passing tests. `.git/index.lock` no longer exists.
+- **Finding (2026-08-15): the remaining 34 placeholder warnings are all false positives.** `has_placeholder` in `src/abshaar/text.py` flags ANY `[bracketed text]`; the 17 flagged entries contain only legitimate uncertainty annotations (`[uncertain line — …]`), supplied words, and `[[cross-references]]`. Zero genuine template placeholders remain. Fix the check (plan Phase 0.1), never the entry content.
 
 ### Current Working Direction
 
-- Review the 76-record kaafi crosswalk and 48-record non-kaafi crosswalk without changing the 72 Markdown entries, then define canonical-work clusters so variants remain source-separated and cannot leak across training/evaluation splits.
-- Correct or replace the defective Gurmukhi embedded-text layer, then create reviewed cross-script first-line links from the 160 Gurmukhi witnesses to Sufinama/Rafat clusters.
-- Add Devanagari-aware matching or reviewed transliteration for the 40 non-kaafi records that currently have no candidate because the matcher only compares Roman and Urdu.
-- Settle translation-field semantics and editorial standards, then fully annotate a representative five-poem vertical slice.
+- Execute `docs/15_bulleh_shah_expert_model_implementation_plan.md` (written 2026-08-15 at Rauf's direction): a 6-phase, low-human-intervention pipeline to a private Bulleh Shah expert system (base Qwen3 + RAG over a consolidated knowledge base + LoRA on synthetic grounded instruction data + honesty training + eval suite), each phase executable by cheaper models with mechanical acceptance gates. It supersedes the ordering of §7 below where they conflict; rights rules are unchanged.
+- The earlier direction items (crosswalk review, Devanagari matching, Gurmukhi correction, five-poem human gold slice) remain valid quality work but are no longer blocking; the plan replaces human review gates with conservative automation plus validators, with accepted risks recorded in the plan §9.
 
 ## 2. What Has Been Done
 
@@ -190,16 +189,27 @@ Abshaar is an open-source, local-first archive and AI-assisted translation and e
   - Why it matters: The project now preserves all Sufinama textual categories inventoried for Bulleh Shah, materially broadening form and variant coverage while keeping training/evaluation provenance safe.
   - Files affected: `src/abshaar/sufinama.py`, `src/abshaar/cli.py`, `src/abshaar/status.py`, `src/abshaar/validation.py`, `tests/test_sufinama.py`, `.gitignore`, `data/context/sufinama_text_source_items.jsonl`, `data/context/sufinama_text_source_matches.jsonl`, `data/context/sufinama_bulleh_shah_inventory.jsonl`, `data/context/sources.jsonl`, `data/processed/private/sufinama_bulleh_shah_other_texts.jsonl`, `data/processed/private/sufinama_texts_run.json`, the ignored raw cache/match manifest, and affected project guides/logs.
 
+- Completed AI-drafted interpretive layers for all 72 entries on 2026-07-13/14 (commits `663bec2`, `bfbd30e`, `2651e33`).
+  - Details: Every entry (including pilot 0001 and the athwara/baramaha day/season poems) now has a Literary Translation, analytical Tashreeh, Key Terms, and Themes, drafted by Claude and labeled for human review. This work was committed but was not recorded here or in the corpus build log at the time; recorded retroactively on 2026-08-15 after live verification.
+  - Why it matters: The corpus is now fully drafted across all layers; the bottleneck moved from drafting to consolidation, verification, and training infrastructure.
+  - Files affected: `data/working/bulleh_shah_0001.md`–`_0072.md`, `data/processed/poems.jsonl`.
+
+- Audited live state and wrote the expert-model implementation plan on 2026-08-15 (Claude).
+  - Details: Verified corpus/validation/test state live (figures in §1). Discovered that all 34 remaining placeholder warnings are false positives of the blanket `\[[^\]]+\]` regex — the flagged brackets are uncertainty annotations, supplied words, and cross-references, not unfinished slots. Confirmed hardware: Apple M4, 16 GB RAM (local MLX LoRA on a 4B model feasible). Confirmed `.git/index.lock` no longer exists. Wrote `docs/15_bulleh_shah_expert_model_implementation_plan.md`: 6 phases (safety rails/schema fixes → knowledge-base consolidation → RAG index → synthetic training-data factory with rights firewall and honesty examples → eval baseline → LoRA training and serving), each with executor prompts for cheaper models, mechanical exit-nonzero gates, and a list of Rauf's few required actions.
+  - Verification: `./scripts/abshaar.sh status` and `validate` (0 errors / 34 warnings), 19/19 unit tests, bracket-content scan of all 17 flagged entries, `sysctl hw.memsize`, `git status`/`git log`.
+  - Why it matters: The project now has a concrete, delegable path from the drafted corpus to a trained-and-evaluated private expert model, with rights protection encoded as failing checks rather than intentions.
+  - Files affected: `docs/15_bulleh_shah_expert_model_implementation_plan.md` (new), `OFFLOADING.md`, `Bulleh Shah/CORPUS_BUILD_LOG.md`.
+
 ## 3. Current State
 
 | Item | Current Status | Notes |
 |---|---|---|
 | Repository path | Verified | `/Users/rauf/Desktop/Desktop - rauf’s MacBook Air/Harvard/Abshaar` |
 | Current OS/shell | Verified | macOS with zsh; use `./scripts/*.sh`. Keep matching PowerShell instructions for Windows. |
-| Git branch | Verified | `draft`, tracking `origin/draft`; HEAD `d52e7c9`. |
+| Git branch | Verified 2026-08-15 | `draft`, tracking `origin/draft`; HEAD `2651e33`, **4 commits ahead of origin (unpushed)**. |
 | Git remote | Verified | `https://github.com/RaufNawaz/Abshaar.git`; Rauf confirmed the repository is private. |
-| Working tree | Dirty/shared | Many uncommitted and untracked corpus files plus Claude parser/template changes and this documentation audit. Preserve all work. |
-| Git lock | Present | `.git/index.lock` is a 0-byte file dated 2026-07-11 17:23 local time. It may be stale or may indicate another process. Do not remove without verification. |
+| Working tree | Clean at HEAD | Verified clean on 2026-08-15 before the plan/handoff edits of that date. Still shared with Codex — inspect `git status` before editing. |
+| Git lock | Resolved | `.git/index.lock` no longer exists (verified 2026-08-15). |
 | Python package | Working | `abshaar` 0.1.0, Python >=3.11, standard-library core. |
 | CLI | Working | Twelve commands, including `acquire-sufinama`, `match-source-manifest`, and `extract-gurmukhi-pdf`. |
 | Working corpus | 72 draft files | 0001 Sufinama pilot; 0002-0072 all 71 Rafat poems. |
@@ -219,10 +229,12 @@ Abshaar is an open-source, local-first archive and AI-assisted translation and e
 | Biographical claims | 11 sourced drafts | Claim-level evidence status, confidence, caution, and source IDs are in `data/context/biographical_claims.jsonl`. |
 | Timeline events | 6 sourced drafts | Cautious life/historical events; exact dates remain unknown for education and discipleship. |
 | Sufinama content inventory | 13 categories | Includes profile, kaafi, kalaam, doha, shabad, dohra, athvara, barahmasa, holi, quotes, e-book, video, and blog. |
-| Glossary/themes/reviews/model outputs | 0 | These remain the largest content gaps after text and source-relationship verification. |
-| Translations | Mixed draft state | 71 Rafat entries have an AI section; 0001 predates it. Rafat reference translations are copyrighted and are incorrectly serialized as `literal_gloss`. |
+| Glossary/themes/reviews/model outputs | 0 extracted | Key Terms and Themes now exist INSIDE all 72 entries but have not been extracted to `data/lexicon/`/`data/context/themes.jsonl` (plan Phase 1.1). Reviews/model outputs remain 0. |
+| Interpretive layers | Complete as AI drafts | All 72 entries have Literary Translation, Tashreeh, Key Terms, Themes (Claude-drafted, `review_status: draft`). 0001 now includes an AI Translation section. Rafat reference translations remain copyrighted and incorrectly serialized as `literal_gloss` (plan Phase 0.2). |
 | Original-text confidence | Needs human review | Shahmukhi was visually read from calligraphic pages. Many entries explicitly flag high-uncertainty readings. |
-| Validation | Structurally passing | 0 errors, 144 warnings. Warnings are placeholders in 72 Markdown entries plus the same 72 processed records. |
+| Validation | Structurally passing | 0 errors, 34 warnings (17 entries ×2), **all false positives** of the blanket bracket regex; the flagged brackets are uncertainty/supplied-word/cross-reference conventions. Fix per plan Phase 0.1. |
+| Hardware | Verified 2026-08-15 | Apple M4, 16 GB RAM. Local MLX LoRA on Qwen3-4B feasible; 8B-4bit marginal. |
+| Implementation plan | Written 2026-08-15 | `docs/15_bulleh_shah_expert_model_implementation_plan.md` — authoritative next-steps document; §10 checklist tracks phase progress. |
 | Tests | Passing | 19 tests cover build wrapper parity, Markdown translation slots, Gurmukhi PDF segmentation/auditing, source matching/catalog aliases, status IDs, Sufinama cache portability and offline network blocking, URL normalization, dominant-script handling, kaafi/non-kaafi catalog parsing, inline-doha separation, requested-view availability, audit metrics, and alignment parsing. |
 | Full-build wrappers | Fixed and verified | Both include placeholders; live macOS build preserved 72 working and processed records. |
 | Site data | Generated/ignored | `export-site` was rerun after research and exports 1 person, 6 events, 7 sources, and 0 public poems; directory is Git-ignored. |
@@ -351,9 +363,9 @@ Windows equivalents:
 - The first Sufinama pilot predates the three-slot layout and lacks `# AI Translation`.
 - `data/processed/poems.jsonl` contains unfinished entries only because it was built with `--include-placeholders`.
 - Both full-build wrappers now include that flag and were verified to preserve 72 records.
-- The 144 validation warnings are expected but meaningful: every poem still has editorial TODO content, and each warning appears once in Markdown and once in processed JSONL.
-- The project has no formal review records, glossary, themes, Q&A, website, or RAG system yet; it does have 6 cautious timeline events. Bulk transcription completion does not equal corpus MVP completion.
-- The immediate value lies in a five-poem reviewed vertical slice that proves the complete editorial, source, rights, and review workflow.
+- Validation now shows 0 errors / 34 warnings, and **all 34 are false positives**: the placeholder regex flags any `[bracketed text]`, but the flagged brackets in 17 entries are uncertainty annotations, supplied words, and `[[cross-references]]` — the corpus's honesty conventions. Never edit entries to silence these; fix the check (plan Phase 0.1).
+- All 72 entries now carry AI-drafted interpretive layers (`review_status: draft`). The project still has no formal review records, extracted glossary, Q&A dataset, website, or RAG system. AI-draft completion does not equal human-reviewed corpus completion; the plan accepts this trade explicitly.
+- Rauf's directive (2026-08-15): reach training-readiness within days with his own work minimized or eliminated, executable by cheaper models. `docs/15_bulleh_shah_expert_model_implementation_plan.md` is the response: RAG + LoRA on synthetic grounded data with mechanical gates instead of human review gates. The five-poem reviewed vertical slice remains the right eventual quality investment but is no longer the immediate path.
 - Codex and Claude share this repository. The next assistant must merge useful concurrent changes rather than replacing files from memory.
 - Sufinama discovery is complete: 76 paired UUID records are stored in `data/context/sufinama_source_items.jsonl`; the catalog includes numbered and special slugs and some page-two records whose displayed titles are not Roman.
 - `src/abshaar/sufinama.py` implements raw caching, three-view parsing, alignment preservation, checksums, resume/refresh, and crosswalk generation. Use curl transport on this Mac.
@@ -378,6 +390,16 @@ Windows equivalents:
 
 ## 7. Next Steps
 
+**As of 2026-08-15, the authoritative next-steps document is
+`docs/15_bulleh_shah_expert_model_implementation_plan.md`** (6 phases:
+safety rails/schema fixes → knowledge base → RAG → training-data factory →
+eval baseline → LoRA training/serving, with per-phase executor prompts and
+gates). Start with its Phase 0. The checklist below is retained because its
+items remain valid quality work; several are absorbed by plan phases
+(translation schema → Phase 0.2; clustering → Phase 1.2 in conservative
+automated form; crosswalk review and the five-poem human gold slice are
+deferred, with the risk accepted in the plan §9).
+
 ### Urgent
 
 - [ ] Review `data/context/source_matches.jsonl` and classify exact witness, variant, excerpt/full, possible, and unmatched relations; do not auto-merge.
@@ -385,7 +407,8 @@ Windows equivalents:
 - [ ] Add a `canonical_work_id`/work-cluster layer so source variants can be grouped and kept out of opposite train/evaluation splits.
 - [ ] Add a reviewed Devanagari matching/transliteration layer so the 47 Devanagari non-kaafi witnesses can be compared without erasing their original source text.
 - [ ] Human-check the 160 PunjabLibrary headings against rendered pages, starting with the five-poem review slice, and record cross-script witness relationships without assuming source-order identity.
-- [ ] Verify whether any active Git process owns `.git/index.lock`; remove it only after confirming it is stale and only with user authorization if removal is needed.
+- [x] ~~Verify whether any active Git process owns `.git/index.lock`~~ — resolved; the lock no longer exists (verified 2026-08-15).
+- [ ] Push the 4 waiting commits on `draft` to `origin/draft` (needs Rauf's authorization; the interpretive-layer work currently exists only on this Mac).
 - [ ] Decide the translation schema: add an explicit private/reference translation field or storage path, reserve `literal_gloss` for Rauf's own close translation, migrate the template/parser/records, and document the decision.
 - [ ] Select and document a representative five-poem review slice. Recommended
   starting set: `bulleh_shah_0002` (Alif/foundational vocabulary), `_0029`
@@ -423,11 +446,11 @@ Copy and paste this into a new chat or Codex session:
 >
 > First, read `AGENTS.md`, `CLAUDE.md`, `OFFLOADING.md`, and `Bulleh Shah/CORPUS_BUILD_LOG.md`. Then run `git status --short --branch` and inspect the diff for every file you may edit. Codex and Claude share this working tree, so preserve all pre-existing modified and untracked work.
 >
-> Current state: the live macOS working tree contains 72 draft Bulleh Shah entries, 76 normalized Sufinama kaafi witnesses, 48 normalized non-kaafi Sufinama category witnesses, and 160 ignored/private PunjabLibrary Gurmukhi witnesses. Internet research adds 7 total source records, 11 sourced biographical claims, 6 timeline events, and a 13-category Sufinama inventory. The 48 non-kaafi records cover all inventoried kalaam, doha, shabad, dohra, athvara, barahmasa, and holi items, but these categories overlap and are not unique-work totals. Validation is 0 errors/144 expected warnings; 19 tests pass.
+> Current state (verified 2026-08-15): clean tree on `draft`, 4 unpushed commits; 72 draft Bulleh Shah entries with COMPLETE AI-drafted interpretive layers (literary translation, tashreeh, key terms, themes — all `review_status: draft`); 76 normalized Sufinama kaafi witnesses, 48 non-kaafi witnesses, 160 ignored/private PunjabLibrary Gurmukhi witnesses; 7 sources, 11 biographical claims, 6 timeline events, 13-category Sufinama inventory. Validation: 0 errors, 34 warnings that are ALL false positives of the bracket regex (uncertainty annotations, not placeholders — fix the check, never the entries). 19 tests pass. Hardware: Apple M4, 16 GB RAM.
 >
-> Important files: `START_HERE.md`, `OFFLOADING.md`, `docs/12_sufinama_source_ingestion.md`, `docs/13_gurmukhi_pdf_ingestion.md`, `docs/14_bulleh_shah_research_and_sufinama_inventory.md`, `Bulleh Shah/CORPUS_BUILD_LOG.md`, `data/context/biographical_claims.jsonl`, `data/context/events.jsonl`, `data/context/sufinama_bulleh_shah_inventory.jsonl`, the three source-item catalogs, both Sufinama match files, both normalized Sufinama witness files, `src/abshaar/sufinama.py`, `src/abshaar/gurmukhi_pdf.py`, and the 72 working entries.
+> Important files: `docs/15_bulleh_shah_expert_model_implementation_plan.md` (the authoritative plan), `START_HERE.md`, `OFFLOADING.md`, `Bulleh Shah/CORPUS_BUILD_LOG.md`, `docs/12`–`14`, `data/context/*.jsonl` catalogs/matches/claims, `src/abshaar/`, and the 72 working entries.
 >
-> Immediate work: review and classify the 76-record kaafi and 48-record non-kaafi crosswalks; add reviewed Devanagari matching; introduce canonical work clusters; split future training/evaluation data by cluster; then resolve translation schema semantics and annotate a representative poem slice. Rebuild both Sufinama outputs without network access using `./scripts/abshaar.sh acquire-sufinama --offline --transport curl` and `./scripts/abshaar.sh acquire-sufinama-texts --offline --transport curl`.
+> Immediate work: execute the implementation plan phase by phase, starting at Phase 0 (fix the placeholder false positives; migrate the copyrighted Rafat layer from `literal_gloss` to `reference_translation` with `trainable: false`; build the rights-firewall training exporter with the Rafat 8-gram leak scanner). Every phase has an executor prompt in the plan's §6 and a mechanical acceptance gate; never start phase N+1 while phase N's gate fails, and never weaken a gate.
 >
 > Safety: `build_all` is fixed and safe for the current drafts. Never overwrite the 72 Markdown entries with Sufinama data; keep each source witness separate and preserve UUID/line/token provenance. Do not remove `.git/index.lock` without verifying it is stale.
 >
@@ -469,4 +492,4 @@ Copy and paste this into a new chat or Codex session:
 
 ## 10. Compact Version
 
-Abshaar is a private, local-first, human-reviewed archive and AI-assisted interpretation project shared by Codex and Claude, with the long-term goal of training a source-grounded Bulleh Shah expert model. The live tree contains 72 draft poem entries, 76 normalized Sufinama kaafi witnesses, 48 normalized non-kaafi Sufinama category witnesses, and 160 private PunjabLibrary Gurmukhi witnesses. Sourced research adds 7 sources, 11 claim-level biography records, 6 timeline events, and a 13-category inventory. The key cautions are disputed life details, uncertain corpus boundaries, defective Gurmukhi embedded text, overlapping source categories, 40 Devanagari-heavy match records without candidates, and no completed human-reviewed gold slice. Validation has 0 errors/144 expected warnings and 19 tests pass. Next, review both Sufinama crosswalks, add Devanagari-aware matching and canonical clusters, resolve translation-field semantics, and build the five-poem gold slice. Never overwrite source variants or remove `.git/index.lock` automatically; update affected docs and `OFFLOADING.md` after substantive work.
+Abshaar is a private, local-first archive and AI-assisted interpretation project shared by Codex and Claude, whose goal is a source-grounded Bulleh Shah expert model. The live tree (verified 2026-08-15: clean, 4 unpushed commits on `draft`) contains 72 poem entries with complete AI-drafted interpretive layers, 76 + 48 normalized Sufinama witnesses, 160 private PunjabLibrary Gurmukhi witnesses, 7 sources, 11 claim-level biography records, 6 timeline events, and a 13-category inventory. Validation: 0 errors, 34 warnings that are all bracket-regex false positives (uncertainty annotations — fix the check, not the entries); 19 tests pass. The authoritative next-steps document is `docs/15_bulleh_shah_expert_model_implementation_plan.md`: a 6-phase, cheap-model-executable pipeline (schema/rights fixes → knowledge base → RAG → synthetic training data with a Rafat leak scanner and honesty examples → eval baseline → local MLX LoRA on Qwen3-4B, M4/16 GB verified) whose gates are commands that exit non-zero. Rafat's English is copyrighted and must never enter training data; Sufinama/PunjabLibrary material stays private. Never overwrite source variants; update affected docs and `OFFLOADING.md` after substantive work.

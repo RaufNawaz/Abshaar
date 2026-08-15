@@ -4,7 +4,7 @@
 > ends. Read this top-to-bottom to know where things stand and what to do next.
 > Complements the repo-wide `OFFLOADING.md`.
 >
-> Started: 2026-07-04 · Last updated: 2026-07-13
+> Started: 2026-07-04 · Last updated: 2026-08-15
 
 ## Goal
 
@@ -96,9 +96,21 @@ log (this file) so work can resume across sessions.
 
 ## Current state
 
+- **INTERPRETIVE LAYERS COMPLETE AS AI DRAFTS (2026-07-13/14, commits `663bec2`,
+  `bfbd30e`, `2651e33`; logged retroactively 2026-08-15).** All 72 entries —
+  including pilot 0001 and the athwara/baramaha poems — now carry a Literary
+  Translation, analytical Tashreeh, Key Terms, and Themes, Claude-drafted and
+  labelled for human review. 0001 also gained an `# AI Translation` section.
+  Zero genuine template placeholders remain. Validation: 0 errors, 34 warnings —
+  **all false positives** (verified 2026-08-15): the blanket `\[…\]` placeholder
+  regex flags the corpus's legitimate bracket conventions (uncertainty notes like
+  `[uncertain line — …]`, supplied words, `[[cross-references]]`) in 17 entries.
+  Fix the check, never the entry content — see
+  `docs/15_bulleh_shah_expert_model_implementation_plan.md` Phase 0.1.
+- Human review of the flagged uncertain Nastaliq readings and of all AI-drafted
+  layers remains pending; `review_status` is `draft` everywhere.
 - Corpus composition: `bulleh_shah_0001` is the Sufinama pilot; entries
-  `bulleh_shah_0002` through `_0072` are Rafat poems 1–71. All build and remain
-  correctly flagged incomplete because human interpretive/review layers are pending.
+  `bulleh_shah_0002` through `_0072` are Rafat poems 1–71.
 - Sources: `source_sufinama_bulleh_0001`, `source_rafat_selection`. Person:
   `bulleh_shah`.
 - **CORPUS COMPLETE (2026-07-06).** All 71 Rafat poems are transcribed. `status`:
@@ -192,6 +204,21 @@ the Rafat Urdu pages instead of hand-transcription.
   hand-transcribing the calligraphy, and/or point UTRNet at a printed edition.
 
 ## Changelog
+
+- 2026-08-15 (state audit + training plan): Verified live that the 34 remaining
+  placeholder warnings are all false positives of the bracket regex (uncertainty
+  annotations, supplied words, cross-references in 17 entries — no real
+  placeholders). Retroactively logged the 2026-07-13/14 interpretive-layer
+  completion commits above, which had not been recorded here. Wrote
+  `docs/15_bulleh_shah_expert_model_implementation_plan.md` (6-phase path to a
+  private RAG+LoRA Bulleh Shah expert system, cheap-model-executable). No poem
+  entry was modified.
+
+- 2026-07-13/14 (interpretive layer drafting, commits `663bec2`, `bfbd30e`,
+  `2651e33`): Drafted Literary Translation, Tashreeh, Key Terms, and Themes for
+  all 72 entries (AI, labelled for review); added the missing AI Translation to
+  0001. 0 validation errors, 19 tests passing. (Entry added retroactively on
+  2026-08-15 — the work was committed without a log entry at the time.)
 
 - 2026-07-13 (Sufinama non-kaafi text expansion): Implemented
   `acquire-sufinama-texts`, including a generic UUID catalog parser, inline-doha
