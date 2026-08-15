@@ -388,6 +388,10 @@ phase's gate commands still pass."
 
 ## 10. Progress checklist (executors update this)
 
+> The remaining model-dependent steps are operationalized in
+> **`docs/17_training_runbook.md`** — start there; it supersedes the §6
+> executor prompts for Phases 2-gate through 6.
+
 - [x] Phase 0.1 placeholder check fixed — 0 warnings, entries untouched (2026-08-15)
 - [x] Phase 0.2 reference_translation migration — gates passed (2026-08-15).
       Gate correction discovered in execution: entry 0001's literal slot is a
