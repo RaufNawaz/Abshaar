@@ -56,10 +56,27 @@ def validate_poem_record(record: dict[str, Any], location: str) -> list[Issue]:
         issues.append(Issue("warning", location, f"{poem_id}: expected literal and literary translations"))
     else:
         kinds = {item.get("kind") for item in translations if isinstance(item, dict)}
-        if "literal_gloss" not in kinds:
-            issues.append(Issue("warning", location, f"{poem_id}: missing literal_gloss translation"))
+        if not kinds & {"literal_gloss", "reference_translation"}:
+            issues.append(
+                Issue(
+                    "warning",
+                    location,
+                    f"{poem_id}: missing literal_gloss or reference_translation",
+                )
+            )
         if "literary_translation" not in kinds:
             issues.append(Issue("warning", location, f"{poem_id}: missing literary_translation"))
+        for item in translations:
+            if not isinstance(item, dict):
+                continue
+            if item.get("kind") == "reference_translation" and item.get("trainable") is not False:
+                issues.append(
+                    Issue(
+                        "error",
+                        location,
+                        f"{poem_id}: reference_translation must have trainable=false",
+                    )
+                )
 
     if has_placeholder(record):
         issues.append(Issue("warning", location, f"{poem_id}: placeholder text remains"))

@@ -4,7 +4,29 @@ import re
 import unicodedata
 
 
-PLACEHOLDER_RE = re.compile(r"\[[^\]]+\]|yes/no/unknown|public-domain/permission-cleared", re.I)
+# Square brackets are also legitimate corpus conventions (uncertainty notes like
+# "[uncertain line — …]", supplied words, [[cross-references]]), so a blanket
+# \[.+\] match produces false positives on finished entries. Only the known
+# template slots and instruction-verb brackets below count as placeholders.
+_PLACEHOLDER_PATTERNS = [
+    r"\[first line or working title\]",
+    r"\[paste or type[^\]]*\]",
+    r"\[type latin transliteration[^\]]*\]",
+    r"\[reference translation, e\.g\.[^\]]*\]",
+    r"\[ai-drafted english translation[^\]]*\]",
+    r"\[your own literary translation\.?\]",
+    r"\[explanation of metaphor[^\]]*\]",
+    r"\[human-reviewed answer[^\]]*\]",
+    r"\[clearly labeled ai translation[^\]]*\]",
+    r"\[literal gloss here\]",
+    r"\[project literary translation here\]",
+    r"\[model name\]",
+    r"\[prompt version\]",
+    r"\[(?:explain|add|describe|fill in|insert|write|paste|todo)\b[^\]]*\]",
+    r"yes/no/unknown",
+    r"public-domain/permission-cleared",
+]
+PLACEHOLDER_RE = re.compile("|".join(_PLACEHOLDER_PATTERNS), re.I)
 
 
 def slugify(value: str) -> str:

@@ -388,10 +388,21 @@ phase's gate commands still pass."
 
 ## 10. Progress checklist (executors update this)
 
-- [ ] Phase 0.1 placeholder check fixed — 0 warnings, entries untouched
-- [ ] Phase 0.2 reference_translation migration — gates passed
-- [ ] Phase 0.3 rights firewall + leak scanner — gates passed
-- [ ] Phase 0.4 deps/models installed; push decision recorded
+- [x] Phase 0.1 placeholder check fixed — 0 warnings, entries untouched (2026-08-15)
+- [x] Phase 0.2 reference_translation migration — gates passed (2026-08-15).
+      Gate correction discovered in execution: entry 0001's literal slot is a
+      GENUINE Claude-drafted literal gloss, so the expected outcome is 71
+      `reference_translation` + 1 `literal_gloss`, not zero `literal_gloss`.
+- [x] Phase 0.3 rights firewall + leak scanner — gates passed (2026-08-15).
+      First live run caught 3 REAL leaks: the AI tashreeh of 0007/0017/0033
+      quoted Rafat's rendering at ≥8 words. Fixed by paraphrasing those quotes
+      in the three entries (rights correction to unreviewed AI drafts, with the
+      scholarly points and attributions kept). Export: 360 trainable layers
+      (72 original, 72 transliteration, 1 literal_gloss, 71 ai_translation,
+      72 literary_translation, 72 tashreeh), 9 flagged uncertain.
+- [ ] Phase 0.4 deps/models installed (chromadb/transformers/torch missing per
+      `ai-check`; Ollama status: needs verification); push decision: authorized
+      and completed 2026-08-15
 - [ ] Phase 1.1 lexicon + themes extracted
 - [ ] Phase 1.2 canonical clusters built
 - [ ] Phase 1.3 knowledge base built

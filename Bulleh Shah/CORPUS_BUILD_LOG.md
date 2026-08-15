@@ -205,6 +205,20 @@ the Rafat Urdu pages instead of hand-transcription.
 
 ## Changelog
 
+- 2026-08-15 (Phase 0 of the training plan — rights firewall caught real leaks):
+  The new `export-training-corpus` 8-gram scanner found that the AI-drafted
+  tashreeh of **0007, 0017, and 0033** quoted Taufiq Rafat's copyrighted
+  rendering verbatim (≥8 consecutive words: 0007 the triple-question refrain,
+  0017 the caste retort, 0033 the closing couplet, which the tashreeh itself
+  named as a quotation). Fixed by paraphrasing those quotes in the three
+  entries — scholarly point and attribution preserved, wording now below the
+  8-gram threshold. These were the ONLY content edits; all other Phase 0 work
+  was parser-level. Also: placeholder regex fixed (0 warnings now), Rafat
+  layer now serializes as `reference_translation` (copyrighted,
+  trainable=false, publishable=false; 71 records) while 0001 keeps its genuine
+  Claude-drafted `literal_gloss`; site export strips reference translations;
+  360 trainable layers exported. 29 tests pass.
+
 - 2026-08-15 (state audit + training plan): Verified live that the 34 remaining
   placeholder warnings are all false positives of the bracket regex (uncertainty
   annotations, supplied words, cross-references in 17 entries — no real

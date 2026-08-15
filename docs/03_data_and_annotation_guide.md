@@ -87,21 +87,37 @@ Each line in `data/processed/poems.jsonl` should be one JSON object:
       "text": "[literal gloss]",
       "created_by": "human/model",
       "model": null,
-      "status": "draft"
+      "status": "draft",
+      "rights": "project",
+      "trainable": true
+    },
+    {
+      "kind": "reference_translation",
+      "text": "[published reference rendering, with citation]",
+      "created_by": "human",
+      "model": null,
+      "status": "draft",
+      "rights": "copyrighted",
+      "publishable": false,
+      "trainable": false
     },
     {
       "kind": "ai_translation",
       "text": "[clearly labeled model draft]",
       "created_by": "ai",
       "model": "[model name]",
-      "status": "needs_review"
+      "status": "needs_review",
+      "rights": "project",
+      "trainable": true
     },
     {
       "kind": "literary_translation",
       "text": "[literary translation]",
       "created_by": "human/model",
       "model": null,
-      "status": "draft"
+      "status": "draft",
+      "rights": "project",
+      "trainable": true
     }
   ],
   "tashreeh": [
@@ -121,16 +137,33 @@ Each line in `data/processed/poems.jsonl` should be one JSON object:
 }
 ```
 
-### Current Translation-Schema Gap
+### Translation-Schema Resolution (2026-08-15)
 
-As of 2026-07-12, the working template and parser support three Markdown slots:
-`# Literal Translation`, `# AI Translation`, and `# Literary Translation`.
-However, the parser maps `# Literal Translation` to the JSON kind
-`literal_gloss`, while Rafat entries 0002–0072 use that section for Taufiq
-Rafat's copyrighted literary reference rendering. It is not a literal gloss.
-Resolve this naming/storage mismatch before building formal review, evaluation,
-public export, or training data. Until then, all Rafat records remain private,
-non-public, and training-disabled.
+The earlier naming/storage mismatch — Rafat's copyrighted literary reference
+serialized as `literal_gloss` — is resolved at the parser level, with no edit
+to the Markdown entries:
+
+- If the `# Literal Translation` section carries a published-reference
+  citation (detected by `REFERENCE_ATTRIBUTION_RE` in
+  `src/abshaar/markdown_entry.py`), it serializes as kind
+  `reference_translation` with `rights: "copyrighted"`, `publishable: false`,
+  `trainable: false`. All 71 Rafat entries (0002–0072) take this path.
+- Otherwise the slot remains a genuine `literal_gloss` (`rights: "project"`,
+  `trainable: true`). Entry 0001's Claude-drafted gloss is the one current
+  example.
+- Layers whose text carries an "AI-drafted" attribution note serialize with
+  `created_by: "ai"`, `model: "claude"`.
+- `export-site` strips `reference_translation` layers from site output even if
+  a poem's publication gate is later opened, and validation errors if a
+  `reference_translation` is ever `trainable != false`.
+- `export-training-corpus` (the training exporter) emits only
+  `trainable: true` layers and fails loudly if any emitted text shares an
+  8-gram with a reference translation.
+
+The entry-level source-note answer "Can this be used for model training? no"
+continues to mean: never train on the reference translation or publish the
+entry wholesale. Layer-level `trainable` flags now encode the operative
+policy for private research training.
 
 ## Glossary Term Schema
 

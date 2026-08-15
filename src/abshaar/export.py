@@ -10,6 +10,21 @@ def _safe_read(path: Path) -> list[dict[str, Any]]:
     return read_jsonl(path) if path.exists() else []
 
 
+def _strip_unpublishable_layers(poem: dict[str, Any]) -> dict[str, Any]:
+    # Copyrighted reference translations must never reach site output, even if
+    # a poem's entry-level publication gate is opened later.
+    sanitized = dict(poem)
+    sanitized["translations"] = [
+        item
+        for item in poem.get("translations", [])
+        if not (
+            isinstance(item, dict)
+            and (item.get("kind") == "reference_translation" or item.get("publishable") is False)
+        )
+    ]
+    return sanitized
+
+
 def export_site_data(root: Path) -> dict[str, int]:
     poems = _safe_read(root / "data" / "processed" / "poems.jsonl")
     terms = _safe_read(root / "data" / "lexicon" / "terms.jsonl")
@@ -19,7 +34,9 @@ def export_site_data(root: Path) -> dict[str, int]:
     sources = _safe_read(root / "data" / "context" / "sources.jsonl")
 
     public_poems = [
-        poem for poem in poems if poem.get("publication", {}).get("include_on_website") is True
+        _strip_unpublishable_layers(poem)
+        for poem in poems
+        if poem.get("publication", {}).get("include_on_website") is True
     ]
 
     search_documents = []

@@ -52,6 +52,15 @@ def main(argv: list[str] | None = None) -> int:
     subparsers.add_parser("validate", help="Validate working entries and JSONL files.")
     subparsers.add_parser("export-site", help="Export website-ready JSON into data/site/.")
 
+    export_training = subparsers.add_parser(
+        "export-training-corpus",
+        help="Export rights-safe trainable layers; fails on any reference-translation leak.",
+    )
+    export_training.add_argument(
+        "--output",
+        default="data/processed/training/trainable_layers.jsonl",
+    )
+
     prompt_pack = subparsers.add_parser("prompt-pack", help="Build a model prompt pack for one poem.")
     prompt_pack.add_argument("--poem-id", default=None)
     prompt_pack.add_argument("--all", action="store_true", help="Build prompt packs for all poems.")
@@ -170,6 +179,8 @@ def main(argv: list[str] | None = None) -> int:
         return command_validate(root)
     if args.command == "export-site":
         return command_export_site(root)
+    if args.command == "export-training-corpus":
+        return command_export_training(root, args.output)
     if args.command == "prompt-pack":
         return command_prompt_pack(root, args.poem_id, args.all)
     if args.command == "ai-check":
@@ -258,6 +269,19 @@ def command_build_data(root: Path, include_placeholders: bool) -> int:
         print(f"Skipped {len(skipped)} placeholder entry file(s):")
         for path in skipped:
             print(f"  - {path.relative_to(root)}")
+    return 0
+
+
+def command_export_training(root: Path, output: str) -> int:
+    from abshaar.training_export import export_training_corpus
+
+    count, leaks = export_training_corpus(root, root / output)
+    if leaks:
+        print("LEAK DETECTED — reference-translation text in trainable layers; nothing written:", file=sys.stderr)
+        for leak in leaks:
+            print(f"  - {leak}", file=sys.stderr)
+        return 1
+    print(f"Wrote {count} trainable layer record(s) to {output}")
     return 0
 
 

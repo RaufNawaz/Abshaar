@@ -1,10 +1,25 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 from abshaar.text import nonempty_lines, slugify, strip_quotes
+
+
+# The `# Literal Translation` slot in Rafat entries holds Taufiq Rafat's
+# copyrighted published rendering, identified by its citation note. It must
+# serialize as `reference_translation` with trainable=False, never as a
+# project literal gloss.
+REFERENCE_ATTRIBUTION_RE = re.compile(r"reference translation by|taufiq rafat", re.I)
+AI_DRAFT_ATTRIBUTION_RE = re.compile(r"ai-drafted", re.I)
+
+
+def _attribution(text: str) -> tuple[str, str | None]:
+    if AI_DRAFT_ATTRIBUTION_RE.search(text):
+        return "ai", "claude"
+    return "human", None
 
 
 SECTION_ALIASES = {
@@ -121,6 +136,34 @@ def parse_bullet_values(section_text: str) -> list[str]:
     return values
 
 
+def _literal_slot_record(poem_id: str, text: str, review_status: str) -> dict[str, Any]:
+    if REFERENCE_ATTRIBUTION_RE.search(text):
+        return {
+            "id": f"trans_{poem_id}_reference",
+            "kind": "reference_translation",
+            "text": text,
+            "created_by": "human",
+            "model": None,
+            "prompt_version": None,
+            "status": review_status,
+            "rights": "copyrighted",
+            "publishable": False,
+            "trainable": False,
+        }
+    created_by, model = _attribution(text)
+    return {
+        "id": f"trans_{poem_id}_literal",
+        "kind": "literal_gloss",
+        "text": text,
+        "created_by": created_by,
+        "model": model,
+        "prompt_version": None,
+        "status": review_status,
+        "rights": "project",
+        "trainable": True,
+    }
+
+
 def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
     fm = entry.front_matter
     sections = entry.sections
@@ -199,15 +242,7 @@ def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
         },
         "segmentation": segmentation,
         "translations": [
-            {
-                "id": f"trans_{poem_id}_literal",
-                "kind": "literal_gloss",
-                "text": literal_gloss,
-                "created_by": "human",
-                "model": None,
-                "prompt_version": None,
-                "status": review_status,
-            },
+            _literal_slot_record(poem_id, literal_gloss, review_status),
             {
                 "id": f"trans_{poem_id}_ai",
                 "kind": "ai_translation",
@@ -216,15 +251,19 @@ def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
                 "model": "claude",
                 "prompt_version": None,
                 "status": review_status,
+                "rights": "project",
+                "trainable": True,
             },
             {
                 "id": f"trans_{poem_id}_literary",
                 "kind": "literary_translation",
                 "text": literary_translation,
-                "created_by": "human",
-                "model": None,
+                "created_by": _attribution(literary_translation)[0],
+                "model": _attribution(literary_translation)[1],
                 "prompt_version": None,
                 "status": review_status,
+                "rights": "project",
+                "trainable": True,
             },
         ],
         "tashreeh": [
@@ -232,9 +271,11 @@ def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
                 "id": f"tash_{poem_id}_beginner",
                 "audience": "beginner",
                 "text": tashreeh,
-                "created_by": "human",
-                "model": None,
+                "created_by": _attribution(tashreeh)[0],
+                "model": _attribution(tashreeh)[1],
                 "status": review_status,
+                "rights": "project",
+                "trainable": True,
             }
         ],
         "glossary_terms": glossary_terms,
