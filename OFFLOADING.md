@@ -316,7 +316,7 @@ Windows equivalents:
 - Which five poem IDs should form the first fully reviewed vertical slice?
 - Which source edition should be used to verify Shahmukhi and variants?
 - Should the schema add an explicit `reference_translation` kind and restore `literal_gloss` to Rauf's own close translation?
-- How should `project-latin-v1` represent aspiration, long vowels, retroflex consonants, ain/ghain, and dialect variation?
+- How should `project-latin-v1` represent aspiration, long vowels, retroflex consonants, ain/ghain, and dialect variation? (Evidence inventory + decision sheet now exists: `docs/16_project_latin_v1_evidence.md` — measured 2026-08-15: 21 plain-doubled entries, 14 macron entries, 37 mixed; 4 different nasal marks; ain marked 3 ways. Rauf picks §3 options; then linter + normalizer + regeneration.)
 - Who will act as language/source reviewer beyond Rauf, and what evidence is required before `publishable`?
 
 ## 4. Key Decisions and Rationale
