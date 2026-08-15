@@ -258,6 +258,35 @@ pages are reliable while the embedded Gurmukhi text layer is not.
 Install the optional dependency with `python3 -m pip install -e '.[pdf]'`. See
 `docs/13_gurmukhi_pdf_ingestion.md` for source, rights, and review details.
 
+### Expert-Model Training Pipeline (2026-08-15)
+
+These commands implement `docs/15_bulleh_shah_expert_model_implementation_plan.md`.
+Run them in this order; each is deterministic and each rights gate exits
+non-zero instead of warning. The AI-stack commands (`build-index`, `ask`,
+`run-eval`, `augment-training-data`) need the project venv
+(`python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`); both
+wrappers automatically prefer `.venv` when it exists.
+
+```powershell
+.\scripts\abshaar.ps1 export-training-corpus     # rights-safe layers; FAILS on any Rafat 8-gram leak
+.\scripts\abshaar.ps1 extract-lexicon            # Key Terms/Themes -> terms.jsonl + themes.jsonl
+.\scripts\abshaar.ps1 build-clusters             # canonical work clusters (only exact 1.0 merges)
+.\scripts\abshaar.ps1 build-kb                   # private knowledge base (leak-scanned)
+.\scripts\abshaar.ps1 build-index                # BGE-M3 embeddings -> data/cache/chroma/
+.\scripts\abshaar.ps1 ask "your question"        # grounded answer with kb citations (needs Ollama)
+.\scripts\abshaar.ps1 generate-training-data     # templated train/eval dataset, all gates
+.\scripts\abshaar.ps1 augment-training-data      # optional LLM question paraphrases (needs Ollama)
+.\scripts\abshaar.ps1 build-probes               # fixed 50-probe eval set
+.\scripts\abshaar.ps1 run-eval --model qwen3:8b  # baseline / post-training scores (add --rag)
+.\scripts\abshaar.ps1 export-mlx-dataset         # messages-only JSONL for mlx_lm.lora
+```
+
+Then `./scripts/train_lora.sh` (macOS/Apple Silicon only) for the local LoRA,
+or `training/axolotl_qwen3_8b.yml` for the cloud path. Rights invariants:
+Rafat's reference translations are never exported, never indexed, and never
+trainable; Devanagari-derived match scores are capped at 0.98 so approximate
+transliteration can never auto-merge work clusters.
+
 ## Automation Flow
 
 ```text
@@ -322,6 +351,15 @@ src/abshaar/ollama_client.py   optional local Ollama integration
 src/abshaar/gurmukhi_pdf.py    numbered Gurmukhi PDF witness extraction
 src/abshaar/sufinama.py        authorized Sufinama acquisition and audit
 src/abshaar/source_matching.py non-destructive witness candidate matching
+src/abshaar/devanagari.py      approximate Devanagari->Roman, matching only
+src/abshaar/training_export.py rights firewall + reference-leak scanner
+src/abshaar/lexicon.py         Key Terms/Themes extraction
+src/abshaar/clusters.py        conservative canonical-work clustering
+src/abshaar/knowledge_base.py  consolidated private knowledge base
+src/abshaar/rag.py             BGE-M3/Chroma retrieval + grounded ask
+src/abshaar/dataset_gen.py     templated training dataset + gates
+src/abshaar/augment.py         gated LLM question paraphrasing
+src/abshaar/evaluate.py        probe set + evaluation harness
 ```
 
 ## Testing

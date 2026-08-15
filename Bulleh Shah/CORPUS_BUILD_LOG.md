@@ -205,6 +205,14 @@ the Rafat Urdu pages instead of hand-transcription.
 
 ## Changelog
 
+- 2026-08-15 (Devanagari-aware matching): `src/abshaar/devanagari.py` adds an
+  approximate, comparison-only Devanagari→Roman transliteration; the matcher
+  gains capped (≤0.98) Devanagari signals so approximate evidence can never
+  auto-merge canonical work clusters. Offline crosswalk rebuilds: candidate-less
+  records fell from 40/48 (non-kaafi) and 3/76 (kaafi) to 0 in both; exact-1.0
+  counts unchanged (1 kalaam→0025; 11 kaafi). All new candidates remain
+  `needs_review`; no witness or entry text changed.
+
 - 2026-08-15 (Phase 0 of the training plan — rights firewall caught real leaks):
   The new `export-training-corpus` 8-gram scanner found that the AI-drafted
   tashreeh of **0007, 0017, and 0033** quoted Taufiq Rafat's copyrighted

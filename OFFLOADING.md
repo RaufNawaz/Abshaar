@@ -19,7 +19,9 @@ Abshaar is an open-source, local-first archive and AI-assisted translation and e
 ### Current Working Direction
 
 - Execute `docs/15_bulleh_shah_expert_model_implementation_plan.md` (written 2026-08-15 at Rauf's direction): a 6-phase, low-human-intervention pipeline to a private Bulleh Shah expert system (base Qwen3 + RAG over a consolidated knowledge base + LoRA on synthetic grounded instruction data + honesty training + eval suite), each phase executable by cheaper models with mechanical acceptance gates. It supersedes the ordering of §7 below where they conflict; rights rules are unchanged.
-- The earlier direction items (crosswalk review, Devanagari matching, Gurmukhi correction, five-poem human gold slice) remain valid quality work but are no longer blocking; the plan replaces human review gates with conservative automation plus validators, with accepted risks recorded in the plan §9.
+- **Progress as of 2026-08-15 evening:** Phases 0–1 complete and gate-verified; Phase 2 code complete (index build was downloading BGE-M3); Phase 3 core dataset complete (1,178 gated examples) with the paraphrase-augmentation command implemented but not run; Phase 4 harness and probes complete, baselines not yet run; Phase 5/6 scaffolding committed. Devanagari-aware matching added and both crosswalks regenerated (0 candidate-less records remain, all `needs_review`).
+- **STANDING CONSTRAINT (Rauf, 2026-08-15): do not run the Ollama models (smoke test, baselines, `ask`, `augment-training-data`, `run-eval`, or any generation) until he explicitly says so.** Ollama 0.32.13 is installed and serving; qwen3:4b is pulled; qwen3:8b was downloading. Training (Phase 5) also waits because baselines must precede it.
+- The earlier direction items (crosswalk review, Gurmukhi correction, five-poem human gold slice) remain valid quality work but are no longer blocking; the plan replaces human review gates with conservative automation plus validators, with accepted risks recorded in the plan §9.
 
 ## 2. What Has Been Done
 
@@ -474,7 +476,7 @@ Copy and paste this into a new chat or Codex session:
 >
 > Important files: `docs/15_bulleh_shah_expert_model_implementation_plan.md` (the authoritative plan), `START_HERE.md`, `OFFLOADING.md`, `Bulleh Shah/CORPUS_BUILD_LOG.md`, `docs/12`–`14`, `data/context/*.jsonl` catalogs/matches/claims, `src/abshaar/`, and the 72 working entries.
 >
-> Immediate work: execute the implementation plan phase by phase, starting at Phase 0 (fix the placeholder false positives; migrate the copyrighted Rafat layer from `literal_gloss` to `reference_translation` with `trainable: false`; build the rights-firewall training exporter with the Rafat 8-gram leak scanner). Every phase has an executor prompt in the plan's §6 and a mechanical acceptance gate; never start phase N+1 while phase N's gate fails, and never weaken a gate.
+> Immediate work: Phases 0–4 of the plan are code-complete and gate-verified (see plan §10 checklist). What remains is model-dependent: (1) verify the BGE-M3 index build finished (`data/cache/chroma/manifest.json`), (2) run `scripts/rag_smoke_test.py` (Phase 2 gate), (3) run the three baselines with `run-eval` (base 4b, base 8b, 8b+RAG), (4) optionally `augment-training-data`, then (5) `./scripts/train_lora.sh` and the Phase 5 acceptance eval. **Do NOT run any Ollama model (ask/run-eval/augment/smoke test) until Rauf explicitly authorizes it — this is a standing instruction from 2026-08-15.** Never start phase N+1 while phase N's gate fails, and never weaken a gate.
 >
 > Safety: `build_all` is fixed and safe for the current drafts. Never overwrite the 72 Markdown entries with Sufinama data; keep each source witness separate and preserve UUID/line/token provenance. Do not remove `.git/index.lock` without verifying it is stale.
 >
