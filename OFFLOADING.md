@@ -521,6 +521,7 @@ Copy and paste this into a new chat or Codex session:
 | Working tree is heavily uncommitted | Concurrent work is vulnerable to accidental overwrite or broad staging. | Use explicit files, inspect diffs, coordinate Codex/Claude, and commit only with user authorization. |
 | Some catalog page-two records display Hindi/Urdu rather than Roman | A Roman view may be missing or redirect for some witnesses. | Preserve per-view availability/errors and quarantine rather than failing the whole corpus. |
 | Ollama and optional AI packages are unverified | Local drafting commands may fail. | Run `./scripts/abshaar.sh ai-check` later, when AI drafting is actually needed. |
+| The project venv is Python 3.9 while `pyproject.toml` requires >=3.11 | Two 3.9-only breakages already occurred (`write_text(newline=)`, same-quote f-strings); `mlx-lm` may require >=3.10. | If the mlx-lm install fails for version reasons, install a newer Python (e.g. `brew install python@3.12`), recreate `.venv`, and reinstall requirements (multi-GB). |
 | Website and RAG are not implemented | Roadmap language may imply more product functionality than exists. | Treat them as later milestones after reviewed, rights-safe poems exist. |
 
 ## 10. Compact Version

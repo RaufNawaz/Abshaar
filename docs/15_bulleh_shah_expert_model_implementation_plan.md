@@ -427,10 +427,12 @@ phase's gate commands still pass."
       deterministic. Honesty family 99 examples (8.4% — below the ~15% target;
       LLM paraphrase augmentation pass with the same gates remains open —
       `augment-training-data` is implemented and unit-tested, awaiting model
-      go-ahead). Known data-quality limitation (2026-08-15): the corpus mixes
-      two transliteration styles (21 plain / 14 macron / 37 mixed entries —
-      see docs/16), so the 288 transliteration examples teach inconsistent
-      conventions until project-latin-v1 is decided and normalized.
+      go-ahead). ~~Known transliteration-style limitation~~ RESOLVED
+      2026-08-15: Rauf decided project-latin-v1 (docs/16 §5), all 72 entries
+      were normalized mechanically, a style lint now runs in validate, and the
+      dataset was regenerated (now 1,181 examples; the style-invariant
+      matching key surfaced 3 new exact witness matches, growing
+      variant_awareness to 15).
 - [~] Phase 4 harness done (build-probes: 50 fixed probes 25/15/10;
       run-eval with judge/F1/decline scoring). GATE PENDING: baseline runs
       (base 4B / base 8B / base 8B+RAG) once models are pulled. Caveat noted:
