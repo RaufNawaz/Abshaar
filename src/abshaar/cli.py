@@ -105,6 +105,14 @@ def main(argv: list[str] | None = None) -> int:
         help="Write messages-only train/valid JSONL for mlx_lm.lora into data/processed/training/mlx/.",
     )
 
+    augment = subparsers.add_parser(
+        "augment-training-data",
+        help="Paraphrase-augment training questions via local Ollama (answers stay verbatim); re-runs all gates.",
+    )
+    augment.add_argument("--generator", default="qwen3:8b")
+    augment.add_argument("--verifier", default="qwen3:4b")
+    augment.add_argument("--limit-per-family", type=int, default=30)
+
     run_eval = subparsers.add_parser(
         "run-eval",
         help="Evaluate a model over the probe set; appends to eval_baseline.md.",
@@ -250,6 +258,8 @@ def main(argv: list[str] | None = None) -> int:
         return command_build_probes(root)
     if args.command == "export-mlx-dataset":
         return command_export_mlx_dataset(root)
+    if args.command == "augment-training-data":
+        return command_augment_training_data(root, args)
     if args.command == "run-eval":
         return command_run_eval(root, args)
     if args.command == "prompt-pack":
@@ -361,6 +371,33 @@ def command_generate_training_data(root: Path) -> int:
     for family in sorted(stats["by_family"]):
         counts = stats["by_family"][family]
         print(f"  - {family}: {counts['train']} train / {counts['eval']} eval")
+    return 0
+
+
+def command_augment_training_data(root: Path, args: argparse.Namespace) -> int:
+    from abshaar.augment import augment_training_data
+    from abshaar.ollama_client import run_ollama_chat
+
+    stats, failures = augment_training_data(
+        root,
+        run_ollama_chat,
+        generator_model=args.generator,
+        verifier_model=args.verifier,
+        per_family_limit=args.limit_per_family,
+    )
+    if failures:
+        print("GATE FAILURE — augmented set not written:", file=sys.stderr)
+        for failure in failures[:20]:
+            print(f"  - {failure}", file=sys.stderr)
+        return 1
+    print(
+        f"Augmentation: attempted {stats['attempted']}, kept {stats['kept']}, "
+        f"rejected {stats['rejected']}"
+        + (f" (train now {stats['train_total']})" if stats.get("train_total") else "")
+    )
+    if stats.get("warning"):
+        print(f"WARNING: {stats['warning']}", file=sys.stderr)
+        return 1
     return 0
 
 

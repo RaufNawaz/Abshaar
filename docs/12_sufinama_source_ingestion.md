@@ -150,7 +150,15 @@ can remain deterministic.
 - Its separate crosswalk contains 48 review-required records. One exact
   Roman/Urdu candidate was found (`kalaam` → `bulleh_shah_0025`); 40 records have
   no candidate because most are Devanagari-only and the matcher does not yet
-  transliterate Devanagari.
+  transliterate Devanagari. **Resolved 2026-08-15:** `src/abshaar/devanagari.py`
+  adds an approximate, comparison-only Devanagari→Roman transliteration; the
+  matcher now emits `devanagari_title_to_any_line` / `devanagari_any_line`
+  signals, hard-capped at score 0.98 so approximate evidence can never reach
+  the 1.0 exact threshold that auto-merges canonical work clusters. After the
+  offline rebuild, 0 of 48 non-kaafi and 0 of 76 kaafi records lack candidates
+  (previously 40 and 3); exact-1.0 counts are unchanged (1 and 11). All
+  Devanagari-signal candidates remain `needs_review` — the transliteration is
+  a matching key, never witness text.
 - The cache-only non-kaafi rebuild reproduced all 48 records with the same
   category/layer/error counts and made no network requests.
 
