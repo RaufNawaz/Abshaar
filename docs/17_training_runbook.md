@@ -109,7 +109,25 @@ Improves question diversity; skippable if time-boxed.
 
 Commit: `data: paraphrase-augmented training set (+N examples)`.
 
-## 5. Phase 5 — LoRA training, Path A (local M4, ~1–3 h)
+## 5. Phase 5 — LoRA training
+
+Three ways to run Phases 2-5, added 2026-08-16 (see `training/README.md` for
+full detail):
+
+- **Path A (below): local M4, foreground.** Simplest; ties up the machine.
+- **Path A, background-friendly:** `scripts/thermal_aware_pipeline.sh run`
+  runs the same Phase 2-5 stages at background scheduling priority, skips
+  finished stages on resume, and pauses if `pmset -g therm` reports thermal
+  throttling. Requires `touch training/RUN_AUTHORIZED` first (a durable,
+  gitignored, machine-local opt-in — separate from and in addition to the
+  chat-based authorization this runbook already requires).
+- **Path C: another Apple Silicon machine (e.g. a Mac Studio).**
+  `scripts/export_training_bundle.sh` packages just the gated training
+  dataset for training elsewhere, removing this machine's thermal/RAM
+  ceiling entirely; `scripts/import_trained_adapter.sh` brings the result
+  back. Fuse/serve/eval (§6 below) still happen on this machine.
+
+### Path A (local M4, foreground, ~1–3 h)
 
 ```bash
 ./scripts/abshaar.sh export-mlx-dataset   # idempotent; ensures freshness
