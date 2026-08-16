@@ -21,7 +21,7 @@ Abshaar is an open-source, local-first archive and AI-assisted translation and e
 - Execute `docs/15_bulleh_shah_expert_model_implementation_plan.md` (written 2026-08-15 at Rauf's direction): a 6-phase, low-human-intervention pipeline to a private Bulleh Shah expert system (base Qwen3 + RAG over a consolidated knowledge base + LoRA on synthetic grounded instruction data + honesty training + eval suite), each phase executable by cheaper models with mechanical acceptance gates. It supersedes the ordering of §7 below where they conflict; rights rules are unchanged.
 - **Progress as of 2026-08-15 evening:** Phases 0–1 complete and gate-verified; Phase 2 code complete (index build was downloading BGE-M3); Phase 3 core dataset complete (1,178 gated examples) with the paraphrase-augmentation command implemented but not run; Phase 4 harness and probes complete, baselines not yet run; Phase 5/6 scaffolding committed. Devanagari-aware matching added and both crosswalks regenerated (0 candidate-less records remain, all `needs_review`).
 - **STANDING CONSTRAINT (Rauf, 2026-08-15; reaffirmed 2026-08-16): do not run the Ollama models (smoke test, baselines, `ask`, `augment-training-data`, `run-eval`, or any generation) until he explicitly says so.** On 2026-08-16 Rauf added the reason and timing: he will only run the model in a cool environment so the laptop does not run hot, in a few days — until then, non-model work continues. This also covers the compute-heavy `build-index` embedding step. Training (Phase 5) also waits because baselines must precede it.
-- **Download/prep state (2026-08-16):** qwen3:4b fully pulled; **mlx-lm 0.29.1 installed into `.venv` and import-verified** (the cp39 wheel works on the Python 3.9 venv — the runbook §7 venv-rebuild contingency was NOT needed); BGE-M3 fully downloaded (2.4 GB in `~/.cache/huggingface`); qwen3:8b pull was restarted 2026-08-16 (network-only, thermally negligible) — check `ollama list` for `qwen3:8b` and re-run `ollama pull qwen3:8b` if absent. To resume model work: start `ollama serve`, then follow `docs/17_training_runbook.md` from its §1 preconditions checklist.
+- **Download/prep state — COMPLETE as of 2026-08-16.** `qwen3:4b` and `qwen3:8b` both pulled (confirmed via `ollama list`); **mlx-lm 0.29.1 installed into `.venv` and import-verified** (the cp39 wheel works on the Python 3.9 venv — the runbook §7 venv-rebuild contingency was NOT needed); BGE-M3 fully downloaded (2.4 GB in `~/.cache/huggingface`); `ollama serve` is running. `./scripts/abshaar.sh ai-check` (a status check only — CLI presence, API reachability, package list; no generation) confirms: Ollama 0.32.13, API available, both models installed, all five optional Python packages (ollama, sentence_transformers, chromadb, transformers, torch) installed. **The only precondition-checklist item not yet done is the Chroma index build (`build-index`), deliberately deferred — it embeds ~1,303 KB records, which is real sustained compute and the reason Rauf wants to wait for a cool environment.** When he authorizes it, the runbook's §1 preconditions checklist should otherwise pass immediately; start at `build-index` then Step 2 (RAG smoke test).
 - **Crosswalk review AI first pass complete (2026-08-16):** all 124 match records classified (1 exact_witness / 30 variant / 10 excerpt / 1 possible / 82 unmatched) with per-record evidence and notes; every record carries `human_confirmed: false` pending Rauf's confirmation. See §2 entry and `docs/12` §"Crosswalk classification".
 - The earlier direction items (crosswalk review, Gurmukhi correction, five-poem human gold slice) remain valid quality work but are no longer blocking; the plan replaces human review gates with conservative automation plus validators, with accepted risks recorded in the plan §9.
 
@@ -281,7 +281,7 @@ Abshaar is an open-source, local-first archive and AI-assisted translation and e
 | Full-build wrappers | Fixed and verified | Both include placeholders; live macOS build preserved 72 working and processed records. |
 | Site data | Generated/ignored | `export-site` was rerun after research and exports 1 person, 6 events, 7 sources, and 0 public poems; directory is Git-ignored. |
 | Website | Not implemented | Architecture is planned; there is no `website/` application yet. |
-| Local AI environment | Ready except qwen3:8b | Ollama 0.32.x installed; qwen3:4b pulled; BGE-M3 cached; `.venv` has chromadb/sentence-transformers/torch AND mlx-lm 0.29.1 (import-verified 2026-08-16). qwen3:8b pull was in progress 2026-08-16 — verify with `ollama list`. Chroma index NOT yet built (embedding is compute; blocked by the thermal constraint). |
+| Local AI environment | Fully prepped | `ai-check` (2026-08-16): Ollama 0.32.13, API available, `qwen3:4b` + `qwen3:8b` both pulled, all 5 optional Python packages installed (`ollama`, `sentence_transformers`, `chromadb`, `transformers`, `torch`), plus mlx-lm 0.29.1 import-verified. Only the Chroma index build (`build-index`, real embedding compute) remains — deliberately deferred to the cool-environment session. |
 | Source scans | Local/untracked | PDFs under `Bulleh Shah/` must remain local; a new ignore rule protects them from accidental staging. |
 | Corpus build log | Current through completion | `Bulleh Shah/CORPUS_BUILD_LOG.md` is the detailed source-specific history. |
 | Rafat ingestion helper | Legacy; do not run | `Bulleh Shah/build_entries_from_rafat.py` predates the final three-slot layout and is retained as provenance only. |
@@ -325,15 +325,29 @@ Windows equivalents:
 
 ### Current Open Questions
 
+Resolved since these were last written (kept here only long enough to show
+they are closed, then should be deleted on the next full OFFLOADING pass):
+- ~~Which Sufinama witnesses are exact/variant/excerpt/possible/unmatched~~ —
+  answered by the AI first pass (2026-08-16), pending Rauf's confirmation
+  (see §7 Urgent).
+- ~~What `canonical_work_id` scheme...~~ — implemented in
+  `src/abshaar/clusters.py` (union-find over exact matches;
+  `cluster_confidence: auto_exact_match` vs `unreviewed`).
+- ~~Should the schema add an explicit `reference_translation` kind...~~ —
+  done in plan Phase 0.2 (2026-08-15): Rafat text serializes as
+  `reference_translation` (`rights: copyrighted`, `trainable: false`); 0001
+  keeps a genuine `literal_gloss`.
+- ~~How should `project-latin-v1` represent...~~ — decided and implemented
+  2026-08-15 (`docs/16` §5, `src/abshaar/translit.py`).
+
+Still open:
+
 - What written Sufinama collaboration/authorization reference should be stored with the source record? Needs verification.
-- Which Sufinama witnesses are exact matches, variants, excerpts, or new works relative to the 72 entries?
-- What reviewed Devanagari-to-project-latin/Shahmukhi method should support matching without inventing source text?
-- What `canonical_work_id` scheme should cluster source witnesses without merging their text?
-- Which five poem IDs should form the first fully reviewed vertical slice?
+- What reviewed Devanagari-to-project-latin/Shahmukhi method should support matching without inventing source text? (Current `devanagari.py` transliteration is rule-based/approximate and explicitly capped at 0.98 for this reason — see standing findings. A more accurate method is still open.)
+- Which five poem IDs should form the first fully reviewed vertical slice? (A recommended set exists in §7 but is not a recorded decision.)
 - Which source edition should be used to verify Shahmukhi and variants?
-- Should the schema add an explicit `reference_translation` kind and restore `literal_gloss` to Rauf's own close translation?
-- How should `project-latin-v1` represent aspiration, long vowels, retroflex consonants, ain/ghain, and dialect variation? (Evidence inventory + decision sheet now exists: `docs/16_project_latin_v1_evidence.md` — measured 2026-08-15: 21 plain-doubled entries, 14 macron entries, 37 mixed; 4 different nasal marks; ain marked 3 ways. Rauf picks §3 options; then linter + normalizer + regeneration.)
 - Who will act as language/source reviewer beyond Rauf, and what evidence is required before `publishable`?
+- The ʿain/Arabic-loan mark upgrade (docs/16 §5) requires reading each Urdu original word-by-word against its transliteration — a bilingual scholarly judgment call, not something to automate or infer.
 
 ## 4. Key Decisions and Rationale
 
