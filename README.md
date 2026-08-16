@@ -157,7 +157,8 @@ check, use `./scripts/build_all.sh`.
 
 The expert-model training pipeline (knowledge base, RAG index, grounded `ask`,
 gated training-data generation, evaluation, local LoRA) is driven by the same
-CLI — `extract-lexicon`, `build-clusters`, `build-kb`, `build-index`, `ask`,
+CLI — `extract-lexicon`, `build-clusters`, `crosswalk-evidence`,
+`apply-crosswalk-review`, `build-kb`, `build-index`, `ask`,
 `export-training-corpus`, `generate-training-data`, `build-probes`,
 `run-eval`, `export-mlx-dataset` — and documented end to end in
 [docs/15](docs/15_bulleh_shah_expert_model_implementation_plan.md). The

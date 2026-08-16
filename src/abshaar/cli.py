@@ -111,6 +111,16 @@ def main(argv: list[str] | None = None) -> int:
     )
     normalize_translit.add_argument("--apply", action="store_true")
 
+    subparsers.add_parser(
+        "crosswalk-evidence",
+        help="Write deterministic line-coverage evidence for every crosswalk match record.",
+    )
+
+    subparsers.add_parser(
+        "apply-crosswalk-review",
+        help="Apply data/annotations/crosswalk_classifications.jsonl onto both match files.",
+    )
+
     augment = subparsers.add_parser(
         "augment-training-data",
         help="Paraphrase-augment training questions via local Ollama (answers stay verbatim); re-runs all gates.",
@@ -268,6 +278,10 @@ def main(argv: list[str] | None = None) -> int:
         return command_augment_training_data(root, args)
     if args.command == "normalize-translit":
         return command_normalize_translit(root, args.apply)
+    if args.command == "crosswalk-evidence":
+        return command_crosswalk_evidence(root)
+    if args.command == "apply-crosswalk-review":
+        return command_apply_crosswalk_review(root)
     if args.command == "run-eval":
         return command_run_eval(root, args)
     if args.command == "prompt-pack":
@@ -443,6 +457,28 @@ def command_build_probes(root: Path) -> int:
 
     count = build_probes(root)
     print(f"Wrote {count} probe(s) to {PROBES_PATH}")
+    return 0
+
+
+def command_crosswalk_evidence(root: Path) -> int:
+    from abshaar.crosswalk_review import build_crosswalk_evidence
+
+    output = build_crosswalk_evidence(root)
+    print(f"Wrote {output.relative_to(root)}")
+    return 0
+
+
+def command_apply_crosswalk_review(root: Path) -> int:
+    from abshaar.crosswalk_review import apply_crosswalk_classifications
+
+    try:
+        counts = apply_crosswalk_classifications(root)
+    except ValueError as exc:
+        print(f"apply-crosswalk-review failed: {exc}", file=sys.stderr)
+        return 1
+    total = sum(counts.values())
+    summary = ", ".join(f"{status}: {count}" for status, count in counts.items())
+    print(f"Applied {total} classification(s) — {summary}")
     return 0
 
 

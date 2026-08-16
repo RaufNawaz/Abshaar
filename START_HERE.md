@@ -327,6 +327,8 @@ are identical.
 | `.\scripts\abshaar.ps1 export-training-corpus` | exports rights-safe trainable layers; **fails loudly** if any text overlaps a copyrighted reference translation | before building training data |
 | `.\scripts\abshaar.ps1 extract-lexicon` | mechanically parses every entry's Key Terms/Themes into `data/lexicon/terms.jsonl` + `data/context/themes.jsonl` | after entry Key Terms change |
 | `.\scripts\abshaar.ps1 build-clusters` | builds conservative canonical-work clusters from the crosswalks (only exact 1.0 matches merge) | after crosswalks or matcher change |
+| `.\scripts\abshaar.ps1 crosswalk-evidence` | writes deterministic two-way line-coverage evidence + alignments for every crosswalk match record to `data/annotations/crosswalk_evidence.md` | before classifying or reviewing crosswalk matches |
+| `.\scripts\abshaar.ps1 apply-crosswalk-review` | applies `data/annotations/crosswalk_classifications.jsonl` onto both match files; refuses malformed/incomplete/out-of-taxonomy input | after editing a classification decision |
 | `.\scripts\abshaar.ps1 build-kb` | consolidates poem layers, lexicon, biography, witnesses into the private knowledge base (leak-scanned) | after any KB input changes |
 | `.\scripts\abshaar.ps1 build-index` | embeds the knowledge base with BGE-M3 into the local Chroma index (needs `.venv` AI stack) | after `build-kb` |
 | `.\scripts\abshaar.ps1 ask "question"` | grounded retrieval + local-Ollama answer with kb citations; declines out-of-corpus questions | to query the archive |
