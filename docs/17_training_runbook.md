@@ -189,7 +189,9 @@ failure report).
    changes do).
 3. `git push origin draft` (authorized 2026-08-15; re-confirm if unsure).
 4. Open items that remain human work regardless of training outcome:
-   the 124-record crosswalk review queue
-   (`data/annotations/crosswalk_review_queue.md`), ʿain/Arabic-loan mark
-   upgrades flagged by `docs/16` §5, the Sufinama written-authorization
-   reference, and the five-poem gold review slice.
+   confirming the 124-record crosswalk classifications (AI first pass applied
+   2026-08-16 with `human_confirmed: false` — see
+   `data/annotations/crosswalk_review_queue.md`, evidence in
+   `crosswalk_evidence.md`, decisions in `crosswalk_classifications.jsonl`),
+   ʿain/Arabic-loan mark upgrades flagged by `docs/16` §5, the Sufinama
+   written-authorization reference, and the five-poem gold review slice.

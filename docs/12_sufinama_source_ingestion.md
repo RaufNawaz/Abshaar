@@ -162,6 +162,43 @@ can remain deterministic.
 - The cache-only non-kaafi rebuild reproduced all 48 records with the same
   category/layer/error counts and made no network requests.
 
+## Crosswalk classification (AI first pass, 2026-08-16)
+
+All 124 match records now carry a `match_status` classification
+(`exact_witness` / `variant` / `excerpt` / `possible` / `unmatched`) plus a
+`match_review` block recording the classified-against poem, evidence note,
+method, and `human_confirmed: false`. The workflow:
+
+1. `abshaar crosswalk-evidence` writes deterministic two-way line-coverage
+   evidence and per-line alignments to `data/annotations/crosswalk_evidence.md`.
+   Coverage (share of each side's lines with a counterpart at similarity
+   ≥ 0.80 strong / ≥ 0.60 loose, 0.55 on the approximate Devanagari channel)
+   answers what the matcher's max-similarity score cannot: one shared refrain
+   or title can score 0.6–0.9 between otherwise different poems.
+2. Decisions live in `data/annotations/crosswalk_classifications.jsonl` —
+   one JSON object per record. Edit a line, then re-run
+   `abshaar apply-crosswalk-review` (validates the whole file, then rewrites
+   both match files atomically and idempotently).
+3. `python3 scripts/build_review_queue.py` refreshes the worksheet, which now
+   shows each record's status (`(ai)` = awaiting human confirmation).
+
+Conventions: `excerpt` means one text is contained in the other — the note
+names the fuller side. `unmatched` means no line-level relation to any of the
+72 entries; per plan §9 it is NOT a claim of a unique canonical work.
+Devanagari-only judgments are flagged in their notes as
+approximate-transliteration evidence.
+
+Results of the first pass: 1 exact_witness, 30 variant, 10 excerpt,
+1 possible, 82 unmatched. Notable findings recorded in the notes: the
+kaafi-44 page is a composite (a distinct kafi + all of `bulleh_shah_0059`);
+the athvara witness contains entries 0068 and 0069 as day-sections and the
+barahmasa contains 0070 and 0071 as month-sections; kaafi-62 reads *maTi*
+where entry 0046 reads *mai* throughout; kaafi-50's closing couplet matches
+entry 0017 rather than 0032 (stanza recombination); the doha witnesses of
+0006 supply a *jurriyan*/*churiyan* reading lead; several works appear in two
+Sufinama categories (holi=kaafi 53d02f64, kalaam-1=kaafi 9ba747aa,
+shabad-4=kaafi-20, and two doha/dohra pairs).
+
 ## Verification Expectations
 
 - [x] Confirm 76 catalog records and unique UUIDs.
@@ -169,11 +206,14 @@ can remain deterministic.
 - [x] Inspect view errors and redirects: 0 errors; 7 source-unavailable views.
 - [x] Confirm Roman/Urdu stanza and line IDs for all 72 paired witnesses.
 - [x] Preserve hidden raw content without duplicating it with visible HTML.
-- [ ] Human-review the generated crosswalk.
+- [ ] Human-review the generated crosswalk. **AI first pass complete
+  (2026-08-16, all 76 records classified with evidence; `human_confirmed:
+  false`)** — human confirmation still open.
 - [x] Prove the 72 existing Markdown entries were not modified.
 - [x] Run unit tests, validation, and `build_all`.
 - [x] Confirm 48 non-kaafi catalog and normalized records across all 7 categories.
 - [x] Confirm 0 non-kaafi view errors and 41 source-unavailable requested views.
 - [x] Rebuild all 48 non-kaafi witnesses offline from cache.
 - [ ] Human-review the 48-record non-kaafi crosswalk and assign canonical-work
-  relationships only where evidence supports them.
+  relationships only where evidence supports them. **AI first pass complete
+  (2026-08-16; `human_confirmed: false`)** — human confirmation still open.
