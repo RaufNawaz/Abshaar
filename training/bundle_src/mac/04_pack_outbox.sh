@@ -11,10 +11,12 @@
 
 ROOT_ARG=""
 MODEL="mlx-community/Qwen3-8B-4bit"
+SLIM=0
 while [ $# -gt 0 ]; do
     case "$1" in
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
         -m|--model) MODEL="$2"; shift 2 ;;
+        --slim)     SLIM=1; shift ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
     esac
 done
@@ -29,6 +31,18 @@ head_ "Packing results"
 if [ -d "$RUN_DIR/adapter" ]; then
     mkdir -p "$OUTBOX/adapter/$SLUG"
     cp -R "$RUN_DIR/adapter/." "$OUTBOX/adapter/$SLUG/"
+    # mlx-lm writes a checkpoint into the adapter folder every --save-every
+    # iterations (0000200_adapters.safetensors and friends). They are useful
+    # if validation loss turned upward and you want an earlier checkpoint, so
+    # they are kept by default -- but they multiply the size of the ZIP you
+    # are going to email, hence --slim.
+    CKPT_COUNT=$(find "$OUTBOX/adapter/$SLUG" -maxdepth 1 -name '[0-9]*_adapters.safetensors' | wc -l | tr -d ' ')
+    if [ "$SLIM" = "1" ] && [ "$CKPT_COUNT" != "0" ]; then
+        find "$OUTBOX/adapter/$SLUG" -maxdepth 1 -name '[0-9]*_adapters.safetensors' -delete
+        note_ "--slim: dropped $CKPT_COUNT intermediate checkpoint(s); final adapter kept"
+    elif [ "$CKPT_COUNT" != "0" ]; then
+        note_ "$CKPT_COUNT intermediate checkpoint(s) included (re-run with --slim to drop them)"
+    fi
     note_ "adapter -> $OUTBOX/adapter/$SLUG"
 else
     warn_ "No adapter in $RUN_DIR -- nothing trained?"

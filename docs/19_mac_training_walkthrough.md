@@ -210,28 +210,77 @@ sizes, exactly what to copy and in what order.
 
 ---
 
-## Part 4 — Copy off the Trainer
+## Part 4 — Copy off the Trainer (exactly what)
 
-| What | Where | Size | Why |
-|---|---|---|---|
-| `abshaar_results_small.zip` | `~/abshaar-work/` | ~50–300 MB | Adapter, `train_summary.json`, logs, generations. This is the one that matters. |
-| `*.gguf` + `Modelfile.abshaar-bulleh` | `~/abshaar-work/outbox/model/` | 5–16 GB, **only from a bf16 base** | Lets Ollama serve the model directly. |
+`04_pack_outbox.sh` has already gathered everything into one place. **There
+are only two things to copy, and usually only one.**
 
-Verify the copy landed intact:
+### 1. The ZIP — always
 
-```bash
-cd <wherever you unpacked it> && shasum -c SHA256SUMS.txt
+```
+<work root>/abshaar_results_small.zip
 ```
 
-**If you trained from a 4-bit base there is no GGUF, and that is fine** — the
-adapter is the reproducible artefact. To serve it through Ollama later you
-need a non-quantised fuse, which means either a bf16 run on a big Mac or the
-Windows/CUDA bundle. The Air cannot do it: fusing an 8B bf16 model needs
-about 16 GB of RAM, which is the whole machine.
+That single file is the whole result. Verified contents:
 
-Then log out.
+```
+adapter/<model-slug>/adapters.safetensors        ← the trained weights
+adapter/<model-slug>/adapter_config.json         ← rank / layer count
+adapter/<model-slug>/000NNNN_adapters.safetensors  (periodic checkpoints)
+train_summary.json                               ← hyperparameters, dataset SHA-256, runtime
+logs/train-<timestamp>.log                       ← the loss curve
+generations/base_eval.jsonl                      ← only if you ran stage 3
+generations/base_probes.jsonl
+generations/tuned_eval.jsonl
+generations/tuned_probes.jsonl
+SHA256SUMS.txt                                   ← to verify the copy landed
+```
 
----
+**On size:** mlx-lm writes a checkpoint into the adapter folder every 200
+iterations, so a 1560-iteration run leaves 7 of them plus the final weights —
+eight copies of the adapter. They are kept by default because they let you
+fall back to an earlier checkpoint if validation loss turned upward. If you
+just want to email the thing, re-run the stage with `--slim`:
+
+```bash
+./04_pack_outbox.sh -r ~/abshaar-work -m mlx-community/Qwen3-8B-4bit --slim
+```
+
+which drops the intermediate checkpoints and keeps the final adapter. In a
+test run that took the ZIP from 81 MB to 8.6 MB.
+
+### 2. The GGUF — only if stage 2 produced one
+
+```
+<work root>/outbox/model/*.gguf
+<work root>/outbox/model/Modelfile.abshaar-bulleh
+```
+
+5–16 GB, so a drive or cloud storage, not email. This only exists if you
+trained from a **bf16** base. From a 4-bit base there is no GGUF and that is
+expected — the adapter is the reproducible artefact, and you can re-fuse
+from a 4-bit base on the Air later without trouble (the 4-bit 8B is ~4.5 GB;
+it is *bf16* fusing that the Air's 16 GB cannot do).
+
+### What NOT to copy
+
+Everything else under the work root is reproducible and large — leave it:
+
+| Path | Why not |
+|---|---|
+| `venv/` | Rebuilt by `00_bootstrap.sh` in minutes |
+| `cache/huggingface/` | The base model, re-downloadable from Hugging Face |
+| `runs/<slug>/fused/` | Re-fusable from base + adapter |
+| `runs/<slug>/adapter/` | Already copied into the ZIP |
+| `tools/`, `downloads/`, `.stages/` | Scratch |
+
+### Verify before you log out
+
+```bash
+cd <wherever you unpacked the ZIP> && shasum -c SHA256SUMS.txt
+```
+
+Every line must say `OK`. Then log out.
 
 ## Part 5 — On the **Air**: import the adapter
 

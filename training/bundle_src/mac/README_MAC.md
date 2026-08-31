@@ -125,7 +125,7 @@ prefer it when a workstation is available.
 
 | Artefact | Size | Why |
 |---|---|---|
-| `abshaar_results_small.zip` | ~50–300 MB | Adapter, `train_summary.json` (hyperparameters, dataset SHA-256), training logs, base/tuned generations. **Email-able.** |
+| `abshaar_results_small.zip` | tens of MB | Adapter, `train_summary.json` (hyperparameters, dataset SHA-256), training logs, base/tuned generations. **Email-able.** mlx-lm's periodic checkpoints are included by default and multiply the size; re-run `04_pack_outbox.sh --slim` to keep only the final adapter. |
 | `outbox/model/*.gguf` + `Modelfile.abshaar-bulleh` | ~5–16 GB, when produced | The servable model: `ollama create abshaar-bulleh -f Modelfile.abshaar-bulleh`. Use a drive, not email. |
 
 Back in the repository:
