@@ -46,7 +46,48 @@ indistinguishable; 600 was kept as the lowest observed.
 
 Log: `training/logs/run1-train-20260831-160232.log`.
 
-### Run 2 — planned
+### Run 2 — 2026-08-31, completed
+
+| Field | Value |
+|---|---|
+| Base model | `mlx-community/Qwen3-8B-4bit` |
+| Warm start | run 1's iteration-600 adapter |
+| Dataset | max build, 1,576 train / 207 valid (Rafat + Sufinama witnesses included) |
+| Hyperparameters | batch 2, lr 1e-5, **mask_prompt true**, **max_seq_length 4096**, **val_batches 103 (whole set)** |
+| Iterations | 400 (~0.51 epochs) |
+| Adapter kept | **iteration 400 — the final one** |
+
+| iter | val | change |
+|---|---|---|
+| 1 | 1.343 | — (this is run 1's adapter, scored on run 2's terms) |
+| 100 | 1.218 | −0.125 |
+| 200 | 1.189 | −0.029 |
+| 300 | 1.185 | −0.004 |
+| 400 | **1.178** | −0.007 |
+
+**Monotonically decreasing at every point** — a different character from run 1's
+1.305/1.553/1.389 oscillation, and the direct result of validating over the
+whole 207-example set instead of a random 50. The curve is now readable.
+
+**Run 2 beats run 1 by 12.3%, measured identically.** The iteration-1 value
+(1.343) is run 1's adapter evaluated on run 2's validation set with run 2's
+masked loss, so 1.343 → 1.178 is a like-for-like comparison rather than a
+cross-run one. Caveat that only strengthens it: run 2's eval split was drawn
+from a different cluster pool and may contain material run 1 trained on, which
+would flatter run 1 — unverified, and run 1 lost anyway.
+
+**Converged.** The first 100 iterations delivered 76% of the total gain; the
+last 200 delivered 0.011. A run 3 is not worth its wall clock — the lever is
+corpus work (`docs/20`), not more steps.
+
+No overfitting signature: validation never turned up, unlike run 1. The larger
+dataset genuinely had more to teach, which is the first empirical support for
+the max build being worth it.
+
+Cost: 400 iterations plus five full-set validations at ~355 s each — about 30
+minutes of the run spent measuring, which is what bought a curve worth reading.
+
+### Run 3 — not recommended
 
 Changes, each with a reason from run 1 rather than a guess:
 
