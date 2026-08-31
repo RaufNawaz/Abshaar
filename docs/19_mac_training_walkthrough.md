@@ -194,11 +194,19 @@ batch 2, 1560 iters, on an Apple Silicon Mac:
 |---|---|
 | Trainable parameters | 9.699 M of 8190.735 M (0.118%) — mlx-lm's default 16 layers |
 | Speed | 0.315 it/s ≈ **3.2 s per iteration**, ~131 tokens/s |
-| Peak memory | **11.0 GB** |
+| Peak memory | **11.0 GB at iter 25 → 24.4 GB by iter 600** (grows as longer examples are sampled; 417 → 504 tokens/iter) |
 | Validation pass | ~65 s, every 100 iterations (15 of them) |
 | Iter 1 val loss | 3.526 (this is the untrained baseline) |
 | Iter 25 train loss | 2.435 |
+| Iter 600 train loss | 0.811 (≈1.16 epochs in) |
 | **Projected wall clock** | **~83 min training + ~16 min validating ≈ 100 min** |
+
+**Peak memory is not a fixed figure — read it late, not early.** The 11 GB
+at iteration 25 more than doubled to 24.4 GB by iteration 600, because MLX's
+peak tracks the longest sequence seen so far and the dataset's examples vary
+from a couplet to ~2,900 tokens. Size the machine off the late number: a
+16 GB Air cannot run 8B-4bit to completion even though the first report looks
+comfortable.
 
 Two things follow from those numbers. **11 GB peak** is comfortable on a Mac
 Studio but close to the ceiling on a 16 GB Air — if this is the Air, expect

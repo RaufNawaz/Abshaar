@@ -83,7 +83,7 @@ same loss. To actually finish sooner:
 | Lever | Effect |
 |---|---|
 | `-i 800` instead of `1560` | Roughly halves wall clock. Plausible at 1e-4 — confirm on the validation curve, do not assume |
-| `-b 4` instead of `2` | Halves iterations per epoch; raises peak memory (11 GB at batch 2 on an 8B-4bit run, so only on a machine with headroom) |
+| `-b 4` instead of `2` | Halves iterations per epoch, but **check your memory headroom first**: peak memory on an 8B-4bit run at batch 2 was 11 GB at iteration 25 and **24.4 GB by iteration 600** — it grows as the sampler meets longer examples. Batch 4 projects to ~45 GB, so this is a 64 GB+ lever, not a general one |
 | `--skip-generate` on `run_all.sh` | Skips the evidence-generation stage, usually the longest part after training |
 
 ---
