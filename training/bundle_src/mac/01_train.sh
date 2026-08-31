@@ -37,6 +37,12 @@ INIT_FROM=""
 # validation minimum you have no checkpoint for is a model you cannot
 # recover. See best_checkpoint.py.
 EVAL_EVERY=100
+# mlx-lm defaults to --val-batches 25, i.e. 50 examples at batch 2, and
+# trainer.py randomly permutes batch order before taking the first N -- so
+# each validation point scores a DIFFERENT random subset. On run 1 that made
+# the curve oscillate 1.305-1.553 with no real trend, which is unreadable.
+# Empty means: compute a value that covers the whole validation set.
+VAL_BATCHES=""
 while [ $# -gt 0 ]; do
     case "$1" in
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
@@ -46,6 +52,7 @@ while [ $# -gt 0 ]; do
         --lr|--learning-rate) LR="$2"; shift 2 ;;
         -t|--tag)   TAG="$2"; shift 2 ;;
         --eval-every) EVAL_EVERY="$2"; shift 2 ;;
+        --val-batches) VAL_BATCHES="$2"; shift 2 ;;
         --init-from) INIT_FROM="$2"; shift 2 ;;
         --resume)   RESUME=1; shift ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
@@ -70,12 +77,20 @@ note_ "iters:   $ITERS (batch $BATCH, learning rate $LR)"
 # An array, not a string: the bundle or the work root may sit under a path
 # containing spaces, and an unquoted $ARGS would split "--data /My Folder/x"
 # into two arguments and hand mlx-lm a truncated path.
+if [ -z "$VAL_BATCHES" ]; then
+    VALID_N=$(grep -c . "$BUNDLE_DIR/dataset/valid.jsonl" || echo 0)
+    VAL_BATCHES=$(( VALID_N / BATCH ))
+    [ "$VAL_BATCHES" -lt 1 ] && VAL_BATCHES=1
+fi
+note_ "val:     $VAL_BATCHES batches x $BATCH = whole validation set (mlx-lm default is 25 batches = a random subset)"
+
 ARGS=(--model "$MODEL" --train
       --data "$BUNDLE_DIR/dataset"
       --batch-size "$BATCH"
       --iters "$ITERS"
       --adapter-path "$ADAPTER_DIR"
       --learning-rate "$LR"
+      --val-batches "$VAL_BATCHES"
       --save-every "$EVAL_EVERY" --steps-per-report 25 --steps-per-eval "$EVAL_EVERY")
 if [ -n "$INIT_FROM" ]; then
     if [ -d "$INIT_FROM" ]; then
@@ -112,11 +127,11 @@ if [ "$TRAIN_STATUS" -ne 0 ]; then
 fi
 ELAPSED=$(( $(date +%s) - START ))
 
-"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" "$LR" "$EVAL_EVERY" <<'PYSUM'
+"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" "$LR" "$EVAL_EVERY" "$VAL_BATCHES" <<'PYSUM'
 import hashlib, json, platform, sys, time
 from pathlib import Path
 
-model, run_dir, adapter_dir, data_dir, iters, batch, elapsed, lr, eval_every = sys.argv[1:10]
+model, run_dir, adapter_dir, data_dir, iters, batch, elapsed, lr, eval_every, val_batches = sys.argv[1:11]
 run_dir, adapter_dir, data_dir = Path(run_dir), Path(adapter_dir), Path(data_dir)
 
 def sha256(path):
@@ -151,7 +166,8 @@ summary = {
     },
     "hyperparameters": {"iters": int(iters), "batch_size": int(batch),
                         "learning_rate": float(lr), "optimizer": "adam (mlx-lm default)",
-                        "save_every": int(eval_every), "steps_per_eval": int(eval_every)},
+                        "save_every": int(eval_every), "steps_per_eval": int(eval_every),
+                        "val_batches": int(val_batches)},
     "results": {"train_runtime_seconds": int(elapsed)},
     "environment": {"python": sys.version.split()[0], "platform": platform.platform(), "mlx": mlx_version},
     "note": "Val loss is in the training log; mlx-lm prints it every --steps-per-eval.",

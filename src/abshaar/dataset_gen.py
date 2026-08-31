@@ -324,7 +324,7 @@ def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[d
                     index,
                 ),
                 tashreeh,
-                [f"tash_{poem_id}_beginner"],
+                [f"kb:tash_{poem_id}_beginner"],
                 [poem_id],
                 uncertain,
             )

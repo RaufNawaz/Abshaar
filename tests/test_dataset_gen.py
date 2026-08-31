@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import json
 import unittest
+from pathlib import Path
 
 from abshaar.dataset_gen import (
     GenerationPolicy,
+    build_examples,
     run_gates,
     split_examples,
     strip_attribution_notes,
@@ -113,3 +116,30 @@ class GenerationPolicyTest(unittest.TestCase):
         train_works = {e["canonical_work_id"] for e in train}
         eval_works = {e["canonical_work_id"] for e in eval_set}
         self.assertEqual(train_works & eval_works, set())
+
+
+class CitationResolutionTest(unittest.TestCase):
+    """Every kb_id the generator emits must exist in the knowledge base.
+
+    Added after 63 tashreeh examples were found citing `tash_<poem>_beginner`
+    while the record is `kb:tash_<poem>_beginner`. Nothing reached the model —
+    the mlx export carries only `messages` — but provenance that does not
+    resolve is provenance you cannot audit.
+
+    This exercises the generator, not a committed artifact: a dataset file on
+    disk may predate the fix, and that is a stale export, not a live defect.
+    """
+
+    def test_generated_citations_resolve_against_the_knowledge_base(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        kb_path = root / "data" / "processed" / "private" / "knowledge_base.jsonl"
+        if not kb_path.exists():
+            self.skipTest("knowledge base not built in this checkout")
+
+        kb_ids = {json.loads(line)["id"] for line in kb_path.open(encoding="utf-8") if line.strip()}
+        unresolved: dict[str, int] = {}
+        for example in build_examples(root, GenerationPolicy.unrestricted()):
+            for kb_id in example.get("kb_ids") or []:
+                if kb_id not in kb_ids:
+                    unresolved[example["task_family"]] = unresolved.get(example["task_family"], 0) + 1
+        self.assertEqual(unresolved, {}, f"unresolvable kb_ids by family: {unresolved}")
