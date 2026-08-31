@@ -1,0 +1,74 @@
+# EVAL_MATRIX.md
+
+Comparison of base / base+RAG / tuned / tuned+RAG for the Bulleh Shah expert
+model. **The acceptance rows are not filled in yet** — they require the
+Mac-side gate (venv rebuild → `build-index` → RAG smoke test → three baseline
+runs), none of which has been run. See `docs/19` Part 6.
+
+## Training runs
+
+### Run 1 — 2026-08-31
+
+| Field | Value |
+|---|---|
+| Base model | `mlx-community/Qwen3-8B-4bit` |
+| Toolchain | mlx-lm, LoRA rank 8, 16 layers, 9.699 M trainable params (0.118%) |
+| Dataset | standard build, 1,038 train / 143 valid (`train.jsonl` sha256 `c8aa7676…`) |
+| Hyperparameters | batch 2, lr 1e-5, adam, max_seq_length 2048, mask_prompt **false** |
+| Planned / actual iterations | 1560 planned, **stopped at ~800** |
+| Adapter kept | iteration 600 checkpoint |
+| Adapter sha256 | `ec67f93d8224f1c83285eb76f13a8e98012ac41a8ca8b821f3858d67cdca7b17` |
+| Peak memory | 24.4 GB |
+| Speed | 0.315–0.435 it/s (~3.2 s/iter), ~131–144 tokens/s |
+
+Validation curve (val_batches 25 = a random 50 of 143 examples each time, so
+individual points are noisy — see the note below):
+
+| iter | val | train | gap |
+|---|---|---|---|
+| 1 | 3.526 | — | — |
+| 100 | 1.437 | 0.969 | +0.468 |
+| 200 | **1.389** | 0.900 | +0.489 |
+| 300 | 1.528 | 0.862 | +0.666 |
+| 400 | 1.553 | 0.742 | +0.811 |
+| 500 | 1.458 | 0.666 | +0.792 |
+| 600 | **1.305** | 0.811 | +0.494 |
+| 700 | 1.313 | 0.757 | +0.556 |
+| 800 | 1.518 | 0.390 | +1.128 |
+
+**Reading:** 94% of the improvement arrived by iteration 100. After that,
+validation never improved meaningfully while train loss fell 0.969 → 0.390
+and the train/val gap widened 0.468 → 1.128. That gap, not any single
+validation point, is the overfitting evidence — the points themselves swing
+±0.1 because each scored a different random third of the validation set.
+Iteration 600 (1.305) and iteration 200 (1.389) are statistically
+indistinguishable; 600 was kept as the lowest observed.
+
+Log: `training/logs/run1-train-20260831-160232.log`.
+
+### Run 2 — planned
+
+Changes, each with a reason from run 1 rather than a guess:
+
+| Change | Why |
+|---|---|
+| Dataset → max build (1,576 / 207) | Run 1 saturated in ~200 iterations; the lever is more and more varied data, not more steps |
+| `--mask-prompt` on | Run 1 computed loss over the question as well as the answer |
+| `--max-seq-length` 4096 | 2048 truncated the longest examples mid-answer |
+| `--val-batches` = whole set | 25 batches scored a random third, making the curve unreadable |
+| `--eval-every 100` with matching saves | Run 1 saved every 200 while validating every 100, so half the minima had no checkpoint |
+| ~400 iterations, lr 1e-5 | Both from run 1's curve, not from assumption |
+| Warm start from run 1's iteration-600 adapter | Builds on the run rather than repeating it |
+
+## Acceptance rows — NOT YET MEASURED
+
+| Model | factual | honesty | notes |
+|---|---|---|---|
+| `qwen3:8b` base | — | — | blocked: baselines never run |
+| `qwen3:8b` + RAG | — | — | blocked: `build-index` needs the venv rebuild |
+| tuned | — | — | needs the fuse/serve step |
+| tuned + RAG | — | — | |
+
+**Acceptance criterion (plan §3 Phase 5, verbatim): tuned+RAG ≥ base+RAG on
+factual AND tuned ≥ base on honesty.** A model that hallucinates more than
+base is rejected regardless of style gains.

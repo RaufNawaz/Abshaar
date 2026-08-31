@@ -19,9 +19,11 @@ ROOT_ARG=""
 MODEL="mlx-community/Qwen3-8B-4bit"
 ITERS=600
 BATCH=2
-# mlx-lm's own default is 1e-5 (mlx_lm/lora.py), which is conservative for
-# LoRA. Raised to 1e-4 on 2026-08-31 at Rauf's instruction, sitting between
-# mlx-lm's default and the CUDA bundle's 2e-4.
+# 1e-5 (mlx-lm's own default). Raised to 1e-4 earlier on 2026-08-31 on the
+# assumption that 1e-5 might underfit, then put back the same day once run 1
+# disproved it: at 1e-5 the validation loss reached its floor inside ~200
+# iterations while train loss kept falling, i.e. it overfits rather than
+# underfits. A larger rate reaches that floor sooner, not a better one.
 #
 # Note what this does and does not do: a higher learning rate takes LARGER
 # STEPS, not faster ones. Wall clock is iterations x seconds-per-iteration,
@@ -29,7 +31,7 @@ BATCH=2
 # comes from needing FEWER iterations to reach the same loss -- so pair this
 # with a lower -i (try 800-1000 against the 1560 that ~3 epochs needs at
 # 1e-5) and confirm against the validation curve rather than assuming.
-LR=1e-4
+LR=1e-5
 RESUME=0
 TAG=""
 INIT_FROM=""
@@ -43,6 +45,17 @@ EVAL_EVERY=100
 # the curve oscillate 1.305-1.553 with no real trend, which is unreadable.
 # Empty means: compute a value that covers the whole validation set.
 VAL_BATCHES=""
+# Run 1 ran with mlx-lm's defaults for both of these, and both were wrong for
+# this corpus:
+#   mask_prompt=false  -> loss was computed over the QUESTION as well as the
+#     answer, so the model was partly trained to generate prompts. Completion-
+#     only loss is the norm for instruction tuning (the CUDA trainer already
+#     masks). --no-mask-prompt restores the old behaviour.
+#   max_seq_length=2048 -> the longest examples in this corpus run past that
+#     (up to ~5,700 characters of Shahmukhi/Urdu), so their answers were being
+#     truncated mid-poem, teaching the model to stop early.
+MASK_PROMPT=1
+MAX_SEQ_LEN=4096
 while [ $# -gt 0 ]; do
     case "$1" in
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
@@ -53,6 +66,8 @@ while [ $# -gt 0 ]; do
         -t|--tag)   TAG="$2"; shift 2 ;;
         --eval-every) EVAL_EVERY="$2"; shift 2 ;;
         --val-batches) VAL_BATCHES="$2"; shift 2 ;;
+        --max-seq-len) MAX_SEQ_LEN="$2"; shift 2 ;;
+        --no-mask-prompt) MASK_PROMPT=0; shift ;;
         --init-from) INIT_FROM="$2"; shift 2 ;;
         --resume)   RESUME=1; shift ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
@@ -82,6 +97,7 @@ if [ -z "$VAL_BATCHES" ]; then
     VAL_BATCHES=$(( VALID_N / BATCH ))
     [ "$VAL_BATCHES" -lt 1 ] && VAL_BATCHES=1
 fi
+note_ "seq:     max $MAX_SEQ_LEN tokens; prompt masking $([ "$MASK_PROMPT" = 1 ] && echo ON || echo OFF)"
 note_ "val:     $VAL_BATCHES batches x $BATCH = whole validation set (mlx-lm default is 25 batches = a random subset)"
 
 ARGS=(--model "$MODEL" --train
@@ -91,7 +107,10 @@ ARGS=(--model "$MODEL" --train
       --adapter-path "$ADAPTER_DIR"
       --learning-rate "$LR"
       --val-batches "$VAL_BATCHES"
+      --max-seq-length "$MAX_SEQ_LEN"
       --save-every "$EVAL_EVERY" --steps-per-report 25 --steps-per-eval "$EVAL_EVERY")
+[ "$MASK_PROMPT" = "1" ] && ARGS+=(--mask-prompt)
+
 if [ -n "$INIT_FROM" ]; then
     if [ -d "$INIT_FROM" ]; then
         INIT_FROM="$INIT_FROM/adapters.safetensors"
@@ -127,11 +146,11 @@ if [ "$TRAIN_STATUS" -ne 0 ]; then
 fi
 ELAPSED=$(( $(date +%s) - START ))
 
-"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" "$LR" "$EVAL_EVERY" "$VAL_BATCHES" <<'PYSUM'
+"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" "$LR" "$EVAL_EVERY" "$VAL_BATCHES" "$MAX_SEQ_LEN" "$MASK_PROMPT" <<'PYSUM'
 import hashlib, json, platform, sys, time
 from pathlib import Path
 
-model, run_dir, adapter_dir, data_dir, iters, batch, elapsed, lr, eval_every, val_batches = sys.argv[1:11]
+model, run_dir, adapter_dir, data_dir, iters, batch, elapsed, lr, eval_every, val_batches, max_seq_len, mask_prompt = sys.argv[1:13]
 run_dir, adapter_dir, data_dir = Path(run_dir), Path(adapter_dir), Path(data_dir)
 
 def sha256(path):
@@ -167,7 +186,8 @@ summary = {
     "hyperparameters": {"iters": int(iters), "batch_size": int(batch),
                         "learning_rate": float(lr), "optimizer": "adam (mlx-lm default)",
                         "save_every": int(eval_every), "steps_per_eval": int(eval_every),
-                        "val_batches": int(val_batches)},
+                        "val_batches": int(val_batches),
+                        "max_seq_length": int(max_seq_len), "mask_prompt": mask_prompt == "1"},
     "results": {"train_runtime_seconds": int(elapsed)},
     "environment": {"python": sys.version.split()[0], "platform": platform.platform(), "mlx": mlx_version},
     "note": "Val loss is in the training log; mlx-lm prints it every --steps-per-eval.",
