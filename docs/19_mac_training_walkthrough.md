@@ -170,6 +170,27 @@ the first few hundred iterations. If it rises from the very start, stop and
 report it — that indicates a data or chat-template problem, not a
 hyperparameter to tweak.
 
+**Measured, 2026-08-31, first real run** — `mlx-community/Qwen3-8B-4bit`,
+batch 2, 1560 iters, on an Apple Silicon Mac:
+
+| Quantity | Value |
+|---|---|
+| Trainable parameters | 9.699 M of 8190.735 M (0.118%) — mlx-lm's default 16 layers |
+| Speed | 0.315 it/s ≈ **3.2 s per iteration**, ~131 tokens/s |
+| Peak memory | **11.0 GB** |
+| Validation pass | ~65 s, every 100 iterations (15 of them) |
+| Iter 1 val loss | 3.526 (this is the untrained baseline) |
+| Iter 25 train loss | 2.435 |
+| **Projected wall clock** | **~83 min training + ~16 min validating ≈ 100 min** |
+
+Two things follow from those numbers. **11 GB peak** is comfortable on a Mac
+Studio but close to the ceiling on a 16 GB Air — if this is the Air, expect
+memory pressure and sustained heat across ~100 minutes. And mlx-lm's default
+**learning rate is 1e-5**, which is conservative for LoRA (the CUDA bundle
+uses 2e-4). It trains — loss fell from 3.526 to 2.435 within 25 iterations —
+but if the final validation loss plateaus higher than you want, raising the
+learning rate is the first lever to try on a second run, not more iterations.
+
 The stage ends by printing the adapter's SHA-256 and writing
 `~/abshaar-work/runs/<model-slug>/train_summary.json` (hyperparameters,
 dataset hashes, runtime). Keep that file; Part 6 wants those numbers.
