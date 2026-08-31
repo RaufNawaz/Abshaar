@@ -117,6 +117,26 @@ Say so in `EVAL_MATRIX.md` when you report it: the model has then seen both.
 `--resume` is the different case: same run, same folder, continue after an
 interruption.
 
+## 1c. The last checkpoint is often not the best one
+
+mlx-lm's final `adapters.safetensors` is the *last* state, not the *best*. If
+validation loss bottoms partway through and then climbs, the final file is a
+worse model than one already sitting on disk. After training:
+
+```bash
+python3 best_checkpoint.py ~/abshaar-work/logs/train-<timestamp>.log \
+    --adapter-dir ~/abshaar-work/runs/<model-slug>/adapter
+```
+
+It prints the whole validation curve, marks where it turned, and names the
+checkpoint to use. Checkpoints are saved on the same cadence as validation
+(every 100 iterations by default, `--eval-every` to change both together) so
+that every validation minimum has a checkpoint you can actually fall back to.
+
+If it tells you an earlier checkpoint is better, **do not pack with
+`--slim`** — that drops the intermediate checkpoints, including the one you
+want.
+
 ## 2. Which base model
 
 | Machine | Model | Notes |

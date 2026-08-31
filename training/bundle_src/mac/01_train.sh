@@ -33,6 +33,10 @@ LR=1e-4
 RESUME=0
 TAG=""
 INIT_FROM=""
+# Checkpoints are saved on the SAME cadence as validation on purpose: a
+# validation minimum you have no checkpoint for is a model you cannot
+# recover. See best_checkpoint.py.
+EVAL_EVERY=100
 while [ $# -gt 0 ]; do
     case "$1" in
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
@@ -41,6 +45,7 @@ while [ $# -gt 0 ]; do
         -b|--batch-size) BATCH="$2"; shift 2 ;;
         --lr|--learning-rate) LR="$2"; shift 2 ;;
         -t|--tag)   TAG="$2"; shift 2 ;;
+        --eval-every) EVAL_EVERY="$2"; shift 2 ;;
         --init-from) INIT_FROM="$2"; shift 2 ;;
         --resume)   RESUME=1; shift ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
@@ -71,7 +76,7 @@ ARGS=(--model "$MODEL" --train
       --iters "$ITERS"
       --adapter-path "$ADAPTER_DIR"
       --learning-rate "$LR"
-      --save-every 200 --steps-per-report 25 --steps-per-eval 100)
+      --save-every "$EVAL_EVERY" --steps-per-report 25 --steps-per-eval "$EVAL_EVERY")
 if [ -n "$INIT_FROM" ]; then
     if [ -d "$INIT_FROM" ]; then
         INIT_FROM="$INIT_FROM/adapters.safetensors"
@@ -107,11 +112,11 @@ if [ "$TRAIN_STATUS" -ne 0 ]; then
 fi
 ELAPSED=$(( $(date +%s) - START ))
 
-"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" "$LR" <<'PYSUM'
+"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" "$LR" "$EVAL_EVERY" <<'PYSUM'
 import hashlib, json, platform, sys, time
 from pathlib import Path
 
-model, run_dir, adapter_dir, data_dir, iters, batch, elapsed, lr = sys.argv[1:9]
+model, run_dir, adapter_dir, data_dir, iters, batch, elapsed, lr, eval_every = sys.argv[1:10]
 run_dir, adapter_dir, data_dir = Path(run_dir), Path(adapter_dir), Path(data_dir)
 
 def sha256(path):
@@ -146,7 +151,7 @@ summary = {
     },
     "hyperparameters": {"iters": int(iters), "batch_size": int(batch),
                         "learning_rate": float(lr), "optimizer": "adam (mlx-lm default)",
-                        "save_every": 200, "steps_per_eval": 100},
+                        "save_every": int(eval_every), "steps_per_eval": int(eval_every)},
     "results": {"train_runtime_seconds": int(elapsed)},
     "environment": {"python": sys.version.split()[0], "platform": platform.platform(), "mlx": mlx_version},
     "note": "Val loss is in the training log; mlx-lm prints it every --steps-per-eval.",
@@ -158,4 +163,6 @@ PYSUM
 
 stage_mark "train_$SLUG"
 head_ "Training done in $((ELAPSED / 60)) min"
+note_ "Which checkpoint is actually best (the last one often is not):"
+note_ "  python3 $BUNDLE_DIR/best_checkpoint.py \"$LOG\" --adapter-dir \"$ADAPTER_DIR\""
 note_ "Next: ./02_fuse_export.sh -r \"$ROOT\" -m $MODEL"
