@@ -2,7 +2,12 @@ from __future__ import annotations
 
 import unittest
 
-from abshaar.dataset_gen import split_examples, strip_attribution_notes
+from abshaar.dataset_gen import (
+    GenerationPolicy,
+    run_gates,
+    split_examples,
+    strip_attribution_notes,
+)
 
 
 def _example(id_: str, work: str) -> dict:
@@ -58,3 +63,53 @@ class SplitTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class GenerationPolicyTest(unittest.TestCase):
+    """The policy flags open specific gates; the gates must still hold by default."""
+
+    def test_default_policy_is_conservative(self) -> None:
+        policy = GenerationPolicy()
+        self.assertFalse(policy.include_reference_translations)
+        self.assertFalse(policy.include_witnesses)
+        self.assertTrue(policy.holdout)
+
+    def test_unrestricted_opens_every_gate_but_keeps_the_holdout(self) -> None:
+        policy = GenerationPolicy.unrestricted()
+        self.assertTrue(policy.include_reference_translations)
+        self.assertTrue(policy.include_witnesses)
+        self.assertTrue(policy.holdout, "the holdout is not part of 'unrestricted'; losing it destroys measurement")
+
+    def test_leak_gate_still_fires_when_reference_text_is_not_invited(self) -> None:
+        """Regression guard: adding the opt-in must not have disabled the gate."""
+        reference = "the cotton bolls are white and the spinning wheel turns slowly at dawn today"
+        leaked = _example("ex_leak", "work_a")
+        leaked["messages"][2]["content"] = reference
+        failures = run_gates([leaked], [leaked], [], [reference], GenerationPolicy())
+        self.assertTrue(any("8-gram" in f for f in failures), failures)
+
+    def test_leak_gate_is_skipped_only_when_reference_text_is_invited(self) -> None:
+        reference = "the cotton bolls are white and the spinning wheel turns slowly at dawn today"
+        leaked = _example("ex_leak", "work_a")
+        leaked["messages"][2]["content"] = reference
+        failures = run_gates(
+            [leaked], [leaked], [], [reference],
+            GenerationPolicy(include_reference_translations=True),
+        )
+        self.assertEqual([f for f in failures if "8-gram" in f], [])
+
+    def test_disabling_the_holdout_puts_everything_in_train(self) -> None:
+        examples = [_example(f"ex_{i}", f"work_{i}") for i in range(30)]
+        train, eval_set, eval_works = split_examples(examples, holdout=False)
+        self.assertEqual(len(train), 30)
+        self.assertEqual(eval_set, [])
+        self.assertEqual(eval_works, [])
+        self.assertTrue(all(e["split"] == "train" for e in train))
+
+    def test_holdout_still_splits_by_cluster(self) -> None:
+        examples = [_example(f"ex_{i}", f"work_{i}") for i in range(30)]
+        train, eval_set, _ = split_examples(examples, holdout=True)
+        self.assertTrue(eval_set, "a holdout build must actually hold something out")
+        train_works = {e["canonical_work_id"] for e in train}
+        eval_works = {e["canonical_work_id"] for e in eval_set}
+        self.assertEqual(train_works & eval_works, set())

@@ -45,6 +45,23 @@ Air works but is slower and will get hot.
 | Mac Studio, 32 GB+ | `mlx-community/Qwen3-8B-4bit` *(default)* | Matches the `qwen3:8b` baseline Part 6 will measure, so the comparison is apples to apples. |
 | Mac Studio, 64 GB+ | `mlx-community/Qwen3-8B-bf16` | The only Mac option that yields an Ollama-servable GGUF (see Part 4). Slower, ~16 GB download. |
 
+**2b. Which dataset.** Two are now built:
+
+| Bundle | Examples | Contents |
+|---|---|---|
+| `abshaar_mac_bundle.zip` | 1,038 train / 143 valid | The gated set: no reference translations, no witnesses |
+| **`abshaar_mac-max_bundle.zip`** | **1,576 train / 207 valid** | Everything available: + 71 Rafat reference translations, + 516 Sufinama cross-script pairs, + 15 witness identifications |
+
+The max build is +51%. Its largest single family is `script_conversion` at
+516 examples (29% of the set) — genuine parallel data (79 witness texts with
+3+ line-aligned script views, verified zero line-count mismatches), but a big
+enough share to watch for the model over-favouring transliteration. Build a
+less skewed variant with `--witness-pairs 2` (gives 1,256 train).
+
+Its probes and eval split are its own — regenerated from the split that build
+actually held out, so they are not comparable with the default build's
+numbers. Measure baselines against whichever dataset you settle on.
+
 **3. How many iterations.** mlx-lm counts optimizer steps, not epochs. At
 `--batch-size 2` over 1,038 training examples, **one epoch = 519 iterations**:
 

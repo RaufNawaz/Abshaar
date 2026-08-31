@@ -30,6 +30,8 @@ MAC_MODEL="mlx-community/Qwen3-8B-4bit"
 CUDA_MODEL="Qwen/Qwen3-8B"
 ITERS=600
 MAKE_ZIP=1
+DATA_DIR="data/processed/training"
+SUFFIX=""
 
 # Legacy positional form: export_training_bundle.sh [mac_model] [iters]
 if [ $# -gt 0 ] && [ "${1#-}" = "$1" ]; then
@@ -43,13 +45,15 @@ while [ $# -gt 0 ]; do
         --cuda-model) CUDA_MODEL="$2"; shift 2 ;;
         --iters)      ITERS="$2"; shift 2 ;;
         --no-zip)     MAKE_ZIP=0; shift ;;
+        --data-dir)   DATA_DIR="$2"; shift 2 ;;
+        --suffix)     SUFFIX="$2"; shift 2 ;;
         -h|--help)    sed -n '2,25p' "$0"; exit 0 ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
     esac
 done
 case "$TARGET" in mac|windows|both) ;; *) echo "--target must be mac, windows or both" >&2; exit 2 ;; esac
 
-DATA_SRC="data/processed/training"
+DATA_SRC="$DATA_DIR"
 MLX_SRC="$DATA_SRC/mlx"
 for f in "$MLX_SRC/train.jsonl" "$MLX_SRC/valid.jsonl" "$DATA_SRC/eval.jsonl" "$DATA_SRC/probes.jsonl"; do
     if [ ! -f "$f" ]; then
@@ -74,7 +78,7 @@ write_manifest() {
     cat >"$bundle/MANIFEST.md" <<EOF
 # Abshaar training bundle — $platform
 
-Generated $(date '+%Y-%m-%d %H:%M') from the Abshaar repository
+Generated $(date '+%Y-%m-%d %H:%M') from the Abshaar repository, dataset \`$DATA_SRC\`
 (commit \`$(git rev-parse --short HEAD 2>/dev/null || echo unknown)\`, branch \`$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)\`).
 
 Default base model for this bundle: \`$model\`
@@ -145,7 +149,7 @@ package() {
 }
 
 if [ "$TARGET" = "mac" ] || [ "$TARGET" = "both" ]; then
-    BUNDLE="$DIST/mac"
+    BUNDLE="$DIST/mac$SUFFIX"
     rm -rf "$BUNDLE"; mkdir -p "$BUNDLE"
     cp training/bundle_src/mac/*.sh training/bundle_src/mac/*.py \
        training/bundle_src/mac/requirements-mlx.txt training/bundle_src/mac/README_MAC.md "$BUNDLE/"
@@ -155,11 +159,11 @@ if [ "$TARGET" = "mac" ] || [ "$TARGET" = "both" ]; then
 "    chmod +x *.sh
     ./run_all.sh -r ~/abshaar-work -m $MAC_MODEL -i $ITERS"
     echo "Wrote $BUNDLE/"
-    package mac
+    package "mac$SUFFIX"
 fi
 
 if [ "$TARGET" = "windows" ] || [ "$TARGET" = "both" ]; then
-    BUNDLE="$DIST/windows"
+    BUNDLE="$DIST/windows$SUFFIX"
     rm -rf "$BUNDLE"; mkdir -p "$BUNDLE"
     cp training/bundle_src/windows/*.ps1 training/bundle_src/windows/*.py \
        training/bundle_src/windows/RUN_ALL.cmd training/bundle_src/windows/requirements-cuda.txt \
@@ -176,7 +180,7 @@ if [ "$TARGET" = "windows" ] || [ "$TARGET" = "both" ]; then
 "    Double-click RUN_ALL.cmd, or in PowerShell:
     powershell -NoProfile -ExecutionPolicy Bypass -File .\\RUN_ALL.ps1 -Root D:\\abshaar-work"
     echo "Wrote $BUNDLE/"
-    package windows
+    package "windows$SUFFIX"
 fi
 
 cat >"$DIST/EMAIL_ME.md" <<'EOF'

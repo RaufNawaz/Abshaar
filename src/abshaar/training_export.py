@@ -2,8 +2,18 @@
 
 This module is the firewall between the corpus and any training data: only
 layers marked trainable are emitted, and every emitted text is scanned for
-n-gram overlap with the copyrighted reference translations. A leak is a hard
-failure, never a warning.
+n-gram overlap with the reference translations. A leak is a hard failure,
+never a warning.
+
+`include_reference=True` deliberately opens that firewall: it emits the
+reference translations as trainable layers and skips the scan whose entire
+purpose is to catch them. It exists because Rauf stated on 2026-08-31 that he
+holds explicit permission to train on Taufiq Rafat's translations. Default
+stays False, so the gate holds unless a caller asks for it in so many words;
+callers that pass True should record the permission's grantor, date and scope
+in the Rafat source record (see OFFLOADING §7). Publishing is a separate
+switch and is NOT affected: `export.py` still strips reference translations
+from the public site export.
 """
 
 from __future__ import annotations
@@ -58,11 +68,16 @@ def _is_uncertain(*texts: str) -> bool:
     return any(UNCERTAINTY_RE.search(text) for text in texts if text)
 
 
-def extract_trainable_layers(records: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[str]]:
+def extract_trainable_layers(
+    records: list[dict[str, Any]],
+    include_reference: bool = False,
+) -> tuple[list[dict[str, Any]], list[str]]:
     """Return (trainable layer records, leak descriptions).
 
     Leak descriptions are non-empty only if an emitted layer overlaps a
-    reference translation; callers must treat that as a fatal error.
+    reference translation; callers must treat that as a fatal error. With
+    `include_reference=True` the reference translations are themselves
+    emitted and the scan is skipped -- see the module docstring.
     """
     reference_texts = [
         t.get("text", "")
@@ -106,7 +121,10 @@ def extract_trainable_layers(records: list[dict[str, Any]]) -> tuple[list[dict[s
             None,
         )
         for translation in record.get("translations", []):
-            if not isinstance(translation, dict) or translation.get("trainable") is not True:
+            if not isinstance(translation, dict):
+                continue
+            is_reference = translation.get("kind") == "reference_translation"
+            if translation.get("trainable") is not True and not (include_reference and is_reference):
                 continue
             add(
                 translation.get("id", f"{poem_id}:translation"),
@@ -128,6 +146,11 @@ def extract_trainable_layers(records: list[dict[str, Any]]) -> tuple[list[dict[s
                 tashreeh.get("model"),
             )
 
+    if include_reference:
+        # The scan's only job is to catch this text; running it here would
+        # fail on every layer we were just asked to include.
+        return layers, []
+
     leaks = [
         f"{layer['id']} ({layer['kind']}) shares an {LEAK_NGRAM_SIZE}-gram with a reference translation"
         for layer in layers
@@ -136,9 +159,13 @@ def extract_trainable_layers(records: list[dict[str, Any]]) -> tuple[list[dict[s
     return layers, leaks
 
 
-def export_training_corpus(root: Path, output: Path) -> tuple[int, list[str]]:
+def export_training_corpus(
+    root: Path,
+    output: Path,
+    include_reference: bool = False,
+) -> tuple[int, list[str]]:
     records = read_jsonl(root / "data" / "processed" / "poems.jsonl")
-    layers, leaks = extract_trainable_layers(records)
+    layers, leaks = extract_trainable_layers(records, include_reference=include_reference)
     if leaks:
         return 0, leaks
     write_jsonl(output, layers)

@@ -12,10 +12,17 @@ ROOT_ARG=""
 MODEL="mlx-community/Qwen3-8B-4bit"
 ITERS=600
 BATCH=2
-# mlx-lm's own default is 1e-5 (mlx_lm/lora.py). That is conservative for
-# LoRA -- the CUDA bundle uses 2e-4 -- so it is stated explicitly here rather
-# than inherited silently, and it is recorded in train_summary.json.
-LR=1e-5
+# mlx-lm's own default is 1e-5 (mlx_lm/lora.py), which is conservative for
+# LoRA. Raised to 1e-4 on 2026-08-31 at Rauf's instruction, sitting between
+# mlx-lm's default and the CUDA bundle's 2e-4.
+#
+# Note what this does and does not do: a higher learning rate takes LARGER
+# STEPS, not faster ones. Wall clock is iterations x seconds-per-iteration,
+# so 1e-4 at the same --iters costs exactly as long as 1e-5 did. The saving
+# comes from needing FEWER iterations to reach the same loss -- so pair this
+# with a lower -i (try 800-1000 against the 1560 that ~3 epochs needs at
+# 1e-5) and confirm against the validation curve rather than assuming.
+LR=1e-4
 RESUME=0
 while [ $# -gt 0 ]; do
     case "$1" in

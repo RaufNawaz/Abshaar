@@ -60,6 +60,11 @@ def main(argv: list[str] | None = None) -> int:
         "--output",
         default="data/processed/training/trainable_layers.jsonl",
     )
+    export_training.add_argument(
+        "--include-reference-translations",
+        action="store_true",
+        help="Emit the reference (Rafat) translations and skip the leak scan. Requires permission; see OFFLOADING.",
+    )
 
     subparsers.add_parser(
         "extract-lexicon",
@@ -69,9 +74,14 @@ def main(argv: list[str] | None = None) -> int:
         "build-clusters",
         help="Build conservative canonical-work clusters from the source crosswalks.",
     )
-    subparsers.add_parser(
+    build_kb_parser = subparsers.add_parser(
         "build-kb",
         help="Build the consolidated private knowledge base; fails on any reference leak.",
+    )
+    build_kb_parser.add_argument(
+        "--include-reference-translations",
+        action="store_true",
+        help="Include the reference (Rafat) translations and skip the leak scan.",
     )
 
     build_index = subparsers.add_parser(
@@ -90,19 +100,60 @@ def main(argv: list[str] | None = None) -> int:
     ask.add_argument("--min-score", type=float, default=None)
     ask.add_argument("--retrieve-only", action="store_true", help="Show retrieved records without generation.")
 
-    subparsers.add_parser(
+    gen_training = subparsers.add_parser(
         "generate-training-data",
         help="Build the templated train/eval instruction dataset with all gates.",
     )
+    gen_training.add_argument(
+        "--unrestricted",
+        action="store_true",
+        help="Draw on everything available: reference translations + Sufinama witnesses.",
+    )
+    gen_training.add_argument(
+        "--include-reference-translations",
+        action="store_true",
+        help="Include the reference (Rafat) translations; skips the leak scan.",
+    )
+    gen_training.add_argument(
+        "--include-witnesses",
+        action="store_true",
+        help="Build script-conversion and identification examples from the Sufinama witnesses.",
+    )
+    gen_training.add_argument(
+        "--witness-pairs",
+        type=int,
+        default=2,
+        help="Cross-view pairs per witness text (0 = all; the ceiling is 516 across the corpus).",
+    )
+    gen_training.add_argument(
+        "--no-holdout",
+        action="store_true",
+        help="Train on every example; leaves eval.jsonl empty. Only for a final run after evaluation.",
+    )
+    gen_training.add_argument(
+        "--out-dir",
+        default=None,
+        help="Write elsewhere than data/processed/training/ (keeps an in-flight run's dataset intact).",
+    )
 
-    subparsers.add_parser(
+    build_probes_parser = subparsers.add_parser(
         "build-probes",
         help="Build the fixed 50-probe evaluation set (factual/honesty/disputed).",
     )
+    build_probes_parser.add_argument(
+        "--training-dir",
+        default=None,
+        help="Dataset directory to draw the held-out split from (default data/processed/training).",
+    )
 
-    subparsers.add_parser(
+    export_mlx = subparsers.add_parser(
         "export-mlx-dataset",
         help="Write messages-only train/valid JSONL for mlx_lm.lora into data/processed/training/mlx/.",
+    )
+    export_mlx.add_argument(
+        "--training-dir",
+        default="data/processed/training",
+        help="Directory holding train.jsonl/eval.jsonl to convert.",
     )
 
     normalize_translit = subparsers.add_parser(
@@ -257,23 +308,23 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "export-site":
         return command_export_site(root)
     if args.command == "export-training-corpus":
-        return command_export_training(root, args.output)
+        return command_export_training(root, args.output, args.include_reference_translations)
     if args.command == "extract-lexicon":
         return command_extract_lexicon(root)
     if args.command == "build-clusters":
         return command_build_clusters(root)
     if args.command == "build-kb":
-        return command_build_kb(root)
+        return command_build_kb(root, args.include_reference_translations)
     if args.command == "build-index":
         return command_build_index(root, args.model)
     if args.command == "ask":
         return command_ask(root, args)
     if args.command == "generate-training-data":
-        return command_generate_training_data(root)
+        return command_generate_training_data(root, args)
     if args.command == "build-probes":
-        return command_build_probes(root)
+        return command_build_probes(root, args.training_dir)
     if args.command == "export-mlx-dataset":
-        return command_export_mlx_dataset(root)
+        return command_export_mlx_dataset(root, args.training_dir)
     if args.command == "augment-training-data":
         return command_augment_training_data(root, args)
     if args.command == "normalize-translit":
@@ -375,10 +426,24 @@ def command_build_data(root: Path, include_placeholders: bool) -> int:
     return 0
 
 
-def command_generate_training_data(root: Path) -> int:
-    from abshaar.dataset_gen import TRAINING_DIR, generate_training_data
+def command_generate_training_data(root: Path, args) -> int:
+    from abshaar.dataset_gen import TRAINING_DIR, GenerationPolicy, generate_training_data
 
-    stats, failures = generate_training_data(root)
+    if args.unrestricted:
+        policy = GenerationPolicy.unrestricted(
+            witness_pairs_per_text=args.witness_pairs,
+            holdout=not args.no_holdout,
+        )
+    else:
+        policy = GenerationPolicy(
+            include_reference_translations=args.include_reference_translations,
+            include_witnesses=args.include_witnesses,
+            witness_pairs_per_text=args.witness_pairs,
+            holdout=not args.no_holdout,
+        )
+    for line in policy.describe():
+        print(line)
+    stats, failures = generate_training_data(root, policy, args.out_dir)
     if failures:
         print("GATE FAILURE — no dataset written:", file=sys.stderr)
         for failure in failures[:20]:
@@ -388,7 +453,7 @@ def command_generate_training_data(root: Path) -> int:
         return 1
     print(
         f"Wrote {stats['train']} train / {stats['eval']} eval example(s) "
-        f"({stats['total']} total) to {TRAINING_DIR}/"
+        f"({stats['total']} total) to {args.out_dir or TRAINING_DIR}/"
     )
     for family in sorted(stats["by_family"]):
         counts = stats["by_family"][family]
@@ -438,10 +503,10 @@ def command_augment_training_data(root: Path, args: argparse.Namespace) -> int:
     return 0
 
 
-def command_export_mlx_dataset(root: Path) -> int:
+def command_export_mlx_dataset(root: Path, training_dir_arg: str = "data/processed/training") -> int:
     from abshaar.jsonl import read_jsonl, write_jsonl as _write_jsonl
 
-    training_dir = root / "data" / "processed" / "training"
+    training_dir = root / training_dir_arg
     out_dir = training_dir / "mlx"
     counts = {}
     for source, target in [("train.jsonl", "train.jsonl"), ("eval.jsonl", "valid.jsonl")]:
@@ -452,11 +517,11 @@ def command_export_mlx_dataset(root: Path) -> int:
     return 0
 
 
-def command_build_probes(root: Path) -> int:
-    from abshaar.evaluate import PROBES_PATH, build_probes
+def command_build_probes(root: Path, training_dir: str | None = None) -> int:
+    from abshaar.evaluate import TRAINING_DIR as EVAL_TRAINING_DIR, build_probes
 
-    count = build_probes(root)
-    print(f"Wrote {count} probe(s) to {PROBES_PATH}")
+    count = build_probes(root, training_dir)
+    print(f"Wrote {count} probe(s) to {training_dir or EVAL_TRAINING_DIR}/probes.jsonl")
     return 0
 
 
@@ -565,10 +630,12 @@ def command_build_clusters(root: Path) -> int:
     return 0
 
 
-def command_build_kb(root: Path) -> int:
+def command_build_kb(root: Path, include_reference: bool = False) -> int:
     from abshaar.knowledge_base import KB_PATH, build_kb
 
-    counts, leaks = build_kb(root)
+    if include_reference:
+        print("Including reference (Rafat) translations; leak scan skipped.")
+    counts, leaks = build_kb(root, include_reference=include_reference)
     if leaks:
         print("LEAK DETECTED — reference-translation text in knowledge base; nothing written:", file=sys.stderr)
         for leak in leaks:
@@ -580,10 +647,12 @@ def command_build_kb(root: Path) -> int:
     return 0
 
 
-def command_export_training(root: Path, output: str) -> int:
+def command_export_training(root: Path, output: str, include_reference: bool = False) -> int:
     from abshaar.training_export import export_training_corpus
 
-    count, leaks = export_training_corpus(root, root / output)
+    if include_reference:
+        print("Including reference (Rafat) translations; leak scan skipped.")
+    count, leaks = export_training_corpus(root, root / output, include_reference=include_reference)
     if leaks:
         print("LEAK DETECTED — reference-translation text in trainable layers; nothing written:", file=sys.stderr)
         for leak in leaks:

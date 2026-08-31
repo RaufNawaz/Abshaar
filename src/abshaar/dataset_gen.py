@@ -16,6 +16,8 @@ Gates (all fatal):
 from __future__ import annotations
 
 import re
+from collections import defaultdict
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -29,6 +31,62 @@ from abshaar.training_export import (
     normalize_words,
 )
 
+
+@dataclass(frozen=True)
+class GenerationPolicy:
+    """What the generator is allowed to draw on.
+
+    Defaults reproduce the original conservative behaviour exactly, so
+    nothing changes for a caller that does not ask. Each flag opens one
+    specific gate and is documented where it is enforced.
+    """
+
+    # Emit Taufiq Rafat's reference translations and skip the leak scan whose
+    # purpose is to catch them. Rauf stated on 2026-08-31 that he holds
+    # explicit permission. Publishing is unaffected: export.py still strips
+    # them from the public site export.
+    include_reference_translations: bool = False
+
+    # Build examples from the Sufinama witness records. They are already in
+    # the knowledge base and marked trainable; until now nothing consumed
+    # them. Their crosswalk classifications are an AI first pass carrying
+    # human_confirmed: false -- accepted deliberately, not overlooked.
+    include_witnesses: bool = False
+
+    # Cross-view pairs per witness text. 79 texts carry 3+ aligned views, so
+    # the ceiling is 516 ordered pairs; taking all of them would make script
+    # conversion roughly half the dataset. 0 means no cap.
+    witness_pairs_per_text: int = 2
+
+    # Keep the eval split. Setting this False trains on every example and
+    # leaves eval.jsonl empty -- only for a final production run AFTER the
+    # recipe has been validated, since it destroys the ability to measure.
+    holdout: bool = True
+
+    @classmethod
+    def unrestricted(cls, witness_pairs_per_text: int = 2, holdout: bool = True) -> "GenerationPolicy":
+        return cls(
+            include_reference_translations=True,
+            include_witnesses=True,
+            witness_pairs_per_text=witness_pairs_per_text,
+            holdout=holdout,
+        )
+
+    def describe(self) -> list[str]:
+        return [
+            f"- Reference (Rafat) translations: {'INCLUDED' if self.include_reference_translations else 'excluded (leak-scanned)'}",
+            f"- Sufinama witnesses: {'INCLUDED' if self.include_witnesses else 'excluded'}"
+            + (f", up to {self.witness_pairs_per_text or 'all'} cross-view pair(s) per text" if self.include_witnesses else ""),
+            f"- Eval holdout: {'kept (cluster-disjoint)' if self.holdout else 'DISABLED — every example is in train; eval.jsonl is empty'}",
+        ]
+
+
+WITNESS_VIEW_LABELS = {
+    "roman_plain": "plain Roman transliteration",
+    "roman_diacritic": "diacritic Roman transliteration",
+    "urdu": "Urdu script",
+    "devanagari": "Devanagari script",
+}
 
 TRAINING_DIR = "data/processed/training"
 EVAL_WORK_MODULUS = 10  # every Nth poem-bearing cluster (sorted) is held out
@@ -134,7 +192,8 @@ def _hedged(answer: str, uncertain: bool) -> str:
     return answer
 
 
-def build_examples(root: Path) -> list[dict[str, Any]]:
+def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[dict[str, Any]]:
+    policy = policy or GenerationPolicy()
     kb = {record["id"]: record for record in read_jsonl(root / KB_PATH)}
     poems = read_jsonl(root / "data" / "processed" / "poems.jsonl")
     works = cluster_map(root)
@@ -148,6 +207,7 @@ def build_examples(root: Path) -> list[dict[str, Any]]:
         kb_ids: list[str],
         poem_ids: list[str],
         uncertain: bool,
+        work_id: str | None = None,
     ) -> None:
         if not question.strip() or not answer.strip():
             return
@@ -163,7 +223,7 @@ def build_examples(root: Path) -> list[dict[str, Any]]:
                 ],
                 "kb_ids": kb_ids,
                 "poem_ids": poem_ids,
-                "canonical_work_id": works.get(anchor, ""),
+                "canonical_work_id": work_id or works.get(anchor, ""),
                 "generator": "template_v1",
                 "uncertainty": uncertain,
             }
@@ -190,6 +250,33 @@ def build_examples(root: Path) -> list[dict[str, Any]]:
         )
 
         best_translation = translations.get("literary_translation") or translations.get("ai_translation") or ""
+
+        # Rafat's rendering is a *published human* translation of the same
+        # poem, so it gets its own family and its own question wording rather
+        # than competing with the drafted translation for the same prompt --
+        # two different answers to one question would be contradictory
+        # training signal, and would trip the dedup gate besides.
+        reference_translation = ""
+        if policy.include_reference_translations:
+            for translation in poem.get("translations", []):
+                if isinstance(translation, dict) and translation.get("kind") == "reference_translation":
+                    reference_translation = strip_attribution_notes(translation.get("text", ""))
+                    break
+        if original and reference_translation:
+            add(
+                "reference_translation",
+                _pick(
+                    [
+                        f"Give the published English reference translation of these lines by Bulleh Shah:\n\n{original}",
+                        f"How has this kafi of Bulleh Shah been rendered in published English translation?\n\n{original}",
+                    ],
+                    index,
+                ),
+                reference_translation,
+                [f"kb:{poem_id}:original"],
+                [poem_id],
+                uncertain,
+            )
         if original and best_translation:
             question = _pick(
                 [
@@ -331,6 +418,78 @@ def build_examples(root: Path) -> list[dict[str, Any]]:
                 bool(record.get("uncertainty")),
             )
 
+    if policy.include_witnesses:
+        by_stem: dict[str, dict[str, tuple[str, dict[str, Any]]]] = defaultdict(dict)
+        for kb_id, record in sorted(kb.items()):
+            if not str(record.get("kind", "")).endswith("_witness"):
+                continue
+            body = kb_id[len("kb:") :]
+            if ":" not in body:
+                continue
+            stem, view = body.rsplit(":", 1)
+            by_stem[stem][view] = (kb_id, record)
+
+        # Several works appear under more than one Sufinama category, so the
+        # same text can legitimately occur twice. That is a property of the
+        # source, not a generator bug, so duplicates are dropped here instead
+        # of being left to fail the global dedup gate.
+        seen_witness_questions: set[str] = set()
+
+        def add_witness(
+            family: str,
+            question: str,
+            answer: str,
+            kb_ids: list[str],
+            poem_ids: list[str],
+            work_id: str,
+        ) -> None:
+            key = " ".join(normalize_words(question))
+            if key in seen_witness_questions:
+                return
+            seen_witness_questions.add(key)
+            add(family, question, answer, kb_ids, poem_ids, False, work_id=work_id)
+
+        for stem, views in sorted(by_stem.items()):
+            ordered = sorted(views.items())
+            anchor_record = ordered[0][1][1]
+            work_id = str(anchor_record.get("canonical_work_id") or "")
+            witness_poems = [str(p) for p in (anchor_record.get("poem_ids") or [])]
+
+            # All views of one witness are the same poem in another script and
+            # are line-aligned (verified 2026-08-31: 79 multi-view texts, zero
+            # line-count mismatches), so each ordered pair is genuine parallel
+            # data rather than an assumption.
+            pairs = [(a, b) for a in ordered for b in ordered if a[0] != b[0]]
+            if policy.witness_pairs_per_text:
+                pairs = pairs[: policy.witness_pairs_per_text]
+            for (source_view, (source_id, source)), (target_view, (target_id, target)) in pairs:
+                source_label = WITNESS_VIEW_LABELS.get(source_view, source_view)
+                target_label = WITNESS_VIEW_LABELS.get(target_view, target_view)
+                add_witness(
+                    "script_conversion",
+                    f"Render these lines of Bulleh Shah from {source_label} into {target_label}:"
+                    f"\n\n{source['text']}",
+                    target["text"],
+                    [source_id, target_id],
+                    witness_poems,
+                    work_id,
+                )
+
+            if witness_poems:
+                named = ", ".join(f'"{titles.get(p, p)}" ({p})' for p in witness_poems)
+                identify_id, identify_record = ordered[0][1]
+                add_witness(
+                    "witness_identification",
+                    "Which work in the Abshaar archive is this witness text a version of?"
+                    f"\n\n{identify_record['text']}",
+                    f"That is a Sufinama witness of {named} — a separate recension of the "
+                    "same work, preserved alongside the archive's own entry rather than "
+                    "merged into it.",
+                    [identify_id],
+                    witness_poems,
+                    work_id,
+                )
+
     for topic in FALSE_PREMISE_TOPICS:
         decline = (
             f"The corpus contains no material by Bulleh Shah about {topic}. "
@@ -384,8 +543,24 @@ def build_examples(root: Path) -> list[dict[str, Any]]:
     return examples
 
 
-def split_examples(examples: list[dict[str, Any]]) -> tuple[list[dict], list[dict], list[str]]:
-    """Cluster-aware split. Returns (train, eval, eval_work_ids)."""
+def split_examples(
+    examples: list[dict[str, Any]],
+    holdout: bool = True,
+) -> tuple[list[dict], list[dict], list[str]]:
+    """Cluster-aware split. Returns (train, eval, eval_work_ids).
+
+    With holdout=False everything goes to train and eval is empty -- see
+    GenerationPolicy.holdout for why that is a deliberate last step, not a
+    default.
+    """
+    if not holdout:
+        train = []
+        for example in examples:
+            example = dict(example)
+            example["split"] = "train"
+            train.append(example)
+        return train, [], []
+
     work_ids = sorted({e["canonical_work_id"] for e in examples if e["canonical_work_id"]})
     eval_works = {w for i, w in enumerate(work_ids) if i % EVAL_WORK_MODULUS == 0}
     train: list[dict] = []
@@ -406,14 +581,20 @@ def run_gates(
     train: list[dict],
     eval_set: list[dict],
     reference_texts: list[str],
+    policy: GenerationPolicy | None = None,
 ) -> list[str]:
+    policy = policy or GenerationPolicy()
     failures: list[str] = []
 
-    reference_index = build_reference_index(reference_texts)
-    for example in examples:
-        for message in example["messages"]:
-            if find_leaks(message["content"], reference_index):
-                failures.append(f"{example['id']}: shares an 8-gram with a reference translation")
+    # The leak scan exists to catch reference-translation text. When that text
+    # is deliberately included, running it would fail on every example we were
+    # asked to produce; every other gate still applies.
+    if not policy.include_reference_translations:
+        reference_index = build_reference_index(reference_texts)
+        for example in examples:
+            for message in example["messages"]:
+                if find_leaks(message["content"], reference_index):
+                    failures.append(f"{example['id']}: shares an 8-gram with a reference translation")
 
     seen: dict[str, str] = {}
     for example in examples:
@@ -438,9 +619,14 @@ def run_gates(
     return failures
 
 
-def generate_training_data(root: Path) -> tuple[dict[str, Any], list[str]]:
-    examples = build_examples(root)
-    train, eval_set, eval_works = split_examples(examples)
+def generate_training_data(
+    root: Path,
+    policy: GenerationPolicy | None = None,
+    out_dir: str | None = None,
+) -> tuple[dict[str, Any], list[str]]:
+    policy = policy or GenerationPolicy()
+    examples = build_examples(root, policy)
+    train, eval_set, eval_works = split_examples(examples, holdout=policy.holdout)
     poems = read_jsonl(root / "data" / "processed" / "poems.jsonl")
     reference_texts = [
         t.get("text", "")
@@ -448,11 +634,11 @@ def generate_training_data(root: Path) -> tuple[dict[str, Any], list[str]]:
         for t in poem.get("translations", [])
         if isinstance(t, dict) and t.get("kind") == "reference_translation"
     ]
-    failures = run_gates(examples, train, eval_set, reference_texts)
+    failures = run_gates(examples, train, eval_set, reference_texts, policy)
     if failures:
         return {}, failures
 
-    out_dir = root / TRAINING_DIR
+    out_dir = root / (out_dir or TRAINING_DIR)
     write_jsonl(out_dir / "train.jsonl", train)
     write_jsonl(out_dir / "eval.jsonl", eval_set)
 
@@ -467,6 +653,12 @@ def generate_training_data(root: Path) -> tuple[dict[str, Any], list[str]]:
         "eval": len(eval_set),
         "eval_work_clusters": eval_works,
         "by_family": by_family,
+        "policy": {
+            "include_reference_translations": policy.include_reference_translations,
+            "include_witnesses": policy.include_witnesses,
+            "witness_pairs_per_text": policy.witness_pairs_per_text,
+            "holdout": policy.holdout,
+        },
     }
     manifest_lines = [
         "# Training Data Manifest",
@@ -475,11 +667,21 @@ def generate_training_data(root: Path) -> tuple[dict[str, Any], list[str]]:
         "no LLM in the loop — every answer is corpus text; nothing invented).",
         "",
         f"- Total examples: {stats['total']} (train {stats['train']} / eval {stats['eval']})",
-        f"- Eval work clusters held out ({len(eval_works)}): {', '.join(eval_works)}",
-        "- Gates passed: reference-translation 8-gram leak scan, question dedup,",
-        "  uncertainty hedging audit, cluster-disjoint split.",
+        f"- Eval work clusters held out ({len(eval_works)}): {', '.join(eval_works) or 'NONE'}",
+        "",
+        "## Corpus policy for this build",
+        "",
+        *policy.describe(),
+        "",
+        "- Gates passed: question dedup, uncertainty hedging audit, cluster-disjoint split"
+        + ("" if policy.include_reference_translations else ", reference-translation 8-gram leak scan")
+        + ".",
         "- Known limitation: question phrasing diversity is template-bound; an LLM",
         "  paraphrase augmentation pass (same gates) is planned but not yet run.",
+        "- The eval split is chosen from the work clusters present, so changing the",
+        "  corpus policy changes which clusters are held out. Rebuild probes",
+        "  (`build-probes`) and re-measure baselines after any policy change;",
+        "  scores from a previous split are not comparable.",
         "",
         "| family | train | eval |",
         "|---|---|---|",

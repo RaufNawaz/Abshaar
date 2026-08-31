@@ -38,7 +38,7 @@ def witness_view_text(view: dict[str, Any]) -> str:
     return "\n".join(lines_out)
 
 
-def build_kb(root: Path) -> tuple[dict[str, int], list[str]]:
+def build_kb(root: Path, include_reference: bool = False) -> tuple[dict[str, int], list[str]]:
     poems = _load(root, "data/processed/poems.jsonl")
     works = cluster_map(root)
     records: list[dict[str, Any]] = []
@@ -72,7 +72,7 @@ def build_kb(root: Path) -> tuple[dict[str, int], list[str]]:
             }
         )
 
-    layers, layer_leaks = extract_trainable_layers(poems)
+    layers, layer_leaks = extract_trainable_layers(poems, include_reference=include_reference)
     if layer_leaks:
         return {}, layer_leaks
     for layer in layers:
@@ -218,21 +218,22 @@ def build_kb(root: Path) -> tuple[dict[str, int], list[str]]:
             "Automatically clustered; only exact 1.0 crosswalk matches are merged.",
         )
 
-    reference_index = build_reference_index(
-        [
-            t.get("text", "")
-            for poem in poems
-            for t in poem.get("translations", [])
-            if isinstance(t, dict) and t.get("kind") == "reference_translation"
+    if not include_reference:
+        reference_index = build_reference_index(
+            [
+                t.get("text", "")
+                for poem in poems
+                for t in poem.get("translations", [])
+                if isinstance(t, dict) and t.get("kind") == "reference_translation"
+            ]
+        )
+        leaks = [
+            f"{record['id']} ({record['kind']}) shares an 8-gram with a reference translation"
+            for record in records
+            if find_leaks(record["text"], reference_index)
         ]
-    )
-    leaks = [
-        f"{record['id']} ({record['kind']}) shares an 8-gram with a reference translation"
-        for record in records
-        if find_leaks(record["text"], reference_index)
-    ]
-    if leaks:
-        return {}, leaks
+        if leaks:
+            return {}, leaks
 
     write_jsonl(root / KB_PATH, records)
     counts: dict[str, int] = {}

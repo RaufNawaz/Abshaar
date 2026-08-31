@@ -70,11 +70,21 @@ and stop caring about later checkpoints if it turns upward.
 
 ### Learning rate
 
-Default `1e-5` — mlx-lm's own default, passed explicitly so it shows up in
-`train_summary.json` instead of being inherited silently. It is conservative
-for LoRA (the CUDA bundle uses `2e-4`). Change it with
-`./01_train.sh --lr 1e-4`. You can read the live value off the
+Default **`1e-4`** (raised from mlx-lm's own `1e-5` on 2026-08-31), passed
+explicitly so it lands in `train_summary.json` rather than being inherited
+silently. Change it with `./01_train.sh --lr 2e-4`; the live value is the
 `Learning Rate` field mlx-lm prints every 25 iterations.
+
+**A higher rate takes bigger steps, not faster ones.** Wall clock is
+`iterations x seconds-per-iteration`, so 1e-4 at the same `-i` costs exactly
+what 1e-5 did. The saving comes from needing fewer iterations to reach the
+same loss. To actually finish sooner:
+
+| Lever | Effect |
+|---|---|
+| `-i 800` instead of `1560` | Roughly halves wall clock. Plausible at 1e-4 — confirm on the validation curve, do not assume |
+| `-b 4` instead of `2` | Halves iterations per epoch; raises peak memory (11 GB at batch 2 on an 8B-4bit run, so only on a machine with headroom) |
+| `--skip-generate` on `run_all.sh` | Skips the evidence-generation stage, usually the longest part after training |
 
 ---
 

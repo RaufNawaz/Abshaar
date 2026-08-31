@@ -82,8 +82,16 @@ FRESH_FAKE_TITLES = [
 ]
 
 
-def build_probes(root: Path) -> int:
-    eval_examples = read_jsonl(root / TRAINING_DIR / "eval.jsonl")
+def build_probes(root: Path, training_dir: str | None = None) -> int:
+    """Build the probe set from a dataset's held-out eval split.
+
+    `training_dir` lets an alternative dataset build its own probes, so that
+    probes are always drawn from the split that dataset actually held out --
+    reusing another build's probes would mean 'held-out' questions the model
+    was trained on.
+    """
+    training_dir = training_dir or TRAINING_DIR
+    eval_examples = read_jsonl(root / training_dir / "eval.jsonl")
     probes: list[dict[str, Any]] = []
 
     factual = [e for e in sorted(eval_examples, key=lambda e: e["id"]) if e["task_family"] != "honesty"]
@@ -147,7 +155,7 @@ def build_probes(root: Path) -> int:
             }
         )
 
-    write_jsonl(root / PROBES_PATH, probes)
+    write_jsonl(root / training_dir / "probes.jsonl", probes)
     return len(probes)
 
 

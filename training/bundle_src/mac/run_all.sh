@@ -5,7 +5,7 @@
 # already done, so re-running after an interruption resumes rather than
 # restarting.
 #
-# Usage: ./run_all.sh [-r work_root] [-m model_repo] [-i iters]
+# Usage: ./run_all.sh [-r work_root] [-m model_repo] [-i iters] [--lr rate]
 #                     [--skip-gguf] [--skip-generate] [--resume]
 
 . "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/common.sh"
@@ -13,6 +13,7 @@
 ROOT_ARG=""
 MODEL="mlx-community/Qwen3-8B-4bit"
 ITERS=600
+LR=""
 SKIP_GGUF=""
 SKIP_GENERATE=0
 RESUME=""
@@ -21,6 +22,7 @@ while [ $# -gt 0 ]; do
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
         -m|--model) MODEL="$2"; shift 2 ;;
         -i|--iters) ITERS="$2"; shift 2 ;;
+        --lr|--learning-rate) LR="$2"; shift 2 ;;
         --skip-gguf) SKIP_GGUF="--skip-gguf"; shift ;;
         --skip-generate) SKIP_GENERATE=1; shift ;;
         --resume) RESUME="--resume"; shift ;;
@@ -43,7 +45,9 @@ note_ "training 20-90 min at $ITERS iters, fuse a few minutes, generations 15-40
 if stage_done "train_$SLUG" && [ -z "$RESUME" ]; then
     note_ "Training already completed for $MODEL; skipping (rm $ROOT/.stages/train_$SLUG to redo)."
 else
-    "$BUNDLE_DIR/01_train.sh" -r "$ROOT" -m "$MODEL" -i "$ITERS" $RESUME
+    LR_ARGS=()
+    [ -n "$LR" ] && LR_ARGS=(--lr "$LR")
+    "$BUNDLE_DIR/01_train.sh" -r "$ROOT" -m "$MODEL" -i "$ITERS" ${LR_ARGS+"${LR_ARGS[@]}"} $RESUME
 fi
 
 "$BUNDLE_DIR/02_fuse_export.sh" -r "$ROOT" -m "$MODEL" $SKIP_GGUF
