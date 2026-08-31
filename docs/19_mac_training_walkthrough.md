@@ -511,6 +511,7 @@ Re-running `./run_all.sh` with the same `-r` picks up where it stopped.
 | Validation loss rises from iteration 1 | Data or template problem | Stop; report; do not tune hyperparameters around it |
 | GGUF step says it is skipping | Quantised fuse | Expected from a 4-bit base — Part 4 |
 | Download stalls | HF CDN hiccup | Re-run stage 0; `snapshot_download` resumes |
+| `unknown argument: --slim` (or any other flag) | The bundle unzipped on the trainer predates the flag — bundles drift behind the repo as it is fixed mid-run | Either re-send the current ZIP, or do the step by hand (the scripts are short on purpose). Check `MANIFEST.md` in the unzipped folder for the build date |
 | `AI stack unavailable` on the Air | Ran outside the venv, or §6.1 not done | Use `./scripts/abshaar.sh`, which prefers `.venv` |
 
 ## Appendix D — Where things land
