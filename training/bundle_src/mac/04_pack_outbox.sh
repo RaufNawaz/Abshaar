@@ -11,11 +11,13 @@
 
 ROOT_ARG=""
 MODEL="mlx-community/Qwen3-8B-4bit"
+TAG=""
 SLIM=0
 while [ $# -gt 0 ]; do
     case "$1" in
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
         -m|--model) MODEL="$2"; shift 2 ;;
+        -t|--tag)   TAG="$2"; shift 2 ;;
         --slim)     SLIM=1; shift ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
     esac
@@ -24,6 +26,7 @@ done
 init_env "$(resolve_root "$ROOT_ARG")"
 
 SLUG="$(run_slug "$MODEL")"
+[ -n "$TAG" ] && SLUG="$SLUG-$TAG"
 RUN_DIR="$ROOT/runs/$SLUG"
 OUTBOX="$ROOT/outbox"
 

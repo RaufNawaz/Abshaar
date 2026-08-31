@@ -8,6 +8,7 @@
 
 ROOT_ARG=""
 MODEL="mlx-community/Qwen3-8B-4bit"
+TAG=""
 SKIP_BASE=0
 MAX_TOKENS=512
 LIMIT=0
@@ -15,6 +16,7 @@ while [ $# -gt 0 ]; do
     case "$1" in
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
         -m|--model) MODEL="$2"; shift 2 ;;
+        -t|--tag)   TAG="$2"; shift 2 ;;
         --max-tokens) MAX_TOKENS="$2"; shift 2 ;;
         --limit)    LIMIT="$2"; shift 2 ;;
         --skip-base) SKIP_BASE=1; shift ;;
@@ -30,6 +32,7 @@ init_env "$(resolve_root "$ROOT_ARG")"
 require_venv
 
 SLUG="$(run_slug "$MODEL")"
+[ -n "$TAG" ] && SLUG="$SLUG-$TAG"
 ADAPTER_DIR="$ROOT/runs/$SLUG/adapter"
 OUT_DIR="$ROOT/outbox/generations"
 [ -d "$ADAPTER_DIR" ] || { echo "ERROR: no adapter at $ADAPTER_DIR -- run ./01_train.sh first." >&2; exit 1; }
