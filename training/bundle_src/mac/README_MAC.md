@@ -88,6 +88,35 @@ same loss. To actually finish sooner:
 
 ---
 
+## 1b. Continuing from a previous run
+
+To build on a run you have already done rather than starting over:
+
+```bash
+./01_train.sh -r ~/abshaar-work -m mlx-community/Qwen3-8B-4bit \
+    -i 800 -t run2 \
+    --init-from ~/abshaar-work/runs/mlx-community_Qwen3-8B-4bit/adapter
+```
+
+`-t run2` gives the new run its own folder. That is not optional bookkeeping:
+mlx-lm restarts the iteration counter at 1, so without a tag the new run's
+checkpoints would overwrite the very adapter you are warm-starting from. The
+script refuses `--init-from` pointing at its own output directory for that
+reason.
+
+**What carries over and what does not.** Adapter *weights* carry over.
+Optimizer state does not — mlx-lm saves only weights, so Adam's moments
+restart from zero. The iteration counter restarts too. So this is a new run
+warm-started from your weights, not a seamless continuation, and its
+`train_summary.json` should be read that way.
+
+Warm-starting across *datasets* is fine — same base model, same LoRA shape —
+so an adapter trained on the standard dataset can continue on the max one.
+Say so in `EVAL_MATRIX.md` when you report it: the model has then seen both.
+
+`--resume` is the different case: same run, same folder, continue after an
+interruption.
+
 ## 2. Which base model
 
 | Machine | Model | Notes |

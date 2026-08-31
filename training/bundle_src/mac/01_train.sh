@@ -4,7 +4,14 @@
 # mlx-lm checkpoints every --save-every iterations into the adapter folder,
 # so an interrupted run can be continued with --resume.
 #
-# Usage: ./01_train.sh [-r work_root] [-m model_repo] [-i iters] [--resume]
+# Usage: ./01_train.sh [-r work_root] [-m model_repo] [-i iters] [--lr rate]
+#                      [-t tag] [--init-from ADAPTER] [--resume]
+#
+# --resume    continue THIS run in place (same folder, same adapter file)
+# --init-from warm-start a NEW run from another run's adapter. Pair it with
+#             -t so the new run gets its own folder: mlx-lm restarts the
+#             iteration counter at 1, so without a tag its checkpoints would
+#             overwrite the ones you are warm-starting from.
 
 . "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/common.sh"
 
@@ -24,6 +31,8 @@ BATCH=2
 # 1e-5) and confirm against the validation curve rather than assuming.
 LR=1e-4
 RESUME=0
+TAG=""
+INIT_FROM=""
 while [ $# -gt 0 ]; do
     case "$1" in
         -r|--root)  ROOT_ARG="$2"; shift 2 ;;
@@ -31,6 +40,8 @@ while [ $# -gt 0 ]; do
         -i|--iters) ITERS="$2"; shift 2 ;;
         -b|--batch-size) BATCH="$2"; shift 2 ;;
         --lr|--learning-rate) LR="$2"; shift 2 ;;
+        -t|--tag)   TAG="$2"; shift 2 ;;
+        --init-from) INIT_FROM="$2"; shift 2 ;;
         --resume)   RESUME=1; shift ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
     esac
@@ -40,6 +51,7 @@ init_env "$(resolve_root "$ROOT_ARG")"
 require_venv
 
 SLUG="$(run_slug "$MODEL")"
+[ -n "$TAG" ] && SLUG="$SLUG-$TAG"
 RUN_DIR="$ROOT/runs/$SLUG"
 ADAPTER_DIR="$RUN_DIR/adapter"
 mkdir -p "$ADAPTER_DIR"
@@ -48,6 +60,7 @@ head_ "Training LoRA on $MODEL"
 note_ "data:    $BUNDLE_DIR/dataset"
 note_ "adapter: $ADAPTER_DIR"
 note_ "iters:   $ITERS (batch $BATCH, learning rate $LR)"
+[ -n "$TAG" ] && note_ "tag:     $TAG"
 
 # An array, not a string: the bundle or the work root may sit under a path
 # containing spaces, and an unquoted $ARGS would split "--data /My Folder/x"
@@ -59,8 +72,25 @@ ARGS=(--model "$MODEL" --train
       --adapter-path "$ADAPTER_DIR"
       --learning-rate "$LR"
       --save-every 200 --steps-per-report 25 --steps-per-eval 100)
-if [ "$RESUME" = "1" ] && [ -f "$ADAPTER_DIR/adapters.safetensors" ]; then
-    note_ "Resuming from $ADAPTER_DIR/adapters.safetensors"
+if [ -n "$INIT_FROM" ]; then
+    if [ -d "$INIT_FROM" ]; then
+        INIT_FROM="$INIT_FROM/adapters.safetensors"
+    fi
+    if [ ! -f "$INIT_FROM" ]; then
+        echo "ERROR: --init-from '$INIT_FROM' is not an adapter file." >&2
+        exit 1
+    fi
+    if [ "$INIT_FROM" = "$ADAPTER_DIR/adapters.safetensors" ]; then
+        echo "ERROR: --init-from points at this run's own output directory." >&2
+        echo "       Pass -t <tag> so the new run writes somewhere else, or use --resume." >&2
+        exit 1
+    fi
+    note_ "Warm start: $INIT_FROM"
+    note_ "mlx-lm restores adapter WEIGHTS only -- optimizer state restarts and"
+    note_ "the iteration counter restarts at 1. This is a new run, warm-started."
+    ARGS+=(--resume-adapter-file "$INIT_FROM")
+elif [ "$RESUME" = "1" ] && [ -f "$ADAPTER_DIR/adapters.safetensors" ]; then
+    note_ "Resuming in place from $ADAPTER_DIR/adapters.safetensors"
     ARGS+=(--resume-adapter-file "$ADAPTER_DIR/adapters.safetensors")
 fi
 
