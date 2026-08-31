@@ -122,10 +122,18 @@ full detail):
   gitignored, machine-local opt-in — separate from and in addition to the
   chat-based authorization this runbook already requires).
 - **Path C: another Apple Silicon machine (e.g. a Mac Studio).**
-  `scripts/export_training_bundle.sh` packages just the gated training
-  dataset for training elsewhere, removing this machine's thermal/RAM
-  ceiling entirely; `scripts/import_trained_adapter.sh` brings the result
-  back. Fuse/serve/eval (§6 below) still happen on this machine.
+  `scripts/export_training_bundle.sh --target mac` packages the gated
+  dataset plus a five-stage mlx-lm toolchain, removing this machine's
+  thermal/RAM ceiling entirely.
+- **Path D: a Windows + NVIDIA workstation.**
+  `scripts/export_training_bundle.sh --target windows` packages the same
+  dataset with a PyTorch + peft trainer, a merge step and a GGUF export, so
+  the workstation returns an adapter *and* an Ollama-servable Q4_K_M model.
+  Prefer this when a workstation is available.
+- Either way, `scripts/import_trained_adapter.sh` brings the result back and
+  fuse/serve/acceptance-eval (§6 below) still happen on this machine. Full
+  round trip, including the discipline for a workstation that wipes itself at
+  sign-out: **`docs/18_workstation_training_runbook.md`**.
 
 ### Path A (local M4, foreground, ~1–3 h)
 
