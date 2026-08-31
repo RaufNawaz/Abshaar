@@ -37,19 +37,25 @@ note_ "data:    $BUNDLE_DIR/dataset"
 note_ "adapter: $ADAPTER_DIR"
 note_ "iters:   $ITERS (batch $BATCH)"
 
-ARGS="--model $MODEL --train --data $BUNDLE_DIR/dataset --batch-size $BATCH --iters $ITERS
-      --adapter-path $ADAPTER_DIR --save-every 200 --steps-per-report 25 --steps-per-eval 100"
+# An array, not a string: the bundle or the work root may sit under a path
+# containing spaces, and an unquoted $ARGS would split "--data /My Folder/x"
+# into two arguments and hand mlx-lm a truncated path.
+ARGS=(--model "$MODEL" --train
+      --data "$BUNDLE_DIR/dataset"
+      --batch-size "$BATCH"
+      --iters "$ITERS"
+      --adapter-path "$ADAPTER_DIR"
+      --save-every 200 --steps-per-report 25 --steps-per-eval 100)
 if [ "$RESUME" = "1" ] && [ -f "$ADAPTER_DIR/adapters.safetensors" ]; then
     note_ "Resuming from $ADAPTER_DIR/adapters.safetensors"
-    ARGS="$ARGS --resume-adapter-file $ADAPTER_DIR/adapters.safetensors"
+    ARGS+=(--resume-adapter-file "$ADAPTER_DIR/adapters.safetensors")
 fi
 
 START=$(date +%s)
 LOG="$ROOT/logs/train-$(date +%Y%m%d-%H%M%S).log"
 # tee would otherwise mask a training failure behind its own exit code.
 set +e
-# shellcheck disable=SC2086
-mlx_run lora $ARGS 2>&1 | tee "$LOG"
+mlx_run lora "${ARGS[@]}" 2>&1 | tee "$LOG"
 TRAIN_STATUS=${PIPESTATUS[0]}
 set -e
 if [ "$TRAIN_STATUS" -ne 0 ]; then

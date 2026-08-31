@@ -66,6 +66,10 @@ to a bundle to make something convenient.
 
 ## 3. Run it (on the other machine)
 
+> For the Mac path specifically, `docs/19_mac_training_walkthrough.md` is the
+> command-by-command version of this section, including what each stage
+> prints and what to do when it does not.
+
 Windows workstation — read `README_WINDOWS.md` first, then:
 
 ```powershell

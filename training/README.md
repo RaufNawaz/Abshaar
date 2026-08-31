@@ -19,6 +19,8 @@ Configs, adapters, and serving assets for the Bulleh Shah expert model
 ## Paths C and D — training on another machine
 
 Full runbook: `docs/18_workstation_training_runbook.md`.
+Exact step-by-step for the Mac path, including the acceptance gate that
+still has to run here afterwards: `docs/19_mac_training_walkthrough.md`.
 
 Two machines remove this Air's 16 GB / fanless ceiling. Both are shipped as
 self-contained bundles — no repo checkout, no private corpus, no admin

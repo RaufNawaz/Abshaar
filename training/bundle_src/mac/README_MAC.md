@@ -26,6 +26,11 @@ before logging out is gone — including the compute that produced it.
 
 ## 1. Quick start
 
+The repository-side companion to this file — build, transfer, import the
+result, and the acceptance evaluation that follows — is
+`docs/19_mac_training_walkthrough.md` in the Abshaar repo.
+
+
 ```bash
 chmod +x *.sh          # only needed if the ZIP dropped the executable bit
 ./run_all.sh -r ~/abshaar-work
@@ -47,6 +52,21 @@ generations → pack. On a Mac Studio expect **1–3 hours end to end**; on a
 
 Common switches: `-m <model repo>`, `-i <iters>`, `--skip-gguf`,
 `--skip-generate`, `--resume`.
+
+### How many iterations
+
+mlx-lm counts *optimizer steps*, not epochs. With 1,038 training examples at
+`--batch-size 2` one epoch is **519 iterations**, so:
+
+| `-i` | Epochs over the dataset |
+|---|---|
+| 600 *(default)* | ~1.2 |
+| 1040 | ~2 |
+| 1560 | ~3 — matches what the CUDA bundle does by default |
+
+600 is a deliberately cheap first pass. Use `-i 1560` for a run you intend to
+evaluate seriously; watch the validation loss mlx-lm prints every 100 steps
+and stop caring about later checkpoints if it turns upward.
 
 ---
 
