@@ -1,0 +1,5 @@
+# mlx-lm pulls mlx itself. Everything here is Apple-Silicon-native; there is
+# no CUDA, no torch, and nothing that needs a compiler.
+mlx-lm>=0.20.0
+huggingface_hub>=0.26.0
+hf_transfer>=0.1.8

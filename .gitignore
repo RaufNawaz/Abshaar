@@ -58,5 +58,6 @@ Thumbs.db
 training/adapters/
 training/fused/
 training/portable_bundle/
+training/dist/
 training/pipeline_logs/
 training/RUN_AUTHORIZED

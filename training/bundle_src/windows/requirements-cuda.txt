@@ -1,0 +1,14 @@
+# Installed after torch (torch comes from the PyTorch CUDA index; see 00_bootstrap.ps1).
+# Deliberately small: no TRL, no Axolotl, no DeepSpeed, no bitsandbytes on the
+# default path -- every one of those is a recurring Windows breakage.
+transformers>=4.51.0
+peft>=0.14.0
+accelerate>=1.0.0
+huggingface_hub>=0.26.0
+hf_transfer>=0.1.8
+safetensors>=0.4.5
+numpy>=1.26,<3
+sentencepiece>=0.2.0
+protobuf>=4.25
+gguf>=0.10.0
+tqdm>=4.66

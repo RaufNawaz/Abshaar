@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Imports a LoRA adapter directory trained elsewhere (e.g. brought back from
-# a Mac Studio via scripts/export_training_bundle.sh) into this repo's
-# training/adapters/, so docs/17 Training Runbook §6 (fuse/serve/eval) can
-# continue on this machine.
+# Imports a LoRA adapter directory trained elsewhere (a Mac Studio or the
+# Windows/CUDA workstation -- see docs/18) into this repo's training/adapters/,
+# so docs/17 Training Runbook §6 (fuse/serve/eval) can continue on this
+# machine. Accepts both toolchains' output: mlx-lm writes
+# adapters.safetensors, peft writes adapter_model.safetensors.
 #
 # Usage (from repo root):
 #   ./scripts/import_trained_adapter.sh /path/to/returned/adapters/<model-name>
@@ -16,8 +17,8 @@ if [[ ! -d "$SRC" ]]; then
   echo "ERROR: $SRC is not a directory." >&2
   exit 1
 fi
-if [[ ! -f "$SRC/adapters.safetensors" && -z "$(find "$SRC" -maxdepth 1 -name '*.safetensors' -print -quit)" ]]; then
-  echo "ERROR: no .safetensors file found directly inside $SRC -- this doesn't look like an mlx_lm adapter output." >&2
+if [[ ! -f "$SRC/adapters.safetensors" && ! -f "$SRC/adapter_model.safetensors" && -z "$(find "$SRC" -maxdepth 1 -name '*.safetensors' -print -quit)" ]]; then
+  echo "ERROR: no .safetensors file found directly inside $SRC -- this doesn't look like an mlx_lm or peft adapter output." >&2
   exit 1
 fi
 
