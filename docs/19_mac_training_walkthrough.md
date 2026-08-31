@@ -191,6 +191,20 @@ uses 2e-4). It trains — loss fell from 3.526 to 2.435 within 25 iterations —
 but if the final validation loss plateaus higher than you want, raising the
 learning rate is the first lever to try on a second run, not more iterations.
 
+**Where to see the learning rate**, in increasing order of durability:
+
+1. **On screen, every 25 iterations** — the `Learning Rate 1.000e-05` field
+   on each `Iter N: Train loss ...` line.
+2. **In the run log** — `<work root>/logs/train-<timestamp>.log` holds the
+   same lines; `grep 'Learning Rate' <log> | head -1`.
+3. **In `train_summary.json`** — `hyperparameters.learning_rate`, written at
+   the end of the run. (Runs started before 2026-08-31 omit it; the log is
+   authoritative for those.)
+
+**To change it:** `./01_train.sh -r ~/abshaar-work --lr 1e-4`. The default is
+1e-5, which is mlx-lm's own default (`mlx_lm/lora.py`), now passed explicitly
+rather than inherited silently.
+
 The stage ends by printing the adapter's SHA-256 and writing
 `~/abshaar-work/runs/<model-slug>/train_summary.json` (hyperparameters,
 dataset hashes, runtime). Keep that file; Part 6 wants those numbers.

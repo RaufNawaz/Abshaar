@@ -68,6 +68,14 @@ mlx-lm counts *optimizer steps*, not epochs. With 1,038 training examples at
 evaluate seriously; watch the validation loss mlx-lm prints every 100 steps
 and stop caring about later checkpoints if it turns upward.
 
+### Learning rate
+
+Default `1e-5` — mlx-lm's own default, passed explicitly so it shows up in
+`train_summary.json` instead of being inherited silently. It is conservative
+for LoRA (the CUDA bundle uses `2e-4`). Change it with
+`./01_train.sh --lr 1e-4`. You can read the live value off the
+`Learning Rate` field mlx-lm prints every 25 iterations.
+
 ---
 
 ## 2. Which base model

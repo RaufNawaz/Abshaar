@@ -12,6 +12,10 @@ ROOT_ARG=""
 MODEL="mlx-community/Qwen3-8B-4bit"
 ITERS=600
 BATCH=2
+# mlx-lm's own default is 1e-5 (mlx_lm/lora.py). That is conservative for
+# LoRA -- the CUDA bundle uses 2e-4 -- so it is stated explicitly here rather
+# than inherited silently, and it is recorded in train_summary.json.
+LR=1e-5
 RESUME=0
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -19,6 +23,7 @@ while [ $# -gt 0 ]; do
         -m|--model) MODEL="$2"; shift 2 ;;
         -i|--iters) ITERS="$2"; shift 2 ;;
         -b|--batch-size) BATCH="$2"; shift 2 ;;
+        --lr|--learning-rate) LR="$2"; shift 2 ;;
         --resume)   RESUME=1; shift ;;
         *) echo "unknown argument: $1" >&2; exit 2 ;;
     esac
@@ -35,7 +40,7 @@ mkdir -p "$ADAPTER_DIR"
 head_ "Training LoRA on $MODEL"
 note_ "data:    $BUNDLE_DIR/dataset"
 note_ "adapter: $ADAPTER_DIR"
-note_ "iters:   $ITERS (batch $BATCH)"
+note_ "iters:   $ITERS (batch $BATCH, learning rate $LR)"
 
 # An array, not a string: the bundle or the work root may sit under a path
 # containing spaces, and an unquoted $ARGS would split "--data /My Folder/x"
@@ -45,6 +50,7 @@ ARGS=(--model "$MODEL" --train
       --batch-size "$BATCH"
       --iters "$ITERS"
       --adapter-path "$ADAPTER_DIR"
+      --learning-rate "$LR"
       --save-every 200 --steps-per-report 25 --steps-per-eval 100)
 if [ "$RESUME" = "1" ] && [ -f "$ADAPTER_DIR/adapters.safetensors" ]; then
     note_ "Resuming from $ADAPTER_DIR/adapters.safetensors"
@@ -64,11 +70,11 @@ if [ "$TRAIN_STATUS" -ne 0 ]; then
 fi
 ELAPSED=$(( $(date +%s) - START ))
 
-"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" <<'PYSUM'
+"$PY" - "$MODEL" "$RUN_DIR" "$ADAPTER_DIR" "$BUNDLE_DIR/dataset" "$ITERS" "$BATCH" "$ELAPSED" "$LR" <<'PYSUM'
 import hashlib, json, platform, sys, time
 from pathlib import Path
 
-model, run_dir, adapter_dir, data_dir, iters, batch, elapsed = sys.argv[1:8]
+model, run_dir, adapter_dir, data_dir, iters, batch, elapsed, lr = sys.argv[1:9]
 run_dir, adapter_dir, data_dir = Path(run_dir), Path(adapter_dir), Path(data_dir)
 
 def sha256(path):
@@ -102,6 +108,7 @@ summary = {
         "valid_sha256": sha256(data_dir / "valid.jsonl"),
     },
     "hyperparameters": {"iters": int(iters), "batch_size": int(batch),
+                        "learning_rate": float(lr), "optimizer": "adam (mlx-lm default)",
                         "save_every": 200, "steps_per_eval": 100},
     "results": {"train_runtime_seconds": int(elapsed)},
     "environment": {"python": sys.version.split()[0], "platform": platform.platform(), "mlx": mlx_version},
