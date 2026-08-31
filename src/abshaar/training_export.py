@@ -71,6 +71,7 @@ def _is_uncertain(*texts: str) -> bool:
 def extract_trainable_layers(
     records: list[dict[str, Any]],
     include_reference: bool = False,
+    corrections: dict[str, dict[str, dict[str, Any]]] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     """Return (trainable layer records, leak descriptions).
 
@@ -146,6 +147,13 @@ def extract_trainable_layers(
                 tashreeh.get("model"),
             )
 
+    if corrections:
+        # Human corrections replace the AI layer they supersede, rather than
+        # sitting beside it -- see abshaar.reviews.
+        from abshaar.reviews import apply_to_layers
+
+        layers = apply_to_layers(layers, corrections)
+
     if include_reference:
         # The scan's only job is to catch this text; running it here would
         # fail on every layer we were just asked to include.
@@ -164,8 +172,14 @@ def export_training_corpus(
     output: Path,
     include_reference: bool = False,
 ) -> tuple[int, list[str]]:
+    from abshaar.reviews import load_corrections
+
     records = read_jsonl(root / "data" / "processed" / "poems.jsonl")
-    layers, leaks = extract_trainable_layers(records, include_reference=include_reference)
+    layers, leaks = extract_trainable_layers(
+        records,
+        include_reference=include_reference,
+        corrections=load_corrections(root),
+    )
     if leaks:
         return 0, leaks
     write_jsonl(output, layers)

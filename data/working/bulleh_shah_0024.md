@@ -27,7 +27,7 @@ review_status: "draft"
 Bharosa keh ashnāi da
 Ḍar lagda be-parwāi da
 
-# Literal Translation
+# Reference Translation
 
 It is not acquaintance that I dread,
 but the indifference to which it may lead.

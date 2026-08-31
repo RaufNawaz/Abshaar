@@ -27,7 +27,7 @@ review_status: "draft"
 Ho nahīn̄ sabhe galṛiyān̄, allāh allāh dī gal
 Kujh rolā pāyā ʿālmān̄, kujh kāġẖdān̄ pāyā jhal
 
-# Literal Translation
+# Reference Translation
 
 Talk only of God, the rest is merely chatter,
 though scholar and priest have tried to confuse the matter.

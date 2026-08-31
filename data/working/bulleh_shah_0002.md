@@ -37,7 +37,7 @@ Eh gal Alif samjhāi
 Bulhiya! qaul Alif de pure
 Jehre dil di karan safāi
 
-# Literal Translation
+# Reference Translation
 
 A for Allah who has my heart,
 I have no knowledge of B,

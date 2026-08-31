@@ -65,7 +65,7 @@ Kīhe mile san ṭhag beopārī
 Kih bedardān̄ de sang yārī!
 Rovaṇ akkhiyān̄ zār o zārī
 
-# Literal Translation
+# Reference Translation
 
 Who choose cold-hearted dears
 must learn to cope with tears.

@@ -39,7 +39,7 @@ Pāpi nah, sudharmi nān, pāp pun ki rāh nah jān
 Bullhe shah! jo har chit lāge
 Turk aur hindu do jan tyāge
 
-# Literal Translation
+# Reference Translation
 
 Neither Hindu nor Muslim
 I sit with all on a whim.

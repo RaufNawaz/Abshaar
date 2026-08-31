@@ -41,7 +41,7 @@ Bhorā bhorā khāi da
 Bullha shoh nūn soi pāve
 Jehadā bakrā bane qasāi da
 
-# Literal Translation
+# Reference Translation
 
 A stove is better than Bulleh,
 it cooks something at least.

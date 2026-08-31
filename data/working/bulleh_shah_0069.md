@@ -53,7 +53,7 @@ Paṛh man azīmat, jin bhulāvan
 Sitiān shāh madār khaḍāvan
 Main chup ho rahi
 
-# Literal Translation
+# Reference Translation
 
 THURSDAY
 

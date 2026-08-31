@@ -65,7 +65,7 @@ Jinhān laggi tāngh nazāre di
 Dis pai manzil vanjāre di
 Hai "yadu-Llāhi fawqa aydīkum"
 
-# Literal Translation
+# Reference Translation
 
 Who's keeping the gossips busy?
 What ecstatic being is here

@@ -136,7 +136,8 @@ class CitationResolutionTest(unittest.TestCase):
         if not kb_path.exists():
             self.skipTest("knowledge base not built in this checkout")
 
-        kb_ids = {json.loads(line)["id"] for line in kb_path.open(encoding="utf-8") if line.strip()}
+        with kb_path.open(encoding="utf-8") as handle:
+            kb_ids = {json.loads(line)["id"] for line in handle if line.strip()}
         unresolved: dict[str, int] = {}
         for example in build_examples(root, GenerationPolicy.unrestricted()):
             for kb_id in example.get("kb_ids") or []:

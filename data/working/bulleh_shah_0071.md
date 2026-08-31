@@ -53,7 +53,7 @@ Main tān un sang akhiān lāiān
 Shāh ināyat rang lagāiān
 Āsān punniān
 
-# Literal Translation
+# Reference Translation
 
 RAIN
 

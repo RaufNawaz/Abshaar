@@ -27,7 +27,7 @@ review_status: "draft"
 Vāre jāīe ohnān̄ ton̄, jehṛe māran gap-shap
 Gaudī labhī de dewan, te baghchā khāo ghap
 
-# Literal Translation
+# Reference Translation
 
 Hats off to those who a lost coin reimburse,
 but have no such scruple about a fat purse.

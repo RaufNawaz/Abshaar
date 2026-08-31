@@ -73,7 +73,7 @@ Ranjhan yār baghal vich khele
 Surat na rahtiya, surat sambhār!
 Ishq di navīyon navīn bahār
 
-# Literal Translation
+# Reference Translation
 
 Love comes on bright new wings.
 

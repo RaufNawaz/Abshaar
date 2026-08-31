@@ -61,7 +61,7 @@ Sabha ikka chāndi ākho
 Kangan, chhuṛa bāhīn da
 Sab iko rang kapāhān da
 
-# Literal Translation
+# Reference Translation
 
 All cotton-bolls are white.
 

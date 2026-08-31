@@ -53,7 +53,7 @@ Dukhān sūlān ditti ḍhoī
 Bullhā! shoh nūn ākho koī
 Jis nūn ro rahi
 
-# Literal Translation
+# Reference Translation
 
 SPRING
 

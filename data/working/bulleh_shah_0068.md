@@ -53,7 +53,7 @@ Uchchi chaṛh ke kūkān, chānghān
 Sīne andar raṛkan sānghān
 Piāre teriān
 
-# Literal Translation
+# Reference Translation
 
 SATURDAY
 

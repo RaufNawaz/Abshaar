@@ -51,7 +51,7 @@ Tūn shoh nu kiven rijhāven gi
 Bujh lai faqrān di mat kuṛe
 Kat kuṛe, na vat kuṛe
 
-# Literal Translation
+# Reference Translation
 
 Stop the spinning-wheel, girl.
 Gather the cloth, take off the reel, girl.

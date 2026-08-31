@@ -69,7 +69,7 @@ Us da rang, nah rūp, nah rekh e
 Ohi howe ho ke chor
 Wah wa, ramz-i sajjan di hor!
 
-# Literal Translation
+# Reference Translation
 
 Strange are the ways of my love!
 

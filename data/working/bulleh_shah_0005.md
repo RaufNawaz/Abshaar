@@ -31,7 +31,7 @@ Arsh kursi te bāngān miliyan, Makke pe gaya shor
 Bulhe Shah! asān marna nahin, mar jāve koi hor
 Sade wal mukhra mor
 
-# Literal Translation
+# Reference Translation
 
 I swallowed the hook, and myself pull the line.
 

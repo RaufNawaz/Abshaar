@@ -27,7 +27,7 @@ review_status: "draft"
 Gal samajh lai te raula keh
 Eh Ram, Rahīm te Maula keh?
 
-# Literal Translation
+# Reference Translation
 
 Having understood, why heed the storm
 over such names as Allah and Ram.

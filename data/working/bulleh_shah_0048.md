@@ -51,7 +51,7 @@ Arsh mantūr bān̄gān̄ miliyān̄, suṇiyān̄ takht lahaur
 Shāh ináyat gaṇḍiyān̄ pāiyān̄, thak chup rakhdā dūr
 Merī bukkal de vich chorī, merī bukkal de vich chor
 
-# Literal Translation
+# Reference Translation
 
 I'm harbouring a thief.
 Since he wears my guise how can I give him away?

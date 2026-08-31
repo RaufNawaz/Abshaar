@@ -55,7 +55,7 @@ Chār riyān̄ ral kheḍan lagiyān̄, panjven̄ vich sardār
 Has kheḍ muṛ māī hoyān̄, pon̄diyān̄ pair pasār
 Māī qadam karendī yār!
 
-# Literal Translation
+# Reference Translation
 
 The horse is clay, and so is the rider —
 how strangely clay runs after clay,

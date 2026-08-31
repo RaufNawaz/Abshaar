@@ -49,7 +49,7 @@ Pās samandar, maro pyase
 Khol akhiyan, uth boh bikare
 Ab to jāg, musafir pyare
 
-# Literal Translation
+# Reference Translation
 
 The last stars have been scrubbed from the skies.
 Wayfarer, arise!

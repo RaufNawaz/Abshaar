@@ -49,7 +49,7 @@ Bulha! shoh pyāre bājhon
 Nahe urār na pār
 Rabba! hun kīh kariye!
 
-# Literal Translation
+# Reference Translation
 
 Friends are all falling like hair,
 God, what shall I do?

@@ -79,7 +79,7 @@ Par eh gal kehnu bhāe ji
 Kitte sachi gal vi rukdi ae
 Ik nuqte vich gal mukdi ae
 
-# Literal Translation
+# Reference Translation
 
 One is enough.  Break the counting-frames,
 forget hell's terrors and its flames,

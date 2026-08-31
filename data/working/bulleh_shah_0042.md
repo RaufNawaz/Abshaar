@@ -55,7 +55,7 @@ Nāhīn khauf Khuda da karde, ette utte hovan khwār
 
 Kaisi tauba hai eh tauba, aisi na kar yār
 
-# Literal Translation
+# Reference Translation
 
 What sort of penitence is this?
 

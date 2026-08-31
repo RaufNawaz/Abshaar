@@ -27,7 +27,7 @@ review_status: "draft"
 Dharamsāl dhāṛvi vasde, ṭhākur duāre ṭhag
 Vich masīt kose te rehnde, āshiq rahn alag
 
-# Literal Translation
+# Reference Translation
 
 Merchants in mosque and monastery, thugs in the landlord's pay.
 The lover alone goes his secret, inviolable way.

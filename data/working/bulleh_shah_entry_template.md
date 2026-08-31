@@ -23,6 +23,12 @@ review_status: "draft"
 
 [Type Latin transliteration here, line by line.]
 
+# Reference Translation
+
+<!-- A published third-party translation, if one is being consulted. Copyrighted:
+     never published to the site, and trainable only when the rights gate is
+     deliberately opened. Cite the translator. Leave empty if there is none. -->
+
 # Literal Translation
 
 [Reference translation, e.g. a published translator's rendering, with citation. Leave as a citation/note; do not reproduce copyrighted text into public data.]

@@ -63,7 +63,7 @@ Meri baldi bhāh bujhāvsi
 Ināyat dam dam nāl chatāriya
 Kadi ā mil yār pyāriya
 
-# Literal Translation
+# Reference Translation
 
 Come see me once in a while.
 

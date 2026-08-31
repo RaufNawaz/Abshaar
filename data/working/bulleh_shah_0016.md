@@ -51,7 +51,7 @@ Na main ābi, na main khāki
 Na main ātish, na main paun
 Bulha! keh jānān main kaun?
 
-# Literal Translation
+# Reference Translation
 
 Who am I?  Does anyone know?
 

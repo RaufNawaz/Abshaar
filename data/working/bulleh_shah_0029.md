@@ -53,7 +53,7 @@ Chiṭṭi chādar dāgh lagesi, loi dāgh na koi
 Takht Hazāre lai chal Bulhiya, Siyālein mile na ḍhoi
 "Ranjha Ranjha" kar di, hun main āpe Ranjha hoi
 
-# Literal Translation
+# Reference Translation
 
 'Ranjha, Ranjha' I cried till only Ranjha is there?
 I'm transformed, now Heer has disappeared.

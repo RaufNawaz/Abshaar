@@ -55,7 +55,7 @@ Gaun-goi bhānḍe ghaṛ ke, ṭhīkriyān kar dhar da
 Eh tamāsha dekh ke chal pau, agla dekh bazār
 Vāh va phunj pai darbār, khalq tamāshe āi yār!
 
-# Literal Translation
+# Reference Translation
 
 The world's a fun-fair.
 

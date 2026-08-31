@@ -49,7 +49,7 @@ Eihnān sabhnān thīn hai Bulleh
 O gunahgār purāna
 Apna das tikāna; kidhron āya, kidhar jāna?
 
-# Literal Translation
+# Reference Translation
 
 Where is your home?
 Whence did you come?

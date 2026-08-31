@@ -55,7 +55,7 @@ Jis gunnī palle bol sautte, soī hove nūn̄ piārī
 Mil laio sahelṛiyo, merī rilaj gahelṛiyo, main̄ sāhūriyān̄ ghar jānā
 Tusān̄ bhī hosī allāh bhānā, main̄ sāhūriyān̄ ghar jānā
 
-# Literal Translation
+# Reference Translation
 
 Gather round me, friends, my stay here is done.
 I'm off to the house where you'll join me soon.

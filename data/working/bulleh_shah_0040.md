@@ -123,7 +123,7 @@ Kar madad pār langhā ve ga
 Oh Bulhe da Sultan kuṛe
 Kar kattan val dhyān kuṛe
 
-# Literal Translation
+# Reference Translation
 
 Lass, look to your spinning.
 

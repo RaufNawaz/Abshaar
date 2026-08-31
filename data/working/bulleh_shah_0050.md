@@ -95,7 +95,7 @@ Par dekhan vālī akh nahīn̄
 Tahīn̄ jān judāiyān̄ sahndī ae
 Munh āī bāt nah rahndī ae
 
-# Literal Translation
+# Reference Translation
 
 Truth will out
 

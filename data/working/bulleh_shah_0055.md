@@ -54,7 +54,7 @@ Oh nahin ralāyān ralda
 Mainun lagṛa ishq awallṛa
 Awwal da, roz-i azal da
 
-# Literal Translation
+# Reference Translation
 
 From the first moment love
 has put me to the proof.

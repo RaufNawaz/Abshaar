@@ -41,7 +41,7 @@ Wahdat de darya de andar, sab jag ditte tarda
 Bulhiya! shoh da ishq bughela, rat pīnda gosht phaṛda
 Koi puchho dilbar keh karda? "Eh jo karda so karda!"
 
-# Literal Translation
+# Reference Translation
 
 What does this mad lover do? you ask.
 He shuttles between temple and mosque.

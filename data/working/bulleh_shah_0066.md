@@ -53,7 +53,7 @@ Bullha shoh ghar āyā sādde chhindarri ghol ghamāin
 Tūn nahiyyon main nāhin we sajnān
 Tūn nahiyyon main nāhin
 
-# Literal Translation
+# Reference Translation
 
 Because of you, my love,
 

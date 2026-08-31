@@ -47,7 +47,7 @@ Bhānven vajan jutte: tīthon utte
 Bulhe Shah! koi rakht vihāj lai
 Nahīn te bāzi lai gaye kutte, tīthon utte
 
-# Literal Translation
+# Reference Translation
 
 You stay up all night to pray,
 but dogs are sleepless too;

@@ -25,7 +25,7 @@ review_status: "draft"
 Jaisi sūrat ʿain di, waisi sūrat ġain
 Ik nuqte da farq hai: bhalli phire ku'in
 
-# Literal Translation
+# Reference Translation
 
 O and Q are much alike, except for a squiggle;
 to think one tiny stroke has made the whole world wriggle.

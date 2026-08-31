@@ -63,7 +63,7 @@ Okhā painḍā prem dā, dukh ghaṭdā nā hīn̄
 Dil vich dhaṛke jhīṛ de, sir dhāhīn̄ merā
 Main̄ uḍīkān̄ kar rahī, gedī ā, kar pherā
 
-# Literal Translation
+# Reference Translation
 
 I'm waiting, pass this way once more,
 Inayat Shah, my eyes are sore

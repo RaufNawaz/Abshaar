@@ -57,7 +57,7 @@ Baih kar nād bajāvān gi
 Lāe savān main shoh gal apne
 Tad main nār kahāvān gi
 
-# Literal Translation
+# Reference Translation
 
 I will use a spell
 to get my lost love back.

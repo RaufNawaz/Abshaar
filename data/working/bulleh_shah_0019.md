@@ -71,7 +71,7 @@ Chhatar sūlān sir jhāliya, par tera panth na pāya
 Prem nagar chal vasīye, jitthe vasse kant hamāra
 Bulhiya! shoh tūn mangni hān, de de mainu nazāra
 
-# Literal Translation
+# Reference Translation
 
 He has not come. In the evening I sit
 and write letters. The darkness scares me.

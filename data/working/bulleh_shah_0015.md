@@ -33,7 +33,7 @@ Matthi prīt ankhaṛi lag rahi, ghaṛi pal na yār visāri hān
 Kehe haḍ nakāḍose pae, meṇūn onsiyān pāvandi, kāng uḍārni hān
 Bulhiya! shoh te kamli main hoī, suṇein jā ke yār pukārni hān
 
-# Literal Translation
+# Reference Translation
 
 I welcome those who come, bless those who depart,
 but not for a moment can I bear to part

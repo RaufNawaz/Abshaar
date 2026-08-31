@@ -91,7 +91,7 @@ Hun vichhṛan hoyā muḥāl nī
 Ghaṛiyālī deo nikāl nī
 Aj pī ghar āyā lāl nī
 
-# Literal Translation
+# Reference Translation
 
 Stop the clock on the wall
 for my love has come to call.

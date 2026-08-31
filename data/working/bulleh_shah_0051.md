@@ -43,7 +43,7 @@ Bāzīgar keh bāzī kheḍī, mainūn̄ putlī vāng nachāyā
 Main̄ us tālī par nachnān̄ hān̄ jo git mat yār likhāyā
 Maulā ādmī ban āyā
 
-# Literal Translation
+# Reference Translation
 
 God has come down as man.
 

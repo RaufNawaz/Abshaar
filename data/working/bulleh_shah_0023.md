@@ -57,7 +57,7 @@ Jis māhal suhāg di gandhi ae
 Chhaḍ dunya, gauṛ pasāre nu
 Chup kar ke karin guzāre nu
 
-# Literal Translation
+# Reference Translation
 
 Be silent now.
 

@@ -156,6 +156,12 @@ def main(argv: list[str] | None = None) -> int:
         help="Directory holding train.jsonl/eval.jsonl to convert.",
     )
 
+    migrate_ref = subparsers.add_parser(
+        "migrate-reference-headings",
+        help="Rename '# Literal Translation' to '# Reference Translation' in entries whose text is a third-party rendering (dry-run unless --apply).",
+    )
+    migrate_ref.add_argument("--apply", action="store_true")
+
     normalize_translit = subparsers.add_parser(
         "normalize-translit",
         help="Normalize entry Transliteration sections to project-latin-v1 (dry-run unless --apply).",
@@ -327,6 +333,8 @@ def main(argv: list[str] | None = None) -> int:
         return command_export_mlx_dataset(root, args.training_dir)
     if args.command == "augment-training-data":
         return command_augment_training_data(root, args)
+    if args.command == "migrate-reference-headings":
+        return command_migrate_reference_headings(root, args.apply)
     if args.command == "normalize-translit":
         return command_normalize_translit(root, args.apply)
     if args.command == "crosswalk-evidence":
@@ -885,3 +893,63 @@ def command_extract_gurmukhi_pdf(root: Path, args: argparse.Namespace) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def command_migrate_reference_headings(root: Path, apply: bool) -> int:
+    """Move third-party translations out of the slot named for a literal gloss.
+
+    `# Literal Translation` in the Rafat entries holds a published rendering,
+    so that heading meant two different things depending on the entry. Only
+    the heading line moves; the text underneath is untouched, and that is
+    verified byte-for-byte before anything is written.
+    """
+    from abshaar.markdown_entry import REFERENCE_ATTRIBUTION_RE
+
+    working = sorted((root / "data" / "working").glob("*.md"))
+    changed: list[str] = []
+    skipped: list[str] = []
+
+    for path in working:
+        text = path.read_text(encoding="utf-8")
+        if "# Reference Translation" in text:
+            continue
+        lines = text.splitlines(keepends=True)
+        heading_index = next(
+            (i for i, line in enumerate(lines) if line.strip() == "# Literal Translation"),
+            None,
+        )
+        if heading_index is None:
+            continue
+        body_end = next(
+            (j for j in range(heading_index + 1, len(lines)) if lines[j].startswith("# ")),
+            len(lines),
+        )
+        body = "".join(lines[heading_index + 1 : body_end])
+        if not REFERENCE_ATTRIBUTION_RE.search(body):
+            skipped.append(path.name)
+            continue
+
+        replacement = list(lines)
+        replacement[heading_index] = lines[heading_index].replace(
+            "# Literal Translation", "# Reference Translation"
+        )
+        new_text = "".join(replacement)
+
+        # The only permitted difference is the heading line itself.
+        if new_text.replace("# Reference Translation", "# Literal Translation", 1) != text:
+            print(f"REFUSING {path.name}: change would alter more than the heading", file=sys.stderr)
+            return 1
+
+        changed.append(path.name)
+        if apply:
+            path.write_text(new_text, encoding="utf-8")
+
+    verb = "Renamed" if apply else "Would rename"
+    print(f"{verb} '# Literal Translation' -> '# Reference Translation' in {len(changed)} entry file(s).")
+    if skipped:
+        print(f"Left alone ({len(skipped)}): no third-party attribution found - these are genuine literal glosses.")
+        for name in skipped:
+            print(f"  - {name}")
+    if not apply:
+        print("\nDry run. Re-run with --apply to write.")
+    return 0

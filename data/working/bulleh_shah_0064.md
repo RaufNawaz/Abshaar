@@ -53,7 +53,7 @@ Ishqe jehadd na zālim koi
 Eho zahmat be-pīr
 Main wich kīh taqsīr?
 
-# Literal Translation
+# Reference Translation
 
 He has left me to my fears.
 

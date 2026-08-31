@@ -55,7 +55,7 @@ Lāhu jāndṛe beṛe, kehṛa moṛ liāe
 Meri aqal jo bhulli, nāl mahāniyān de giya
 Tere ishq nachāiyān kar ke thaiyya thaiyya!
 
-# Literal Translation
+# Reference Translation
 
 What a dance your love has led me
 

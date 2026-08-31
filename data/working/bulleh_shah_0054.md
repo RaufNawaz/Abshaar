@@ -52,7 +52,7 @@ Main kamīn, uchchi, kohji, be-gun kaun wichāri
 Bullha shoh de lāyaq nāhin, shah ināyat tāri
 Main kis(a)nba chun chun hāri
 
-# Literal Translation
+# Reference Translation
 
 What I've picked up costs me dear.
 

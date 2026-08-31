@@ -53,7 +53,7 @@ Jān main mul ohnān tūn puchhiya, mul karen oh bhāre
 Jehṛiyān guttiyān lāl vihājan, ohnān sīs luhāye
 Satte vanjāre āe ni māe, satte vanjāre āe
 
-# Literal Translation
+# Reference Translation
 
 A hundred merchants are here who tell
 of rubies they have brought to sell.

@@ -29,7 +29,7 @@ Iknān nūn churiyān phar khāhda, iknān phāiyan lāiyan
 Iknān ās muran di āhe, ik sīkh kabāb charhāiyan
 Bulhe Shah! kīh vas unhān jo mār taqdīr phasāiyan
 
-# Literal Translation
+# Reference Translation
 
 On the ripening corn, the birds descended.
 Some were netted, some the falcons ended;

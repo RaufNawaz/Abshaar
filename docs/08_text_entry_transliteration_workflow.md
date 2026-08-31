@@ -1,5 +1,15 @@
 # Text Entry and Transliteration Workflow
 
+> **Schema change, 2026-08-31.** A third-party published translation now goes
+> in its own `# Reference Translation` section, not in `# Literal Translation`.
+> The 71 Rafat entries were migrated with
+> `abshaar migrate-reference-headings --apply` (heading line only; the text
+> was verified byte-identical). `# Literal Translation` is now reserved for
+> the project's own close rendering and is empty in those entries until one is
+> written. Reference translations remain `rights: copyrighted`,
+> `publishable: false`, and `trainable: false` unless the rights gate is
+> deliberately opened.
+
 This project should not ask contributors to type long poems directly into JSONL.
 JSONL is good for machines, but Markdown is better for human entry and review.
 

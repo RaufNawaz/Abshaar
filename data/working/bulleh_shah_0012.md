@@ -33,7 +33,7 @@ Asān qaziye tāīn jāhle, jad kanak unhān turkāi
 Khāe khairāte pachāhiye jamma, ulti dastak lāi
 Amān bābe di bhalyāi, oh hun kitt asāde āyi
 
-# Literal Translation
+# Reference Translation
 
 What parents sowed, the children reap.
 Who's the benefactor? Who the thief?

@@ -119,7 +119,7 @@ Ghuman gherān de vich aṛiya
 Shah Ināyat lāya pār!
 Ilmon bas karīn o yār!
 
-# Literal Translation
+# Reference Translation
 
 Enough of learning, friend.
 One A can begin and end.

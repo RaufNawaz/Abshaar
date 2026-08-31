@@ -55,7 +55,7 @@ Arz eho, mainu ān mile hun, kaun vasīla jāve
 Sutte manān da kat liya uṭṭha, mainu shoh gal lāve
 Din phaṛmiya kad guzre, mainu pyāra munh dikhlāve
 
-# Literal Translation
+# Reference Translation
 
 The spinning-wheel is broken,
         I cannot spin.

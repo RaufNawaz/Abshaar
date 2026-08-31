@@ -29,7 +29,7 @@ Pā-paṛhiyān̄ ton̄ nasdā hān̄ main̄, pā-paṛhiyān̄ ton̄ nasdā hā
 ʿālam fāzil mere bhāī, pā-paṛhiyān̄ merī ʿaql gavāī
 Pā-paṛhiyān̄ ton̄ nasdā hān̄ main̄, pā-paṛhiyān̄ ton̄ nasdā hān̄
 
-# Literal Translation
+# Reference Translation
 
 From the semi-literate I run, oh how I run!
 for they are the biggest fools under the sun.

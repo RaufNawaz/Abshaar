@@ -25,7 +25,7 @@ review_status: "draft"
 Chal Bulleh! chal ūthe chaliye, jithe sāre annhe
 Na koi sādi zāt pachhāne, na koi sānūn manne
 
-# Literal Translation
+# Reference Translation
 
 So that none will run before or behind
 let us go to a place where all are blind.

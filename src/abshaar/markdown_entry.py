@@ -28,6 +28,13 @@ SECTION_ALIASES = {
     "transliteration": "transliteration",
     "literal gloss": "literal_gloss",
     "literal translation": "literal_gloss",
+    # Added 2026-08-31. `# Literal Translation` in the Rafat entries holds a
+    # published third-party rendering, so the slot named for a literal gloss
+    # contained neither a gloss nor the project's own work. New entries should
+    # use `# Reference Translation` for third-party text and keep
+    # `# Literal Translation` for the project's own close rendering; the
+    # attribution heuristic below stays as a fallback for unmigrated entries.
+    "reference translation": "reference_translation",
     "ai translation": "ai_translation",
     "literary translation": "literary_translation",
     "tashreeh": "tashreeh",
@@ -136,9 +143,16 @@ def parse_bullet_values(section_text: str) -> list[str]:
     return values
 
 
-def _literal_slot_record(poem_id: str, text: str, review_status: str) -> dict[str, Any]:
-    if REFERENCE_ATTRIBUTION_RE.search(text):
-        return {
+def _reference_slot_records(poem_id: str, text: str, review_status: str) -> list[dict[str, Any]]:
+    """An explicit `# Reference Translation` section, when the entry has one.
+
+    Third-party published text: never publishable, and trainable only when a
+    caller deliberately opens the rights gate (see training_export).
+    """
+    if not text.strip():
+        return []
+    return [
+        {
             "id": f"trans_{poem_id}_reference",
             "kind": "reference_translation",
             "text": text,
@@ -150,8 +164,30 @@ def _literal_slot_record(poem_id: str, text: str, review_status: str) -> dict[st
             "publishable": False,
             "trainable": False,
         }
+    ]
+
+
+def _literal_slot_record(poem_id: str, text: str, review_status: str) -> list[dict[str, Any]]:
+    """The `# Literal Translation` slot, empty in entries migrated to the
+    explicit reference section. An empty slot emits nothing rather than a
+    placeholder record."""
+    if not text.strip():
+        return []
+    if REFERENCE_ATTRIBUTION_RE.search(text):
+        return [{
+            "id": f"trans_{poem_id}_reference",
+            "kind": "reference_translation",
+            "text": text,
+            "created_by": "human",
+            "model": None,
+            "prompt_version": None,
+            "status": review_status,
+            "rights": "copyrighted",
+            "publishable": False,
+            "trainable": False,
+        }]
     created_by, model = _attribution(text)
-    return {
+    return [{
         "id": f"trans_{poem_id}_literal",
         "kind": "literal_gloss",
         "text": text,
@@ -161,7 +197,7 @@ def _literal_slot_record(poem_id: str, text: str, review_status: str) -> dict[st
         "status": review_status,
         "rights": "project",
         "trainable": True,
-    }
+    }]
 
 
 def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
@@ -183,6 +219,7 @@ def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
     original_text = sections.get("original", "")
     transliteration_text = sections.get("transliteration", "")
     literal_gloss = sections.get("literal_gloss", "")
+    reference_translation = sections.get("reference_translation", "")
     ai_translation = sections.get("ai_translation", "")
     literary_translation = sections.get("literary_translation", "")
     tashreeh = sections.get("tashreeh", "")
@@ -242,7 +279,8 @@ def entry_to_poem_record(entry: MarkdownEntry) -> dict[str, Any]:
         },
         "segmentation": segmentation,
         "translations": [
-            _literal_slot_record(poem_id, literal_gloss, review_status),
+            *_reference_slot_records(poem_id, reference_translation, review_status),
+            *_literal_slot_record(poem_id, literal_gloss, review_status),
             {
                 "id": f"trans_{poem_id}_ai",
                 "kind": "ai_translation",

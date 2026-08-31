@@ -57,7 +57,7 @@ Fāqa kaṛāka, mangan pinan, chāl asāḍi eh
 Richh richhoṛte tīle kāne, eh asāḍi kārūn
 Main chuhr metri ān sachche sahib de darbārūn
 
-# Literal Translation
+# Reference Translation
 
 I'm just a sweepress.
 

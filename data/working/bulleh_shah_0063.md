@@ -65,7 +65,7 @@ Har shab dhādde dhar dāhān
 Main gal othay di kar dāhān
 Par gal kar da bhi dar dāhān
 
-# Literal Translation
+# Reference Translation
 
 I told the spirits to go
 and I would quickly follow,

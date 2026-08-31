@@ -55,7 +55,7 @@ Bulhiya! hukam hazūron āya, tis tūn kaun haṭāe
 
 Ulṭe hor zamāne āe, tān main bait bajan de pāe
 
-# Literal Translation
+# Reference Translation
 
 In a topsy-turvy world I saw the truth unroll
 

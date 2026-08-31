@@ -59,7 +59,7 @@ Gunḍhon bin, gal ghaib di asān yād nah kāe
 Tuhn innā lillāh ākh ke, tum karo nigāhīn
 Allāh hi sab ho gayā, abdullāh nā hain
 
-# Literal Translation
+# Reference Translation
 
 KNOTS
 

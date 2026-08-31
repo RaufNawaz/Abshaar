@@ -29,7 +29,7 @@ Mullān̄ te mashālchī
 Mullān̄ te mashālchī donhān̄ iko chit
 Lokān̄ kar de chānnā, āp anhere vich
 
-# Literal Translation
+# Reference Translation
 
 Mullah and torch-bearer come of one stock,
 giving light to others, themselves in the dark.

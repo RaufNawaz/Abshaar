@@ -65,7 +65,7 @@ Mūnjh di rassi nāg banāye
 Tere sehrān tūn balihāri
 Tusi karo asāddi kāri
 
-# Literal Translation
+# Reference Translation
 
 Take me, love, under your care;
 my woes are too much to bear.

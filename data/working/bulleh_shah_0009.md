@@ -35,7 +35,7 @@ Haul dile tun thar thar kanbda, bera pār langhāīn
 Bulhe Shah nūn shoh da mukhra, ghūnghat khol dikhāīn
 Apne sang rulāīn pyāre! apne sang rulāīn
 
-# Literal Translation
+# Reference Translation
 
 Embrace me, love, and hold me next your heart.
 What sinister jungles stand in my way,

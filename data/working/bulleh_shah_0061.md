@@ -91,7 +91,7 @@ Lohā bhanbiyā, kis aṭkāyā e
 Kyon̄ ʿishq asān̄ te āyā e?
 Tūn̄ āyā te main̄ pāyā e
 
-# Literal Translation
+# Reference Translation
 
 You came and I had to fall.
 But why did you come at all?

@@ -61,7 +61,7 @@ Bulha! shoh diyān muṛan mahārān
 Lai paighām tūn jhab dhāven ve
 Pāndhiya ho!
 
-# Literal Translation
+# Reference Translation
 
 Wanderer, ho!
 Bring back a word of love, or so,

@@ -55,7 +55,7 @@ Dastūr to vich bahl de, apna bhīt na dasde ho
 Udhakke vichkāron phaṭ ke, yain ulṭi laṭkāi
 Jind kaṛki de munh āi
 
-# Literal Translation
+# Reference Translation
 
 I'm in a trap.
 

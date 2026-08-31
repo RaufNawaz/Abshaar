@@ -49,7 +49,7 @@ Har shai andar tūn āpe hain, āpe dekh dikhālen o yār
 Bulhiya! shoh ghar mere āya, kar kar nāch dikhālen o yār
 Jo rang rangiya gohṛa rangiya, murshid vāli lāli o yār
 
-# Literal Translation
+# Reference Translation
 
 Whatever you touch takes on your hue.
 

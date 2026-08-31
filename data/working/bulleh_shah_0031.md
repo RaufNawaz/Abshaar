@@ -55,7 +55,7 @@ Bhulle lokān khabar na kāye
 Roze, hajj, namaz ni māe
 Mainu piya ne ān bhulāe
 
-# Literal Translation
+# Reference Translation
 
 Fasting, pilgrimage, and the call
 to prayer, love has drowned them all.

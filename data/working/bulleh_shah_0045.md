@@ -55,7 +55,7 @@ Bulbul main̄ gulzār dī hān̄
 Ghūn̄ghaṭ ohle na luk sajnā
 Main̄ mushtāq dīdār dī hān̄!
 
-# Literal Translation
+# Reference Translation
 
 Up with your veil, love,
 and look at me.

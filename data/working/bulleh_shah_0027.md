@@ -55,7 +55,7 @@ Sūlān ghīr chuphīron līti ān
 Ghar ā māhi dīdār nu
 Dil loche māhi yār nu
 
-# Literal Translation
+# Reference Translation
 
 With love my heart overflows.
 

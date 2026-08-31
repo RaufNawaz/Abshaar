@@ -51,7 +51,7 @@ Sohniyān pare haṭāiyān, te kojhiyān lai gal lāiyān
 Je tūn loṛein bāgh bahārān, chākar ho ja Rāiyān
 Bulhe Shah di zāt keh puchhnein? shākir ho rizāiyān
 
-# Literal Translation
+# Reference Translation
 
 Every female from near and afar
 turned up to brief Bulleh Shah.

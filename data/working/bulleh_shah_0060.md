@@ -65,7 +65,7 @@ Shāh ʿināyat bhet batāe, tāhīn̄ khulle sab asrār
 
 Hun main̄ likhyā sohṇā yār, jis de husn dā garam bāzār
 
-# Literal Translation
+# Reference Translation
 
 I've tracked the beauty down
 which was the talk of the town.

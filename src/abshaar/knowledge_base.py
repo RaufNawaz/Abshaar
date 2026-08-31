@@ -72,7 +72,11 @@ def build_kb(root: Path, include_reference: bool = False) -> tuple[dict[str, int
             }
         )
 
-    layers, layer_leaks = extract_trainable_layers(poems, include_reference=include_reference)
+    from abshaar.reviews import load_corrections
+
+    layers, layer_leaks = extract_trainable_layers(
+        poems, include_reference=include_reference, corrections=load_corrections(root)
+    )
     if layer_leaks:
         return {}, layer_leaks
     for layer in layers:

@@ -194,7 +194,10 @@ def _hedged(answer: str, uncertain: bool) -> str:
 
 def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[dict[str, Any]]:
     policy = policy or GenerationPolicy()
+    from abshaar.reviews import load_corrections
+
     kb = {record["id"]: record for record in read_jsonl(root / KB_PATH)}
+    corrections = load_corrections(root)
     poems = read_jsonl(root / "data" / "processed" / "poems.jsonl")
     works = cluster_map(root)
     titles = {str(p["id"]): str(p.get("title", "")) for p in poems}
@@ -208,6 +211,7 @@ def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[d
         poem_ids: list[str],
         uncertain: bool,
         work_id: str | None = None,
+        human_reviewed: bool = False,
     ) -> None:
         if not question.strip() or not answer.strip():
             return
@@ -226,6 +230,7 @@ def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[d
                 "canonical_work_id": work_id or works.get(anchor, ""),
                 "generator": "template_v1",
                 "uncertainty": uncertain,
+                "human_reviewed": human_reviewed,
             }
         )
 
@@ -248,6 +253,16 @@ def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[d
         uncertain = bool(UNCERTAINTY_RE.search(original)) or any(
             UNCERTAINTY_RE.search(text) for text in [transliteration, *translations.values(), *tashreeh_items]
         )
+
+        # A human correction replaces the AI draft for its layer rather than
+        # competing with it, so the model is never shown both as equally
+        # valid answers to the same question. See abshaar.reviews.
+        poem_corrections = corrections.get(poem_id, {})
+        if "literary_translation" in poem_corrections:
+            translations["literary_translation"] = poem_corrections["literary_translation"]["text"]
+            translations.pop("ai_translation", None)
+        if "tashreeh" in poem_corrections:
+            tashreeh_items = [poem_corrections["tashreeh"]["text"]]
 
         best_translation = translations.get("literary_translation") or translations.get("ai_translation") or ""
 
@@ -286,7 +301,10 @@ def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[d
                 ],
                 index,
             )
-            add("translation", question, best_translation, [f"kb:{poem_id}:original"], [poem_id], uncertain)
+            add(
+                "translation", question, best_translation, [f"kb:{poem_id}:original"], [poem_id], uncertain,
+                human_reviewed="literary_translation" in poem_corrections,
+            )
 
         if original and transliteration:
             add(
@@ -327,6 +345,7 @@ def build_examples(root: Path, policy: GenerationPolicy | None = None) -> list[d
                 [f"kb:tash_{poem_id}_beginner"],
                 [poem_id],
                 uncertain,
+                human_reviewed="tashreeh" in poem_corrections,
             )
 
         first_roman = _first_line(transliteration)
@@ -647,8 +666,10 @@ def generate_training_data(
         family = by_family.setdefault(example["task_family"], {"train": 0, "eval": 0})
         family[example["split"]] += 1
 
+    reviewed = sum(1 for e in examples if e.get("human_reviewed"))
     stats = {
         "total": len(examples),
+        "human_reviewed": reviewed,
         "train": len(train),
         "eval": len(eval_set),
         "eval_work_clusters": eval_works,
@@ -667,6 +688,8 @@ def generate_training_data(
         "no LLM in the loop — every answer is corpus text; nothing invented).",
         "",
         f"- Total examples: {stats['total']} (train {stats['train']} / eval {stats['eval']})",
+        f"- Built from human-corrected layers: {stats['human_reviewed']}"
+        + (" — the rest are AI-drafted" if stats["human_reviewed"] < stats["total"] else ""),
         f"- Eval work clusters held out ({len(eval_works)}): {', '.join(eval_works) or 'NONE'}",
         "",
         "## Corpus policy for this build",
