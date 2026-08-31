@@ -450,8 +450,26 @@ index/eval stages.
 Every stage writes a marker in `<root>/.stages` and is skipped on re-run.
 Re-running `./run_all.sh` with the same `-r` picks up where it stopped.
 
-- Training specifically: mlx-lm checkpoints every 200 iterations; add
-  `--resume` to continue from `adapter/adapters.safetensors`.
+- Training specifically: mlx-lm rewrites `adapter/adapters.safetensors` at
+  every save point (every 200 iterations) alongside the numbered checkpoint,
+  so a Ctrl-C loses at most 200 iterations. Add `--resume` to continue from
+  it.
+
+  **Two things a resume does not preserve**, both verified in
+  `mlx_lm/tuner/trainer.py`: only *adapter weights* are saved, so **Adam's
+  optimizer state restarts from zero**; and the iteration counter restarts at
+  1, so pass a reduced `-i` for the remaining steps. A resume is therefore
+  not a seamless continuation — it is a new run warm-started from your
+  weights. For anything you intend to report, prefer a clean run.
+
+- **The learning rate cannot be changed mid-run.** mlx-lm constructs the
+  optimizer once, before training starts (`opt = opt_class(learning_rate=lr,
+  ...)` in `mlx_lm/lora.py`); there is no config it re-reads and no signal it
+  listens for. Changing it means stopping and starting again — either warm
+  (`--lr <new> --resume`, with the caveats above) or clean (`--lr <new>`
+  alone). Given that a full 1560-iteration run is ~100 minutes, finishing the
+  run you have usually beats restarting on a hunch: the validation curve is
+  what tells you whether the learning rate was actually the constraint.
 - To force a stage to redo, delete its marker, e.g.
   `rm ~/abshaar-work/.stages/train_mlx-community_Qwen3-8B-4bit`.
 - Point `-r` at an external drive to keep the downloads across sessions on a
