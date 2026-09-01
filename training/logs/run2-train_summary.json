@@ -1,0 +1,33 @@
+{
+  "generated": "2026-08-31T18:26:31",
+  "base_model": "mlx-community/Qwen3-8B-4bit",
+  "toolchain": "mlx-lm",
+  "adapter_dir": "/Users/ran710/abshaar-work/runs/mlx-community_Qwen3-8B-4bit-run2/adapter",
+  "adapter_sha256": "66c1239724991c1c907cc2fa9a76a7f82427962dbfdf3ad8cfe70a8cff6fe85b",
+  "dataset": {
+    "train_examples": 1576,
+    "train_sha256": "6def930ab55a2bed0dfda8f29020d293870eb819f1c9269481b6e909e0499eb2",
+    "valid_examples": 207,
+    "valid_sha256": "9b8a4e25f045d00aa3eda34bb51334060ebdaee3339f9985e9e4839385c6d416"
+  },
+  "hyperparameters": {
+    "iters": 400,
+    "batch_size": 2,
+    "learning_rate": 1e-05,
+    "optimizer": "adam (mlx-lm default)",
+    "save_every": 100,
+    "steps_per_eval": 100,
+    "val_batches": 103,
+    "max_seq_length": 4096,
+    "mask_prompt": true
+  },
+  "results": {
+    "train_runtime_seconds": 3940
+  },
+  "environment": {
+    "python": "3.11.3",
+    "platform": "macOS-14.7.2-arm64-arm-64bit",
+    "mlx": "0.32.2"
+  },
+  "note": "Val loss is in the training log; mlx-lm prints it every --steps-per-eval."
+}

@@ -56,6 +56,11 @@ Log: `training/logs/run1-train-20260831-160232.log`.
 | Hyperparameters | batch 2, lr 1e-5, **mask_prompt true**, **max_seq_length 4096**, **val_batches 103 (whole set)** |
 | Iterations | 400 (~0.51 epochs) |
 | Adapter kept | **iteration 400 — the final one** |
+| Adapter sha256 | `66c1239724991c1c907cc2fa9a76a7f82427962dbfdf3ad8cfe70a8cff6fe85b` |
+| Dataset sha256 | train `6def930a…` / valid `9b8a4e25…` |
+| Runtime | 66 min — 36 min training (5.4 s/iter) + 30 min validating |
+| Environment | mlx 0.32.2, Python 3.11.3, macOS 14.7.2 arm64 |
+| Log | `training/logs/run2-train-20260831-172050.log` |
 
 | iter | val | change |
 |---|---|---|
@@ -84,8 +89,10 @@ No overfitting signature: validation never turned up, unlike run 1. The larger
 dataset genuinely had more to teach, which is the first empirical support for
 the max build being worth it.
 
-Cost: 400 iterations plus five full-set validations at ~355 s each — about 30
-minutes of the run spent measuring, which is what bought a curve worth reading.
+Cost: 66 minutes total — 36 training, 30 measuring. Time per iteration rose
+3.2 s → 5.4 s because `max_seq_length` 4096 stops truncating the long kafis,
+which is the point. The 30 minutes of validation is what bought a readable
+curve, and it is the reason the checkpoint choice was trivial this time.
 
 ### Run 3 — not recommended
 
