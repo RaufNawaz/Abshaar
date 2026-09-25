@@ -606,6 +606,47 @@ steps differ):
 > - Match commands to the active OS (this whole training pipeline is macOS/Apple-Silicon-only by design).
 > - Update all affected canonical docs and `OFFLOADING.md` after substantive work.
 
+## 8b. Session of 2026-09-24 — the archive answers questions
+
+State: **stages 1-3, 6 and 7 of `scripts/rag_pipeline.sh` are done; 4 and 5
+(the EVAL_MATRIX baselines) are not.** Run `./scripts/rag_pipeline.sh status`
+and continue. Full detail in `docs/21_serving_handover.md`.
+
+- **`torch` imports again** (commit `d9919f3`). The blocker §9 carried as
+  gating the whole RAG half no longer reproduces on the unchanged Python 3.9.6
+  venv. The `docs/19` Part 6 venv rebuild is not needed.
+- **The Chroma index is built**: all 1,306 KB records, BAAI/bge-m3. Took ~50
+  minutes on this Air, not the "few minutes" a token count suggests — BGE-M3
+  runs 27-55 records/min and slows sharply on the long tail records. Now
+  resumable via `scripts/build_index_resumable.py`, which asks the collection
+  which ids it holds; `rag.py:_collection(create=True)` deletes the collection
+  first and must never be used to resume.
+- **base qwen3:8b + RAG works and is honest.** Asked about the 1947 partition,
+  retrieval returned eight records *above* the 0.35 threshold, so the cheap
+  min_score decline never fired — the model read them and declined on the
+  substance. The birth-year answer kept the dispute rather than flattening it.
+- **The citation gate catches real hallucinations** and was aborting the run.
+  qwen3:8b cited `kb:bio_claim_bulleh_shah_inayat:original`; that `:original`
+  suffix exists on poem-layer ids, not biographical claims. `ask` exits
+  non-zero, correctly; stage 3 now records and continues instead of losing the
+  rest of the set to `set -e`.
+- **The tuned model fabricates citations when served without RAG.** Run 2's
+  adapter invented two sources and attributed them to the archive, one of them
+  authored by a man dead since c. 1728. Full account in `training/EVAL_MATRIX.md`
+  §"Run 2 served, without RAG". **Do not serve anything tuned without retrieval
+  and the citation gate in front of it.**
+- **Run 2 provenance closed** (`1db2005`): its dataset stays out of git (Rafat),
+  but `data/processed/training_max/SHA256SUMS.txt` is committed. Run 2's peak
+  memory was **54.4 GB**; inference is 4.8 GB.
+
+**Next, in order:** (1) the tuned+RAG shim — `rag.py:ask()` calls
+`run_ollama_chat`, so serving the adapter through the `ask` path needs an
+mlx-server client; without it the acceptance gate cannot be measured at all.
+(2) stages 4 and 5 for the base/base+RAG baseline rows. (3) fix `ai-check`'s
+`find_spec` (`src/abshaar/ollama_client.py:43`), which reported this venv
+healthy in both directions. (4) `docs/20` corpus work, which is still the only
+thing that raises the ceiling.
+
 ## 9. Risks, Gaps, and Things to Verify
 
 | Risk, Gap, or Unknown | Why It Matters | How to Verify or Resolve |
