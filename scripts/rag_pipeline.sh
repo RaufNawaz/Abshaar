@@ -58,15 +58,14 @@ stage1() {  # build-index -- must be all-or-nothing
   if [ -f "$manifest" ]; then
     say "stage 1: index already built ($(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["records"])' "$manifest") records)"
   else
-    # A half-written Chroma collection would collide on re-add (duplicate ids),
-    # and manifest.json is only written on success -- so its absence means the
-    # previous attempt did not finish and the directory must go.
-    if [ -d "$ROOT/data/cache/chroma" ]; then
-      say "stage 1: clearing an unfinished index before rebuilding"
-      rm -rf "$ROOT/data/cache/chroma"
-    fi
-    say "stage 1: build-index (~172k tokens through BGE-M3 on MPS)"
-    "$ABSHAAR" build-index 2>&1 | tee "$LOGS/build-index-$STAMP.log"
+    # Resume rather than restart. `abshaar build-index` rebuilds from zero and
+    # rag.py's _collection(create=True) deletes the collection first, so an
+    # interrupted run costs the whole ~45 min of BGE-M3 encoding. The resumable
+    # builder asks the collection which ids it already holds and does only the
+    # rest, so a kill costs one batch.
+    say "stage 1: build-index, resuming if a previous run was interrupted"
+    "$ROOT/.venv/bin/python" "$ROOT/scripts/build_index_resumable.py" 2>&1 \
+      | tee "$LOGS/build-index-$STAMP.log"
     [ -f "$manifest" ] || { echo "build-index finished without a manifest" >&2; return 1; }
   fi
   mark 1
