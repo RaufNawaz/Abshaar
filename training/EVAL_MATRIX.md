@@ -5,6 +5,21 @@ model. **The acceptance rows are not filled in yet** — they require the
 Mac-side gate (venv rebuild → `build-index` → RAG smoke test → three baseline
 runs), none of which has been run. See `docs/19` Part 6.
 
+## Where the artifacts actually live
+
+Not everything this file cites is in git, deliberately. Checked 2026-09-24:
+
+| Artifact | Location | In git? |
+|---|---|---|
+| Run 1 / run 2 adapters | `training/adapters/mlx-community_Qwen3-8B-4bit{,-run2}/` | No — `training/adapters/` and `*.safetensors` are ignored (size). SHA-256 recorded in the run tables below. |
+| Run 1 / run 2 training logs | `training/logs/run{1,2}-train-*.log` | **Yes**, as of 2026-09-24. The `*.log` ignore rule was LaTeX-scoped so the validation curves below are checkable against their source. |
+| Run 2 `train_summary.json` | `training/logs/run2-train_summary.json` | Yes |
+| Standard build (run 1's dataset) | `data/processed/training/` | Yes |
+| Max build (run 2's dataset) | `data/processed/training_max/` | No — it includes Rafat's reference translations, and `probes.jsonl` carries his published English verbatim. `MANIFEST.md` and `SHA256SUMS.txt` **are** committed, so the dataset hashes below can be verified against the files on disk. |
+| `run2_results.zip` | repo root | No — sealed local copy of what the training machine produced; all 5 checksums re-verified 2026-09-24 against the imported files. |
+
+To re-verify the run 2 dataset: `cd data/processed/training_max && shasum -a 256 -c SHA256SUMS.txt`.
+
 ## Training runs
 
 ### Run 1 — 2026-08-31
@@ -59,6 +74,7 @@ Log: `training/logs/run1-train-20260831-160232.log`.
 | Adapter sha256 | `66c1239724991c1c907cc2fa9a76a7f82427962dbfdf3ad8cfe70a8cff6fe85b` |
 | Dataset sha256 | train `6def930a…` / valid `9b8a4e25…` |
 | Runtime | 66 min — 36 min training (5.4 s/iter) + 30 min validating |
+| Peak memory | **54.438 GB** — read from the log 2026-09-24, not previously recorded |
 | Environment | mlx 0.32.2, Python 3.11.3, macOS 14.7.2 arm64 |
 | Log | `training/logs/run2-train-20260831-172050.log` |
 
@@ -88,6 +104,16 @@ corpus work (`docs/20`), not more steps.
 No overfitting signature: validation never turned up, unlike run 1. The larger
 dataset genuinely had more to teach, which is the first empirical support for
 the max build being worth it.
+
+**Peak memory climbed all run, and ended at 54.4 GB** (16.9 GB at iter 25 →
+22.3 at 50 → 41.6 at 100 → 54.4 from iter 225 on). Same mechanism as run 1 —
+MLX's peak tracks the longest sequence seen so far — but more than double run
+1's 24.4 GB, because `max_seq_length` 4096 stops truncating the long kafis.
+
+Two consequences. Run 2 could not have run on the 16 GB Air under any
+batching; at 4096 tokens this recipe needs a 64 GB-class machine, so training
+stays off-machine. And the figure only stabilised after iteration 225, which
+is late — any memory number read before then understates by 3x.
 
 Cost: 66 minutes total — 36 training, 30 measuring. Time per iteration rose
 3.2 s → 5.4 s because `max_seq_length` 4096 stops truncating the long kafis,

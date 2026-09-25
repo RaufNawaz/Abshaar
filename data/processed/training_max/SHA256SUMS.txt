@@ -1,0 +1,14 @@
+# SHA-256 of the 'max' training build — the dataset LoRA run 2 was trained on.
+# The data files themselves are gitignored (Rafat reference translations);
+# this file is the committed provenance record. Verify with:
+#   cd data/processed/training_max && shasum -a 256 -c SHA256SUMS.txt
+# train.jsonl / valid.jsonl below must match train_summary.json in
+# training/logs/run2-train_summary.json and the Run 2 row of training/EVAL_MATRIX.md.
+#
+# Generated 2026-09-24 from the live files.
+2810838633ac0151a1e9f749845fc7c7ca8d67e5f70b368eff8b3005f96eef45  train.jsonl
+b8fc8e97141a1b6dc29682d076570a809205e74507c29792d5236f570857a648  eval.jsonl
+ddf0374676cca39e57e80dc6a50c3d0116e2ddefebde50aac875458f32ab3f45  probes.jsonl
+9431c73ace1940f4b7acb8f0b57e724825214ce3635aa46189337edd0f2365a8  MANIFEST.md
+6def930ab55a2bed0dfda8f29020d293870eb819f1c9269481b6e909e0499eb2  mlx/train.jsonl
+9b8a4e25f045d00aa3eda34bb51334060ebdaee3339f9985e9e4839385c6d416  mlx/valid.jsonl

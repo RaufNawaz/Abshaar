@@ -23,6 +23,20 @@ models/
 *.gguf
 *.onnx
 
+# The 'max' training build: the dataset run 2 was actually trained on.
+# Kept out of git because it includes Rafat's copyrighted reference
+# translations (63 train / 8 eval) and probes.jsonl carries his published
+# English verbatim in its `reference` field. MANIFEST.md and SHA256SUMS.txt
+# are committed so the provenance chain in training/EVAL_MATRIX.md is
+# checkable without redistributing the text.
+data/processed/training_max/*
+!data/processed/training_max/MANIFEST.md
+!data/processed/training_max/SHA256SUMS.txt
+
+# Result archives copied back from a training machine. Verified on import
+# against their own SHA256SUMS.txt, then kept locally as a sealed copy.
+*_results.zip
+
 # Generated caches and private source material
 data/cache/
 data/site/
@@ -42,9 +56,11 @@ Thumbs.db
 .vscode/
 !.vscode/extensions.json
 
-# LaTeX build artifacts
+# LaTeX build artifacts (scoped to docs/ for *.log, which otherwise hid
+# training/logs/*.log -- the runs' own validation curves, cited by
+# training/EVAL_MATRIX.md)
 *.aux
-*.log
+docs/*.log
 *.out
 *.toc
 *.fdb_latexmk
