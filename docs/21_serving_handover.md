@@ -54,6 +54,32 @@ Decision (Rauf, 2026-09-24): serve the adapter with **mlx-lm
 between runs. Consequence: `rag.py:ask()` calls `run_ollama_chat`, so wiring
 tuned+RAG needs a shim pointing at an mlx server — **not yet written.**
 
+## What ran on 2026-09-24 (stages 1-3 complete)
+
+**The archive answers questions.** All 1,306 records embedded; base qwen3:8b +
+RAG answered all six demo questions with resolvable citations.
+
+Two things measured that contradict what was assumed going in:
+
+- **build-index takes ~50 minutes on this Air**, not the "few minutes" a token
+  count suggests. BGE-M3 runs 27-55 records/min and slows sharply on the long
+  records at the tail. It is now resumable (`scripts/build_index_resumable.py`),
+  so an interrupted run costs one batch of 32 rather than the whole job.
+- **The citation gate fires on real hallucinations.** qwen3:8b cited
+  `kb:bio_claim_bulleh_shah_inayat:original` — a `:original` suffix that exists
+  on poem-layer ids but not on biographical claims. `ask` exits non-zero, which
+  is right; the pipeline now records the rejection and continues instead of
+  losing the remaining questions to `set -e`.
+
+The behaviour that says the design works: asked about the 1947 partition,
+retrieval returned **eight records above the 0.35 threshold** (top 0.5577), so
+the cheap min_score decline never fired — the model read them and declined on
+the substance, naming the century mismatch. And the birth-year answer carried
+the dispute forward (c. 1680, contested, no contemporary records) instead of
+flattening it to a number.
+
+Outputs regenerate; they are gitignored. `training/rag_outputs/`.
+
 ## Stages
 
 | # | Stage | Invokes a model? | Notes |
