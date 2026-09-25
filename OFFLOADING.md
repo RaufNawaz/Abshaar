@@ -639,6 +639,37 @@ and continue. Full detail in `docs/21_serving_handover.md`.
   but `data/processed/training_max/SHA256SUMS.txt` is committed. Run 2's peak
   memory was **54.4 GB**; inference is 4.8 GB.
 
+### Continued 2026-09-25
+
+- **tuned+RAG is wired** (`409129a`). `mlx_client.run_chat` dispatches on the
+  model string: `mlx:` -> local `mlx_lm.server`, anything else -> Ollama,
+  unchanged. `rag.ask()` and `evaluate.run_eval()` both route through it, so
+  `abshaar ask --model mlx:run2` and `run-eval --model mlx:run2 --rag` work.
+  Start the server with `./scripts/serve_tuned.sh [run1|run2|base]`. Four tests
+  pin the routing both ways; routing wrongly is silent and would file Ollama's
+  score as the tuned model's. **Not yet run** — no tuned+RAG number exists.
+- **`ai-check` imports instead of `find_spec`-ing** (`4549b95`), and
+  distinguishes "present but fails to import" from "missing". This is the check
+  that reported the RAG stack healthy while torch was broken, and equally could
+  not see the repair.
+- **Eval runs survive interruption** (`12a3142`) and are ~4x faster
+  (`b851b0e`). Three defects found by stage 4 dying at 25 minutes with
+  `socket.timeout` and writing nothing: results were only written after the
+  last probe; `_judge_score` had no error handling; and 180s was too short
+  because the judge is a *different model*, so Ollama reloaded weights between
+  qwen3:8b and qwen3:4b on every probe (~2 min/probe). Now: per-probe
+  checkpointing with resume, judge retry-then-degrade-to-F1 with
+  `judge_failures` in the summary, 600s judge timeout, and two phases — answer
+  all, then judge all — for two model loads instead of a hundred.
+- **The five-poem gold slice is decided** (`e79edb8`): 0002, 0029, 0031, 0035,
+  0038. Open as an explicit non-decision since 2026-08-31.
+
+**Gotcha, learned twice:** do not edit `scripts/rag_pipeline.sh` while it runs.
+Bash reads a script incrementally, so an edit shifts the ground under it; stage
+1 did its work and never wrote its marker. Also: Ollama holding qwen3:8b plus
+an mlx server holding the 4-bit 8B is ~11 GB on a 16 GB Air with ~3 GB already
+swapped — run the Ollama and mlx work in sequence, not together.
+
 **Next, in order:** (1) the tuned+RAG shim — `rag.py:ask()` calls
 `run_ollama_chat`, so serving the adapter through the `ask` path needs an
 mlx-server client; without it the acceptance gate cannot be measured at all.
