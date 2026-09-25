@@ -152,6 +152,18 @@ degrade to token-F1.
 The honest progress signal is the checkpoint:
 `wc -l data/processed/training/eval_runs/*.partial.jsonl`.
 
+## Known slowness, deliberately not fixed mid-run
+
+Judging costs ~5 minutes per probe even though the judge is only qwen3:4b,
+because qwen3 emits `<think>` blocks before the single digit it is asked for.
+Ollama's `think: false` option would likely cut the judging phase by most of
+its length.
+
+It was **not** changed on 2026-09-25 because the acceptance criterion compares
+four runs, and a judge that reasons differently between them makes the
+comparison meaningless. Change it before the next full set of runs, not
+between two of them, and re-run all four.
+
 ## Gotchas found the hard way
 
 - **Do not edit `scripts/rag_pipeline.sh` while it is running.** Bash reads a
