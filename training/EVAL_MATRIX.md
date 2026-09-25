@@ -180,7 +180,7 @@ with `./scripts/rag_pipeline.sh --redo 7 7`).
 
 | Model | factual | honesty | notes |
 |---|---|---|---|
-| `qwen3:8b` base | — | — | not run |
+| `qwen3:8b` base | 0.239 | 0.267 | 50 probes, judge qwen3:4b |
 | `qwen3:8b` + RAG | — | — | not run |
 | tuned (run 2) | — | — | not run |
 | tuned (run 2) + RAG | — | — | not run |
