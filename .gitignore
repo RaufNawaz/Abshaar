@@ -82,3 +82,7 @@ training/RUN_AUTHORIZED
 # The Chroma index is derived data and embeds the private knowledge base.
 training/.pipeline_state/
 training/rag_outputs/
+
+# Eval run artefacts (regenerate with `abshaar run-eval`); .partial.jsonl are
+# resume crumbs. The per-probe answers can contain reference-translation text.
+data/processed/training/eval_runs/
