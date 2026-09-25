@@ -134,6 +134,48 @@ Changes, each with a reason from run 1 rather than a guess:
 | ~400 iterations, lr 1e-5 | Both from run 1's curve, not from assumption |
 | Warm start from run 1's iteration-600 adapter | Builds on the run rather than repeating it |
 
+## Run 2 served, without RAG — 2026-09-24
+
+First time the tuned adapter answered anything. `mlx_lm generate` with
+`--adapter-path training/adapters/mlx-community_Qwen3-8B-4bit-run2` against the
+4-bit base. **Peak memory 4.8 GB, ~17 tokens/sec** — inference fits the 16 GB
+Air with room to spare, against 54.4 GB to train it.
+
+**It fabricates citations.** Asked who Bulleh Shah's murshid was "and what does
+the archive cite for that", it named Shah Inayat of Qasur correctly, then
+attributed that to:
+
+> *Bulleh Shah: The Sufi Poet of Pakistan* (2006) by Asma Afsar Abbas and
+> *Bulleh Shah: The Sufinama* (1997) by Shah Inayat of Qasur himself
+
+Neither exists. `grep -ri` finds "Asma Afsar Abbas" and "The Sufinama (1997)"
+nowhere in the repository; the archive's seven real sources are Rafat's
+Vanguard selection, four Rekhta/Sufinama records, Ashna Hussain's thesis, the
+PunjabLibrary Kafian PDF and the Punjab Auqaf shrine page. The second invention
+is self-refuting — Shah Inayat died around 1728 and cannot have authored a 1997
+book — and the model delivered both in the archive's own voice: "This is stated
+in the archive's records."
+
+It also degenerates. On the Ranjha couplet it repeated one sentence for the
+full 400-token budget.
+
+**What this settles.** The corpus ceiling recorded in `docs/20` is not an
+abstraction: LoRA on 1,576 templated examples taught register and confidence
+without teaching a single verifiable fact, so the model reaches for
+bibliography-shaped text and invents it. This is the failure mode RULE 2 exists
+to prevent, arriving from the model rather than from an agent.
+
+It also justifies the ordering: base + RAG declined the 1947 question on the
+substance and cited eight real retrieved ids; tuned-without-RAG invented two
+sources on a question it half-knew. **Nothing tuned should be served without
+retrieval and the citation gate in front of it.** The gate already catches this
+class — it rejected `kb:bio_claim_bulleh_shah_inayat:original` from base+RAG in
+the same session — but it only runs on the `ask` path, which the tuned model is
+not yet wired into.
+
+Outputs: `training/rag_outputs/answers_tuned_norag.md` (gitignored; regenerate
+with `./scripts/rag_pipeline.sh --redo 7 7`).
+
 ## Acceptance rows — NOT YET MEASURED
 
 | Model | factual | honesty | notes |
