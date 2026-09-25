@@ -119,6 +119,39 @@ weights load is decided by the server's `--model`/`--adapter-path`.
 `tests/test_mlx_client.py` pins the routing both ways. Routing the wrong way is
 silent: it would grade qwen3:8b and file the score as the tuned model's.
 
+## Filling the acceptance table
+
+```bash
+nohup ./scripts/overnight.sh > training/pipeline_logs/overnight-driver.log 2>&1 &
+```
+
+Runs the four evals in the only order the hardware allows — both Ollama
+baselines, then qwen3:8b is unloaded (`keep_alive: 0`) before the mlx server
+loads the 4-bit 8B, because holding both is ~11 GB on a 16 GB Air. Ollama stays
+up for the judge only (qwen3:4b, ~3 GB), which the two-phase eval reaches after
+all answering is done, so the two large models are never resident together.
+
+It waits for any `rag_pipeline.sh 4` already in flight rather than racing it,
+skips any stage whose marker exists, and writes a timestamped journal to
+`training/pipeline_logs/overnight-*.md`.
+
+Then:
+
+```bash
+./.venv/bin/python scripts/update_eval_matrix.py          # write the rows
+./.venv/bin/python scripts/update_eval_matrix.py --check  # non-zero if stale
+```
+
+The acceptance rows and the PASS/FAIL verdict are computed from
+`data/processed/training/eval_runs/*.json`, never typed. The verdict is withheld
+until all four runs exist — three finished runs plus an assumption must not read
+as PASS — and a run with judge failures says so in the row, because those probes
+degrade to token-F1.
+
+**Reading progress:** the stage logs go through `tee` and buffer, so they lag.
+The honest progress signal is the checkpoint:
+`wc -l data/processed/training/eval_runs/*.partial.jsonl`.
+
 ## Gotchas found the hard way
 
 - **Do not edit `scripts/rag_pipeline.sh` while it is running.** Bash reads a
