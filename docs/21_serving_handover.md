@@ -152,17 +152,31 @@ degrade to token-F1.
 The honest progress signal is the checkpoint:
 `wc -l data/processed/training/eval_runs/*.partial.jsonl`.
 
-## Known slowness, deliberately not fixed mid-run
+## Measured throughput — the Air is the constraint
 
-Judging costs ~5 minutes per probe even though the judge is only qwen3:4b,
-because qwen3 emits `<think>` blocks before the single digit it is asked for.
-Ollama's `think: false` option would likely cut the judging phase by most of
-its length.
+Numbers from 2026-09-25, on the 16 GB M4 Air with ~6 GB swapped:
 
-It was **not** changed on 2026-09-25 because the acceptance criterion compares
-four runs, and a judge that reasons differently between them makes the
-comparison meaningless. Change it before the next full set of runs, not
-between two of them, and re-run all four.
+| phase | rate | per 50-probe run |
+|---|---|---|
+| answering, no RAG (qwen3:8b) | ~80 s/probe | ~65 min |
+| answering, with RAG (qwen3:8b + 8 records) | ~6 min/probe | ~5 h |
+| judging (qwen3:4b, 18 of 50 probes) | 5-10 min/probe | ~2 h |
+
+So one bare run is ~1h40m (measured: stage 4 completed in exactly that, 50/50,
+zero failures) and one RAG run is ~7 h. **The full four-run acceptance set is
+on the order of 15 hours on this machine**, not an evening.
+
+**`think: false` does not fix the judge.** It was tried: it removes the
+`<think>` block but qwen3:4b then reasons at the same length in the visible
+content instead, so the call is no faster, and capping `num_predict` truncates
+before the digit ever appears (tested at 4, 32 and 64 — no digit). The judge
+config was therefore left alone, which also keeps the four runs comparable;
+changing a judge between runs of a four-way comparison invalidates it.
+
+If this needs to be faster, the levers are a bigger machine, a non-reasoning
+judge model, or fewer probes — not a flag. If fewer probes: the criterion pairs
+runs as (bare vs bare) and (RAG vs RAG), so a reduced `--limit` is defensible
+as long as **both halves of a pair use the same one**.
 
 ## Gotchas found the hard way
 
