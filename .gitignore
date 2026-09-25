@@ -77,3 +77,8 @@ training/portable_bundle/
 training/dist/
 training/pipeline_logs/
 training/RUN_AUTHORIZED
+
+# RAG pipeline run state and outputs (regenerate with scripts/rag_pipeline.sh).
+# The Chroma index is derived data and embeds the private knowledge base.
+training/.pipeline_state/
+training/rag_outputs/

@@ -91,8 +91,17 @@ stage3() {
   : > "$f"
   while IFS= read -r q; do
     [ -z "$q" ] && continue
-    { echo "## $q"; echo; "$ABSHAAR" ask "$q"; echo; } >> "$f"
-    echo "  answered: $q"
+    # `ask` exits non-zero when the answer cites ids that were not retrieved.
+    # That gate is doing its job and its output is the most interesting part of
+    # the run, so record it and keep going rather than aborting the whole set.
+    echo "## $q" >> "$f"; echo >> "$f"
+    if "$ABSHAAR" ask "$q" >> "$f" 2>>"$f"; then
+      echo "  answered: $q"
+    else
+      echo >> "$f"; echo "**^ citation gate rejected this answer (exit $?).**" >> "$f"
+      echo "  CITATION GATE FIRED: $q"
+    fi
+    echo >> "$f"
   done < "$ROOT/training/demo_questions.txt"
   echo "-> $f"
   mark 3
