@@ -219,3 +219,30 @@ class AnswerFailureTests(unittest.TestCase):
 
         self.assertEqual(summary["probes"], 3)
         self.assertEqual(summary["answer_failures"], 1)
+
+
+class RagTimeoutTests(unittest.TestCase):
+    """The RAG path sends the longest prompts in the suite and must not be the
+    one left on the short default timeout.
+
+    It was, until 2026-09-25: ANSWER_TIMEOUT was applied to the bare branch
+    only, so 7 of 25 factual probes in the base+RAG run timed out and scored 0,
+    reporting 0.415 where the 18 that answered averaged 0.558. An
+    infrastructure timeout that silently depresses a baseline also biases the
+    acceptance comparison in the tuned model's favour.
+    """
+
+    def test_rag_answers_get_the_long_timeout(self):
+        seen = {}
+
+        def fake_ask(root, question, model=None, timeout=180, **kw):
+            seen["timeout"] = timeout
+            return {"answer": "an answer"}
+
+        import abshaar.rag as rag
+
+        with mock.patch.object(rag, "ask", fake_ask):
+            evaluate._answer(Path("/nonexistent"), _probe("p1"), "qwen3:8b", use_rag=True)
+
+        self.assertEqual(seen["timeout"], evaluate.ANSWER_TIMEOUT)
+        self.assertGreater(seen["timeout"], 180)

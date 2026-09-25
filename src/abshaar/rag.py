@@ -145,6 +145,7 @@ def ask(
     k: int = 8,
     min_score: float = DEFAULT_MIN_SCORE,
     retrieve_only: bool = False,
+    timeout: int = 180,
 ) -> dict[str, Any]:
     hits = retrieve(root, question, k=k)
     best = hits[0]["score"] if hits else 0.0
@@ -161,7 +162,9 @@ def ask(
             "declined": True,
             "invalid_citations": [],
         }
-    answer = run_chat(model, SYSTEM_PROMPT, compose_prompt(question, hits))
+    answer = run_chat(
+        model, SYSTEM_PROMPT, compose_prompt(question, hits), timeout=timeout
+    )
     # qwen3 emits <think>…</think> reasoning blocks; only the final answer counts.
     answer = re.sub(r"<think>.*?</think>", "", answer, flags=re.S).strip()
     return {

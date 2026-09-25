@@ -223,7 +223,18 @@ def _answer(
             if use_rag:
                 from abshaar.rag import ask
 
-                return (ask(root, probe["question"], model=model)["answer"] or ""), None
+                # The RAG path must get ANSWER_TIMEOUT too. It did not until
+                # 2026-09-25, so it kept run_chat's 180s default while sending
+                # the LONGEST prompts in the suite (question + 8 retrieved
+                # records) -- which is why 7 of 25 factual probes timed out and
+                # scored 0 in the base+RAG run, understating it as 0.415 when
+                # the 18 that answered averaged 0.558.
+                return (
+                    ask(
+                        root, probe["question"], model=model, timeout=ANSWER_TIMEOUT
+                    )["answer"]
+                    or ""
+                ), None
             return run_chat(
                 model, SYSTEM_PROMPT, probe["question"], timeout=ANSWER_TIMEOUT
             ), None
