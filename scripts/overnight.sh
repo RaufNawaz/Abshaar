@@ -30,7 +30,17 @@ is_done() { [ -f "$STATE/stage$1.done" ]; }
 mark() { date -u +"%Y-%m-%dT%H:%M:%SZ" > "$STATE/stage$1.done"; }
 
 ollama_up() { curl -fsS http://127.0.0.1:11434/api/tags >/dev/null 2>&1; }
-mlx_up()    { curl -fsS http://127.0.0.1:8080/health >/dev/null 2>&1 || curl -fsS http://127.0.0.1:8080/v1/models >/dev/null 2>&1; }
+
+# A port that answers /health is NOT proof the real model is behind it. While
+# testing the client contract on 2026-09-25 a stub server sat on 8080 that would
+# have answered every probe with canned text -- the evals would have completed
+# and produced entirely fictional scores. So require BOTH: the port responds,
+# and an actual mlx_lm server process exists.
+mlx_port_up() {
+  curl -fsS http://127.0.0.1:8080/health >/dev/null 2>&1 ||
+  curl -fsS http://127.0.0.1:8080/v1/models >/dev/null 2>&1
+}
+mlx_up() { mlx_port_up && pgrep -f "mlx_lm server" >/dev/null 2>&1; }
 
 ensure_ollama() {
   ollama_up && return 0
@@ -73,7 +83,12 @@ if ! mlx_up; then
   for _ in $(seq 1 120); do sleep 5; mlx_up && break; done
 fi
 if mlx_up; then
-  log "mlx server up on :8080"
+  log "mlx server up on :8080 (process verified, not just the port)"
+elif mlx_port_up; then
+  log "FATAL: something answers :8080 but it is not an mlx_lm server."
+  log "       Refusing to run -- scores from an unknown responder are worse"
+  log "       than no scores. Free the port and re-run."
+  exit 1
 else
   log "FATAL: mlx server never came up -- see mlx-server-$STAMP.log"
   exit 1
