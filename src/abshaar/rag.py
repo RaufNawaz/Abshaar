@@ -19,7 +19,7 @@ from typing import Any
 
 from abshaar.jsonl import read_jsonl
 from abshaar.knowledge_base import KB_PATH
-from abshaar.ollama_client import run_ollama_chat
+from abshaar.mlx_client import run_chat
 
 
 INDEX_DIR = "data/cache/chroma"
@@ -161,7 +161,7 @@ def ask(
             "declined": True,
             "invalid_citations": [],
         }
-    answer = run_ollama_chat(model, SYSTEM_PROMPT, compose_prompt(question, hits))
+    answer = run_chat(model, SYSTEM_PROMPT, compose_prompt(question, hits))
     # qwen3 emits <think>…</think> reasoning blocks; only the final answer counts.
     answer = re.sub(r"<think>.*?</think>", "", answer, flags=re.S).strip()
     return {

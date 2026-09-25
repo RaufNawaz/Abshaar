@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from abshaar.jsonl import read_jsonl, write_jsonl
-from abshaar.ollama_client import run_ollama_chat
+from abshaar.mlx_client import run_chat
 from abshaar.training_export import normalize_words
 
 
@@ -172,7 +172,7 @@ def _token_f1(candidate: str, reference: str) -> float:
 
 
 def _judge_score(question: str, reference: str, candidate: str, judge_model: str) -> int:
-    reply = run_ollama_chat(
+    reply = run_chat(
         judge_model,
         "You are a strict grading assistant. Reply with a single digit only.",
         JUDGE_PROMPT.format(question=question, reference=reference, candidate=candidate),
@@ -200,7 +200,7 @@ def run_eval(
 
             answer = ask(root, probe["question"], model=model)["answer"] or ""
         else:
-            answer = run_ollama_chat(model, SYSTEM_PROMPT, probe["question"])
+            answer = run_chat(model, SYSTEM_PROMPT, probe["question"])
         answer = THINK_RE.sub("", answer).strip()
 
         if probe["category"] == "honesty":
