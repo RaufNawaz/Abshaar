@@ -96,12 +96,47 @@ Use `data/processed/training/probes.jsonl` for evals, **not** the max build's:
 the latter has 5 `reference_translation` probes that score a model on
 reproducing Rafat's copyrighted English.
 
+## The tuned+RAG shim (built 2026-09-24, commit `409129a`)
+
+`rag.ask()` and `evaluate.run_eval()` called Ollama directly, so the mlx-served
+adapter could not be reached through the `ask` path — which made the acceptance
+criterion unmeasurable and left "serve it bare" as the only option, the one
+configuration that fabricates sources.
+
+Now: **a model string starting `mlx:` routes to a local `mlx_lm.server`,
+anything else goes to Ollama unchanged.**
+
+```bash
+./scripts/serve_tuned.sh              # run2 (also: run1, base) -> port 8080
+./scripts/abshaar.sh ask --model mlx:run2 "..."
+./scripts/abshaar.sh run-eval --model mlx:run2 --rag
+```
+
+Same temperature 0.3 / top_p 0.9 as the Ollama path, so tuned-vs-base is like
+for like. The text after `mlx:` is only a label for `eval_baseline.md`; which
+weights load is decided by the server's `--model`/`--adapter-path`.
+
+`tests/test_mlx_client.py` pins the routing both ways. Routing the wrong way is
+silent: it would grade qwen3:8b and file the score as the tuned model's.
+
+## Gotchas found the hard way
+
+- **Do not edit `scripts/rag_pipeline.sh` while it is running.** Bash reads a
+  script incrementally from an offset, so an edit mid-run shifts the ground
+  under it. Stage 1 finished its work but never wrote its marker, almost
+  certainly for this reason. Wait for the stage, or copy the script first.
+- **Memory.** Ollama holding qwen3:8b and an mlx server holding the 4-bit 8B is
+  ~11 GB on a 16 GB Air, with ~3 GB already swapped. Run the Ollama baselines
+  and the mlx work one after the other, not together.
+- **`ai-check` now imports** each package rather than `find_spec`-ing it
+  (commit `4549b95`), and distinguishes "present but fails to import" from
+  "missing". Those need different fixes, and conflating them is what hid the
+  torch breakage and then hid its repair.
+
 ## Still open after this
 
-- **tuned+RAG is not wired.** Stage 7 is the LoRA alone. The shim above is the
-  remaining code.
-- `ai-check` still uses `find_spec` (`src/abshaar/ollama_client.py:43`), so it
-  reports packages healthy whether or not they import. It is why the torch
-  breakage was recorded late and its repair was not noticed at all.
+- **tuned+RAG has not been measured yet**, though it can now be run. The code
+  exists and is tested; what is missing is the run, and the EVAL_MATRIX
+  acceptance rows it would fill.
 - The corpus ceiling in `docs/20` is untouched by any of this. Nothing here
   makes the archive more scholarly; it makes what exists reachable.
