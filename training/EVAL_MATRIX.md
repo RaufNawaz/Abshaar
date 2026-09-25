@@ -180,10 +180,12 @@ with `./scripts/rag_pipeline.sh --redo 7 7`).
 
 | Model | factual | honesty | notes |
 |---|---|---|---|
-| `qwen3:8b` base | — | — | blocked: baselines never run |
-| `qwen3:8b` + RAG | — | — | blocked: `build-index` needs the venv rebuild |
-| tuned | — | — | needs the fuse/serve step |
-| tuned + RAG | — | — | |
+| `qwen3:8b` base | — | — | not run |
+| `qwen3:8b` + RAG | — | — | not run |
+| tuned (run 2) | — | — | not run |
+| tuned (run 2) + RAG | — | — | not run |
+
+**Verdict: cannot be computed yet** — one or more runs is missing above. The criterion needs all four.
 
 **Acceptance criterion (plan §3 Phase 5, verbatim): tuned+RAG ≥ base+RAG on
 factual AND tuned ≥ base on honesty.** A model that hallucinates more than
