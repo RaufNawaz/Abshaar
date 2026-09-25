@@ -330,7 +330,7 @@ are identical.
 | `.\scripts\abshaar.ps1 crosswalk-evidence` | writes deterministic two-way line-coverage evidence + alignments for every crosswalk match record to `data/annotations/crosswalk_evidence.md` | before classifying or reviewing crosswalk matches |
 | `.\scripts\abshaar.ps1 apply-crosswalk-review` | applies `data/annotations/crosswalk_classifications.jsonl` onto both match files; refuses malformed/incomplete/out-of-taxonomy input | after editing a classification decision |
 | `.\scripts\abshaar.ps1 build-kb` | consolidates poem layers, lexicon, biography, witnesses into the private knowledge base (leak-scanned) | after any KB input changes |
-| `.\scripts\abshaar.ps1 build-index` | embeds the knowledge base with BGE-M3 into the local Chroma index (needs `.venv` AI stack) | after `build-kb` |
+| `.\scripts\abshaar.ps1 build-index` | embeds the knowledge base with BGE-M3 into the local Chroma index (needs `.venv` AI stack) | after `build-kb`. **Done 2026-09-25** (1,306 records); takes ~50 min on an M4 Air, and `scripts/build_index_resumable.py` resumes it if interrupted |
 | `.\scripts\abshaar.ps1 ask "question"` | grounded retrieval + local-Ollama answer with kb citations; declines out-of-corpus questions | to query the archive |
 | `.\scripts\abshaar.ps1 generate-training-data` | builds the templated train/eval instruction dataset with all gates (leak scan, dedup, hedging, cluster-safe split) | after KB or lexicon changes |
 | `.\scripts\abshaar.ps1 build-probes` | builds the fixed 50-probe eval set (factual/honesty/disputed) | once per eval design |

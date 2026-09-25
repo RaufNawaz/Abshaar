@@ -166,6 +166,27 @@ AI-stack commands need the project venv (`python3 -m venv .venv &&
 .venv/bin/pip install -r requirements.txt`); both wrappers prefer `.venv`
 automatically when it exists.
 
+### Asking the archive questions
+
+As of 2026-09-25 this works end to end. The Chroma index is built over all
+1,306 knowledge-base records, and a question goes through retrieval, a
+relevance threshold and a citation check that rejects any answer citing records
+that were not retrieved:
+
+```bash
+ollama serve
+./scripts/abshaar.sh ask "Who was Bulleh Shah's murshid, and what does the archive cite for that?"
+```
+
+Measured over the fixed 50-probe set: the bare model declines **27%** of
+questions the archive cannot support; behind retrieval, **93%**. Retrieval, not
+fine-tuning, is what makes this honest — so **nothing tuned is served without
+it**. Served bare, the LoRA invents citations and attributes them to the
+archive.
+
+`scripts/rag_pipeline.sh` runs the whole path in resumable stages, and
+`docs/21_serving_handover.md` is the operating guide.
+
 See [Automation Infrastructure](docs/09_automation_infrastructure.md) for the
 full command reference, or [Plain-English Automation Guide](docs/10_plain_english_automation_guide.md)
 for a non-technical explanation.

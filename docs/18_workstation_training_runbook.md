@@ -143,13 +143,14 @@ and waiting when the baselines are measured. The criterion is unchanged:
 **tuned+RAG ≥ base+RAG on factual AND tuned ≥ base on honesty.** A model that
 hallucinates more than base is rejected regardless of style gains.
 
-Known blocker for that Mac-side work, found 2026-08-31: `torch` in `.venv`
-does not import (Python 3.9 venv, torch 2.8.0 wheel → circular-import
-failure), so `build-index` and anything else touching
-`sentence_transformers`/`chromadb` will fail until the venv is rebuilt on
-Python 3.11/3.12. `ai-check` does not catch this because it uses
-`importlib.util.find_spec`, which never imports the package. See
-`OFFLOADING.md`.
+~~Known blocker for that Mac-side work, found 2026-08-31: `torch` in `.venv`
+does not import.~~ **Resolved 2026-09-25 — it no longer reproduces.** All six
+packages import on the *unchanged* Python 3.9.6 venv (torch 2.8.0,
+sentence_transformers 5.1.2, chromadb 1.5.9, transformers 4.57.6, ollama,
+mlx_lm 0.29.1) and MPS is available. No rebuild was performed and none is
+needed; do not delete the venv to "fix" anything without re-testing first.
+`ai-check` now imports each package instead of `find_spec`-ing it, so it can
+actually observe this either way. See `docs/21_serving_handover.md`.
 
 ## 6. Design notes (why the bundles look like this)
 

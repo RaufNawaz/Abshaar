@@ -20,7 +20,7 @@ only one of them is blocked:
 | Track | Where | Blocked? |
 |---|---|---|
 | Produce an adapter (Parts 1–5) | Trainer | No. Start any time. |
-| Judge whether the adapter is any good (Part 6) | Air | Yes — needs a venv rebuild and three baseline runs that have never happened. |
+| Judge whether the adapter is any good (Part 6) | Air | **Partly done 2026-09-25.** No venv rebuild needed. Index built; base and base+RAG measured; the two tuned rows are outstanding. See `docs/21`. |
 
 You can do Parts 1–5 today and Part 6 later. You cannot skip Part 6 and call
 the model accepted.
@@ -373,12 +373,12 @@ them while the Trainer is training.
 
 ### 6.1 Rebuild the venv (blocking, ~10 min plus a multi-GB download)
 
-`torch` does not import in the current `.venv` — torch 2.8.0 was installed
-into a Python 3.9 venv and fails with a circular-import error.
-`sentence_transformers` and `chromadb` fail the same way, so `build-index`
-and every RAG command are dead until this is fixed. (`ai-check` reports these
-packages as installed because it uses `importlib.util.find_spec`, which never
-imports them.)
+**Superseded 2026-09-25: this no longer reproduces.** `torch` imports fine on
+the unchanged Python 3.9.6 venv, along with sentence_transformers, chromadb,
+transformers, ollama and mlx_lm; MPS is available. The rebuild below was never
+performed and is not required. It is kept only as a record of what was believed
+on 2026-08-31, and as a recipe if the venv genuinely breaks later. The original
+cause was never diagnosed, so do not delete the venv speculatively.
 
 `/opt/homebrew/bin/python3.12` (3.12.13) is already on this machine, so:
 
@@ -467,7 +467,7 @@ touch training/RUN_AUTHORIZED                  # deliberate opt-in
 ```
 
 That runs at background scheduling priority and pauses when `pmset -g therm`
-reports throttling. It also still requires §6.1's venv rebuild for its
+reports throttling. (§6.1's venv rebuild is no longer required — see the note there.) It uses
 index/eval stages.
 
 ## Appendix B — Interruptions and resuming

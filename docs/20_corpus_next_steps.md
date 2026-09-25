@@ -156,8 +156,10 @@ implemented, gated (it aborts if the verifier rejects >30%), and **has never
 been run**. Run 1's saturation at ~200 iterations is partly a diversity
 problem: ten templates cannot teach ten thousand phrasings.
 
-Requires the Mac-side AI stack, so it is blocked behind the venv rebuild in
-`docs/19` Part 6. Cheap once unblocked, and it needs no human hours.
+~~Requires the Mac-side AI stack, so it is blocked behind the venv rebuild in
+`docs/19` Part 6.~~ **Unblocked 2026-09-25.** The venv rebuild is not needed —
+every package imports on the unchanged Python 3.9.6 venv, and the Chroma index
+is built (1,306 records). `augment-training-data` can be run now. Cheap once unblocked, and it needs no human hours.
 
 ---
 
@@ -199,7 +201,7 @@ exists to author new entries against.
 | 2 | §1 wire the review loop | §2 mattering at all | ~4 |
 | 3 | §2 five-poem gold slice | Everything downstream; sets the standard | 15–30 |
 | 4 | §4 crosswalk confirmation | Trust in witness-derived training data | 4–8 |
-| 5 | §5 augmentation | — (needs the venv rebuild first) | ~0 |
+| 5 | §5 augmentation | — (**unblocked 2026-09-25**; runnable now) | ~0 |
 | 6 | §6 corpus expansion | Needs §2's standard and a rights answer | large |
 
 Steps 1 and 2 are code and take a day between them. Step 3 is the one that
