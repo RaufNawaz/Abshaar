@@ -731,8 +731,17 @@ def command_ai_check() -> int:
     else:
         print("Installed Ollama models: none detected")
     print("Optional Python AI packages:")
+    errors = status.get("import_errors", {})
     for package_name, installed in status["optional_packages"].items():
-        print(f"  - {package_name}: {'installed' if installed else 'missing'}")
+        if installed:
+            print(f"  - {package_name}: installed")
+        elif package_name in errors:
+            # Present but unimportable is a different problem from absent, and
+            # the difference cost this project weeks -- say which it is.
+            print(f"  - {package_name}: PRESENT BUT FAILS TO IMPORT")
+            print(f"      {errors[package_name]}")
+        else:
+            print(f"  - {package_name}: missing")
     return 0 if status["api_available"] else 1
 
 

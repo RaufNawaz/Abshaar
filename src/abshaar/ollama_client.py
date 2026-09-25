@@ -40,8 +40,27 @@ def check_ollama() -> dict[str, Any]:
     except (OSError, urllib.error.URLError, json.JSONDecodeError):
         result["api_available"] = False
 
+    # Import each package rather than find_spec it. find_spec only proves a
+    # file is on disk, and on 2026-08-31 `torch` was present but raised on
+    # import, so ai-check reported the RAG stack healthy while build-index,
+    # sentence_transformers and chromadb were all unusable. That mistake was
+    # then recorded as a project-wide blocker and the RAG half was parked for
+    # weeks. When the venv repaired itself, find_spec was equally unable to
+    # notice. An import is slower and is the only thing that answers the
+    # question actually being asked.
     for package_name in ["ollama", "sentence_transformers", "chromadb", "transformers", "torch"]:
-        result["optional_packages"][package_name] = importlib.util.find_spec(package_name) is not None
+        if importlib.util.find_spec(package_name) is None:
+            result["optional_packages"][package_name] = False
+            continue
+        try:
+            importlib.import_module(package_name)
+        except BaseException as exc:  # noqa: BLE001 - a broken package may raise anything
+            result["optional_packages"][package_name] = False
+            result.setdefault("import_errors", {})[package_name] = (
+                f"{type(exc).__name__}: {exc}"[:300]
+            )
+        else:
+            result["optional_packages"][package_name] = True
 
     return result
 
