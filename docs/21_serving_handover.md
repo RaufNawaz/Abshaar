@@ -152,6 +152,43 @@ degrade to token-F1.
 The honest progress signal is the checkpoint:
 `wc -l data/processed/training/eval_runs/*.partial.jsonl`.
 
+## STOPPED HERE — 2026-09-25, at Rauf's request
+
+All compute stopped and memory freed; Ollama holds no model and no mlx server
+is running. **Nothing was lost.** To continue:
+
+```bash
+nohup ./scripts/overnight.sh > training/pipeline_logs/overnight-driver.log 2>&1 &
+```
+
+State:
+
+| | |
+|---|---|
+| base qwen3:8b, bare | **done** — factual 0.239, honesty 0.267, 0 failures |
+| base qwen3:8b + RAG | **done** — factual 0.415\*, honesty 0.933, 0 judge failures |
+| tuned run 2, bare | **50/50 answered, 16 judgments left.** Resumes from the checkpoint; the expensive half is finished |
+| tuned run 2 + RAG | not started (~5 h answering + ~2.5 h judging) |
+
+\* base+RAG's factual is depressed: 7 of 25 factual probes timed out on the
+180s bug fixed in `3caa609`. The 18 that answered averaged **0.558**. Those 7
+must be re-answered before this row is used in the acceptance comparison —
+otherwise the baseline is artificially low and biases the verdict toward PASS.
+The fix is in; the re-run is not.
+
+**Two runs were thrown away rather than kept**, both because they produced
+complete, plausible, structurally valid results that measured nothing:
+
+1. A tuned run that 404'd on all 50 probes and scored 0.0 across the board
+   (`86baf06`) — mlx_lm.server resolves the request's `model` field as a model
+   path, and it was being sent the run label.
+2. A stale `mlx:run2 | 0.0 | 0.0 | 0.0` row left in `eval_baseline.md` after
+   that run's JSON was deleted.
+
+Both are the same hazard in different clothes: a number that looks measured and
+is not. The generation probe in `overnight.sh` and the `--check` mode of
+`update_eval_matrix.py` exist because of them.
+
 ## Measured throughput — the Air is the constraint
 
 Numbers from 2026-09-25, on the 16 GB M4 Air with ~6 GB swapped:
