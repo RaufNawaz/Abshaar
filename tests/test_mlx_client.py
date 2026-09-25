@@ -45,7 +45,7 @@ class RoutingTests(unittest.TestCase):
 
 
 class PayloadTests(unittest.TestCase):
-    def test_payload_strips_the_prefix_and_mirrors_ollama_sampling(self):
+    def test_payload_names_a_real_model_and_mirrors_ollama_sampling(self):
         seen = {}
 
         class FakeResponse:
@@ -65,8 +65,13 @@ class PayloadTests(unittest.TestCase):
         with mock.patch.object(mlx_client.urllib.request, "urlopen", fake_urlopen):
             self.assertEqual(mlx_client.run_mlx_chat("mlx:run2", "sys", "user"), "ok")
 
-        # the server gets a clean name, not the routing prefix
-        self.assertEqual(seen["body"]["model"], "run2")
+        # The server RESOLVES this field as a model path and loads it -- it
+        # does not serve whatever it was started with. Sending the run label
+        # made it request huggingface.co/api/models/run2 and 404, which is how
+        # a tuned eval "answered" 50 probes in 20 minutes and scored 0.0.
+        self.assertEqual(seen["body"]["model"], mlx_client.DEFAULT_MLX_MODEL)
+        self.assertNotEqual(seen["body"]["model"], "run2")
+        self.assertIn("/", seen["body"]["model"], "must be a model path, not a label")
         self.assertEqual(seen["body"]["messages"][0]["role"], "system")
         # same sampling as run_ollama_chat, so tuned-vs-base is like for like
         self.assertEqual(seen["body"]["temperature"], 0.3)
@@ -75,3 +80,40 @@ class PayloadTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SpecialTokenTests(unittest.TestCase):
+    """mlx returns the chat template's end markers; Ollama does not.
+
+    Left in, they reach the judge and the token-F1 scorer as extra tokens, so
+    the tuned and base runs would not be scored on equal terms -- and the
+    comparison between them is the entire point.
+    """
+
+    def test_end_markers_are_stripped(self):
+        self.assertEqual(
+            mlx_client._strip_special_tokens("An answer.<|im_end|>"), "An answer."
+        )
+        self.assertEqual(
+            mlx_client._strip_special_tokens("<|im_start|>hi<|endoftext|>"), "hi"
+        )
+
+    def test_ordinary_text_is_untouched(self):
+        text = "Bulleh Shah was a Punjabi Sufi poet [kb:bio_claim_bulleh_name]."
+        self.assertEqual(mlx_client._strip_special_tokens(text), text)
+
+    def test_stripping_happens_on_the_response_path(self):
+        class FakeResponse:
+            def read(self_inner):
+                return b'{"choices":[{"message":{"content":"graded<|im_end|>"}}]}'
+
+            def __enter__(self_inner):
+                return self_inner
+
+            def __exit__(self_inner, *a):
+                return False
+
+        with mock.patch.object(
+            mlx_client.urllib.request, "urlopen", lambda r, timeout=None: FakeResponse()
+        ):
+            self.assertEqual(mlx_client.run_mlx_chat("mlx:run2", "s", "u"), "graded")

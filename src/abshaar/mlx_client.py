@@ -21,11 +21,29 @@ distinguishable row in eval_baseline.md without implying this code chose them.
 from __future__ import annotations
 
 import json
+import os
+import re
 import urllib.error
 import urllib.request
 
 MLX_PREFIX = "mlx:"
 DEFAULT_ENDPOINT = "http://127.0.0.1:8080/v1/chat/completions"
+
+# mlx_lm.server resolves the request's `model` field as a model path and loads
+# it -- it does NOT simply serve whatever it was started with. Sending a label
+# like "run2" makes it try huggingface.co/api/models/run2 and return 404, which
+# is how the first tuned eval "answered" all 50 probes in 20 minutes and scored
+# 0.0 across the board.
+#
+# It is also why `adapters` is sent explicitly. server.py:420 falls back to the
+# CLI --adapter-path when the request omits it, so omitting it would usually
+# work -- but "usually" is not good enough here: a request that silently loaded
+# the BASE model would produce a complete, plausible set of scores filed as the
+# tuned model's, and nothing downstream could tell.
+DEFAULT_MLX_MODEL = os.environ.get(
+    "ABSHAAR_MLX_MODEL", "mlx-community/Qwen3-8B-4bit"
+)
+MLX_ADAPTER = os.environ.get("ABSHAAR_MLX_ADAPTER") or None
 
 
 def is_mlx_model(model: str) -> bool:
@@ -41,9 +59,9 @@ def run_mlx_chat(
 ) -> str:
     """Mirror of run_ollama_chat: same sampling, same return shape."""
     payload = {
-        # mlx_lm.server ignores this and serves whatever it was started with,
-        # but the field is required by the OpenAI schema.
-        "model": model[len(MLX_PREFIX) :] or "local",
+        # The real model path -- see the note on DEFAULT_MLX_MODEL. The label
+        # after `mlx:` names the RUN for eval bookkeeping, not the weights.
+        "model": DEFAULT_MLX_MODEL,
         "stream": False,
         "messages": [
             {"role": "system", "content": system_prompt},
@@ -53,6 +71,8 @@ def run_mlx_chat(
         "top_p": 0.9,
         "max_tokens": 800,
     }
+    if MLX_ADAPTER:
+        payload["adapters"] = MLX_ADAPTER
     request = urllib.request.Request(
         endpoint,
         data=json.dumps(payload).encode("utf-8"),
@@ -67,7 +87,18 @@ def run_mlx_chat(
             f"No mlx_lm.server at {endpoint} ({exc}). Start it with "
             "./scripts/serve_tuned.sh"
         ) from exc
-    return body["choices"][0]["message"]["content"]
+    return _strip_special_tokens(body["choices"][0]["message"]["content"])
+
+
+# mlx_lm.server returns the raw decode, including the chat template's end
+# markers; Ollama strips them. Left in, they reach the judge and the token-F1
+# scorer as extra tokens, so the two backends would not be scored on equal
+# terms -- which is the whole point of the comparison.
+_SPECIAL = re.compile(r"<\|(?:im_end|im_start|endoftext)\|>")
+
+
+def _strip_special_tokens(text: str) -> str:
+    return _SPECIAL.sub("", text).strip()
 
 
 def run_chat(

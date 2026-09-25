@@ -84,6 +84,19 @@ if ! mlx_up; then
 fi
 if mlx_up; then
   log "mlx server up on :8080 (process verified, not just the port)"
+  # A 200 on /health proves the HTTP server is alive, not that a generation
+  # request works. The first tuned run got 404 on every one of 50 probes and
+  # still "completed". One real round-trip now costs seconds and catches it.
+  if curl -fsS --max-time 600 -X POST http://127.0.0.1:8080/v1/chat/completions \
+       -H 'Content-Type: application/json' \
+       -d "{\"model\":\"$ABSHAAR_MLX_MODEL\",\"adapters\":\"$ABSHAAR_MLX_ADAPTER\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}],\"max_tokens\":8}" \
+       >/dev/null 2>&1; then
+    log "mlx generation probe OK"
+  else
+    log "FATAL: mlx server answers /health but cannot generate. Refusing to"
+    log "       run -- 50 failed probes score 0.0 and look like a real result."
+    exit 1
+  fi
 elif mlx_port_up; then
   log "FATAL: something answers :8080 but it is not an mlx_lm server."
   log "       Refusing to run -- scores from an unknown responder are worse"
@@ -95,6 +108,13 @@ else
 fi
 
 # --- stages 8 and 9: the tuned rows -----------------------------------------
+# Name the adapter explicitly for every request. mlx_lm.server would fall back
+# to its own --adapter-path, but a request that quietly loaded the BASE model
+# would yield a full set of plausible scores filed as the tuned model's, and
+# nothing downstream could detect it.
+export ABSHAAR_MLX_ADAPTER="$ROOT/training/adapters/mlx-community_Qwen3-8B-4bit-run2"
+export ABSHAAR_MLX_MODEL="mlx-community/Qwen3-8B-4bit"
+
 run_tuned_eval() {  # $1 = stage, $2 = extra flags, $3 = label
   local stage="$1" flags="$2" label="$3"
   if is_done "$stage"; then log "stage $stage ($label) already done"; return 0; fi
