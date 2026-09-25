@@ -108,3 +108,55 @@ class JudgeFailureTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TwoPhaseTests(unittest.TestCase):
+    """Judging must not interleave with answering.
+
+    Interleaved, Ollama evicts and reloads weights between the answer model and
+    the judge on every probe -- measured at ~2 min/probe on the M4 Air, ~100
+    minutes for 50. Batched, it is two model loads. If a future edit moves the
+    judge back inside the answer loop the scores stay identical and only the
+    wall clock changes, which is exactly the kind of regression nobody notices.
+    """
+
+    def test_all_answers_are_produced_before_any_judging(self):
+        order = []
+
+        def fake_chat(model, system, user, timeout=180):
+            order.append("answer")
+            return "some answer"
+
+        def fake_judge(question, reference, candidate, judge_model):
+            order.append("judge")
+            return 3, None
+
+        probes = [_probe(f"p{i}") for i in range(4)]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "data/processed/training").mkdir(parents=True)
+            (root / evaluate.PROBES_PATH).write_text(
+                "".join(json.dumps(p) + "\n" for p in probes), encoding="utf-8"
+            )
+            with mock.patch.object(evaluate, "run_chat", side_effect=fake_chat), \
+                 mock.patch.object(evaluate, "_judge_score", side_effect=fake_judge), \
+                 mock.patch.object(evaluate, "_update_baseline_table"):
+                summary = evaluate.run_eval(root, "qwen3:8b", use_rag=False)
+
+        self.assertEqual(summary["probes"], 4)
+        self.assertEqual(order, ["answer"] * 4 + ["judge"] * 4)
+
+    def test_finished_run_removes_its_resume_crumb(self):
+        probes = [_probe("p0")]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "data/processed/training").mkdir(parents=True)
+            (root / evaluate.PROBES_PATH).write_text(
+                json.dumps(probes[0]) + "\n", encoding="utf-8"
+            )
+            with mock.patch.object(evaluate, "run_chat", return_value="a"), \
+                 mock.patch.object(evaluate, "_judge_score", return_value=(3, None)), \
+                 mock.patch.object(evaluate, "_update_baseline_table"):
+                evaluate.run_eval(root, "qwen3:8b", use_rag=False)
+            self.assertFalse(evaluate._checkpoint_path(root, "qwen3_8b").exists())

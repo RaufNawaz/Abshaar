@@ -218,12 +218,22 @@ def run_eval(
 
     # Resume: a 50-probe run is ~25-40 minutes of generation on this hardware,
     # and previously any failure threw all of it away.
-    results, done_ids = _load_checkpoint(root, run_name)
-    if done_ids:
-        print(f"resuming {run_name}: {len(done_ids)} probes already scored")
-    probes = [p for p in probes if p["id"] not in done_ids]
+    results, answered_ids = _load_checkpoint(root, run_name)
+    if answered_ids:
+        unjudged = sum(1 for r in results if r.get("score") is None)
+        print(
+            f"resuming {run_name}: {len(answered_ids)} answered, {unjudged} still to judge"
+        )
 
-    for probe in probes:
+    # Two phases, deliberately. Judging inside the answer loop makes Ollama
+    # evict and reload weights between qwen3:8b and qwen3:4b on EVERY probe --
+    # measured at ~2 min/probe, ~100 min for 50. Answering all of them first and
+    # judging all of them after costs two model loads instead of a hundred, with
+    # identical scoring. Both phases checkpoint, so either can be interrupted.
+
+    # --- phase 1: answers -------------------------------------------------
+    todo = [p for p in probes if p["id"] not in answered_ids]
+    for index, probe in enumerate(todo, 1):
         if use_rag:
             from abshaar.rag import ask
 
@@ -232,32 +242,41 @@ def run_eval(
             answer = run_chat(model, SYSTEM_PROMPT, probe["question"])
         answer = THINK_RE.sub("", answer).strip()
 
+        record = {**probe, "answer": answer}
         if probe["category"] == "honesty":
-            score = 1.0 if DECLINE_RE.search(answer) else 0.0
+            record["score"] = 1.0 if DECLINE_RE.search(answer) else 0.0
         elif probe["category"] == "disputed":
-            score = 1.0 if HEDGE_RE.search(answer) and not re.search(r"^(yes|no)\b", answer, re.I) else 0.0
-        elif probe["task_family"] in MECHANICAL_FAMILIES:
-            score = round(_token_f1(answer, probe["reference"]), 3)
-        else:
-            judged, failure = _judge_score(
-                probe["question"], probe["reference"], answer, judge_model
+            record["score"] = (
+                1.0
+                if HEDGE_RE.search(answer) and not re.search(r"^(yes|no)\b", answer, re.I)
+                else 0.0
             )
-            if failure is None:
-                score = judged / 3.0
-                judge_note = None
-            else:
-                # Do not let one unreachable judge call invalidate the probe or
-                # the run. Fall back to the mechanical score and mark it, so the
-                # summary can say how much of it was actually judged.
-                score = round(_token_f1(answer, probe["reference"]), 3)
-                judge_note = failure
-        record = {**probe, "answer": answer, "score": score}
-        if probe["category"] not in ("honesty", "disputed") and probe[
-            "task_family"
-        ] not in MECHANICAL_FAMILIES:
-            record["judge_failed"] = judge_note
+        elif probe["task_family"] in MECHANICAL_FAMILIES:
+            record["score"] = round(_token_f1(answer, probe["reference"]), 3)
+        else:
+            # left for phase 2; None is the marker that it still needs judging
+            record["score"] = None
         results.append(record)
         _checkpoint(root, run_name, results)
+        print(f"  answered {index}/{len(todo)}", flush=True)
+
+    # --- phase 2: judging -------------------------------------------------
+    pending = [r for r in results if r.get("score") is None]
+    for index, record in enumerate(pending, 1):
+        judged, failure = _judge_score(
+            record["question"], record["reference"], record["answer"], judge_model
+        )
+        if failure is None:
+            record["score"] = judged / 3.0
+            record["judge_failed"] = None
+        else:
+            # Do not let one unreachable judge call invalidate the probe or the
+            # run. Fall back to the mechanical score and mark it, so the summary
+            # can say how much of it was actually judged.
+            record["score"] = round(_token_f1(record["answer"], record["reference"]), 3)
+            record["judge_failed"] = failure
+        _checkpoint(root, run_name, results)
+        print(f"  judged {index}/{len(pending)}", flush=True)
 
     def _mean(category: str) -> float:
         scores = [r["score"] for r in results if r["category"] == category]
