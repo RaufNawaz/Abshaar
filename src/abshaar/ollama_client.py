@@ -65,7 +65,9 @@ def check_ollama() -> dict[str, Any]:
     return result
 
 
-def run_ollama_chat(model: str, system_prompt: str, user_prompt: str) -> str:
+def run_ollama_chat(
+    model: str, system_prompt: str, user_prompt: str, timeout: int = 180
+) -> str:
     payload = {
         "model": model,
         "stream": False,
@@ -85,7 +87,7 @@ def run_ollama_chat(model: str, system_prompt: str, user_prompt: str) -> str:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=180) as response:
+    with urllib.request.urlopen(request, timeout=timeout) as response:
         response_payload = json.loads(response.read().decode("utf-8"))
     return response_payload["message"]["content"]
 

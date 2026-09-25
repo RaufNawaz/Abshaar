@@ -70,10 +70,12 @@ def run_mlx_chat(
     return body["choices"][0]["message"]["content"]
 
 
-def run_chat(model: str, system_prompt: str, user_prompt: str) -> str:
+def run_chat(
+    model: str, system_prompt: str, user_prompt: str, timeout: int = 180
+) -> str:
     """Route to mlx-lm or Ollama based on the model string."""
     if is_mlx_model(model):
-        return run_mlx_chat(model, system_prompt, user_prompt)
+        return run_mlx_chat(model, system_prompt, user_prompt, timeout=timeout)
     from abshaar.ollama_client import run_ollama_chat
 
-    return run_ollama_chat(model, system_prompt, user_prompt)
+    return run_ollama_chat(model, system_prompt, user_prompt, timeout=timeout)

@@ -29,14 +29,18 @@ class RoutingTests(unittest.TestCase):
         with mock.patch.object(mlx_client, "run_mlx_chat", return_value="A") as to_mlx, \
              mock.patch("abshaar.ollama_client.run_ollama_chat", return_value="B") as to_ollama:
             self.assertEqual(mlx_client.run_chat("mlx:run2", "sys", "user"), "A")
-        to_mlx.assert_called_once_with("mlx:run2", "sys", "user")
+            # a caller-chosen timeout must survive the hop, or the judge's
+            # longer budget silently reverts to 180s
+            mlx_client.run_chat("mlx:run2", "sys", "user", timeout=600)
+        self.assertEqual(to_mlx.call_args_list[-1].kwargs["timeout"], 600)
+        self.assertEqual(to_mlx.call_args_list[0], mock.call("mlx:run2", "sys", "user", timeout=180))
         to_ollama.assert_not_called()
 
     def test_plain_model_goes_to_ollama_and_not_mlx(self):
         with mock.patch.object(mlx_client, "run_mlx_chat", return_value="A") as to_mlx, \
              mock.patch("abshaar.ollama_client.run_ollama_chat", return_value="B") as to_ollama:
             self.assertEqual(mlx_client.run_chat("qwen3:8b", "sys", "user"), "B")
-        to_ollama.assert_called_once_with("qwen3:8b", "sys", "user")
+        to_ollama.assert_called_once_with("qwen3:8b", "sys", "user", timeout=180)
         to_mlx.assert_not_called()
 
 

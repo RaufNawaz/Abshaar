@@ -171,15 +171,36 @@ def _token_f1(candidate: str, reference: str) -> float:
     return 2 * precision * recall / (precision + recall)
 
 
-def _judge_score(question: str, reference: str, candidate: str, judge_model: str) -> int:
-    reply = run_chat(
-        judge_model,
-        "You are a strict grading assistant. Reply with a single digit only.",
-        JUDGE_PROMPT.format(question=question, reference=reference, candidate=candidate),
-    )
-    reply = THINK_RE.sub("", reply).strip()
-    match = re.search(r"[0-3]", reply)
-    return int(match.group(0)) if match else 0
+# The judge is a different model from the one being graded, so Ollama evicts
+# and reloads weights between every probe. On a 16 GB machine under swap that
+# reload alone can exceed the default 180s, which is how a 50-probe run died
+# 25 minutes in on 2026-09-24 having written nothing.
+JUDGE_TIMEOUT = 600
+
+
+def _judge_score(
+    question: str, reference: str, candidate: str, judge_model: str
+) -> tuple[int, str | None]:
+    """Return (score, failure_reason). A judge that times out must not discard
+    the run: it degrades that one probe to token-F1 and says so."""
+    for attempt in (1, 2):
+        try:
+            reply = run_chat(
+                judge_model,
+                "You are a strict grading assistant. Reply with a single digit only.",
+                JUDGE_PROMPT.format(
+                    question=question, reference=reference, candidate=candidate
+                ),
+                timeout=JUDGE_TIMEOUT,
+            )
+        except Exception as exc:  # noqa: BLE001 - urllib raises several types here
+            if attempt == 2:
+                return 0, f"{type(exc).__name__}: {exc}"[:200]
+            continue
+        reply = THINK_RE.sub("", reply).strip()
+        match = re.search(r"[0-3]", reply)
+        return (int(match.group(0)) if match else 0), None
+    return 0, "unreachable"
 
 
 def run_eval(
@@ -193,7 +214,15 @@ def run_eval(
     if limit:
         probes = probes[:limit]
 
-    results: list[dict[str, Any]] = []
+    run_name = f"{model.replace(':', '_').replace('/', '_')}{'_rag' if use_rag else ''}"
+
+    # Resume: a 50-probe run is ~25-40 minutes of generation on this hardware,
+    # and previously any failure threw all of it away.
+    results, done_ids = _load_checkpoint(root, run_name)
+    if done_ids:
+        print(f"resuming {run_name}: {len(done_ids)} probes already scored")
+    probes = [p for p in probes if p["id"] not in done_ids]
+
     for probe in probes:
         if use_rag:
             from abshaar.rag import ask
@@ -210,8 +239,25 @@ def run_eval(
         elif probe["task_family"] in MECHANICAL_FAMILIES:
             score = round(_token_f1(answer, probe["reference"]), 3)
         else:
-            score = _judge_score(probe["question"], probe["reference"], answer, judge_model) / 3.0
-        results.append({**probe, "answer": answer, "score": score})
+            judged, failure = _judge_score(
+                probe["question"], probe["reference"], answer, judge_model
+            )
+            if failure is None:
+                score = judged / 3.0
+                judge_note = None
+            else:
+                # Do not let one unreachable judge call invalidate the probe or
+                # the run. Fall back to the mechanical score and mark it, so the
+                # summary can say how much of it was actually judged.
+                score = round(_token_f1(answer, probe["reference"]), 3)
+                judge_note = failure
+        record = {**probe, "answer": answer, "score": score}
+        if probe["category"] not in ("honesty", "disputed") and probe[
+            "task_family"
+        ] not in MECHANICAL_FAMILIES:
+            record["judge_failed"] = judge_note
+        results.append(record)
+        _checkpoint(root, run_name, results)
 
     def _mean(category: str) -> float:
         scores = [r["score"] for r in results if r["category"] == category]
@@ -225,9 +271,9 @@ def run_eval(
         "factual": _mean("factual"),
         "honesty": _mean("honesty"),
         "disputed": _mean("disputed"),
+        "judge_failures": sum(1 for r in results if r.get("judge_failed")),
     }
 
-    run_name = f"{model.replace(':', '_').replace('/', '_')}{'_rag' if use_rag else ''}"
     out_dir = root / RESULTS_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"{run_name}.json").write_text(
@@ -235,6 +281,9 @@ def run_eval(
         encoding="utf-8",
     )
     _update_baseline_table(root, summary)
+    # The run completed and its full result file is written, so the resume
+    # crumb has done its job. Leaving it would silently resume a finished run.
+    _checkpoint_path(root, run_name).unlink(missing_ok=True)
     return summary
 
 
@@ -258,3 +307,25 @@ def _update_baseline_table(root: Path, summary: dict[str, Any]) -> None:
     else:
         content = header + row
     path.write_text(content, encoding="utf-8")
+
+
+def _checkpoint_path(root: Path, run_name: str) -> Path:
+    return root / RESULTS_DIR / f"{run_name}.partial.jsonl"
+
+
+def _checkpoint(root: Path, run_name: str, results: list[dict[str, Any]]) -> None:
+    """Append-only progress file, rewritten each probe. Cheap at 50 rows, and
+    it is the difference between losing a probe and losing an evening."""
+    path = _checkpoint_path(root, run_name)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as handle:
+        for record in results:
+            handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def _load_checkpoint(root: Path, run_name: str) -> tuple[list[dict[str, Any]], set[str]]:
+    path = _checkpoint_path(root, run_name)
+    if not path.exists():
+        return [], set()
+    results = read_jsonl(path)
+    return results, {r["id"] for r in results}
