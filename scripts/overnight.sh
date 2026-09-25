@@ -49,6 +49,13 @@ ensure_ollama() {
   return 1
 }
 
+# Name the adapter explicitly for every request. mlx_lm.server would fall back
+# to its own --adapter-path, but a request that quietly loaded the BASE model
+# would yield a full set of plausible scores filed as the tuned model's, and
+# nothing downstream could detect it.
+export ABSHAAR_MLX_ADAPTER="$ROOT/training/adapters/mlx-community_Qwen3-8B-4bit-run2"
+export ABSHAAR_MLX_MODEL="mlx-community/Qwen3-8B-4bit"
+
 log "overnight run starting"
 
 # --- wait for anything already in flight ------------------------------------
@@ -108,13 +115,6 @@ else
 fi
 
 # --- stages 8 and 9: the tuned rows -----------------------------------------
-# Name the adapter explicitly for every request. mlx_lm.server would fall back
-# to its own --adapter-path, but a request that quietly loaded the BASE model
-# would yield a full set of plausible scores filed as the tuned model's, and
-# nothing downstream could detect it.
-export ABSHAAR_MLX_ADAPTER="$ROOT/training/adapters/mlx-community_Qwen3-8B-4bit-run2"
-export ABSHAAR_MLX_MODEL="mlx-community/Qwen3-8B-4bit"
-
 run_tuned_eval() {  # $1 = stage, $2 = extra flags, $3 = label
   local stage="$1" flags="$2" label="$3"
   if is_done "$stage"; then log "stage $stage ($label) already done"; return 0; fi
