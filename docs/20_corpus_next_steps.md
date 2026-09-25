@@ -62,8 +62,9 @@ Estimated effort: half a day, and it is the prerequisite for everything in §2.
 
 The highest-value work in the project, deferred since it began.
 
-**Recommended slice** (from `OFFLOADING.md` §7 — a recommendation, not yet a
-recorded decision, so confirm or revise before starting):
+**The slice — confirmed by Rauf in chat, 2026-09-25.** This was carried as
+"a recommendation, not yet a recorded decision" from 2026-08-31 until then; it
+is now decided, and the five below are the target:
 
 | Entry | Why this one |
 |---|---|
