@@ -670,6 +670,35 @@ Bash reads a script incrementally, so an edit shifts the ground under it; stage
 an mlx server holding the 4-bit 8B is ~11 GB on a 16 GB Air with ~3 GB already
 swapped — run the Ollama and mlx work in sequence, not together.
 
+### Where it stands, 2026-09-25 (stopped at a checkpoint)
+
+**The archive answers questions, and retrieval is what makes it honest.**
+
+| run | factual | honesty | |
+|---|---|---|---|
+| qwen3:8b bare | 0.239 | 0.267 | clean, 0 failures |
+| qwen3:8b + RAG | 0.415* | **0.933** | *7 factual probes timed out; the 18 that answered averaged 0.558 |
+| tuned run 2 bare | — | — | 50/50 answered, 16 judgments left |
+| tuned run 2 + RAG | — | — | not started |
+
+Honesty 0.267 -> 0.933 is the headline: bare, the model declines 27% of the
+traps; behind retrieval, 93%. `docs/15` said LoRA teaches honesty and RAG
+supplies facts — measured, RAG supplied most of the honesty too.
+
+Resume with `nohup ./scripts/overnight.sh &`. Everything checkpoints per probe.
+
+**Before trusting the acceptance verdict**, re-answer base+RAG's 7 timed-out
+probes. The 180s bug is fixed (`3caa609`) but the run predates it, and an
+artificially low BASELINE biases the criterion toward PASS — the direction that
+lets a bad model through.
+
+**Two invalid runs were discarded, not kept.** A tuned run that 404'd on all 50
+probes and scored 0.0 (mlx_lm.server resolves the request's `model` field as a
+model path; it was sent the run label), and the stale 0.0 row that run left in
+eval_baseline.md. Both looked like results. `overnight.sh` now sends a real
+generation request before committing hours, and `update_eval_matrix.py --check`
+fails on a stale table.
+
 **Next, in order:** (1) the tuned+RAG shim — `rag.py:ask()` calls
 `run_ollama_chat`, so serving the adapter through the `ask` path needs an
 mlx-server client; without it the acceptance gate cannot be measured at all.
