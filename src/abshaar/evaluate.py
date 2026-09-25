@@ -177,6 +177,12 @@ def _token_f1(candidate: str, reference: str) -> float:
 # 25 minutes in on 2026-09-24 having written nothing.
 JUDGE_TIMEOUT = 600
 
+# qwen3 emits <think> blocks before answering, and some probes make it think for
+# a long time -- longer still when the machine is under memory pressure. 180s
+# (the client default) was not enough: it killed a 50-probe run twice, once in
+# the judge and once here in the answer phase.
+ANSWER_TIMEOUT = 900
+
 
 def _judge_score(
     question: str, reference: str, candidate: str, judge_model: str
@@ -201,6 +207,30 @@ def _judge_score(
         match = re.search(r"[0-3]", reply)
         return (int(match.group(0)) if match else 0), None
     return 0, "unreachable"
+
+
+def _answer(
+    root: Path, probe: dict[str, Any], model: str, use_rag: bool
+) -> tuple[str, str | None]:
+    """Get one probe's answer, retrying once. Returns (answer, failure_reason).
+
+    A model that times out on one probe must not discard the other forty-nine.
+    The probe is recorded with an empty answer and marked, and the count is
+    surfaced in the summary, so a degraded run cannot pass for a clean one.
+    """
+    for attempt in (1, 2):
+        try:
+            if use_rag:
+                from abshaar.rag import ask
+
+                return (ask(root, probe["question"], model=model)["answer"] or ""), None
+            return run_chat(
+                model, SYSTEM_PROMPT, probe["question"], timeout=ANSWER_TIMEOUT
+            ), None
+        except Exception as exc:  # noqa: BLE001 - urllib raises several types
+            if attempt == 2:
+                return "", f"{type(exc).__name__}: {exc}"[:200]
+    return "", "unreachable"
 
 
 def run_eval(
@@ -234,15 +264,12 @@ def run_eval(
     # --- phase 1: answers -------------------------------------------------
     todo = [p for p in probes if p["id"] not in answered_ids]
     for index, probe in enumerate(todo, 1):
-        if use_rag:
-            from abshaar.rag import ask
-
-            answer = ask(root, probe["question"], model=model)["answer"] or ""
-        else:
-            answer = run_chat(model, SYSTEM_PROMPT, probe["question"])
+        answer, answer_failure = _answer(root, probe, model, use_rag)
         answer = THINK_RE.sub("", answer).strip()
 
         record = {**probe, "answer": answer}
+        if answer_failure:
+            record["answer_failed"] = answer_failure
         if probe["category"] == "honesty":
             record["score"] = 1.0 if DECLINE_RE.search(answer) else 0.0
         elif probe["category"] == "disputed":
@@ -291,6 +318,7 @@ def run_eval(
         "honesty": _mean("honesty"),
         "disputed": _mean("disputed"),
         "judge_failures": sum(1 for r in results if r.get("judge_failed")),
+        "answer_failures": sum(1 for r in results if r.get("answer_failed")),
     }
 
     out_dir = root / RESULTS_DIR

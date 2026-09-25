@@ -160,3 +160,62 @@ class TwoPhaseTests(unittest.TestCase):
                  mock.patch.object(evaluate, "_update_baseline_table"):
                 evaluate.run_eval(root, "qwen3:8b", use_rag=False)
             self.assertFalse(evaluate._checkpoint_path(root, "qwen3_8b").exists())
+
+
+class AnswerFailureTests(unittest.TestCase):
+    """The answer phase needs the same protection as the judge.
+
+    Hardening only _judge_score on 2026-09-25 left this path bare, and the very
+    next run died in it with the identical socket.timeout, 24 probes in.
+    """
+
+    def test_answer_timeout_is_retried_then_recorded_not_raised(self):
+        calls = []
+
+        def always_timeout(*a, **kw):
+            calls.append(1)
+            raise OSError("timed out")
+
+        with mock.patch.object(evaluate, "run_chat", side_effect=always_timeout):
+            answer, failure = evaluate._answer(
+                Path("/nonexistent"), _probe("p1"), "qwen3:8b", use_rag=False
+            )
+
+        self.assertEqual(answer, "")
+        self.assertIn("timed out", failure)
+        self.assertEqual(len(calls), 2, "should retry exactly once")
+
+    def test_answer_gets_a_longer_timeout_than_the_client_default(self):
+        seen = {}
+
+        def capture(model, system, user, timeout=180):
+            seen["timeout"] = timeout
+            return "an answer"
+
+        with mock.patch.object(evaluate, "run_chat", side_effect=capture):
+            evaluate._answer(Path("/nonexistent"), _probe("p1"), "qwen3:8b", False)
+
+        self.assertGreater(seen["timeout"], 180)
+
+    def test_one_failed_answer_does_not_stop_the_run(self):
+        answers = [OSError("timed out"), OSError("timed out"), "ok", "ok", "ok"]
+
+        def flaky(*a, **kw):
+            value = answers.pop(0)
+            if isinstance(value, Exception):
+                raise value
+            return value
+
+        probes = [_probe(f"p{i}", family="transliteration") for i in range(3)]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "data/processed/training").mkdir(parents=True)
+            (root / evaluate.PROBES_PATH).write_text(
+                "".join(json.dumps(p) + "\n" for p in probes), encoding="utf-8"
+            )
+            with mock.patch.object(evaluate, "run_chat", side_effect=flaky), \
+                 mock.patch.object(evaluate, "_update_baseline_table"):
+                summary = evaluate.run_eval(root, "qwen3:8b", use_rag=False)
+
+        self.assertEqual(summary["probes"], 3)
+        self.assertEqual(summary["answer_failures"], 1)

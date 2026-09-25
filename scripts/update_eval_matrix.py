@@ -51,10 +51,15 @@ def build_table() -> tuple[str, list[str]]:
             lines.append(f"| {label} | — | — | not run |")
             continue
         note = f"{summary['probes']} probes, judge {summary['judge']}"
-        failures = summary.get("judge_failures") or 0
-        if failures:
+        judge_failures = summary.get("judge_failures") or 0
+        if judge_failures:
             # A partially-judged run must never read as a clean one.
-            note += f", **{failures} judge failures (degraded to token-F1)**"
+            note += f", **{judge_failures} judge failures (degraded to token-F1)**"
+        answer_failures = summary.get("answer_failures") or 0
+        if answer_failures:
+            # An empty answer still scores, so an unmarked run would understate
+            # the model rather than admit the probe never got an answer.
+            note += f", **{answer_failures} probes got no answer (scored 0)**"
         lines.append(
             f"| {label} | {summary['factual']} | {summary['honesty']} | {note} |"
         )
